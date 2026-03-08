@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quant | Textbook of Quantitative Finance</title>
+  <meta name="description" content="Quant is an online textbook for quantitative finance, investing methods, trading systems, and financial algorithms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <!-- App shell: persistent left sidebar + top header + main reading area -->
+  <div class="site-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__inner">
+        <a class="brand" href="./index.html">
+          <span class="brand__title">Quant</span>
+          <span class="brand__subtitle">Textbook Series</span>
+        </a>
+
+        <!-- Site-wide navigation stays present on every page -->
+        <nav class="sidebar-group" aria-label="Site">
+          <h2 class="sidebar-group__title">Site</h2>
+          <ul class="sidebar-list">
+            <li><a class="is-active" href="./index.html">Home</a></li>
+            <li><a href="./chapters/passive-indexing.html">Start Learning</a></li>
+            <li><a href="#future-topics">Roadmap</a></li>
+          </ul>
+        </nav>
+
+        <!-- Chapter map can grow as you add more textbook chapters -->
+        <nav class="sidebar-group" aria-label="Chapters">
+          <h2 class="sidebar-group__title">Chapters</h2>
+          <ul class="sidebar-list">
+            <li><a href="./chapters/passive-indexing.html">1. Passive Indexing</a></li>
+            <li><span class="placeholder-link">2. Factor Investing (Soon)</span></li>
+            <li><span class="placeholder-link">3. Risk Models (Soon)</span></li>
+          </ul>
+        </nav>
+
+        <!-- Per-page anchors help readers jump inside long chapter pages -->
+        <nav class="sidebar-group" aria-label="On this page">
+          <h2 class="sidebar-group__title">On This Page</h2>
+          <ul class="sidebar-list section-nav">
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#how-to-use">How This Textbook Works</a></li>
+            <li><a href="#start-chapter">Start Chapter 1</a></li>
+            <li><a href="#future-topics">Future Topics</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="content-shell">
+      <header class="topbar">
+        <button class="topbar__menu-btn" id="menuToggle" aria-controls="sidebar" aria-expanded="false">
+          Menu
+        </button>
+        <p class="topbar__eyebrow">Quantitative Finance Learning Path</p>
+      </header>
+
+      <main class="content" id="main-content">
+        <article class="doc-page">
+          <header class="doc-hero" id="intro">
+            <p class="doc-kicker">Online Textbook</p>
+            <h1>Quant</h1>
+            <p class="doc-lead">
+              Quant is a textbook-style resource for learning financial algorithms, investing methods, trading frameworks, and quantitative models from first principles to advanced implementation.
+            </p>
+          </header>
+
+          <section class="doc-section" id="how-to-use">
+            <h2>How This Textbook Works</h2>
+            <p>
+              Each chapter is designed as a guided tutorial page with a practical sequence: concept, intuition, implementation ideas, and an empirical testing section. Over time, this creates a complete learning track rather than isolated blog posts.
+            </p>
+            <p>
+              The left sidebar combines global navigation, chapter progression, and section anchors so readers can move through the material quickly without losing context.
+            </p>
+          </section>
+
+          <section class="doc-section" id="start-chapter">
+            <h2>Start With Chapter 1</h2>
+            <div class="chapter-card">
+              <h3>Chapter 1: Passive Indexing</h3>
+              <p>
+                Learn the core logic behind passive indexing, why broad-market exposure is powerful, and how simple rules can be translated into testable portfolio logic.
+              </p>
+              <a class="button-link" href="./chapters/passive-indexing.html">Open Chapter 1</a>
+            </div>
+          </section>
+
+          <section class="doc-section" id="future-topics">
+            <h2>Future Topics and Expansion</h2>
+            <div class="future-grid">
+              <article class="future-card">
+                <h3>Upcoming Chapter Blocks</h3>
+                <p>Asset allocation, factor models, portfolio optimization, risk decomposition, and execution methods.</p>
+              </article>
+              <article class="future-card">
+                <h3>Practice Layer</h3>
+                <p>Hands-on notebooks, toy datasets, and benchmark templates for repeatable learning.</p>
+              </article>
+              <article class="future-card">
+                <h3>Research Notes</h3>
+                <p>Curated references, open questions, and further reading to connect theory to ongoing work.</p>
+              </article>
+            </div>
+          </section>
+
+          <!-- Footer notes mirrors chapter-page structure for consistency -->
+          <footer class="doc-notes">
+            <h2>Notes</h2>
+            <p>
+              This homepage is the skeleton index. As new chapters are added, keep the sidebar chapter list and card grid in sync so the reading path remains clear.
+            </p>
+          </footer>
+        </article>
+      </main>
+    </div>
+  </div>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>

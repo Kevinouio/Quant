@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quant.local/schemas/chapter.schema.json",
+  "title": "Quant Chapter Metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "slug",
+    "title",
+    "order",
+    "level",
+    "summary"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "description": "URL-safe chapter key."
+    },
+    "title": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quant | Chapter 1: Passive Indexing</title>
+  <meta name="description" content="Chapter 1 of Quant: Passive Indexing foundations, implementation outline, and backtest/demo placeholders.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <!-- Shared shell keeps chapter pages consistent as content scales -->
+  <div class="site-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__inner">
+        <a class="brand" href="../index.html">
+          <span class="brand__title">Quant</span>
+          <span class="brand__subtitle">Textbook Series</span>
+        </a>
+
+        <nav class="sidebar-group" aria-label="Site">
+          <h2 class="sidebar-group__title">Site</h2>
+          <ul class="sidebar-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a class="is-active" href="./passive-indexing.html">Current Chapter</a></li>
+          </ul>
+        </nav>
+
+        <nav class="sidebar-group" aria-label="Chapters">
+          <h2 class="sidebar-group__title">Chapters</h2>
+          <ul class="sidebar-list">
+            <li><a class="is-active" href="./passive-indexing.html">1. Passive Indexing</a></li>
+            <li><span class="placeholder-link">2. Factor Investing (Soon)</span></li>
+            <li><span class="placeholder-link">3. Risk Models (Soon)</span></li>
+          </ul>
+        </nav>
+
+        <!-- Anchors map directly to section ids in this chapter -->
+        <nav class="sidebar-group" aria-label="On this page">
+          <h2 class="sidebar-group__title">On This Page</h2>
+          <ul class="sidebar-list section-nav">
+            <li><a href="#chapter-overview">Overview</a></li>
+            <li><a href="#why-it-matters">Why It Matters</a></li>
+            <li><a href="#explanation">Explanation</a></li>
+            <li><a href="#implementation">Implementation / Code</a></li>
+            <li><a href="#backtest-demo">Backtest / Demo</a></li>
+            <li><a href="#notes-references">Notes & References</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <div class="content-shell">
+      <header class="topbar">
+        <button class="topbar__menu-btn" id="menuToggle" aria-controls="sidebar" aria-expanded="false">
+          Menu
+        </button>
+        <p class="topbar__eyebrow">Chapter 1 of Quant</p>
+      </header>
+
+      <main class="content" id="main-content">
+        <article class="doc-page">
+          <header class="doc-hero" id="chapter-overview">
+            <p class="doc-kicker">Chapter 1</p>
+            <h1>Passive Indexing</h1>
+            <p class="doc-lead">
+              Passive indexing is the practice of tracking a broad benchmark (for example, a total-market or S&amp;P 500 index) using rules-based allocation, low turnover, and cost discipline.
+            </p>
+          </header>
+
+          <section class="doc-section" id="why-it-matters">
+            <h2>Why It Matters in Investing</h2>
+            <p>
+              Passive indexing matters because it reframes investing as an exposure problem rather than a prediction problem. Instead of guessing which single asset will outperform next, investors can capture broad market growth while minimizing fees, taxes, and behavioral errors.
+            </p>
+            <p>
+              For quantitative finance learners, this chapter is foundational: it introduces benchmark definitions, portfolio weighting logic, rebalancing mechanics, and evaluation metrics that recur in more advanced strategy design.
+            </p>
+          </section>
+
+          <section class="doc-section" id="explanation">
+            <h2>Explanation</h2>
+            <p>
+              A passive index portfolio usually follows a transparent rule: choose a benchmark universe, assign weights (market-cap or alternative), rebalance on a fixed schedule, and measure tracking error against the target index.
+            </p>
+            <p>
+              Even this simple process introduces core quant concepts:
+            </p>
+            <ul>
+              <li>Data hygiene: handling missing prices and corporate actions.</li>
+              <li>Portfolio construction: weight normalization and constraints.</li>
+              <li>Performance analytics: return attribution, drawdowns, and turnover.</li>
+            </ul>
+          </section>
+
+          <section class="doc-section" id="implementation">
+            <h2>Implementation / Code (Placeholder)</h2>
+            <p>
+              Replace this template with production chapter code later. Keep code blocks short and focused around one learning objective per snippet.
+            </p>
+            <pre><code class="language-python"># Placeholder example: equally weighted index basket
+tickers = ["SPY", "QQQ", "IWM"]
+weights = {ticker: 1 / len(tickers) for ticker in tickers}
+
+def rebalance(portfolio, target_weights):
+    # TODO: add position sizing, slippage, and transaction costs
+    return {"orders": "placeholder"}
+
+result = rebalance(portfolio={}, target_weights=weights)
+print(result)</code></pre>
+          </section>
+
+          <section class="doc-section" id="backtest-demo">
+            <h2>Backtest / Interactive Demo (Placeholder)</h2>
+            <p>
+              Add an interactive chart, slider controls, or an embedded notebook output here. Suggested controls: rebalance frequency, fee assumptions, and benchmark choice.
+            </p>
+            <div class="demo-placeholder" role="img" aria-label="Placeholder block for backtest and interactive widgets">
+              <p>Backtest canvas placeholder</p>
+              <small>Future: equity curve, drawdown chart, and stats table.</small>
+            </div>
+          </section>
+
+          <footer class="doc-notes" id="notes-references">
+            <h2>Notes &amp; References</h2>
+            <ul>
+              <li>Use this section for cited papers, textbooks, and index methodology docs.</li>
+              <li>Add caveats: survivorship bias, look-ahead bias, and transaction cost assumptions.</li>
+              <li>Keep references versioned so readers can reproduce results later.</li>
+            </ul>
+          </footer>
+        </article>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

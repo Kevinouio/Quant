@@ -1,0 +1,14 @@
+---
+title: "Passive Indexing"
+format: html
+---
+
+## Objective
+
+Draft and test the chapter narrative before publishing to MDX.
+
+## Research Notes
+
+- Add benchmark definitions.
+- Add assumptions and caveats.
+- Add a baseline backtest implementation.

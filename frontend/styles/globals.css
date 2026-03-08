@@ -1,0 +1,12 @@
+/*
+  Placeholder app-level styles for future frontend framework integration.
+  Current site styles remain in `frontend/assets/css/styles.css`.
+*/
+
+:root {
+  --quant-text: #1f2520;
+}
+
+body {
+  color: var(--quant-text);
+}

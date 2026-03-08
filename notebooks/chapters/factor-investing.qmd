@@ -1,0 +1,8 @@
+---
+title: "Factor Investing Fundamentals"
+format: html
+---
+
+## Objective
+
+Draft and test chapter content before publishing to MDX.
