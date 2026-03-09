@@ -1,0 +1,33 @@
+{
+  "name": "quant",
+  "version": "1.0.0",
+  "description": "Quant is an online textbook project for quantitative finance, investing methods, trading systems, and financial algorithms.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev frontend",
+    "build": "next build frontend",
+    "start": "next start frontend",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevinouio/Quant.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kevinouio/Quant/issues"
+  },
+  "homepage": "https://github.com/Kevinouio/Quant#readme",
+  "dependencies": {
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.4.0",
+    "@types/react": "^19.2.14",
+    "typescript": "^5.9.3"
+  }
+}

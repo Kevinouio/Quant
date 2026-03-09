@@ -4,8 +4,8 @@ Public-facing educational site for Quant.
 
 ## Current state
 
-- `index.html`, `chapters/`, and `assets/` are the live static starter.
-- `app/`, `components/`, and `content/` are the target production structure.
+- App Router-style TSX pages are the active frontend path.
+- Shared docs layout lives in `components/layout/DocsShell.tsx`.
 
 ## Target structure
 
@@ -18,6 +18,16 @@ frontend/
   public/               # Static assets
   styles/               # App-level styles
 ```
+
+## Run locally
+
+```powershell
+cd ..
+npm install
+npm run dev
+```
+
+Open: `http://localhost:3000`
 
 ## Content contract
 

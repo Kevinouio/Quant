@@ -23,16 +23,14 @@ Quant/
 
 This keeps writing/research and production UX separate while sharing a stable content contract.
 
-## Current run command (static starter site)
-
-The existing starter site is still plain HTML/CSS/JS.
+## Current run command (frontend app)
 
 ```powershell
-cd frontend
-python -m http.server 5500
+npm install
+npm run dev
 ```
 
-Open: `http://localhost:5500`
+Open: `http://localhost:3000`
 
 ## Next implementation targets
 
