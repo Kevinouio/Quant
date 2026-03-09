@@ -1,6 +1,8 @@
 ---
 title: "Chapter 37. Technical analysis"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

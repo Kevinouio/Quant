@@ -1,6 +1,8 @@
 ---
 title: "Chapter 14. Time-series momentum and trend following"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

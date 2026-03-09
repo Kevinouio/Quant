@@ -1,6 +1,8 @@
 ---
 title: "Chapter 34. Limit order books and market making"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

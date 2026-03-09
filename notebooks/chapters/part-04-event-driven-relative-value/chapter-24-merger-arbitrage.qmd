@@ -1,6 +1,8 @@
 ---
 title: "Chapter 24. Merger arbitrage"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

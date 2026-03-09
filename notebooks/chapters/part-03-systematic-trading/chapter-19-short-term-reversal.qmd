@@ -1,6 +1,8 @@
 ---
 title: "Chapter 19. Short-term reversal"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

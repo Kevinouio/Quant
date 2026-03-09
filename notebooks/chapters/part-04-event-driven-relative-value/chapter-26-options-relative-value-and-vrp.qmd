@@ -1,6 +1,8 @@
 ---
 title: "Chapter 26. Options relative value and VRP"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

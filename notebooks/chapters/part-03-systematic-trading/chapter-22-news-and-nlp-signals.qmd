@@ -1,6 +1,8 @@
 ---
 title: "Chapter 22. News and NLP signals"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

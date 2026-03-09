@@ -1,6 +1,8 @@
 ---
 title: "Chapter 31. Order types and trade lifecycle"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

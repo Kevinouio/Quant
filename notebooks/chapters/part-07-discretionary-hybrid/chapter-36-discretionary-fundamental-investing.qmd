@@ -1,6 +1,8 @@
 ---
 title: "Chapter 36. Discretionary fundamental investing"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

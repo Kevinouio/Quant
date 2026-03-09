@@ -1,6 +1,8 @@
 ---
 title: "Chapter 25. Futures basis and cash-and-carry"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

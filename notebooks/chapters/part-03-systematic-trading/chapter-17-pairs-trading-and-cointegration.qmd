@@ -1,6 +1,8 @@
 ---
 title: "Chapter 17. Pairs trading and cointegration"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

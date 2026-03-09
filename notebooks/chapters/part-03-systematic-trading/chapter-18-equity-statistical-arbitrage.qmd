@@ -1,6 +1,8 @@
 ---
 title: "Chapter 18. Equity statistical arbitrage"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

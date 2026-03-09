@@ -1,6 +1,8 @@
 ---
 title: "Chapter 9. CAPM, beta, and risk budgeting"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

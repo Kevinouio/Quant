@@ -1,6 +1,8 @@
 ---
 title: "Chapter 15. Carry strategies"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

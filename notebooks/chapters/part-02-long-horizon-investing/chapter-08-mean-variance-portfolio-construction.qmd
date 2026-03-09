@@ -1,6 +1,8 @@
 ---
 title: "Chapter 8. Mean-variance portfolio construction"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

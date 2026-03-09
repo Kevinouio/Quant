@@ -1,20 +1,48 @@
 ---
 title: "Chapter 1. Financial markets and instruments"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
-## Objective
 
-Draft Chapter 1 content before turning it into a TSX chapter page.
 
-## Sections
+# Sections
 
-### What a market is
+Now we actually begin with our starting topic of just a broad view of finance and investing.
 
-- What a market is placeholder for Financial markets and instruments.
-- Add concrete definitions, formulas, and implementation notes in a later pass.
 
-### Stocks, bonds, ETFs, mutual funds
+## What is a Market?
+
+The most important thing when discussing finance is how a "market" moves or just in general how a market works. What is a Market you ask? Well we can define a market as multiple different things. At the most high level description of what a market is, it is a place or system to which buyers and sellers interact to exchange something in value. An example of this that you can see in your day to day like is at a supermarket like Walmart where the seller is the store and us the people are the buyer. 
+
+That is more just a general description to what a market is. For what we are interested in, a market can also be like eBay, the New York Stock Exchange, or even Kalshi/PolyMarket. Let us observe an example stock of NVIDIA.
+
+
+```{python}
+import yfinance as yf
+from datetime import datetime
+close = (
+    yf.Ticker("NVDA")
+    .history(period="1d", interval="1m", prepost=True, auto_adjust=False)["Close"]
+    .dropna()
+)
+ax = close.plot(figsize=(12, 4), color="#76B900", linewidth=1.6, grid=True, title=f"NVDA Intraday Price ({datetime.now().date()})")
+ax.set_xlabel("Time")
+ax.set_ylabel("Price (USD)")
+```
+
+A better understanding to what we will be working for the majority of the time in the notebooks are markets like the NVDA stock. In the context of a given stock, the buyer is esentially us investing the money into a company and the seller is the company intself to which we invest into the given company. The main goal to which we are trying to accomplish is to answer the question, "How can I choose the best market to invest in so that my money such that I can make the most profit." If this question was already answered, then I wouldn't even be making this whole website as if anyone can figure that out, then anyone can already be a millionare. 
+
+So why is this an unsolved problem? Well that is because as every market is, it is *Stochastic*. Stochastic in the simplest defnintion means that a given thing is random moving. With a given market being random, it leads to uncertanty to when to invest and sell back a product to a seller. 
+
+### Why does the market move? 
+
+Well this can come from many different factors. A high level reason to why it moves is because of a general opinion to how valuable a product is due to current information. 
+
+
+
+## Stocks, bonds, ETFs, mutual funds
 
 - Stocks, bonds, ETFs, mutual funds placeholder for Financial markets and instruments.
 - Add concrete definitions, formulas, and implementation notes in a later pass.

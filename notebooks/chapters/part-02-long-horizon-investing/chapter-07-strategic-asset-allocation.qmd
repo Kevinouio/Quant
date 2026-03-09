@@ -1,6 +1,8 @@
 ---
 title: "Chapter 7. Strategic asset allocation"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

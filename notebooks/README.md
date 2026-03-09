@@ -10,6 +10,7 @@ notebooks/
   experiments/    # Sandboxed algorithm tests
   drafts/         # In-progress writing not ready for publish
   figures/        # Generated charts/outputs for later reuse
+  outputs/        # Quarto-rendered HTML/PDF output files
 ```
 
 ## Workflow guideline
@@ -18,3 +19,12 @@ notebooks/
 2. Refine explanations and visuals.
 3. Promote cleaned content into chapter route files under `frontend/app/chapters/{part-slug}/{chapter-slug}/page.tsx`.
 4. Move stable code into `backend/app/` if it is reused or computationally heavy.
+
+## Render output location
+
+Quarto project output is configured to compile into `notebooks/outputs/`.
+
+```bash
+cd notebooks
+quarto render
+```

@@ -1,6 +1,8 @@
 ---
 title: "Chapter 0. Preface"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 
@@ -52,11 +54,12 @@ So my reason for writing this full textbook is out of pure want to learn how I c
 
 I also just want to learn a more algorithmic way to invest rather than relying on just ETFs or other sites or banks that just invest my money for me. I don't want to be waiting 10 years down the line of me putting just 200$ of my money investing every month into a bank. That just in theory feels inefficent. So this is just my way of learning the full systems and the ins and outs of investing and how the Hedge funds do their stuff. 
 
+I also want to develop my 
+
 ## Closing Thoughts
 
-Now I want to give thanks to my friends for pushing me to being the most productive person that I try to be even though most of the time, I'm just thinking or not acting on anything. I hope me creating this project inspires you to also do something similar. 
+Now I want to give thanks to my friends for pushing me to being the most productive person that I try to be even though most of the time, I'm just thinking or not acting on anything. I hope me creating this project inspires you to also do something similar. Also I might end up writing this as if it is a math textbook so sorry in advance for the math formality that I might include in my definitions of words and etc. 
 
 
 SOOOOO with that being said, I welcome you to my first "textbook" where i provide my own understanding of the topics of finance using math and computer science concepts. 
-
 

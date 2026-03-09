@@ -1,6 +1,8 @@
 ---
 title: "Chapter 6. Passive indexing and benchmarking"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

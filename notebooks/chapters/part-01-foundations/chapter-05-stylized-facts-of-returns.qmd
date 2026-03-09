@@ -1,6 +1,8 @@
 ---
 title: "Chapter 5. Stylized facts of returns"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

@@ -1,6 +1,8 @@
 ---
 title: "Appendix C. Coding tools"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

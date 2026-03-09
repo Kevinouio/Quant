@@ -1,6 +1,8 @@
 ---
 title: "Chapter 43. What I still do not know"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

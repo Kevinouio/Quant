@@ -1,6 +1,8 @@
 ---
 title: "Chapter 39. Hybrid workflows"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

@@ -1,6 +1,8 @@
 ---
 title: "Chapter 20. Volatility forecasting and targeting"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

@@ -1,6 +1,8 @@
 ---
 title: "Chapter 12. Portfolio risk management"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

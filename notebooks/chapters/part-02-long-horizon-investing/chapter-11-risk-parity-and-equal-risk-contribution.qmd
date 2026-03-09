@@ -1,6 +1,8 @@
 ---
 title: "Chapter 11. Risk parity and equal risk contribution"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

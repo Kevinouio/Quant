@@ -1,6 +1,8 @@
 ---
 title: "Chapter 30. Volatility as an asset class"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

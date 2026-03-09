@@ -1,6 +1,8 @@
 ---
 title: "Chapter 41. Matching methods to data and skill level"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

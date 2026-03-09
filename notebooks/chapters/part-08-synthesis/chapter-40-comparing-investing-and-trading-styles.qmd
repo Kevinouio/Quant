@@ -1,6 +1,8 @@
 ---
 title: "Chapter 40. Comparing investing and trading styles"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

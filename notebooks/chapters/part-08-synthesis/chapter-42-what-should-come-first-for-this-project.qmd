@@ -1,6 +1,8 @@
 ---
 title: "Chapter 42. What should come first for this project"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

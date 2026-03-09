@@ -1,6 +1,8 @@
 ---
 title: "Chapter 21. ML-based forecasting and features"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

@@ -1,6 +1,8 @@
 ---
 title: "Appendix B. Computer Science Topics"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

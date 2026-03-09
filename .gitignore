@@ -41,3 +41,8 @@ backend/.venv/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Quarto / compiled notebook outputs
+notebooks/outputs/
+notebooks/.quarto/
+notebooks/**/_freeze/

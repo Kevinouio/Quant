@@ -1,6 +1,8 @@
 ---
 title: "Chapter 38. Behavioral decision-making"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

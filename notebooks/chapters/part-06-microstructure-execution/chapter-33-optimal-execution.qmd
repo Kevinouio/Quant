@@ -1,6 +1,8 @@
 ---
 title: "Chapter 33. Optimal execution"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

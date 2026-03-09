@@ -1,6 +1,8 @@
 ---
 title: "Chapter 23. Event-driven trading"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

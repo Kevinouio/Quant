@@ -1,6 +1,8 @@
 ---
 title: "Appendix A. Mathematics"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

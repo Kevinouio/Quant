@@ -651,7 +651,9 @@ function toQmd(chapter) {
   const header = [
     "---",
     `title: "${chapterHeading(chapter)}"`,
-    "format: html",
+    "format:",
+    "  html: default",
+    "  pdf: default",
     "---",
     "",
     "## Objective",

@@ -1,6 +1,8 @@
 ---
 title: "Chapter 2. Returns, compounding, and wealth growth"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

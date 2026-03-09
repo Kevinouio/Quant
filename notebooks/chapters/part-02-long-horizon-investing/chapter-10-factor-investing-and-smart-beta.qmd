@@ -1,6 +1,8 @@
 ---
 title: "Chapter 10. Factor investing and smart beta"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

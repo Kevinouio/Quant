@@ -1,6 +1,8 @@
 ---
 title: "Chapter 35. HFT overview"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

@@ -1,6 +1,8 @@
 ---
 title: "Chapter 32. Transaction costs and slippage"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

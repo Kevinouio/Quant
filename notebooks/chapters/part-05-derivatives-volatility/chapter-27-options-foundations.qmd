@@ -1,6 +1,8 @@
 ---
 title: "Chapter 27. Options foundations"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective

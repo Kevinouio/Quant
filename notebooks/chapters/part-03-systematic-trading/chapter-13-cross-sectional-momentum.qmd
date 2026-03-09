@@ -1,6 +1,8 @@
 ---
 title: "Chapter 13. Cross-sectional momentum"
-format: html
+format:
+  html: default
+  pdf: default
 ---
 
 ## Objective
