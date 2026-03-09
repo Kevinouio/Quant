@@ -1,0 +1,35 @@
+---
+title: "Chapter 21. ML-based forecasting and features"
+format: html
+---
+
+## Objective
+
+Draft Chapter 21 content before publishing to MDX.
+
+## Sections
+
+### What makes ML different from classic factor/rule methods
+
+- What makes ML different from classic factor/rule methods placeholder for ML-based forecasting and features.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Feature engineering for finance
+
+- Feature engineering for finance placeholder for ML-based forecasting and features.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Labeling targets
+
+- Labeling targets placeholder for ML-based forecasting and features.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Cross-validation for time series
+
+- Cross-validation for time series placeholder for ML-based forecasting and features.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why ML often fails in finance
+
+- Why ML often fails in finance placeholder for ML-based forecasting and features.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

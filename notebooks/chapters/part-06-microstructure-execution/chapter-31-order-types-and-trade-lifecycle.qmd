@@ -1,0 +1,35 @@
+---
+title: "Chapter 31. Order types and trade lifecycle"
+format: html
+---
+
+## Objective
+
+Draft Chapter 31 content before publishing to MDX.
+
+## Sections
+
+### Market orders
+
+- Market orders placeholder for Order types and trade lifecycle.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Limit orders
+
+- Limit orders placeholder for Order types and trade lifecycle.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Stop orders
+
+- Stop orders placeholder for Order types and trade lifecycle.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Partial fills
+
+- Partial fills placeholder for Order types and trade lifecycle.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Executable price vs quoted price
+
+- Executable price vs quoted price placeholder for Order types and trade lifecycle.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

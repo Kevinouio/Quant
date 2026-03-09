@@ -1,0 +1,40 @@
+---
+title: "Chapter 42. What should come first for this project"
+format: html
+---
+
+## Objective
+
+Draft Chapter 42 content before publishing to MDX.
+
+## Sections
+
+### Foundations
+
+- Foundations placeholder for What should come first for this project.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Volatility
+
+- Volatility placeholder for What should come first for this project.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Momentum/trend
+
+- Momentum/trend placeholder for What should come first for this project.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Pairs
+
+- Pairs placeholder for What should come first for this project.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Factors/benchmarking
+
+- Factors/benchmarking placeholder for What should come first for this project.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Execution literacy
+
+- Execution literacy placeholder for What should come first for this project.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

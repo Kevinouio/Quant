@@ -6,7 +6,17 @@ type NavItem = {
   href: string;
   label: string;
   active?: boolean;
-  muted?: boolean;
+};
+
+type SidebarGroup = {
+  title: string;
+  items: NavItem[];
+};
+
+type SidebarHomeLink = {
+  href: string;
+  label: string;
+  active?: boolean;
 };
 
 type TocItem = {
@@ -16,8 +26,8 @@ type TocItem = {
 
 type DocsShellProps = {
   children: ReactNode;
-  guideItems: NavItem[];
-  roadmapItems: NavItem[];
+  sidebarHomeLink?: SidebarHomeLink;
+  sidebarGroups: SidebarGroup[];
   tocItems: TocItem[];
   topbarBrandHref: string;
   topbarBrandLabel: string;
@@ -35,8 +45,8 @@ function getHashId(href: string): string | null {
 
 export function DocsShell({
   children,
-  guideItems,
-  roadmapItems,
+  sidebarHomeLink,
+  sidebarGroups,
   tocItems,
   topbarBrandHref,
   topbarBrandLabel,
@@ -123,59 +133,46 @@ export function DocsShell({
               <span className="brand__meta">Algorithmic Finance Handbook</span>
             </a>
 
-            <nav className="nav-group" aria-label="Guide">
-              <h2>Guide</h2>
-              <ul className="nav-list">
-                {guideItems.map((item) => {
-                  const classNames = [
-                    "sidebar-link",
-                    item.active ? "is-active" : "",
-                    item.muted ? "sidebar-link--muted" : ""
-                  ]
-                    .filter(Boolean)
-                    .join(" ");
+            {sidebarHomeLink ? (
+              <nav className="nav-group" aria-label="Guide">
+                <h2>Guide</h2>
+                <ul className="nav-list">
+                  <li>
+                    <a
+                      className={`sidebar-link${sidebarHomeLink.active ? " is-active" : ""}`}
+                      href={sidebarHomeLink.href}
+                      onClick={closeNav}
+                    >
+                      {sidebarHomeLink.label}
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            ) : null}
 
-                  return (
-                    <li key={item.href}>
-                      {item.muted ? (
-                        <span className={classNames}>{item.label}</span>
-                      ) : (
+            {sidebarGroups.map((group) => (
+              <nav className="nav-group" aria-label={group.title} key={group.title}>
+                <h2>{group.title}</h2>
+                <ul className="nav-list">
+                  {group.items.map((item) => {
+                    const classNames = [
+                      "sidebar-link",
+                      item.active ? "is-active" : ""
+                    ]
+                      .filter(Boolean)
+                      .join(" ");
+
+                    return (
+                      <li key={item.href}>
                         <a className={classNames} href={item.href} onClick={closeNav}>
                           {item.label}
                         </a>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-
-            <nav className="nav-group" aria-label="Roadmap">
-              <h2>Roadmap</h2>
-              <ul className="nav-list">
-                {roadmapItems.map((item) => {
-                  const classNames = [
-                    "sidebar-link",
-                    item.active ? "is-active" : "",
-                    item.muted ? "sidebar-link--muted" : ""
-                  ]
-                    .filter(Boolean)
-                    .join(" ");
-
-                  return (
-                    <li key={item.href}>
-                      {item.muted ? (
-                        <span className={classNames}>{item.label}</span>
-                      ) : (
-                        <a className={classNames} href={item.href} onClick={closeNav}>
-                          {item.label}
-                        </a>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+            ))}
 
             <p className="nav-note">{navNote}</p>
           </div>

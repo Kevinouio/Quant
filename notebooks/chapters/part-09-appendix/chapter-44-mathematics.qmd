@@ -1,0 +1,35 @@
+---
+title: "Appendix A. Mathematics"
+format: html
+---
+
+## Objective
+
+Draft Appendix A content before publishing to MDX.
+
+## Sections
+
+### Core mathematical tools
+
+- Core mathematical tools placeholder for Mathematics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Linear algebra refresher
+
+- Linear algebra refresher placeholder for Mathematics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Probability and statistics refresher
+
+- Probability and statistics refresher placeholder for Mathematics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Optimization basics
+
+- Optimization basics placeholder for Mathematics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Time-series math notes
+
+- Time-series math notes placeholder for Mathematics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

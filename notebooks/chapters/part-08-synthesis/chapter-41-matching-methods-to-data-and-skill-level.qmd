@@ -1,0 +1,35 @@
+---
+title: "Chapter 41. Matching methods to data and skill level"
+format: html
+---
+
+## Objective
+
+Draft Chapter 41 content before publishing to MDX.
+
+## Sections
+
+### End-of-day only methods
+
+- End-of-day only methods placeholder for Matching methods to data and skill level.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Daily + fundamentals methods
+
+- Daily + fundamentals methods placeholder for Matching methods to data and skill level.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Intraday methods
+
+- Intraday methods placeholder for Matching methods to data and skill level.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Options methods
+
+- Options methods placeholder for Matching methods to data and skill level.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Text-data methods
+
+- Text-data methods placeholder for Matching methods to data and skill level.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

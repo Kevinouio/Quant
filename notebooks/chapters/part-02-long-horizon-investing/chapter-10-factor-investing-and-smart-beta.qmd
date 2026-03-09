@@ -1,0 +1,35 @@
+---
+title: "Chapter 10. Factor investing and smart beta"
+format: html
+---
+
+## Objective
+
+Draft Chapter 10 content before publishing to MDX.
+
+## Sections
+
+### What a factor is
+
+- What a factor is placeholder for Factor investing and smart beta.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Value, momentum, quality, size
+
+- Value, momentum, quality, size placeholder for Factor investing and smart beta.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Long-only tilts vs long-short factors
+
+- Long-only tilts vs long-short factors placeholder for Factor investing and smart beta.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Factor exposures
+
+- Factor exposures placeholder for Factor investing and smart beta.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Crowding and drawdowns
+
+- Crowding and drawdowns placeholder for Factor investing and smart beta.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

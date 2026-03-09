@@ -1,0 +1,35 @@
+---
+title: "Chapter 11. Risk parity and equal risk contribution"
+format: html
+---
+
+## Objective
+
+Draft Chapter 11 content before publishing to MDX.
+
+## Sections
+
+### Capital allocation vs risk allocation
+
+- Capital allocation vs risk allocation placeholder for Risk parity and equal risk contribution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Volatility scaling
+
+- Volatility scaling placeholder for Risk parity and equal risk contribution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Equal risk contribution
+
+- Equal risk contribution placeholder for Risk parity and equal risk contribution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Leverage issues
+
+- Leverage issues placeholder for Risk parity and equal risk contribution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why 60/40 is not balanced in risk
+
+- Why 60/40 is not balanced in risk placeholder for Risk parity and equal risk contribution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

@@ -1,0 +1,35 @@
+---
+title: "Chapter 9. CAPM, beta, and risk budgeting"
+format: html
+---
+
+## Objective
+
+Draft Chapter 9 content before publishing to MDX.
+
+## Sections
+
+### Market beta
+
+- Market beta placeholder for CAPM, beta, and risk budgeting.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Systematic vs idiosyncratic risk
+
+- Systematic vs idiosyncratic risk placeholder for CAPM, beta, and risk budgeting.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### CAPM as a benchmark model
+
+- CAPM as a benchmark model placeholder for CAPM, beta, and risk budgeting.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Risk contribution
+
+- Risk contribution placeholder for CAPM, beta, and risk budgeting.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Limits of beta-only thinking
+
+- Limits of beta-only thinking placeholder for CAPM, beta, and risk budgeting.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

@@ -1,0 +1,35 @@
+---
+title: "Chapter 30. Volatility as an asset class"
+format: html
+---
+
+## Objective
+
+Draft Chapter 30 content before publishing to MDX.
+
+## Sections
+
+### Realized vs implied vol
+
+- Realized vs implied vol placeholder for Volatility as an asset class.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### VIX intuition
+
+- VIX intuition placeholder for Volatility as an asset class.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Variance swaps at a high level
+
+- Variance swaps at a high level placeholder for Volatility as an asset class.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Hedging with volatility products
+
+- Hedging with volatility products placeholder for Volatility as an asset class.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why short-vol is dangerous
+
+- Why short-vol is dangerous placeholder for Volatility as an asset class.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

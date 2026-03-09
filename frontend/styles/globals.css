@@ -94,12 +94,12 @@ a {
 
 .nav-group h2 {
   margin: 0 0 0.45rem;
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
   color: var(--muted);
-  font-family: var(--mono);
-  font-weight: 500;
+  font-family: var(--sans);
+  font-weight: 600;
 }
 
 .nav-list {
@@ -127,10 +127,6 @@ a {
   background: var(--accent-soft);
   color: #124373;
   font-weight: 600;
-}
-
-.sidebar-link--muted {
-  color: var(--muted);
 }
 
 .nav-note {

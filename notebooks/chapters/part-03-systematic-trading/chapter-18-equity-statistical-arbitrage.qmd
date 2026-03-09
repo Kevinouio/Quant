@@ -1,0 +1,35 @@
+---
+title: "Chapter 18. Equity statistical arbitrage"
+format: html
+---
+
+## Objective
+
+Draft Chapter 18 content before publishing to MDX.
+
+## Sections
+
+### Residuals and neutrality
+
+- Residuals and neutrality placeholder for Equity statistical arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Factor-neutral baskets
+
+- Factor-neutral baskets placeholder for Equity statistical arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### PCA intuition
+
+- PCA intuition placeholder for Equity statistical arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Optimization under constraints
+
+- Optimization under constraints placeholder for Equity statistical arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Borrow, crowding, and turnover
+
+- Borrow, crowding, and turnover placeholder for Equity statistical arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

@@ -1,0 +1,35 @@
+---
+title: "Chapter 14. Time-series momentum and trend following"
+format: html
+---
+
+## Objective
+
+Draft Chapter 14 content before publishing to MDX.
+
+## Sections
+
+### Absolute momentum idea
+
+- Absolute momentum idea placeholder for Time-series momentum and trend following.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Moving averages
+
+- Moving averages placeholder for Time-series momentum and trend following.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Sign-of-past-return rules
+
+- Sign-of-past-return rules placeholder for Time-series momentum and trend following.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Volatility targeting
+
+- Volatility targeting placeholder for Time-series momentum and trend following.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Cross-asset trend portfolios
+
+- Cross-asset trend portfolios placeholder for Time-series momentum and trend following.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

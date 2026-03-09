@@ -1,8 +1,0 @@
----
-title: "Mean Reversion Basics"
-format: html
----
-
-## Objective
-
-Draft and test chapter content before publishing to MDX.

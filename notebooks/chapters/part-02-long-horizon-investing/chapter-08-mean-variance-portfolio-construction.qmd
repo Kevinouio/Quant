@@ -1,0 +1,35 @@
+---
+title: "Chapter 8. Mean-variance portfolio construction"
+format: html
+---
+
+## Objective
+
+Draft Chapter 8 content before publishing to MDX.
+
+## Sections
+
+### Expected return
+
+- Expected return placeholder for Mean-variance portfolio construction.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Variance and covariance
+
+- Variance and covariance placeholder for Mean-variance portfolio construction.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Efficient frontier
+
+- Efficient frontier placeholder for Mean-variance portfolio construction.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Long-only constraints
+
+- Long-only constraints placeholder for Mean-variance portfolio construction.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why optimization is fragile
+
+- Why optimization is fragile placeholder for Mean-variance portfolio construction.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

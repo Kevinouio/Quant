@@ -1,0 +1,35 @@
+---
+title: "Chapter 29. Hedging and replication"
+format: html
+---
+
+## Objective
+
+Draft Chapter 29 content before publishing to MDX.
+
+## Sections
+
+### Delta hedging
+
+- Delta hedging placeholder for Hedging and replication.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Discrete hedging error
+
+- Discrete hedging error placeholder for Hedging and replication.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Jump risk
+
+- Jump risk placeholder for Hedging and replication.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Stochastic volatility idea
+
+- Stochastic volatility idea placeholder for Hedging and replication.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Practical hedging frictions
+
+- Practical hedging frictions placeholder for Hedging and replication.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

@@ -1,0 +1,35 @@
+---
+title: "Chapter 39. Hybrid workflows"
+format: html
+---
+
+## Objective
+
+Draft Chapter 39 content before publishing to MDX.
+
+## Sections
+
+### Quant screen + human review
+
+- Quant screen + human review placeholder for Hybrid workflows.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Regime filters
+
+- Regime filters placeholder for Hybrid workflows.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Human override policies
+
+- Human override policies placeholder for Hybrid workflows.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Execution plan after idea generation
+
+- Execution plan after idea generation placeholder for Hybrid workflows.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Where hybrid workflows are stronger than pure discretion
+
+- Where hybrid workflows are stronger than pure discretion placeholder for Hybrid workflows.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

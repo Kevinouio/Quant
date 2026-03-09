@@ -1,0 +1,35 @@
+---
+title: "Chapter 7. Strategic asset allocation"
+format: html
+---
+
+## Objective
+
+Draft Chapter 7 content before publishing to MDX.
+
+## Sections
+
+### Asset classes
+
+- Asset classes placeholder for Strategic asset allocation.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Diversification
+
+- Diversification placeholder for Strategic asset allocation.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Correlation and covariance
+
+- Correlation and covariance placeholder for Strategic asset allocation.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Long-run portfolio weights
+
+- Long-run portfolio weights placeholder for Strategic asset allocation.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Rebalancing policies
+
+- Rebalancing policies placeholder for Strategic asset allocation.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

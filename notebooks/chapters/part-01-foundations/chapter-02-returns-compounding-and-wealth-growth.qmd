@@ -1,0 +1,35 @@
+---
+title: "Chapter 2. Returns, compounding, and wealth growth"
+format: html
+---
+
+## Objective
+
+Draft Chapter 2 content before publishing to MDX.
+
+## Sections
+
+### Simple return vs log return
+
+- Simple return vs log return placeholder for Returns, compounding, and wealth growth.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Compounding
+
+- Compounding placeholder for Returns, compounding, and wealth growth.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Inflation and real return
+
+- Inflation and real return placeholder for Returns, compounding, and wealth growth.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Cumulative return vs annualized return
+
+- Cumulative return vs annualized return placeholder for Returns, compounding, and wealth growth.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why small edges compound
+
+- Why small edges compound placeholder for Returns, compounding, and wealth growth.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

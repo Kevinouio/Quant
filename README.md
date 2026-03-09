@@ -17,8 +17,8 @@ Quant/
 ## Workflow model
 
 1. Draft and test ideas in `notebooks/`.
-2. Promote finalized lesson content into `frontend/content/chapters/*.mdx`.
-3. Render chapters with frontend pages/components.
+2. Promote finalized lesson content into `frontend/content/chapters/{part-slug}/chapter-{NN}-{chapter-slug}.mdx`.
+3. Render chapters with the app route contract `/chapters/{partSlug}/{chapterSlug}`.
 4. Call backend APIs only when computation is too heavy for client-side execution.
 
 This keeps writing/research and production UX separate while sharing a stable content contract.
@@ -34,6 +34,6 @@ Open: `http://localhost:3000`
 
 ## Next implementation targets
 
-1. Add frontend app routing and MDX rendering from `frontend/content/chapters/`.
-2. Add backend `POST /backtest/passive-indexing` endpoint.
-3. Add notebook -> chapter publish checklist so content stays synchronized.
+1. Replace placeholder chapter bodies with full instructional content.
+2. Add MDX loading/rendering so publish files drive live chapter pages.
+3. Add backend-powered interactive demos where computation is needed.

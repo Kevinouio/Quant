@@ -1,0 +1,35 @@
+---
+title: "Chapter 3. Risk, volatility, and drawdowns"
+format: html
+---
+
+## Objective
+
+Draft Chapter 3 content before publishing to MDX.
+
+## Sections
+
+### What risk means in practice
+
+- What risk means in practice placeholder for Risk, volatility, and drawdowns.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Volatility
+
+- Volatility placeholder for Risk, volatility, and drawdowns.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Drawdown
+
+- Drawdown placeholder for Risk, volatility, and drawdowns.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Tail risk
+
+- Tail risk placeholder for Risk, volatility, and drawdowns.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why return without risk context is misleading
+
+- Why return without risk context is misleading placeholder for Risk, volatility, and drawdowns.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

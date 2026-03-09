@@ -1,0 +1,35 @@
+---
+title: "Chapter 40. Comparing investing and trading styles"
+format: html
+---
+
+## Objective
+
+Draft Chapter 40 content before publishing to MDX.
+
+## Sections
+
+### Long horizon vs short horizon
+
+- Long horizon vs short horizon placeholder for Comparing investing and trading styles.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Beta vs alpha
+
+- Beta vs alpha placeholder for Comparing investing and trading styles.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Premia vs pure forecasting
+
+- Premia vs pure forecasting placeholder for Comparing investing and trading styles.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Capacity and turnover
+
+- Capacity and turnover placeholder for Comparing investing and trading styles.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Complexity vs edge
+
+- Complexity vs edge placeholder for Comparing investing and trading styles.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

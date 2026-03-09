@@ -1,0 +1,35 @@
+---
+title: "Chapter 43. What I still do not know"
+format: html
+---
+
+## Objective
+
+Draft Chapter 43 content before publishing to MDX.
+
+## Sections
+
+### Open questions
+
+- Open questions placeholder for What I still do not know.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Misunderstood topics
+
+- Misunderstood topics placeholder for What I still do not know.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Things to revisit later
+
+- Things to revisit later placeholder for What I still do not know.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Topics that need stronger math
+
+- Topics that need stronger math placeholder for What I still do not know.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Topics that need stronger data
+
+- Topics that need stronger data placeholder for What I still do not know.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

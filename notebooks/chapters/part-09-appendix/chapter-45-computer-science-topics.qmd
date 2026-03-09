@@ -1,0 +1,35 @@
+---
+title: "Appendix B. Computer Science Topics"
+format: html
+---
+
+## Objective
+
+Draft Appendix B content before publishing to MDX.
+
+## Sections
+
+### Data structures and algorithms refresher
+
+- Data structures and algorithms refresher placeholder for Computer Science Topics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Complexity and performance thinking
+
+- Complexity and performance thinking placeholder for Computer Science Topics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Systems design notes
+
+- Systems design notes placeholder for Computer Science Topics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Data engineering patterns
+
+- Data engineering patterns placeholder for Computer Science Topics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Reproducibility and environment management
+
+- Reproducibility and environment management placeholder for Computer Science Topics.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

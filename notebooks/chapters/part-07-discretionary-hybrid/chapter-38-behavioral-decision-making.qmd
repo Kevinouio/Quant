@@ -1,0 +1,35 @@
+---
+title: "Chapter 38. Behavioral decision-making"
+format: html
+---
+
+## Objective
+
+Draft Chapter 38 content before publishing to MDX.
+
+## Sections
+
+### Overconfidence
+
+- Overconfidence placeholder for Behavioral decision-making.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Loss aversion
+
+- Loss aversion placeholder for Behavioral decision-making.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Confirmation bias
+
+- Confirmation bias placeholder for Behavioral decision-making.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Prospect theory intuition
+
+- Prospect theory intuition placeholder for Behavioral decision-making.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### How bias affects trading and investing
+
+- How bias affects trading and investing placeholder for Behavioral decision-making.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

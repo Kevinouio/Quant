@@ -1,0 +1,35 @@
+---
+title: "Chapter 17. Pairs trading and cointegration"
+format: html
+---
+
+## Objective
+
+Draft Chapter 17 content before publishing to MDX.
+
+## Sections
+
+### Correlation vs cointegration
+
+- Correlation vs cointegration placeholder for Pairs trading and cointegration.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Distance-based pairs
+
+- Distance-based pairs placeholder for Pairs trading and cointegration.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Spread construction
+
+- Spread construction placeholder for Pairs trading and cointegration.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Entry/exit logic
+
+- Entry/exit logic placeholder for Pairs trading and cointegration.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Structural breaks
+
+- Structural breaks placeholder for Pairs trading and cointegration.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

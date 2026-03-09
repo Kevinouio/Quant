@@ -1,0 +1,35 @@
+---
+title: "Chapter 36. Discretionary fundamental investing"
+format: html
+---
+
+## Objective
+
+Draft Chapter 36 content before publishing to MDX.
+
+## Sections
+
+### Building an investment thesis
+
+- Building an investment thesis placeholder for Discretionary fundamental investing.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Reading financial statements
+
+- Reading financial statements placeholder for Discretionary fundamental investing.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Valuation basics
+
+- Valuation basics placeholder for Discretionary fundamental investing.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Catalysts and monitoring
+
+- Catalysts and monitoring placeholder for Discretionary fundamental investing.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Thesis failure modes
+
+- Thesis failure modes placeholder for Discretionary fundamental investing.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

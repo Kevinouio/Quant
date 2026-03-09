@@ -1,0 +1,35 @@
+---
+title: "Chapter 26. Options relative value and VRP"
+format: html
+---
+
+## Objective
+
+Draft Chapter 26 content before publishing to MDX.
+
+## Sections
+
+### Implied vs realized volatility
+
+- Implied vs realized volatility placeholder for Options relative value and VRP.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Variance risk premium
+
+- Variance risk premium placeholder for Options relative value and VRP.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Skew and term structure
+
+- Skew and term structure placeholder for Options relative value and VRP.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### VIX ecosystem
+
+- VIX ecosystem placeholder for Options relative value and VRP.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Tail risk and convexity
+
+- Tail risk and convexity placeholder for Options relative value and VRP.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

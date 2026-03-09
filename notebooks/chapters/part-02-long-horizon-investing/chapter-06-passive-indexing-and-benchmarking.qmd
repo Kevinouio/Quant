@@ -1,0 +1,35 @@
+---
+title: "Chapter 6. Passive indexing and benchmarking"
+format: html
+---
+
+## Objective
+
+Draft Chapter 6 content before publishing to MDX.
+
+## Sections
+
+### What passive indexing is
+
+- What passive indexing is placeholder for Passive indexing and benchmarking.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why benchmarking matters
+
+- Why benchmarking matters placeholder for Passive indexing and benchmarking.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Active vs passive
+
+- Active vs passive placeholder for Passive indexing and benchmarking.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Tracking error
+
+- Tracking error placeholder for Passive indexing and benchmarking.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Fees, taxes, and implementation frictions
+
+- Fees, taxes, and implementation frictions placeholder for Passive indexing and benchmarking.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

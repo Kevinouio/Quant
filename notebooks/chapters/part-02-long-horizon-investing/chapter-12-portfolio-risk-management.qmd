@@ -1,0 +1,35 @@
+---
+title: "Chapter 12. Portfolio risk management"
+format: html
+---
+
+## Objective
+
+Draft Chapter 12 content before publishing to MDX.
+
+## Sections
+
+### VaR
+
+- VaR placeholder for Portfolio risk management.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Expected shortfall
+
+- Expected shortfall placeholder for Portfolio risk management.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Stress testing
+
+- Stress testing placeholder for Portfolio risk management.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Scenario analysis
+
+- Scenario analysis placeholder for Portfolio risk management.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### CVaR as a tail-aware extension
+
+- CVaR as a tail-aware extension placeholder for Portfolio risk management.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

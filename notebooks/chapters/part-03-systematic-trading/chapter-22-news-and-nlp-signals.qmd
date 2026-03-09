@@ -1,0 +1,35 @@
+---
+title: "Chapter 22. News and NLP signals"
+format: html
+---
+
+## Objective
+
+Draft Chapter 22 content before publishing to MDX.
+
+## Sections
+
+### Financial text as data
+
+- Financial text as data placeholder for News and NLP signals.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Sentiment vs topic signals
+
+- Sentiment vs topic signals placeholder for News and NLP signals.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Timestamp alignment
+
+- Timestamp alignment placeholder for News and NLP signals.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Financial dictionaries vs generic sentiment
+
+- Financial dictionaries vs generic sentiment placeholder for News and NLP signals.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Leakage and data licensing
+
+- Leakage and data licensing placeholder for News and NLP signals.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

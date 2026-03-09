@@ -1,0 +1,35 @@
+---
+title: "Chapter 37. Technical analysis"
+format: html
+---
+
+## Objective
+
+Draft Chapter 37 content before publishing to MDX.
+
+## Sections
+
+### Price and volume as inputs
+
+- Price and volume as inputs placeholder for Technical analysis.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Trendlines and support/resistance
+
+- Trendlines and support/resistance placeholder for Technical analysis.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Moving averages and oscillators
+
+- Moving averages and oscillators placeholder for Technical analysis.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Rule-based vs visual charting
+
+- Rule-based vs visual charting placeholder for Technical analysis.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Overfitting and narrative traps
+
+- Overfitting and narrative traps placeholder for Technical analysis.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

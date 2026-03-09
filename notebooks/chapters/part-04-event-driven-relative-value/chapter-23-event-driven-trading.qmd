@@ -1,0 +1,35 @@
+---
+title: "Chapter 23. Event-driven trading"
+format: html
+---
+
+## Objective
+
+Draft Chapter 23 content before publishing to MDX.
+
+## Sections
+
+### What an event is
+
+- What an event is placeholder for Event-driven trading.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why events create temporary mispricings
+
+- Why events create temporary mispricings placeholder for Event-driven trading.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Scheduled vs unscheduled events
+
+- Scheduled vs unscheduled events placeholder for Event-driven trading.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Event windows
+
+- Event windows placeholder for Event-driven trading.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Implementation difficulty
+
+- Implementation difficulty placeholder for Event-driven trading.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

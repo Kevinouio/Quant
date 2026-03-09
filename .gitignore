@@ -24,6 +24,7 @@ node_modules/
 out/
 frontend/.next/
 frontend/out/
+*.tsbuildinfo
 
 # Python
 __pycache__/

@@ -1,0 +1,35 @@
+---
+title: "Chapter 27. Options foundations"
+format: html
+---
+
+## Objective
+
+Draft Chapter 27 content before publishing to MDX.
+
+## Sections
+
+### Calls and puts
+
+- Calls and puts placeholder for Options foundations.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Payoff diagrams
+
+- Payoff diagrams placeholder for Options foundations.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Moneyness
+
+- Moneyness placeholder for Options foundations.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Expiration
+
+- Expiration placeholder for Options foundations.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why options are nonlinear
+
+- Why options are nonlinear placeholder for Options foundations.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

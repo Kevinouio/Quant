@@ -1,0 +1,35 @@
+---
+title: "Chapter 24. Merger arbitrage"
+format: html
+---
+
+## Objective
+
+Draft Chapter 24 content before publishing to MDX.
+
+## Sections
+
+### Deal spreads
+
+- Deal spreads placeholder for Merger arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Success vs break scenarios
+
+- Success vs break scenarios placeholder for Merger arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Asymmetric payoff
+
+- Asymmetric payoff placeholder for Merger arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Portfolio of deals
+
+- Portfolio of deals placeholder for Merger arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Legal and operational risks
+
+- Legal and operational risks placeholder for Merger arbitrage.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

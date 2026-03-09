@@ -32,5 +32,5 @@ Open: `http://localhost:3000`
 ## Content contract
 
 - Draft in `notebooks/`
-- Publish in `frontend/content/chapters/*.mdx`
-- Render via route page + shared chapter layout component
+- Publish in `frontend/content/chapters/{part-slug}/chapter-{NN}-{chapter-slug}.mdx`
+- Render via `/chapters/{partSlug}/{chapterSlug}` using the shared chapter route template

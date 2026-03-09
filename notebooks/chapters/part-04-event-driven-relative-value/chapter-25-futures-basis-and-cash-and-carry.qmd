@@ -1,0 +1,35 @@
+---
+title: "Chapter 25. Futures basis and cash-and-carry"
+format: html
+---
+
+## Objective
+
+Draft Chapter 25 content before publishing to MDX.
+
+## Sections
+
+### Spot vs futures
+
+- Spot vs futures placeholder for Futures basis and cash-and-carry.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Basis
+
+- Basis placeholder for Futures basis and cash-and-carry.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Carry link
+
+- Carry link placeholder for Futures basis and cash-and-carry.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Convergence
+
+- Convergence placeholder for Futures basis and cash-and-carry.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Funding and execution risk
+
+- Funding and execution risk placeholder for Futures basis and cash-and-carry.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

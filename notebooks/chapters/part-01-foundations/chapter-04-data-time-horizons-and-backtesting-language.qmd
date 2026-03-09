@@ -1,0 +1,35 @@
+---
+title: "Chapter 4. Data, time horizons, and backtesting language"
+format: html
+---
+
+## Objective
+
+Draft Chapter 4 content before publishing to MDX.
+
+## Sections
+
+### End-of-day vs intraday data
+
+- End-of-day vs intraday data placeholder for Data, time horizons, and backtesting language.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Lookback windows
+
+- Lookback windows placeholder for Data, time horizons, and backtesting language.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Rebalancing frequency
+
+- Rebalancing frequency placeholder for Data, time horizons, and backtesting language.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### In-sample vs out-of-sample
+
+- In-sample vs out-of-sample placeholder for Data, time horizons, and backtesting language.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Overfitting and data leakage
+
+- Overfitting and data leakage placeholder for Data, time horizons, and backtesting language.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

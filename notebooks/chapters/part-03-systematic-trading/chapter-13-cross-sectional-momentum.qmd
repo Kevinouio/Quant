@@ -1,0 +1,35 @@
+---
+title: "Chapter 13. Cross-sectional momentum"
+format: html
+---
+
+## Objective
+
+Draft Chapter 13 content before publishing to MDX.
+
+## Sections
+
+### Winners vs losers
+
+- Winners vs losers placeholder for Cross-sectional momentum.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Formation and holding periods
+
+- Formation and holding periods placeholder for Cross-sectional momentum.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Ranking assets
+
+- Ranking assets placeholder for Cross-sectional momentum.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Volatility scaling
+
+- Volatility scaling placeholder for Cross-sectional momentum.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Crash risk and turnover
+
+- Crash risk and turnover placeholder for Cross-sectional momentum.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

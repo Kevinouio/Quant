@@ -1,0 +1,35 @@
+---
+title: "Chapter 33. Optimal execution"
+format: html
+---
+
+## Objective
+
+Draft Chapter 33 content before publishing to MDX.
+
+## Sections
+
+### TWAP
+
+- TWAP placeholder for Optimal execution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### VWAP
+
+- VWAP placeholder for Optimal execution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Implementation shortfall
+
+- Implementation shortfall placeholder for Optimal execution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Cost-risk tradeoff
+
+- Cost-risk tradeoff placeholder for Optimal execution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Why execution is an optimization problem
+
+- Why execution is an optimization problem placeholder for Optimal execution.
+- Add concrete definitions, formulas, and implementation notes in a later pass.

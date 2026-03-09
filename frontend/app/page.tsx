@@ -1,100 +1,122 @@
 import { DocsShell } from "../components/layout/DocsShell";
+import { chapterHref, chaptersByPart } from "../lib/chapterMetadata";
 
-const guideItems = [
-  { href: "/", label: "Introduction", active: true },
-  { href: "/chapters/passive-indexing", label: "Chapter 1: Passive Indexing" }
-];
+function chapterNavLabel(chapter: { chapterNumber: number; chapterCode: string | null; chapterTitle: string }) {
+  if (chapter.chapterCode) {
+    return `Appendix ${chapter.chapterCode}. ${chapter.chapterTitle}`;
+  }
 
-const roadmapItems = [
-  { href: "#factor-investing", label: "Chapter 2: Factor Investing (Soon)", muted: true },
-  { href: "#mean-reversion", label: "Chapter 3: Mean Reversion (Soon)", muted: true },
-  { href: "#volatility-models", label: "Chapter 4: Volatility Models (Soon)", muted: true }
-];
+  return `Chapter ${chapter.chapterNumber}. ${chapter.chapterTitle}`;
+}
+
+const sidebarGroups = chaptersByPart.map((part) => ({
+  title: `Part ${part.partNumber}. ${part.partTitle}`,
+  items: part.chapters.map((chapter) => ({
+    href: chapterHref(chapter),
+    label: chapterNavLabel(chapter)
+  }))
+}));
 
 const tocItems = [
   { href: "#overview", label: "Overview" },
-  { href: "#structure", label: "Project Structure" },
-  { href: "#reading-path", label: "Reading Path" },
-  { href: "#next-up", label: "Next Up" },
+  { href: "#structure", label: "Book Structure" },
+  { href: "#learning-spine", label: "Learning Spine" },
+  { href: "#parts-catalog", label: "Parts Catalog" },
   { href: "#notes", label: "Notes" }
 ];
 
 export default function HomePage() {
   return (
     <DocsShell
-      guideItems={guideItems}
-      roadmapItems={roadmapItems}
+      sidebarHomeLink={{ href: "/", label: "Home", active: true }}
+      sidebarGroups={sidebarGroups}
       tocItems={tocItems}
       topbarBrandHref="/"
       topbarBrandLabel="Quant Docs"
-      navNote="Temporary TSX docs shell. Search, backend demos, and chapter auto-publish are in progress."
+      navNote="Book scaffold is now organized by part and chapter families. Content is placeholder-first for rapid iteration."
     >
       <article className="article">
         <header className="hero" id="overview">
-          <p className="eyebrow">Quantitative Finance Textbook</p>
-          <h1>Quant Documentation</h1>
+          <p className="eyebrow">Quant Textbook Scaffold</p>
+          <h1>Part-Based Learning Map</h1>
           <p>
-            Quant is a docs-style learning path for building practical intuition in market data,
-            portfolio construction, and systematic strategy design.
+            This project now follows a full Chapter 0-43 structure plus Appendix A-C, grouped by
+            method families. Each chapter is scaffolded with placeholder sections so you can fill
+            content without changing navigation and file contracts.
           </p>
         </header>
 
         <section className="article-section" id="structure">
-          <h2>How This Project Is Organized</h2>
+          <h2>How The Book Is Organized</h2>
           <p>
-            The course flow is intentionally predictable. Each chapter has the same shape: concept
-            first, assumptions second, implementation outline third, and testing guidance last.
+            The textbook is organized by progression and method family: foundations first, then
+            investing, systematic trading, event-driven methods, derivatives, execution, hybrid
+            workflows, and synthesis.
           </p>
           <div className="card-grid">
             <article className="card">
-              <h3>Notebook Draft</h3>
+              <h3>Draft Layer (QMD)</h3>
               <p>
-                Research chapter ideas in <code>notebooks/chapters/*.qmd</code> before publishing.
+                Author chapter drafts in{" "}
+                <code>notebooks/chapters/{"{part-slug}"}/chapter-{"{NN}"}-{"{chapter-slug}"}.qmd</code>.
               </p>
             </article>
             <article className="card">
-              <h3>Published Content</h3>
-              <p>Ship polished chapter copy into static pages and MDX content layers.</p>
+              <h3>Publish Layer (MDX)</h3>
+              <p>
+                Mirror each draft chapter in{" "}
+                <code>frontend/content/chapters/{"{part-slug}"}/chapter-{"{NN}"}-{"{chapter-slug}"}.mdx</code>.
+              </p>
             </article>
             <article className="card">
-              <h3>Interactive Layer</h3>
-              <p>Add backend-connected demos once assumptions and API contracts are stable.</p>
+              <h3>Route Contract</h3>
+              <p>
+                Render chapters via <code>/chapters/{"{part-slug}"}/{"{chapter-slug}"}</code> with
+                a shared template route.
+              </p>
             </article>
           </div>
         </section>
 
-        <section className="article-section" id="reading-path">
-          <h2>Current Reading Path</h2>
-          <div className="chapter-card">
-            <h3>Chapter 1: Passive Indexing</h3>
-            <p>
-              Start with benchmark tracking logic, rebalancing mechanics, and practical measurement
-              of tracking quality.
-            </p>
-            <a className="button-link" href="/chapters/passive-indexing">
-              Read Chapter 1
-            </a>
-          </div>
-        </section>
-
-        <section className="article-section" id="next-up">
-          <h2>What Comes Next</h2>
+        <section className="article-section" id="learning-spine">
+          <h2>Recommended Learning Spine</h2>
           <p>
-            Next chapters will expand from passive allocation into factor tilts, mean reversion
-            systems, and volatility-aware portfolio controls.
+            Suggested sequence for this project: foundations, volatility, momentum/trend, pairs,
+            factors/benchmarking, then execution literacy.
           </p>
           <ul>
-            <li>Chapter 2: factor exposures and risk-adjusted benchmarking.</li>
-            <li>Chapter 3: mean reversion setup and entry/exit logic.</li>
-            <li>Chapter 4: volatility forecasting with EWMA and regime checks.</li>
+            <li>Start in Part I for definitions, risk language, and backtesting basics.</li>
+            <li>Move to Part III for trading signal families and volatility forecasting.</li>
+            <li>Use Part II to anchor long-horizon portfolio and benchmark thinking.</li>
+            <li>Finish with Part VI and Part VIII to connect strategy and implementation.</li>
           </ul>
+        </section>
+
+        <section className="article-section" id="parts-catalog">
+          <h2>Parts And Chapter Catalog</h2>
+          <p>
+            Every chapter currently has placeholder content and section headings ready for expansion.
+          </p>
+          <div className="card-grid">
+            {chaptersByPart.map((part) => (
+              <article className="card" key={part.partSlug}>
+                <h3>
+                  Part {part.partNumber}. {part.partTitle}
+                </h3>
+                <p>{part.chapters.length} chapter placeholders ready.</p>
+                <a className="button-link" href={chapterHref(part.chapters[0])}>
+                  Open First Chapter
+                </a>
+              </article>
+            ))}
+          </div>
         </section>
 
         <footer className="article-section" id="notes">
           <h2>Notes</h2>
           <p>
-            This is a temporary TSX docs shell. It is intentionally simple so chapter design can
-            move quickly before full framework migration.
+            Chapter 6 (Passive Indexing and Benchmarking) uses a richer custom page body while all
+            other chapters render from the generic scaffold template.
           </p>
         </footer>
       </article>

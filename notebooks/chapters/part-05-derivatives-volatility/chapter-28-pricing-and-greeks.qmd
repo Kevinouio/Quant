@@ -1,0 +1,35 @@
+---
+title: "Chapter 28. Pricing and Greeks"
+format: html
+---
+
+## Objective
+
+Draft Chapter 28 content before publishing to MDX.
+
+## Sections
+
+### Black-Scholes intuition
+
+- Black-Scholes intuition placeholder for Pricing and Greeks.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Delta, gamma, theta, vega
+
+- Delta, gamma, theta, vega placeholder for Pricing and Greeks.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Implied volatility
+
+- Implied volatility placeholder for Pricing and Greeks.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Model assumptions
+
+- Model assumptions placeholder for Pricing and Greeks.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
+
+### Where the model breaks
+
+- Where the model breaks placeholder for Pricing and Greeks.
+- Add concrete definitions, formulas, and implementation notes in a later pass.
