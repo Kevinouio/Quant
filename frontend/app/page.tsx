@@ -37,12 +37,10 @@ export default function HomePage() {
     >
       <article className="article">
         <header className="hero" id="overview">
-          <p className="eyebrow">Quant Textbook Scaffold</p>
-          <h1>Part-Based Learning Map</h1>
+          <p className="eyebrow">Quant Textbook</p>
+          <h1>What is this?</h1>
           <p>
-            This project now follows a full Chapter 0-43 structure plus Appendix A-C, grouped by
-            method families. Each chapter is scaffolded with placeholder sections so you can fill
-            content without changing navigation and file contracts.
+            This project is more for teaching a person about the world about finance along with myself also teaching myself the topics as I personally don't have the course space and the money to take the proper courses in the topics. So if you want to read along with me in teaching these topics of trading, quantative finance, and investing, feel free to follow along as the way that I wrote these chapters are in the order in which i learning from sections 0 - 43.  
           </p>
         </header>
 
@@ -62,10 +60,10 @@ export default function HomePage() {
               </p>
             </article>
             <article className="card">
-              <h3>Publish Layer (MDX)</h3>
+              <h3>Chapter Pages (TSX)</h3>
               <p>
-                Mirror each draft chapter in{" "}
-                <code>frontend/content/chapters/{"{part-slug}"}/chapter-{"{NN}"}-{"{chapter-slug}"}.mdx</code>.
+                Each chapter has its own route file at{" "}
+                <code>frontend/app/chapters/{"{part-slug}"}/{"{chapter-slug}"}/page.tsx</code>.
               </p>
             </article>
             <article className="card">
@@ -115,8 +113,8 @@ export default function HomePage() {
         <footer className="article-section" id="notes">
           <h2>Notes</h2>
           <p>
-            Chapter 6 (Passive Indexing and Benchmarking) uses a richer custom page body while all
-            other chapters render from the generic scaffold template.
+            Each chapter route now has its own TSX file, so you can edit chapter bodies directly
+            without using MDX.
           </p>
         </footer>
       </article>

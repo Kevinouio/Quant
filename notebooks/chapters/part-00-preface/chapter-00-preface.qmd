@@ -9,7 +9,7 @@ format: html
 Hi! I'm Kevinouio or Kevin Ho.
 
 
-I'm an undergraduate studing Mathematics and Computer Science. You might be wondering, "Hey is this guy a quant or a wanna be quant or something?" or "This guy must be very smart or somthing". Well I'll tell you what, I'm just a wanna be who just wants to learn about finance. I personally have no idea about anything about finance when it comes to investing, trading, or even ___. 
+I'm an undergraduate studing Mathematics and Computer Science. You might be wondering, "Hey is this guy a quant or a wanna be quant or something?" or "This guy must be very smart or somthing". Well I'll tell you what, I'm just a wanna be who just wants to learn about finance. I personally have no idea about anything about finance when it comes to investing, trading, or even quantatative finance. 
 
 ## What is this website?
 
@@ -57,11 +57,6 @@ I also just want to learn a more algorithmic way to invest rather than relying o
 Now I want to give thanks to my friends for pushing me to being the most productive person that I try to be even though most of the time, I'm just thinking or not acting on anything. I hope me creating this project inspires you to also do something similar. 
 
 
+SOOOOO with that being said, I welcome you to my first "textbook" where i provide my own understanding of the topics of finance using math and computer science concepts. 
 
 
-
-Hey, Im kevinouio, this website/thing is mostly me learning all of the finance thigns and terms nad different ways to invest using computer science algorithms and Mathematics. Now something that you should know if you are navigating through this whole thing with me or just reading through. Just know i absolutely know nothing about the world of financial mathematics, HRT, or even quants even for the fact as I've only heard of these topics through passing from other people. The reason i'm even writing this whole website is because I want to catch up and just have a safeguard for when i hear people talking about finance or even sports betting since things of PrizePicks, Kalshi, or even Polymarket has been on the rise recently.
-
-
-
-SOOOOO with that being said, i welcome you to my first "textbook" where i provide my own understanding of the topics of finance using math and computer science concepts. This textbook will mostly follow this order per chapter, The first chapter will mainly cover over terms that should I assume will be familiar to you but i guarantee you will not be for me. Then once we cover over those terms of finance, I will move on to actual stuff in finance like passive indexing for investing in the long run, and of that sorts. This will overall combine concepts in topics in mathematics and computer science so if you are not familiar, then i suggest you refer to the appendix section for things that you might be unfamiliar with or just look up what they are if they are not in the appendix.. Once we have finished covering topics of investing in the long term with portfolio optimization, i will then move onto topics (remaining topics in the book). Sorry if it is not in the appendix as most of the algorithms and mathematics mostly come intuetively for me and i assume they are really simple concepts that you should have already known before looking at this. Now without further ado, let's talk about finance.

@@ -17,7 +17,7 @@ Quant/
 ## Workflow model
 
 1. Draft and test ideas in `notebooks/`.
-2. Promote finalized lesson content into `frontend/content/chapters/{part-slug}/chapter-{NN}-{chapter-slug}.mdx`.
+2. Convert chapter drafts into route-local TSX content in `frontend/app/chapters/{part-slug}/{chapter-slug}/page.tsx`.
 3. Render chapters with the app route contract `/chapters/{partSlug}/{chapterSlug}`.
 4. Call backend APIs only when computation is too heavy for client-side execution.
 
@@ -35,5 +35,5 @@ Open: `http://localhost:3000`
 ## Next implementation targets
 
 1. Replace placeholder chapter bodies with full instructional content.
-2. Add MDX loading/rendering so publish files drive live chapter pages.
+2. Add a notebook-to-TSX sync workflow so chapter edits can be promoted consistently.
 3. Add backend-powered interactive demos where computation is needed.

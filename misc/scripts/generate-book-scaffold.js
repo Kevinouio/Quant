@@ -3,8 +3,9 @@ const path = require("path");
 
 const repoRoot = path.resolve(__dirname, "..", "..");
 const notebooksRoot = path.join(repoRoot, "notebooks", "chapters");
-const frontendContentRoot = path.join(repoRoot, "frontend", "content", "chapters");
+const frontendChapterPagesRoot = path.join(repoRoot, "frontend", "app", "chapters");
 const chapterMetadataPath = path.join(repoRoot, "frontend", "lib", "chapterMetadata.ts");
+const forceRegenerate = process.argv.includes("--force");
 
 const partDefinitions = [
   {
@@ -655,7 +656,7 @@ function toQmd(chapter) {
     "",
     "## Objective",
     "",
-    `Draft ${chapterDraftLabel(chapter)} content before publishing to MDX.`,
+    `Draft ${chapterDraftLabel(chapter)} content before turning it into a TSX chapter page.`,
     "",
     "## Sections",
     ""
@@ -669,43 +670,49 @@ function toQmd(chapter) {
   return [...header, ...sections].join("\n").trimEnd() + "\n";
 }
 
-function toMdx(chapter) {
-  const frontmatter = [
-    "---",
-    `slug: ${chapter.chapterSlug}`,
-    `title: ${chapterHeading(chapter)}`,
-    `chapterNumber: ${chapter.chapterNumber}`,
-    `chapterCode: ${chapter.chapterCode ?? "null"}`,
-    `partNumber: ${chapter.partNumber}`,
-    `partTitle: "${chapter.partTitle}"`,
-    `partSlug: ${chapter.partSlug}`,
-    `summary: ${chapter.summary}`,
-    `status: ${chapter.status}`,
-    "---",
+function toTsxPage(chapter) {
+  const sectionContent = chapter.sections.map((section) => {
+    const lines = sectionPlaceholder(chapter.chapterTitle, section);
+    return {
+      title: section,
+      paragraphs: lines
+    };
+  });
+
+  const lines = [
+    'import { notFound } from "next/navigation";',
+    'import { ChapterPageLayout, type ChapterSectionContent } from "../../../../components/layout/ChapterPageLayout";',
+    'import { chapterByRoute } from "../../../../lib/chapterMetadata";',
     "",
-    `# ${chapterHeading(chapter)}`,
+    `const partSlug = "${chapter.partSlug}";`,
+    `const chapterSlug = "${chapter.chapterSlug}";`,
     "",
-    `${chapter.summary}`,
+    `const sectionContent: ChapterSectionContent[] = ${JSON.stringify(sectionContent, null, 2)};`,
+    "",
+    "export default function Page() {",
+    "  const chapter = chapterByRoute(partSlug, chapterSlug);",
+    "",
+    "  if (!chapter) {",
+    "    notFound();",
+    "  }",
+    "",
+    "  return <ChapterPageLayout chapter={chapter} sectionContent={sectionContent} />;",
+    "}",
     ""
   ];
 
-  const sections = chapter.sections.flatMap((section) => {
-    const lines = sectionPlaceholder(chapter.chapterTitle, section);
-    return [`## ${section}`, "", `${lines[0]}`, "", `${lines[1]}`, ""];
-  });
-
-  return [...frontmatter, ...sections].join("\n").trimEnd() + "\n";
+  return lines.join("\n");
 }
 
 function toIndexMarkdown(partsWithChapters, mode) {
   const title =
     mode === "notebooks"
       ? "# Chapters Draft Index (QMD)"
-      : "# Chapters Publish Index (MDX)";
+      : "# Chapters Route Index (TSX)";
   const intro =
     mode === "notebooks"
       ? "Generated index for notebook draft chapters."
-      : "Generated index for frontend publish chapters.";
+      : "Generated index for frontend chapter route pages.";
 
   const lines = [title, "", intro, ""];
 
@@ -716,7 +723,7 @@ function toIndexMarkdown(partsWithChapters, mode) {
       const rel =
         mode === "notebooks"
           ? `${part.partSlug}/${file}.qmd`
-          : `${part.partSlug}/${file}.mdx`;
+          : `${part.partSlug}/${chapter.chapterSlug}/page.tsx`;
       lines.push(
         `- ${chapterIndexLabel(chapter)}: \`${rel}\` -> \`/chapters/${chapter.partSlug}/${chapter.chapterSlug}\``
       );
@@ -732,6 +739,14 @@ function writeFileEnsured(targetPath, content) {
   fs.writeFileSync(targetPath, content, "utf8");
 }
 
+function writeScaffoldFile(targetPath, content) {
+  if (!forceRegenerate && fs.existsSync(targetPath)) {
+    return;
+  }
+
+  writeFileEnsured(targetPath, content);
+}
+
 function makeSummary(chapterTitle) {
   return `Placeholder summary for ${chapterTitle}.`;
 }
@@ -745,7 +760,10 @@ const chapters = partDefinitions.flatMap((part) =>
     partTitle: part.partTitle,
     partSlug: part.partSlug,
     summary: makeSummary(chapter.chapterTitle),
-    status: chapter.chapterNumber === 6 ? "detailed" : "placeholder"
+    status:
+      chapter.chapterNumber === 0 || chapter.chapterNumber === 6
+        ? "detailed"
+        : "placeholder"
   }))
 );
 
@@ -760,19 +778,27 @@ const partsWithChapters = partDefinitions.map((part) => ({
   chapters: chapters.filter((chapter) => chapter.partSlug === part.partSlug)
 }));
 
-fs.rmSync(notebooksRoot, { recursive: true, force: true });
-fs.rmSync(frontendContentRoot, { recursive: true, force: true });
+if (forceRegenerate) {
+  fs.rmSync(notebooksRoot, { recursive: true, force: true });
+  fs.rmSync(frontendChapterPagesRoot, { recursive: true, force: true });
+}
+
 fs.mkdirSync(notebooksRoot, { recursive: true });
-fs.mkdirSync(frontendContentRoot, { recursive: true });
+fs.mkdirSync(frontendChapterPagesRoot, { recursive: true });
 
 partDefinitions.forEach((part) => {
   const chapterRows = chapters.filter((chapter) => chapter.partSlug === part.partSlug);
   chapterRows.forEach((chapter) => {
     const file = chapterFileName(chapter);
     const notebookPath = path.join(notebooksRoot, part.partSlug, `${file}.qmd`);
-    const mdxPath = path.join(frontendContentRoot, part.partSlug, `${file}.mdx`);
-    writeFileEnsured(notebookPath, toQmd(chapter));
-    writeFileEnsured(mdxPath, toMdx(chapter));
+    const pagePath = path.join(
+      frontendChapterPagesRoot,
+      part.partSlug,
+      chapter.chapterSlug,
+      "page.tsx"
+    );
+    writeScaffoldFile(notebookPath, toQmd(chapter));
+    writeScaffoldFile(pagePath, toTsxPage(chapter));
   });
 });
 
@@ -781,7 +807,7 @@ writeFileEnsured(
   toIndexMarkdown(partsWithChapters, "notebooks")
 );
 writeFileEnsured(
-  path.join(frontendContentRoot, "README.md"),
+  path.join(frontendChapterPagesRoot, "README.md"),
   toIndexMarkdown(partsWithChapters, "frontend")
 );
 
@@ -830,4 +856,8 @@ const metadataLines = [
 
 writeFileEnsured(chapterMetadataPath, metadataLines.join("\n"));
 
-console.log(`Generated ${chapters.length} chapter scaffolds in notebooks and frontend content.`);
+if (forceRegenerate) {
+  console.log(`Force regenerated ${chapters.length} chapter scaffolds in notebooks and frontend TSX routes.`);
+} else {
+  console.log(`Scaffold sync complete. Existing chapter files were preserved unless missing.`);
+}

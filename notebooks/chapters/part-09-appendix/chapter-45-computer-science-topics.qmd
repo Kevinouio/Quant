@@ -5,7 +5,7 @@ format: html
 
 ## Objective
 
-Draft Appendix B content before publishing to MDX.
+Draft Appendix B content before turning it into a TSX chapter page.
 
 ## Sections
 

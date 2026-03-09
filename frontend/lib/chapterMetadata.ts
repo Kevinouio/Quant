@@ -89,7 +89,7 @@ export const chapterMetadata: ChapterMeta[] = [
     "partTitle": "Preface and how to use the book",
     "partSlug": "part-00-preface",
     "summary": "Placeholder summary for Preface.",
-    "status": "placeholder"
+    "status": "detailed"
   },
   {
     "chapterNumber": 1,

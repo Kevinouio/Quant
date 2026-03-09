@@ -13,7 +13,6 @@ Public-facing educational site for Quant.
 frontend/
   app/                  # Route-level pages
   components/           # Reusable UI and interactive components
-  content/chapters/     # Published chapter content (MDX)
   lib/                  # Shared frontend utilities and metadata
   public/               # Static assets
   styles/               # App-level styles
@@ -32,5 +31,5 @@ Open: `http://localhost:3000`
 ## Content contract
 
 - Draft in `notebooks/`
-- Publish in `frontend/content/chapters/{part-slug}/chapter-{NN}-{chapter-slug}.mdx`
-- Render via `/chapters/{partSlug}/{chapterSlug}` using the shared chapter route template
+- Promote drafts into per-chapter route files at `frontend/app/chapters/{part-slug}/{chapter-slug}/page.tsx`
+- Render via `/chapters/{partSlug}/{chapterSlug}`
