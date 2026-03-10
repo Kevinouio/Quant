@@ -1089,6 +1089,1954 @@ const sectionContent: ChapterSectionContent[] = [
         "text": "Chapter references: Chapter 3 (Risk, volatility, and drawdowns), Chapter 36 (Discretionary fundamental investing)."
       },
       {
+        "type": "paragraph",
+        "text": "**Debt Obligation**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A debt obligation is a legal commitment by a borrower to repay borrowed funds under stated terms, usually including payment dates, interest conditions, and consequences for nonpayment. It defines what is owed, to whom, and when."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is a formal \"you borrowed this, now you must pay it back\" contract."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Most fixed-income instruments are built on debt obligations, so understanding this idea is required for bonds, credit risk, and default analysis."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Issuer, Principal, Default."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 12 (Portfolio risk management)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Issuer**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: The issuer is the entity that creates and sells a security to raise financing, then must meet the security's contractual terms. In bonds, the issuer is responsible for interest payments and principal repayment."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The issuer is the borrower on the other side of your bond purchase."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Issuer quality is a core driver of credit risk, bond pricing, and default probability."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Debt Obligation, Credit Risk, Default."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 36 (Discretionary fundamental investing)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Bondholder**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A bondholder is the investor who owns a bond and therefore holds a contractual claim to the bond's promised coupon payments and principal repayment, subject to issuer solvency and bond terms."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The bondholder is the lender in the borrower-lender relationship."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Bondholder rights, payment priority, and risk exposure differ from stockholder ownership rights."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Issuer, Coupon, Principal."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Income Investing**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Income investing is an approach focused on generating regular cash flow from investments, typically through interest or dividends, rather than relying mainly on price appreciation. Bond portfolios are often used for this objective."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The goal is steady payouts, not only asset price growth."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Many portfolio designs separate growth allocations from income allocations to match risk tolerance and spending needs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Dividends, Coupon, Yield."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Face Value**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Face value is the stated amount a bond issuer promises to repay at maturity, regardless of the bond's current market trading price. It is also the base amount used to calculate coupon payments."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the amount written on the bond contract as the final repayment value."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Face value anchors bond cash-flow math and helps interpret premium or discount pricing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Par Value, Principal, Maturity, Coupon."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Par Value**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Par value is another term for a bond's reference principal amount at issuance and repayment, and is typically equal to face value in standard bond structures."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Par value is the bond's baseline \"book amount\" used for repayment and coupon calculations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Traders and analysts use par as the comparison point for whether a bond trades at premium or discount."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Face Value, Principal, Premium, Discount."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Principal**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Principal is the core amount borrowed or invested before interest, and in bonds it is the amount repaid at maturity to the bondholder if no default occurs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Principal is the base amount; interest is paid on top of it."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Principal repayment timing and certainty drive a large share of fixed-income risk and valuation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Face Value, Par Value, Maturity, Default."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 12 (Portfolio risk management)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Maturity**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Maturity is the endpoint of a bond's life when final contractual repayment of principal is due. It is also used more generally to describe how long until a bond's obligations conclude."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Maturity is the bond's finish date."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Time to maturity strongly influences price sensitivity to rates, risk profile, and expected return behavior."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Maturity Date, Principal, Interest Rate Risk, Yield Curve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 20 (Volatility forecasting and targeting)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Default**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Default occurs when a borrower fails to meet required debt payments under contract, such as missing coupon payments or failing to repay principal at maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Default means promised debt payments were not made as agreed."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Default risk is central to credit pricing, portfolio downside management, and bond valuation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Default Risk, Credit Risk, Bankruptcy, Issuer."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 12 (Portfolio risk management)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Coupon**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A coupon is the periodic interest payment promised by a bond issuer, usually expressed as a percentage of face value and paid on a defined schedule."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The coupon is the bond's regular interest paycheck."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Coupon size and frequency shape expected cash flow, yield behavior, and reinvestment needs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Yield, Current Yield, Principal, Face Value."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Maturity Date**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: The maturity date is the specific calendar date when a bond's principal is contractually due to be repaid by the issuer."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the exact date the bond should \"cash out\" principal."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Maturity-date structure affects duration, liability matching, and interest-rate sensitivity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Maturity, Principal, Face Value, Yield Curve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 33 (Optimal execution)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Premium**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A bond trades at a premium when its market price is above face value, typically because its coupon is relatively attractive compared with current market interest rates."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Premium means investors pay more than par for stronger cash-flow terms."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Premium pricing affects yield calculations and expected return if held to maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Discount, Face Value, Coupon, Yield to Maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Discount**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A bond trades at a discount when its market price is below face value, often because its coupon is less attractive than prevailing market yields or credit risk is perceived as higher."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Discount means the bond is bought below par and can pull toward par by maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Discount bonds can show different total-return paths and risk signals versus premium bonds."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Premium, Face Value, Yield, Credit Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Yield**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Yield is the rate of return implied by a bond's cash flows relative to its market price, not just the coupon rate printed on the instrument. Different yield measures answer different return questions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Yield tells you what return you are effectively getting at today's price."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Yield is a central metric for comparing bonds, pricing risk, and evaluating fixed-income opportunity cost."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Coupon, Current Yield, Yield to Maturity, Yield Curve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Current Yield**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Current yield equals annual coupon income divided by current bond price, giving a quick income-return snapshot but excluding capital gains/losses and reinvestment assumptions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It shows income return based on today's price, not full total return to maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Current yield is easy to compute, but it can mislead if used as a complete return measure."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Yield, Coupon, Yield to Maturity, Price."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Yield to Maturity**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Yield to maturity is the internal rate of return implied if a bond is purchased at current price, all promised payments are received, and the bond is held to maturity with reinvestment at that rate."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the bond's all-in annualized return estimate if you hold it to the end."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: YTM is a standard benchmark for comparing bonds with different prices, coupons, and maturities."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Yield, Current Yield, Maturity, Discount."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Interest Rate Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Interest rate risk is the risk that bond prices move adversely when market interest rates change, with longer-maturity bonds usually showing larger sensitivity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: If rates rise, existing fixed-coupon bonds usually lose market value."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Interest-rate exposure is one of the largest risk drivers in fixed-income portfolios."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Yield, Maturity, Duration, Yield Curve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 12 (Portfolio risk management)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Credit Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Credit risk is the risk that a borrower fails to meet debt obligations fully and on time, causing losses through missed payments, restructuring, or default."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the risk that the issuer cannot or does not pay as promised."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Credit risk affects required yield spread, portfolio losses, and diversification decisions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Default Risk, Default, Issuer, Bankruptcy."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 12 (Portfolio risk management)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Default Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Default risk is the probability and impact of a debt issuer failing to make required contractual payments. It is a specific, severe form of credit deterioration."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Default risk asks, \"What if promised payments stop?\""
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: It directly drives pricing, credit spreads, and downside stress outcomes for bond investors."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Credit Risk, Default, Bankruptcy, Issuer."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 12 (Portfolio risk management)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Inflation Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Inflation risk is the risk that rising price levels reduce the real purchasing power of future fixed payments, so nominal cash flows buy less over time."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: You may get paid exactly as promised, but your money may be worth less in real terms."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Inflation risk is crucial when evaluating long-duration fixed-income assets and real return targets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Inflation-Protected Bonds, Yield, Real Return, Interest Rate Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 2 (Returns, compounding, and wealth growth)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Liquidity Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Liquidity risk is the risk that an asset cannot be sold quickly at a fair price without meaningful price concessions, especially during stressed market conditions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: You might need to sell, but the market may not offer a good exit."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Liquidity risk can turn small valuation changes into larger realized losses due to poor execution."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Liquidity, Illiquid, Bid-Ask Spread, Slippage."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 32 (Transaction costs and slippage)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Illiquid**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Illiquid describes an asset or market with limited trading depth, wider spreads, and slower execution, making transactions harder to complete near quoted prices."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Illiquid means hard to trade fast without paying a penalty."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Illiquidity increases transaction costs and can amplify downside during volatility spikes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Liquidity, Liquidity Risk, Bid-Ask Spread, Market Impact."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 32 (Transaction costs and slippage)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Reinvestment Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Reinvestment risk is the risk that interim cash flows (like coupon payments) can only be reinvested at lower rates than originally expected, reducing realized return versus projected return."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Your cash keeps arriving, but maybe at worse future rates."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: It matters for income-focused bond strategies where compounding assumptions drive outcomes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Coupon, Yield to Maturity, Interest Rate Risk, Income Investing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Government Bonds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Government bonds are debt securities issued by national governments to finance spending and manage public debt. Credit quality varies by country, currency, and policy credibility."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: You are lending to a government, not a corporation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Government bonds often serve as benchmark rates, collateral assets, and defensive allocations in portfolios."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Issuer, Yield Curve, Credit Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Municipal Bonds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Municipal bonds are debt instruments issued by state and local governments to fund public projects such as infrastructure, schools, and utilities."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: You are lending to a city or state for public financing needs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Municipal bonds play a major role in local public finance and often have distinct tax and credit considerations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Government Bonds, Issuer, Credit Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Corporate Bonds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Corporate bonds are debt securities issued by companies to raise capital for operations, expansion, acquisitions, or refinancing. They usually offer higher yields than government bonds to compensate for higher credit risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: You are lending to a company in exchange for fixed-income cash flows."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Corporate credit spreads and default trends are key signals for both bond and equity market regimes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Credit Risk, Yield, Issuer."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 36 (Discretionary fundamental investing)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Fixed Coupon**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A fixed coupon is a bond interest rate that remains constant for the life of the bond, producing predictable nominal coupon cash flows."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The coupon rate is locked in and does not reset each period."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Fixed-coupon structures create direct sensitivity to interest-rate changes and inflation expectations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Coupon, Floating Rate, Interest Rate Risk, Yield."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Floating Rate**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A floating-rate bond has a coupon that resets periodically based on a reference benchmark plus or minus a spread, causing income to adjust with market rate conditions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The bond's coupon moves with rates instead of staying fixed."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Floating-rate structures can reduce duration-like rate sensitivity compared with fixed-coupon bonds."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Fixed Coupon, Coupon, Interest Rate Risk, Yield."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Zero-Coupon Bond**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A zero-coupon bond pays no periodic coupon and is issued at a discount, with investor return coming from the difference between purchase price and face-value repayment at maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: No periodic interest checks; value compounds to par by maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Zeroes have strong duration sensitivity and are useful for liability matching and term-structure analysis."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Discount, Face Value, Maturity, Yield to Maturity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Callable**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Callable means the issuer has the contractual right to redeem a bond before maturity, typically after a stated protection period and under specified terms."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The issuer can \"take the bond back early\" if conditions favor refinancing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Callability changes upside/downside asymmetry for investors and affects valuation versus non-callable bonds."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Bonds, Issuer, Interest Rate Risk, Yield."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 12 (Portfolio risk management)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Inflation-Protected Bonds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Inflation-protected bonds are securities whose principal and/or coupon cash flows are adjusted to an inflation index, designed to preserve real purchasing power over time."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Payments rise with inflation so real value erosion is reduced."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: These bonds are key tools for managing inflation risk in long-term portfolios."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Inflation Risk, Real Return, Government Bonds, Yield."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Yield Curve**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: The yield curve is the relationship between yields and maturities for comparable bonds, often displayed as a line from short-term to long-term maturities."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the market's \"shape\" of rates across time horizons."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Yield-curve shape influences valuation, discounting, borrowing costs, and macro regime interpretation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Yield, Maturity, Normal Yield Curve, Flat Yield Curve."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 42 (What should come first for this project)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Normal Yield Curve**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A normal yield curve slopes upward, meaning longer maturities have higher yields than shorter maturities, often reflecting time, inflation uncertainty, and term premium."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Lend longer, usually demand more yield."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: A normal curve is often treated as a baseline market condition in macro and fixed-income analysis."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Yield Curve, Flat Yield Curve, Interest Rate Risk, Inflation Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 40 (Comparing investing and trading styles)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Flat Yield Curve**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A flat yield curve indicates that yields across short and long maturities are close together, suggesting limited term premium differences or transitionary macro expectations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Short-term and long-term rates look almost the same."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Flat curves can signal shifting growth/inflation expectations and changing fixed-income risk tradeoffs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Yield Curve, Normal Yield Curve, Yield, Interest Rate Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 40 (Comparing investing and trading styles)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**ETF**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: An ETF (exchange-traded fund) is a pooled fund whose shares trade on an exchange throughout the day like a stock, while the fund itself holds a basket of underlying assets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is a fund wrapper with intraday tradability."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: ETFs are a core building block for passive exposure, tactical positioning, and low-friction portfolio implementation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Mutual Fund, Underlying Portfolio, NAV, Benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Mutual Fund**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A mutual fund is a pooled investment vehicle where investors buy or redeem shares directly with the fund company, typically at end-of-day NAV instead of intraday market prices."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is a pooled fund designed more for scheduled investing than intraday trading."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Mutual fund structure affects pricing timing, liquidity experience, fees, and long-horizon implementation choices."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, NAV, Expense Ratio, Sales Loads."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Pooled Investment Vehicle**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A pooled investment vehicle combines capital from many investors into one professionally managed portfolio with shared holdings, costs, and return stream."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Many people contribute money into one common basket."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Pooling improves accessibility and diversification for investors who do not want to manage each security directly."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, Mutual Fund, Investment Vehicle, Diversification."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Investment Vehicle**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: An investment vehicle is the legal or financial structure used to hold and deploy capital, such as ETFs, mutual funds, trusts, or separate accounts."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the container that carries your strategy into markets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Vehicle structure determines trading rules, taxation, costs, and operational constraints."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Pooled Investment Vehicle, Vehicle, ETF, Mutual Fund."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 39 (Hybrid workflows)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Vehicle**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Vehicle is shorthand for the structure or wrapper through which an investor accesses an asset class or strategy."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the format you use to invest, not the idea itself."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Two vehicles with similar holdings can still produce different net outcomes due to fees, liquidity, and execution mechanics."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Investment Vehicle, ETF, Mutual Fund, Expense Ratio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Underlying Portfolio**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: The underlying portfolio is the actual set of securities or assets held by a fund, which drives the fund's intrinsic value and risk profile."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is what is inside the fund wrapper."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Fund behavior ultimately comes from underlying holdings, not from the name or marketing label."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, Securities, NAV, Market Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 8 (Mean-variance portfolio construction)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**NAV**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Aliases: Net Asset Value"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: NAV is the per-share value of a fund's net assets, calculated as assets minus liabilities divided by shares outstanding."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the accounting value per fund share."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: NAV anchors valuation for pooled funds and helps identify premium/discount behavior in exchange-traded products."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Market Price, ETF, Mutual Fund, Underlying Portfolio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 31 (Order types and trade lifecycle)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Market Price**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Market price is the actual transaction price formed by supply and demand in open trading, which can differ from model or accounting values."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is what buyers and sellers are willing to pay right now."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Execution and realized returns depend on market price, not theoretical value."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Price Discovery, NAV, Liquidity, Market Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 31 (Order types and trade lifecycle)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Creation and Redemption Mechanism**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: The creation and redemption mechanism is the process through which authorized participants exchange baskets of underlying assets for ETF shares (and vice versa), helping align ETF market prices with underlying value."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Large institutions can add or remove ETF shares to keep pricing in line."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: This mechanism is a key reason broad ETFs usually trade close to intrinsic value."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Authorized Participants, Arbitrage, ETF, NAV."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 34 (Limit order books and market making)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Authorized Participants**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Authorized participants are large financial institutions permitted to create and redeem ETF shares directly with the fund sponsor in large blocks."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are the special intermediaries that connect ETF shares to underlying baskets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Their activity supports ETF liquidity, tighter pricing, and arbitrage efficiency."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Creation and Redemption Mechanism, Arbitrage, ETF, Liquidity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 34 (Limit order books and market making)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Arbitrage**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Arbitrage is the practice of exploiting temporary price differences between equivalent or closely linked assets to earn near-risk-neutral profit after costs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Buy where cheap, sell where expensive, close the gap."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Arbitrage pressure helps keep related markets consistent and improves price efficiency."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Price Discovery, ETF, Authorized Participants, Efficiency."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 18 (Equity statistical arbitrage)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Passive ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Passive ETFs aim to track a specified index or ruleset rather than make discretionary security selections to outperform the market."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They follow a benchmark instead of trying to beat it stock by stock."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Passive ETFs are central to low-cost diversification and broad-market exposure."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Passive Investing, Benchmark, Index, Tracking Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Active ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Active ETFs use manager or model discretion to choose holdings and adjust exposures, rather than strictly replicating an index."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Someone is making ongoing portfolio decisions instead of pure index tracking."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Active ETFs can target alpha or risk control, but usually introduce more discretion and cost."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Actively Managed, Passive ETFs, Manager Risk, Benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 21 (ML-based forecasting and features)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Passive Investing**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Passive investing is an approach focused on capturing market or factor exposure by tracking predefined indexes or systematic rules with minimal discretionary forecasting."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Own the market exposure consistently instead of predicting every winner."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: It lowers complexity and often lowers fees and turnover for long-horizon strategies."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Passive ETFs, Benchmark, Index, Diversification."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Actively Managed**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Actively managed means portfolio allocations are selected through discretionary or model-driven decisions intended to outperform or reshape risk relative to a benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: A manager or model is making active bets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Active management can add flexibility but introduces manager skill risk and usually higher costs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Active ETFs, Passively Managed, Manager Risk, Benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 36 (Discretionary fundamental investing)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Passively Managed**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Passively managed means a portfolio is run to replicate an index or fixed ruleset with limited discretionary changes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Follow the rulebook instead of making frequent judgment calls."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Passive implementation improves transparency and cost predictability in many strategies."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Passive Investing, Passive ETFs, Index Mutual Funds, Benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Benchmark**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A benchmark is a reference standard used to evaluate whether a portfolio's return and risk outcomes are strong, weak, or in line with an appropriate alternative."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the scorecard you compare your strategy against."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Performance numbers are hard to interpret without a relevant benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Index, Tracking Risk, Passive Investing, Market Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Index**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: An index is a rules-based measure representing the performance of a defined market segment through a selected and weighted basket of securities."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is a systematic summary of a market, not one tradable company."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Index design drives benchmark choice, passive strategy implementation, and portfolio diagnostics."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Benchmark, Market-Cap Weighted, Equal Weighted, Price Weighted."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Tracking Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Tracking risk is the risk that a fund's realized return deviates from its target index or benchmark due to fees, implementation frictions, or portfolio construction differences."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Your tracker may not perfectly follow what it is supposed to follow."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: It affects whether passive products deliver the exposure investors expect."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Benchmark, Tracking Error, Passive ETFs, Expense Ratio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Diversification**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Diversification is the practice of spreading exposure across multiple assets, sectors, or risk drivers to reduce concentration risk in a single position or theme."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Do not rely on one bet to carry the whole portfolio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Diversification is foundational to risk-adjusted portfolio construction."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Market Risk, Portfolio Design, Equity ETFs, Bond ETFs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Tradability**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Tradability describes how easily and practically an instrument can be entered or exited in the market, considering timing, depth, and execution constraints."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It measures how usable an instrument is in real trading conditions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: High tradability improves implementation quality and lowers operational friction."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Liquidity, Flexibility, Market Price, Transaction Costs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 32 (Transaction costs and slippage)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Flexibility**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Flexibility is the degree to which an instrument can be used across different execution tactics, timing windows, and portfolio objectives."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: More flexibility means more ways to deploy or adjust exposure."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Flexibility influences how quickly and efficiently investors can implement risk or return views."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Tradability, Liquidity, ETF, Market Order."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 33 (Optimal execution)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Accessibility**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Accessibility is the ease with which investors can obtain exposure to a strategy or market, considering minimum capital, platform availability, and operational complexity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: How easy it is for regular investors to use the product."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Accessible products broaden participation and speed strategy adoption."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, Mutual Fund, Investment Vehicle, Expense Ratio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 41 (Matching methods to data and skill level)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Market Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Market risk is the risk of losses caused by broad market movements that affect many securities at once, regardless of individual security specifics."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Even good holdings can drop when the whole market falls."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: It is the base risk layer most diversified portfolios still carry."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Diversification, Benchmark, Volatility, Equity ETFs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 3 (Risk, volatility, and drawdowns)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Leverage**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Leverage is the use of borrowed capital or derivative exposure to magnify gains and losses relative to invested equity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It increases exposure beyond your cash base."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Leverage can improve upside but sharply increases downside sensitivity and path risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Leveraged ETFs, Derivatives, Market Risk, Volatility."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 11 (Risk parity and equal risk contribution)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Derivatives**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Derivatives are contracts whose value is derived from underlying assets, rates, indexes, or other references, and are used for hedging, speculation, and exposure shaping."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: The contract value depends on something else moving."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Derivatives can improve risk control or capital efficiency, but they add complexity and model risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Leverage, Hedgers, Speculators, Options."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 27 (Options foundations)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Leveraged ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Leveraged ETFs are ETFs designed to deliver a multiple of the daily return of a reference index, typically through derivatives and daily rebalancing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They amplify daily moves up and down."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Daily reset effects can cause long-horizon performance to diverge from simple multiple expectations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Leverage, Derivatives, Inverse ETFs, Volatility."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 30 (Volatility as an asset class)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Inverse ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Inverse ETFs are funds engineered to move opposite to a target index's daily performance, often using derivatives and short exposure."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are built to rise when the referenced market falls on that day."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Useful for tactical hedging, but path dependence and daily reset mechanics can create unexpected long-run behavior."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Leveraged ETFs, Derivatives, Market Risk, Hedging."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 29 (Hedging and replication)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Equity ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Equity ETFs are ETFs primarily holding stock exposures, often organized by broad markets, sectors, styles, or regions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are stock baskets wrapped in an exchange-traded fund."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Equity ETFs are common tools for scalable market exposure and allocation tilts."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, Diversification, Benchmark, Sector and Thematic ETFs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 10 (Factor investing and smart beta)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Bond ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Bond ETFs are ETFs holding fixed-income securities and offering tradable exposure to duration, credit, and yield profiles."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They deliver bond exposure in a stock-like trading wrapper."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: They simplify fixed-income access while introducing intraday pricing and liquidity considerations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, Bonds, Yield, Liquidity Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Commodity ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Commodity ETFs provide exposure to commodity markets through physical holdings, futures contracts, or related securities."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are a liquid wrapper for commodity exposure."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Commodity exposures can diversify macro risk but can have roll, storage, and structure effects."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, Commodity Markets, Derivatives, Market Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 15 (Carry strategies)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**International ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: International ETFs hold securities outside the investor's home market and can target global, regional, or single-country exposures."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They let you add non-domestic exposure in one product."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: International allocation changes currency, policy, and regional growth risk in portfolio design."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: ETF, Diversification, Equity ETFs, Benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Sector and Thematic ETFs**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Sector and thematic ETFs concentrate exposure in specific industries or long-horizon themes rather than broad market indexes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are targeted ETF bets on a slice of the market."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Concentration can increase potential upside and downside relative to broad-market products."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Equity ETFs, Benchmark, Diversification, Market Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 10 (Factor investing and smart beta)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Securities**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Securities are tradable financial instruments representing ownership claims, debt claims, or contractual rights."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Securities are the core building blocks that funds and portfolios hold."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Understanding security type determines how risk, return, and cash flows should be interpreted."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Stock, Bonds, Derivatives, Underlying Portfolio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Expense Ratio**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Expense ratio is the annual management and operating cost charged by a fund as a percentage of assets, reducing investor net return."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the ongoing fee drag baked into the fund."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Small fee differences compound meaningfully over long horizons."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Mutual Fund, ETF, Sales Loads, Passive Investing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Sales Loads**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Sales loads are distribution or transaction charges applied when buying and/or selling certain fund shares."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are entry or exit tolls on fund transactions."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Loads directly reduce invested capital or realized proceeds."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Front-End Load, Back-End Load, Expense Ratio, Mutual Fund."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Front-End Load**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A front-end load is a sales charge paid when fund shares are purchased, typically as a percentage of the invested amount."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Part of your money is taken as a fee before full investment starts."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: It reduces initial deployed capital and lowers compounding base."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Sales Loads, Back-End Load, Mutual Fund, Expense Ratio."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Back-End Load**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: A back-end load is a sales charge paid when fund shares are redeemed or sold, often declining with holding period in certain fee schedules."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: You pay a fee when leaving the fund."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Exit charges affect liquidity decisions and realized after-fee returns."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Sales Loads, Front-End Load, Mutual Fund, Liquidity."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Manager Risk**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Manager risk is the risk that discretionary portfolio decisions underperform the benchmark or intended objective due to poor security selection, timing, or process."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Results depend on decision quality, and decisions can be wrong."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: It is a key tradeoff between active and passive fund structures."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Actively Managed, Benchmark, Active ETFs, Tracking Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 36 (Discretionary fundamental investing)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Index Mutual Funds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Index mutual funds are passively managed mutual funds built to replicate a benchmark index rather than outperform through active selection."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Mutual fund structure plus index-tracking objective."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: They combine simple long-horizon implementation with typically lower management costs."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Mutual Fund, Index, Passively Managed, Passive Investing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 6 (Passive indexing and benchmarking)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Bond Mutual Funds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Bond mutual funds are mutual funds that primarily invest in fixed-income securities across government, corporate, or municipal segments."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are pooled bond portfolios in mutual fund format."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: They provide diversified credit and duration exposure but still carry fixed-income risks."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Mutual Fund, Bonds, Interest Rate Risk, Credit Risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Balanced Funds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Balanced funds are pooled portfolios combining equities and fixed income in one product to provide mixed growth and income exposure."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: One fund contains both stock and bond allocations."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Balanced structures simplify allocation for investors seeking blended risk profiles."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Mutual Fund, Equity ETFs, Bond ETFs, Portfolio Design."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Money Market Mutual Funds**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Money market mutual funds invest in short-term, high-quality debt instruments and prioritize liquidity and capital stability over high return."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: They are cash-management style funds, not growth engines."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Useful for cash parking and near-term liquidity management in portfolios."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Mutual Fund, Liquidity, Securities, Yield."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 32 (Transaction costs and slippage)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Portfolio Design**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Portfolio design is the process of choosing asset classes, weights, constraints, and rebalancing rules to align investments with return goals and risk limits."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: It is the blueprint for how the portfolio is built and maintained."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Good design usually matters more than single-asset selection in long-horizon outcomes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Diversification, Strategic Asset Allocation, Benchmark, Rebalancing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 7 (Strategic asset allocation)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Market-Cap Weighted**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Market-cap weighted means index or portfolio weights are proportional to each constituent's market capitalization."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Bigger companies get bigger weights."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: This is the dominant weighting method in broad passive indexes and strongly shapes concentration risk."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Index, Market Capitalization, Equal Weighted, Price Weighted."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 10 (Factor investing and smart beta)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Equal Weighted**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Equal weighted means each constituent receives the same portfolio weight regardless of company size."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Every name contributes equally at rebalance time."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Equal weighting changes factor exposure, turnover, and concentration relative to cap-weighted indexes."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Index, Market-Cap Weighted, Price Weighted, Rebalancing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments), Chapter 10 (Factor investing and smart beta)."
+      },
+      {
+        "type": "paragraph",
+        "text": "**Price Weighted**"
+      },
+      {
+        "type": "paragraph",
+        "text": "Definition: Price weighted means constituents with higher share prices receive greater influence in index movement, regardless of company size."
+      },
+      {
+        "type": "paragraph",
+        "text": "Intuition: Higher-priced stocks matter more in index moves."
+      },
+      {
+        "type": "paragraph",
+        "text": "Why it matters: Price weighting can create unintuitive exposure compared with cap-weighting."
+      },
+      {
+        "type": "paragraph",
+        "text": "Related terms: Index, Market-Cap Weighted, Equal Weighted, Benchmark."
+      },
+      {
+        "type": "paragraph",
+        "text": "Chapter references: Chapter 1 (Financial markets and instruments)."
+      },
+      {
         "type": "subheading",
         "text": "Trading and market microstructure terms"
       },
