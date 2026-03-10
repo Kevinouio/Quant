@@ -264,7 +264,12 @@ function findSectionContentRange(pageSource) {
     return null;
   }
 
-  const arrayStart = pageSource.indexOf("[", start);
+  const equalsIndex = pageSource.indexOf("=", start);
+  if (equalsIndex === -1) {
+    return null;
+  }
+
+  const arrayStart = pageSource.indexOf("[", equalsIndex);
   if (arrayStart === -1) {
     return null;
   }

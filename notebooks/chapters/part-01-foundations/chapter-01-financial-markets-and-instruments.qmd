@@ -12,52 +12,158 @@ format:
 Now we actually begin with our starting topic of just a broad view of finance and investing.
 
 
-## What is a Market?
+## Markets
 
-The most important thing when discussing finance is how a "market" moves or just in general how a market works. What is a Market you ask? Well we can define a market as multiple different things. At the most high level description of what a market is, it is a place or system to which buyers and sellers interact to exchange something in value. An example of this that you can see in your day to day like is at a supermarket like Walmart where the seller is the store and us the people are the buyer. 
+In economics and finance, the word **market** refers to any arrangement in which buyers and sellers come together to exchange goods, services, or financial assets. A market doesn't need to be a physical location as it can represent many different things. It could represent a store, a stock exchange, a website, or even an information system of trade between individuals or companies. What makes something a market just depends on the interaction between supply and demand of a given asset.
 
-That is more just a general description to what a market is. For what we are interested in, a market can also be like eBay, the New York Stock Exchange, or even Kalshi/PolyMarket. Let us observe an example stock of NVIDIA.
+At its core, a market is just a mechanism for organizing trade. It helps determine who gets what at what price and under what conditions. Because of this, it becomes the central foundations of economic life. They influence not only just prices, but also the production, consumption, wages, investment, and the allocation of resources across society. 
+
+A more formal definition of a market can be defined as:
+
+**A system or institution in which exchange takes place and in which prices are formed through the interaction of buyers and sellers.**
+
+Some more proper examples of a market are 
+- A farmers market allows people to buy and sell produce.
+- A housing market allows people to buy, sell, or rent homes.
+- A labor market allows workers to offer labor and employers to hire them.
+- A stock market allows investors to buy and sell shares of ownership in companies.
+
+### Functions of a Market
+
+A market performs several important functions that explains why they are vital in economics and finance.
+
+**(A)** Facilitate Exchange
+
+The most obvious role of a market is to allow trade to even occur. Without markets, individuals would have great difficulty finding others who are willing to exchange with this. Markets essentially reduce this difficulty by bringing together participants with opposite needs or preferences.
+
+An instance of this is suppose a person has extra wheat and wants to sell that extra for some money or something of value. Another person then wants some wheat. Then a market would help facilitate and provide the setting to which this exchange can happen. 
+
+**(B)** Determining Prices 
+
+The price of a given good isn't given arbitrarily. In markets that are more dependent on the individuals, it more depends on the interactions between how much buyers are willing to pay and how much sellers are willing to accept. This general process is known as price discovery.
+
+If many buyers compete for a scarce good, the price tends to rise. If sellers are eager to get rid of an item but buyers are scarce, the price tends to fall. The market is therefore the institution through which value is translated into an actual transaction price.
 
 
-```{python}
-import yfinance as yf
-from datetime import datetime
-close = (
-    yf.Ticker("NVDA")
-    .history(period="1d", interval="1m", prepost=True, auto_adjust=False)["Close"]
-    .dropna()
-)
-ax = close.plot(figsize=(12, 4), color="#76B900", linewidth=1.6, grid=True, title=f"NVDA Intraday Price ({datetime.now().date()})")
-ax.set_xlabel("Time")
-ax.set_ylabel("Price (USD)")
-```
+**(C)** Allocating Resources
 
-A better understanding to what we will be working for the majority of the time in the notebooks are markets like the NVDA stock. In the context of a given stock, the buyer is esentially us investing the money into a company and the seller is the company intself to which we invest into the given company. The main goal to which we are trying to accomplish is to answer the question, "How can I choose the best market to invest in so that my money such that I can make the most profit." If this question was already answered, then I wouldn't even be making this whole website as if anyone can figure that out, then anyone can already be a millionare. 
+Markets help direct resources toward their most valued uses. If consumers strongly demand a certain product, its price may rise, encouraging firms to produce more of it. If demand falls, production may decline. In this way, markets send signals about what should be produced, how much should be produced, and where resources should be directed.
 
-So why is this an unsolved problem? Well that is because as every market is, it is *Stochastic*. Stochastic in the simplest defnintion means that a given thing is random moving. With a given market being random, it leads to uncertanty to when to invest and sell back a product to a seller. 
+This is one reason markets are important in large economies. They help coordinate countless individual decisions without requiring a single central authority to plan every exchange.
 
-### Why does the market move? 
+**(D)** Conveying Information
 
-Well this can come from many different factors. A high level reason to why it moves is because of a general opinion to how valuable a product is due to current information. 
+Prices in markets often contain information. A rising price may indicate scarcity, increasing demand, or positive expectations about the future. A falling price may indicate the opposite. In financial markets especially, prices reflect the beliefs, expectations, and reactions of many participants.
+
+Because of this, economists often say that markets aggregate information. Each participant may have only a small piece of knowledge, but market prices reflect the combined effect of many decisions made by many people.
+
+*Note before moving on: There are going to be more financial jargon moving forward and for words that you are unfamiliar with. Refer to the Glossary for any words that you are unfamiliar with. *
+
+### How are prices Formed?
+
+The price of somethign ina  market reflects on the balance between the willingness of buyers to purchase and willingness of sellers to sell. However, in real markets, price formation is often more complicated than a simple supply and demand curve. 
+
+In *financial markets*, this can be influenced by:
+
+- expectations about future profits
+- interest rates
+- news and announcements
+- investor sentiment
+- liquidity conditions
+- algorithmic trading
+- risk preferences
+- regulation and policy
+
+
+## Stocks
+
+So there exists other different markets than the ones that I just listed. The main one that mostly everyone know about is a stock. A **stock** is a small piece of ownership of a company. When a person decides to buy a stock, they become a shareholder as they own a part of the company. Stocks are one of the primary ways for companies to raise their **capital** and one of the primary ways in which investors participate in the growth and profitability in a business. Because a stock represents the ownership of a company rather than a loan, the value of a stock depends on the companies performance and perceived worth of their company. 
+
+A stock and also be referred to as **equity**, a claim on the residual value of a company after its obligations have been satisfied. ######## Equities can also be defined as 
+$$ Assets - Liabilities = Equity$$
+Assets things that a person or company own that have a value and liabilities is what the company owes or the amount in "debt" they are in. 
+
+### Why do we have Stocks?
+
+Companies allow people to buy stocks of their companies for many reasons. But altogether, the reason why they want to is in raise their **capital**. They want people to buy the stock to properly
+- Do research
+- Develop products
+- Hire employees
+- etc.
+When a company sells stock, it receives funds from investors in exchange for partial ownership of the business. Unlike debt financing, equity financing does not require the company to make fixed interest payments. However, it does require the company to share ownership and future profits with shareholders.
+
+So from this perspective of the company, issuing stock can be attractive because it provides capital without creating mandatory repayment obligations. From the perspective of an investor, purchasing a stock is beneficial as they can benefit from the successes from the business.
+
+### Private vs Public Companies
+
+Not all companies are free to be invested in by the public. These companies are called private companies. A *private company* is a company where it limit the people who can invest in the company (e.g. founders, individuals, private equity firms, or employees). This is the area for companies like Citadel, Two Sigma, and other private firms mostly do their work in. An example of a private company would be SpaceX as if you try and search their current stock value, it will become apparent that it is not public information. 
+
+Now for a public company, it is a company whose shares are made public for people to buy and invest in. Companies that are typically considered to be a public company fall into the New York Stock Exchange or Nasdaq. 
+
+### Different Kinds of Stocks
+
+Although you can just throw the word stock around as just some "share" of a company, there are two distinct kinds of stocks that you could be talking about.
+
+A **common stock** is the standard form of corporate ownership. Shareholders typically have:
+
+-voting rights in corporate matters,
+-a claim on company profits through dividends if dividends are declared,
+-the potential to benefit from appreciation in the company’s share price.
+
+However, common shareholders are also the lowest in priority if the company is liquidated or goes bankrupt. They are paid only after criditors and preferred shareholders have been satisfied. 
+
+A **preferred stock** generally provides shareholders with priority over common shareholders in receiving dividends and in liquidation. In many cases, preferred stock pays a fixed dividend, making it resemble a hybrid between stock and debt.
+
+However, preferred shareholders often have limited voting rights or none at all. Preferred stock is less central to beginner investing discussions, but it remains important in corporate finance.
+
+The value of owning stock comes from the fact that shareholders participate in the company’s long-term financial life. If the business grows, becomes more profitable, or is viewed more favorably by investors, the stock may increase in value. If the business struggles, loses profitability, or faces uncertainty, the stock may decline. Because of this, a stock is not just a number moving on a screen. It is a market-priced claim on the future of a business.
+
+### How do you earn?
+
+Investors generally earn returns from stocks in two main ways: capital appreciation and dividends. Capital appreciation occurs when the stock’s market price rises over time. Dividends are cash payments that some companies distribute to shareholders out of their earnings. Not every company pays dividends, since many prefer to reinvest profits back into growth, but both appreciation and dividends are central to why stocks are attractive as investments.
+
+A stock’s price is determined in the market by the interaction of buyers and sellers. That price reflects what investors believe the company is worth today based on what they expect it to do in the future. For that reason, stock prices are heavily influenced by expectations about revenue, earnings, competition, innovation, leadership, and overall economic conditions. In practice, this means that a stock price often moves not simply because of what a company is now, but because of what investors think it will become.
+
+It is also important to distinguish the stock’s price from the size of the company. A higher share price does not necessarily mean a company is larger or more valuable. What matters more is market capitalization, which measures the total value of all the company’s outstanding shares. This gives a more complete picture of the market’s valuation of the company as a whole.
+
+
+### Technicality of Trading 
+
+Stocks trade in two main settings: the primary market and the secondary market. In the primary market, the company itself issues shares to raise money. In the secondary market, investors trade shares with one another after those shares have already been issued. Most of the stock buying and selling people see through brokerage apps happens in the secondary market.
+
+When investors trade stock, they do so by submitting orders. A market order executes immediately at the best available price, while a limit order only executes at a specified price or better. At any moment, the bid represents what buyers are willing to pay, the ask represents what sellers are willing to accept, and the spread is the gap between those two prices. These details matter because they show that stock trading is not only about value, but also about market mechanics.
+
+Another important feature of stocks is liquidity. Liquidity refers to how easily a stock can be bought or sold without causing a large movement in price. Stocks that trade heavily are usually more liquid, making them easier and cheaper to enter or exit. Less liquid stocks can be more difficult to trade efficiently and may carry additional practical risk beyond the company’s business fundamentals.
+
+Although stocks offer meaningful upside, they also involve real risk. Since stockholders are owners rather than lenders, they stand lower in priority if a company fails. In bankruptcy, creditors and bondholders are generally paid before common shareholders. This means stockholders benefit greatly when a company succeeds, but they also bear substantial risk when it does not.
 
 
 
-## Stocks, bonds, ETFs, mutual funds
 
-- Stocks, bonds, ETFs, mutual funds placeholder for Financial markets and instruments.
-- Add concrete definitions, formulas, and implementation notes in a later pass.
+## Bonds
 
-### Indexes and benchmarks
+rdhdrhdr
+## ETFs
+
+afgdhg
+## Mutual Funds
+
+
+faff
+
+
+
+## Indexes and benchmarks
 
 - Indexes and benchmarks placeholder for Financial markets and instruments.
 - Add concrete definitions, formulas, and implementation notes in a later pass.
 
-### Derivatives at a high level
+## Derivatives at a high level
 
 - Derivatives at a high level placeholder for Financial markets and instruments.
 - Add concrete definitions, formulas, and implementation notes in a later pass.
 
-### Exchanges, brokers, and market participants
+## Exchanges, brokers, and market participants
 
 - Exchanges, brokers, and market participants placeholder for Financial markets and instruments.
 - Add concrete definitions, formulas, and implementation notes in a later pass.

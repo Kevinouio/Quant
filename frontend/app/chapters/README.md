@@ -78,3 +78,7 @@ Generated index for frontend chapter route pages.
 - Appendix A: `part-09-appendix/mathematics/page.tsx` -> `/chapters/part-09-appendix/mathematics`
 - Appendix B: `part-09-appendix/computer-science-topics/page.tsx` -> `/chapters/part-09-appendix/computer-science-topics`
 - Appendix C: `part-09-appendix/coding-tools/page.tsx` -> `/chapters/part-09-appendix/coding-tools`
+
+## Part 10. Glossary
+
+- Chapter 47: `part-10-glossary/glossary/page.tsx` -> `/chapters/part-10-glossary/glossary`

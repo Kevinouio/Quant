@@ -32,6 +32,44 @@ function chapterDisplayLabel(chapter: ChapterMeta): string {
   return `Chapter ${chapter.chapterNumber}. ${chapter.chapterTitle}`;
 }
 
+function renderInlineMarkdown(text: string): ReactNode {
+  const tokenPattern = /(\*\*[^*\n]+\*\*|__[^_\n]+__|\*[^*\n]+\*|_[^_\n]+_)/g;
+  const nodes: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null = null;
+
+  while (true) {
+    match = tokenPattern.exec(text);
+    if (!match) {
+      break;
+    }
+
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+
+    const token = match[0];
+    const key = `${match.index}-${token}`;
+
+    if (
+      (token.startsWith("**") && token.endsWith("**")) ||
+      (token.startsWith("__") && token.endsWith("__"))
+    ) {
+      nodes.push(<strong key={key}>{token.slice(2, -2)}</strong>);
+    } else {
+      nodes.push(<em key={key}>{token.slice(1, -1)}</em>);
+    }
+
+    lastIndex = tokenPattern.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+
+  return nodes.length === 0 ? text : nodes;
+}
+
 export function ChapterPageLayout({
   chapter,
   sectionContent,
@@ -41,25 +79,55 @@ export function ChapterPageLayout({
   sectionContent: ChapterSectionContent[];
   sectionExtras?: Record<string, ReactNode>;
 }) {
-  const sectionIdByTitle = Object.fromEntries(
-    sectionContent.map((section) => [section.title, toSectionId(section.title)])
-  );
+  const sectionModels = sectionContent.map((section, sectionIndex) => {
+    const sectionId = toSectionId(section.title);
+    const subheadingIdsByBlockIndex = new Map<number, string>();
+    let subheadingCount = 0;
+
+    section.blocks?.forEach((block, blockIndex) => {
+      if (block.type === "subheading") {
+        subheadingCount += 1;
+        const subheadingId = toSectionId(`${section.title}-${block.text}-${subheadingCount}`);
+        subheadingIdsByBlockIndex.set(blockIndex, subheadingId);
+      }
+    });
+
+    return { section, sectionId, sectionIndex, subheadingIdsByBlockIndex };
+  });
 
   const tocItems = [
-    { href: "#overview", label: "Overview" },
-    ...sectionContent.map((section) => ({
-      href: `#${sectionIdByTitle[section.title]}`,
-      label: section.title
-    }))
+    { href: "#overview", label: "Overview", level: 1 },
+    ...sectionModels.flatMap(({ section, sectionId, subheadingIdsByBlockIndex }) => {
+      const items: { href: string; label: string; level: number }[] = [
+        { href: `#${sectionId}`, label: section.title, level: 2 }
+      ];
+
+      section.blocks?.forEach((block, blockIndex) => {
+        if (block.type === "subheading") {
+          const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
+          if (subheadingId) {
+            items.push({ href: `#${subheadingId}`, label: block.text, level: 3 });
+          }
+        }
+      });
+
+      return items;
+    })
   ];
 
   const sidebarGroups = chaptersByPart.map((part) => ({
     title: `Part ${part.partNumber}. ${part.partTitle}`,
-    items: part.chapters.map((candidate) => ({
-      href: chapterHref(candidate),
-      label: chapterDisplayLabel(candidate),
-      active: candidate.partSlug === chapter.partSlug && candidate.chapterSlug === chapter.chapterSlug
-    }))
+      items: part.chapters.map((candidate) => ({
+        href: chapterHref(candidate),
+        label: chapterDisplayLabel(candidate),
+        active: candidate.partSlug === chapter.partSlug && candidate.chapterSlug === chapter.chapterSlug,
+        subItems:
+          candidate.partSlug === chapter.partSlug && candidate.chapterSlug === chapter.chapterSlug
+            ? tocItems
+              .filter((item) => item.href !== "#overview")
+              .map((item) => ({ href: item.href, label: item.label, level: item.level }))
+            : undefined
+      }))
   }));
 
   return (
@@ -80,24 +148,29 @@ export function ChapterPageLayout({
           <p>{chapter.summary}</p>
         </header>
 
-        {sectionContent.map((section) => (
-          <section className="article-section" id={sectionIdByTitle[section.title]} key={section.title}>
+        {sectionModels.map(({ section, sectionId, subheadingIdsByBlockIndex }) => (
+          <section className="article-section" id={sectionId} key={section.title}>
             <h2>{section.title}</h2>
             {section.blocks ? (
               section.blocks.map((block, blockIndex) => {
                 if (block.type === "paragraph") {
-                  return <p key={`${section.title}-block-${blockIndex}`}>{block.text}</p>;
+                  return <p key={`${section.title}-block-${blockIndex}`}>{renderInlineMarkdown(block.text)}</p>;
                 }
 
                 if (block.type === "subheading") {
-                  return <h3 key={`${section.title}-block-${blockIndex}`}>{block.text}</h3>;
+                  const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
+                  return (
+                    <h3 id={subheadingId} key={`${section.title}-block-${blockIndex}`}>
+                      {renderInlineMarkdown(block.text)}
+                    </h3>
+                  );
                 }
 
                 if (block.type === "unorderedList") {
                   return (
                     <ul key={`${section.title}-block-${blockIndex}`}>
                       {block.items.map((item) => (
-                        <li key={`${section.title}-block-${blockIndex}-${item}`}>{item}</li>
+                        <li key={`${section.title}-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
                       ))}
                     </ul>
                   );
@@ -115,7 +188,7 @@ export function ChapterPageLayout({
                 return (
                   <ol key={`${section.title}-block-${blockIndex}`}>
                     {block.items.map((item) => (
-                      <li key={`${section.title}-block-${blockIndex}-${item}`}>{item}</li>
+                      <li key={`${section.title}-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
                     ))}
                   </ol>
                 );
@@ -123,19 +196,19 @@ export function ChapterPageLayout({
             ) : (
               <>
                 {section.paragraphs?.map((paragraph, index) => (
-                  <p key={`${section.title}-${index}`}>{paragraph}</p>
+                  <p key={`${section.title}-${index}`}>{renderInlineMarkdown(paragraph)}</p>
                 ))}
                 {section.orderedLists?.map((items, listIndex) => (
                   <ol key={`${section.title}-ol-${listIndex}`}>
                     {items.map((item) => (
-                      <li key={`${section.title}-ol-${listIndex}-${item}`}>{item}</li>
+                      <li key={`${section.title}-ol-${listIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
                     ))}
                   </ol>
                 ))}
                 {section.unorderedLists?.map((items, listIndex) => (
                   <ul key={`${section.title}-ul-${listIndex}`}>
                     {items.map((item) => (
-                      <li key={`${section.title}-ul-${listIndex}-${item}`}>{item}</li>
+                      <li key={`${section.title}-ul-${listIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
                     ))}
                   </ul>
                 ))}

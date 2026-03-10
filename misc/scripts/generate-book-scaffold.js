@@ -598,6 +598,24 @@ const partDefinitions = [
         ]
       }
     ]
+  },
+  {
+    partNumber: 10,
+    partTitle: "Glossary",
+    partSlug: "part-10-glossary",
+    chapters: [
+      {
+        chapterNumber: 47,
+        chapterTitle: "Glossary",
+        sections: [
+          "How to use this glossary",
+          "Finance and investing terms",
+          "Trading and market microstructure terms",
+          "Math and statistics terms",
+          "Implementation and coding terms"
+        ]
+      }
+    ]
   }
 ];
 

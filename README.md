@@ -34,6 +34,6 @@ Open: `http://localhost:3000`
 
 ## Next implementation targets
 
-1. Replace placeholder chapter bodies with full instructional content.
-2. Add a notebook-to-TSX sync workflow so chapter edits can be promoted consistently.
-3. Add backend-powered interactive demos where computation is needed.
+1. Implement a glossary for terms that are generally unfamiliar or are already in the glossary
+2. Continue writing chapters (CURRENT Chapter 1)
+

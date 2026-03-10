@@ -69,6 +69,11 @@ export const partMetadata: PartMeta[] = [
     "partNumber": 9,
     "partTitle": "Appendix",
     "partSlug": "part-09-appendix"
+  },
+  {
+    "partNumber": 10,
+    "partTitle": "Glossary",
+    "partSlug": "part-10-glossary"
   }
 ];
 
@@ -919,6 +924,24 @@ export const chapterMetadata: ChapterMeta[] = [
     "partSlug": "part-09-appendix",
     "summary": "Placeholder summary for Coding tools.",
     "status": "placeholder"
+  },
+  {
+    "chapterNumber": 47,
+    "chapterTitle": "Glossary",
+    "sections": [
+      "How to use this glossary",
+      "Finance and investing terms",
+      "Trading and market microstructure terms",
+      "Math and statistics terms",
+      "Implementation and coding terms"
+    ],
+    "chapterSlug": "glossary",
+    "chapterCode": null,
+    "partNumber": 10,
+    "partTitle": "Glossary",
+    "partSlug": "part-10-glossary",
+    "summary": "Placeholder summary for Glossary.",
+    "status": "detailed"
   }
 ];
 

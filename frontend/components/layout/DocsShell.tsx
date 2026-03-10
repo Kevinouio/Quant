@@ -6,6 +6,7 @@ type NavItem = {
   href: string;
   label: string;
   active?: boolean;
+  subItems?: TocItem[];
 };
 
 type SidebarGroup = {
@@ -22,6 +23,7 @@ type SidebarHomeLink = {
 type TocItem = {
   href: string;
   label: string;
+  level?: number;
 };
 
 type DocsShellProps = {
@@ -167,6 +169,28 @@ export function DocsShell({
                         <a className={classNames} href={item.href} onClick={closeNav}>
                           {item.label}
                         </a>
+                        {item.subItems && item.active ? (
+                          <ul className="nav-sublist">
+                            {item.subItems.map((subItem) => {
+                              const isSubActive = activeSection === getHashId(subItem.href);
+                              const subClassName = [
+                                "sidebar-sublink",
+                                subItem.level === 3 ? "is-subheading" : "",
+                                isSubActive ? "is-active" : ""
+                              ]
+                                .filter(Boolean)
+                                .join(" ");
+
+                              return (
+                                <li key={subItem.href}>
+                                  <a className={subClassName} href={subItem.href} onClick={closeNav}>
+                                    {subItem.label}
+                                  </a>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        ) : null}
                       </li>
                     );
                   })}
@@ -210,7 +234,12 @@ export function DocsShell({
             <ul className="section-nav">
               {tocItems.map((item) => {
                 const isActive = activeSection === getHashId(item.href);
-                const className = isActive ? "is-active" : "";
+                const className = [
+                  item.level === 3 ? "is-subheading" : "",
+                  isActive ? "is-active" : ""
+                ]
+                  .filter(Boolean)
+                  .join(" ");
 
                 return (
                   <li key={item.href}>

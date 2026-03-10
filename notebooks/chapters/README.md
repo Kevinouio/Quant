@@ -78,3 +78,7 @@ Generated index for notebook draft chapters.
 - Appendix A: `part-09-appendix/chapter-44-mathematics.qmd` -> `/chapters/part-09-appendix/mathematics`
 - Appendix B: `part-09-appendix/chapter-45-computer-science-topics.qmd` -> `/chapters/part-09-appendix/computer-science-topics`
 - Appendix C: `part-09-appendix/chapter-46-coding-tools.qmd` -> `/chapters/part-09-appendix/coding-tools`
+
+## Part 10. Glossary
+
+- Chapter 47: `part-10-glossary/chapter-47-glossary.qmd` -> `/chapters/part-10-glossary/glossary`
