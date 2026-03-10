@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { chapterHref, chaptersByPart, type ChapterMeta } from "../../lib/chapterMetadata";
 import { DocsShell } from "./DocsShell";
 
@@ -5,9 +7,13 @@ export type ChapterSectionContent = {
   title: string;
   paragraphs?: string[];
   orderedLists?: string[][];
+  unorderedLists?: string[][];
   blocks?: Array<
     | { type: "paragraph"; text: string }
     | { type: "orderedList"; items: string[] }
+    | { type: "unorderedList"; items: string[] }
+    | { type: "subheading"; text: string }
+    | { type: "codeBlock"; language?: string; code: string }
   >;
 };
 
@@ -28,10 +34,12 @@ function chapterDisplayLabel(chapter: ChapterMeta): string {
 
 export function ChapterPageLayout({
   chapter,
-  sectionContent
+  sectionContent,
+  sectionExtras
 }: {
   chapter: ChapterMeta;
   sectionContent: ChapterSectionContent[];
+  sectionExtras?: Record<string, ReactNode>;
 }) {
   const sectionIdByTitle = Object.fromEntries(
     sectionContent.map((section) => [section.title, toSectionId(section.title)])
@@ -81,6 +89,29 @@ export function ChapterPageLayout({
                   return <p key={`${section.title}-block-${blockIndex}`}>{block.text}</p>;
                 }
 
+                if (block.type === "subheading") {
+                  return <h3 key={`${section.title}-block-${blockIndex}`}>{block.text}</h3>;
+                }
+
+                if (block.type === "unorderedList") {
+                  return (
+                    <ul key={`${section.title}-block-${blockIndex}`}>
+                      {block.items.map((item) => (
+                        <li key={`${section.title}-block-${blockIndex}-${item}`}>{item}</li>
+                      ))}
+                    </ul>
+                  );
+                }
+
+                if (block.type === "codeBlock") {
+                  const languageClass = block.language ? `language-${block.language}` : undefined;
+                  return (
+                    <pre key={`${section.title}-block-${blockIndex}`}>
+                      <code className={languageClass}>{block.code}</code>
+                    </pre>
+                  );
+                }
+
                 return (
                   <ol key={`${section.title}-block-${blockIndex}`}>
                     {block.items.map((item) => (
@@ -101,8 +132,16 @@ export function ChapterPageLayout({
                     ))}
                   </ol>
                 ))}
+                {section.unorderedLists?.map((items, listIndex) => (
+                  <ul key={`${section.title}-ul-${listIndex}`}>
+                    {items.map((item) => (
+                      <li key={`${section.title}-ul-${listIndex}-${item}`}>{item}</li>
+                    ))}
+                  </ul>
+                ))}
               </>
             )}
+            {sectionExtras?.[section.title]}
           </section>
         ))}
       </article>

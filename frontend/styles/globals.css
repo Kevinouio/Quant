@@ -350,6 +350,76 @@ th {
   border-radius: 7px;
 }
 
+.market-widget {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  background: #fbfdff;
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+
+.market-widget__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.market-widget__controls label {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.market-widget__controls input {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.92rem;
+  min-width: 130px;
+  background: var(--surface);
+}
+
+.market-widget__controls button {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.34rem 0.62rem;
+  font-size: 0.9rem;
+  background: #f4f8fd;
+  cursor: pointer;
+}
+
+.market-widget__message {
+  margin: 0.75rem 0 0;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+.market-widget__message--error {
+  color: #9f2d2d;
+}
+
+.market-widget__chart-wrap {
+  margin-top: 0.75rem;
+}
+
+.market-widget__chart {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.market-widget__stats {
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: #3e4b5c;
+}
+
 .right-toc {
   position: sticky;
   top: 0;

@@ -33,3 +33,13 @@ Open: `http://localhost:3000`
 - Draft in `notebooks/`
 - Promote drafts into per-chapter route files at `frontend/app/chapters/{part-slug}/{chapter-slug}/page.tsx`
 - Render via `/chapters/{partSlug}/{chapterSlug}`
+
+## Backend connection
+
+Set backend API base URL for client widgets:
+
+```powershell
+$env:NEXT_PUBLIC_BACKEND_BASE_URL="http://127.0.0.1:8000"
+```
+
+Default fallback (if unset): `http://127.0.0.1:8000`

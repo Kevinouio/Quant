@@ -23,3 +23,24 @@ Implement `POST /backtest/passive-indexing` and return:
 - equity curve points
 - summary metrics
 - assumptions used in run
+
+## Local setup
+
+```powershell
+cd backend
+python -m pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+API base: `http://127.0.0.1:8000`
+
+## Market data endpoint
+
+`GET /market/timeseries`
+
+Query params:
+
+- `symbol` (required, e.g. `NVDA`)
+- `interval` (default `1m`)
+- `period` (default `1d`)
+- `prepost` (default `true`)

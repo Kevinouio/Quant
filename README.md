@@ -17,7 +17,7 @@ Quant/
 ## Workflow model
 
 1. Draft and test ideas in `notebooks/`.
-2. Convert chapter drafts into route-local TSX content in `frontend/app/chapters/{part-slug}/{chapter-slug}/page.tsx`.
+2. Sync authored chapter drafts into route-local TSX content with `npm run sync:qmd`.
 3. Render chapters with the app route contract `/chapters/{partSlug}/{chapterSlug}`.
 4. Call backend APIs only when computation is too heavy for client-side execution.
 

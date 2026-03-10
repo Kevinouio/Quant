@@ -17,7 +17,7 @@ notebooks/
 
 1. Explore and write in `chapters/` and `experiments/`.
 2. Refine explanations and visuals.
-3. Promote cleaned content into chapter route files under `frontend/app/chapters/{part-slug}/{chapter-slug}/page.tsx`.
+3. Sync authored `.qmd` content into chapter route files with `npm run sync:qmd`.
 4. Move stable code into `backend/app/` if it is reused or computationally heavy.
 
 ## Render output location

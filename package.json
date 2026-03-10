@@ -7,6 +7,7 @@
     "dev": "next dev frontend",
     "build": "next build frontend",
     "start": "next start frontend",
+    "sync:qmd": "node misc/scripts/sync-authored-qmd-to-tsx.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
