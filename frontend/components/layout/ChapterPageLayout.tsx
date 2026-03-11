@@ -166,17 +166,53 @@ export function ChapterPageLayout({
 
   const sidebarGroups = chaptersByPart.map((part) => ({
     title: `Part ${part.partNumber}. ${part.partTitle}`,
-      items: part.chapters.map((candidate) => ({
+    items: part.chapters.map((candidate) => {
+      const isActiveChapter =
+        candidate.partSlug === chapter.partSlug && candidate.chapterSlug === chapter.chapterSlug;
+      const chapterId = `${candidate.partSlug}/${candidate.chapterSlug}`;
+
+      const children = isActiveChapter
+        ? sectionModels.map(
+            ({
+              sectionId,
+              sectionLabel,
+              section,
+              subheadingIdsByBlockIndex,
+              subheadingLabelsByBlockIndex
+            }) => ({
+              id: `${chapterId}:${sectionId}`,
+              href: `#${sectionId}`,
+              label: sectionLabel,
+              children: section.blocks
+                ?.map((block, blockIndex) => {
+                  if (block.type !== "subheading") {
+                    return null;
+                  }
+
+                  const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
+                  if (!subheadingId) {
+                    return null;
+                  }
+
+                  return {
+                    id: `${chapterId}:${sectionId}:${subheadingId}`,
+                    href: `#${subheadingId}`,
+                    label: subheadingLabelsByBlockIndex.get(blockIndex) ?? block.text
+                  };
+                })
+                .filter((subheading): subheading is { id: string; href: string; label: string } => Boolean(subheading))
+            })
+          )
+        : undefined;
+
+      return {
+        id: chapterId,
         href: chapterHref(candidate),
         label: chapterDisplayLabel(candidate),
-        active: candidate.partSlug === chapter.partSlug && candidate.chapterSlug === chapter.chapterSlug,
-        subItems:
-          candidate.partSlug === chapter.partSlug && candidate.chapterSlug === chapter.chapterSlug
-            ? tocItems
-              .filter((item) => item.href !== "#overview")
-              .map((item) => ({ href: item.href, label: item.label, level: item.level }))
-            : undefined
-      }))
+        active: isActiveChapter,
+        children
+      };
+    })
   }));
 
   return (

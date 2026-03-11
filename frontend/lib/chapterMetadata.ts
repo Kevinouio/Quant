@@ -111,7 +111,7 @@ export const chapterMetadata: ChapterMeta[] = [
     "partNumber": 1,
     "partTitle": "Foundations of finance",
     "partSlug": "part-01-foundations",
-    "summary": "Foundations chapter introducing markets, stocks, and bonds, plus core fixed-income terms and risks.",
+    "summary": "Foundations chapter introducing markets, stocks, and bonds, plus core fixed-income terms and risks. This chapter will be the longest chapter out of each one as esentially this is all a review of finance and",
     "status": "detailed"
   },
   {

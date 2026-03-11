@@ -12,6 +12,7 @@ function chapterNavLabel(chapter: { chapterNumber: number; chapterCode: string |
 const sidebarGroups = chaptersByPart.map((part) => ({
   title: `Part ${part.partNumber}. ${part.partTitle}`,
   items: part.chapters.map((chapter) => ({
+    id: `${chapter.partSlug}/${chapter.chapterSlug}`,
     href: chapterHref(chapter),
     label: chapterNavLabel(chapter)
   }))

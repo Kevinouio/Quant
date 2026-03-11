@@ -5,11 +5,25 @@ import { type ReactNode, useEffect, useMemo, useState } from "react";
 import { GlossaryPanelProvider } from "../glossary/GlossaryPanelContext";
 import { GlossarySidePanel } from "../glossary/GlossarySidePanel";
 
+type SidebarSubsectionItem = {
+  id: string;
+  href: string;
+  label: string;
+};
+
+type SidebarSectionItem = {
+  id: string;
+  href: string;
+  label: string;
+  children?: SidebarSubsectionItem[];
+};
+
 type NavItem = {
+  id: string;
   href: string;
   label: string;
   active?: boolean;
-  subItems?: TocItem[];
+  children?: SidebarSectionItem[];
 };
 
 type SidebarGroup = {
@@ -48,6 +62,13 @@ function getHashId(href: string): string | null {
   return href.slice(1) || null;
 }
 
+function toDomId(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function DocsShell({
   children,
   sidebarHomeLink,
@@ -60,10 +81,21 @@ export function DocsShell({
 }: DocsShellProps) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [expandedChapterId, setExpandedChapterId] = useState<string | null>(null);
+  const [expandedSectionByChapter, setExpandedSectionByChapter] = useState<Record<string, string | null>>({});
   const sectionIds = useMemo(
     () => tocItems.map((item) => getHashId(item.href)).filter(Boolean) as string[],
     [tocItems]
   );
+  const activeChapterId = useMemo(() => {
+    for (const group of sidebarGroups) {
+      const match = group.items.find((item) => item.active);
+      if (match) {
+        return match.id;
+      }
+    }
+    return null;
+  }, [sidebarGroups]);
 
   useEffect(() => {
     const onResize = () => {
@@ -125,8 +157,29 @@ export function DocsShell({
     return () => observer.disconnect();
   }, [sectionIds]);
 
+  useEffect(() => {
+    if (!activeChapterId) {
+      return;
+    }
+
+    setExpandedChapterId(activeChapterId);
+    setExpandedSectionByChapter((current) => ({ ...current, [activeChapterId]: null }));
+  }, [activeChapterId]);
+
   const closeNav = () => setIsNavOpen(false);
   const navOpenClass = isNavOpen ? "left-nav is-open" : "left-nav";
+
+  const toggleChapter = (chapterId: string) => {
+    setExpandedChapterId((current) => (current === chapterId ? null : chapterId));
+    setExpandedSectionByChapter((current) => ({ ...current, [chapterId]: null }));
+  };
+
+  const toggleSection = (chapterId: string, sectionId: string) => {
+    setExpandedSectionByChapter((current) => ({
+      ...current,
+      [chapterId]: current[chapterId] === sectionId ? null : sectionId
+    }));
+  };
 
   return (
     <GlossaryPanelProvider>
@@ -161,6 +214,9 @@ export function DocsShell({
                   <h2>{group.title}</h2>
                   <ul className="nav-list">
                     {group.items.map((item) => {
+                      const chapterHasChildren = Boolean(item.children && item.children.length > 0);
+                      const chapterChildrenId = `sidebar-chapter-${toDomId(item.id)}-children`;
+                      const isChapterExpanded = expandedChapterId === item.id;
                       const classNames = [
                         "sidebar-link",
                         item.active ? "is-active" : ""
@@ -169,27 +225,99 @@ export function DocsShell({
                         .join(" ");
 
                       return (
-                        <li key={item.href}>
-                          <a className={classNames} href={item.href} onClick={closeNav}>
-                            {item.label}
-                          </a>
-                          {item.subItems && item.active ? (
-                            <ul className="nav-sublist">
-                              {item.subItems.map((subItem) => {
-                                const isSubActive = activeSection === getHashId(subItem.href);
-                                const subClassName = [
+                        <li key={item.id}>
+                          <div className="nav-item-row">
+                            <a className={classNames} href={item.href} onClick={closeNav}>
+                              {item.label}
+                            </a>
+                            {chapterHasChildren ? (
+                              <button
+                                type="button"
+                                className="sidebar-toggle"
+                                aria-label={`${isChapterExpanded ? "Collapse" : "Expand"} ${item.label}`}
+                                aria-expanded={isChapterExpanded}
+                                aria-controls={chapterChildrenId}
+                                onClick={() => toggleChapter(item.id)}
+                              >
+                                <span className="sidebar-toggle__chevron" aria-hidden="true">
+                                  ▸
+                                </span>
+                              </button>
+                            ) : null}
+                          </div>
+
+                          {chapterHasChildren && isChapterExpanded ? (
+                            <ul className="nav-sublist" id={chapterChildrenId}>
+                              {item.children?.map((section) => {
+                                const sectionHash = getHashId(section.href);
+                                const sectionHasChildren = Boolean(
+                                  section.children && section.children.length > 0
+                                );
+                                const sectionChildrenId = `sidebar-section-${toDomId(section.id)}-children`;
+                                const isSectionExpanded = expandedSectionByChapter[item.id] === section.id;
+                                const hasActiveSubsection =
+                                  section.children?.some(
+                                    (subsection) => activeSection === getHashId(subsection.href)
+                                  ) ?? false;
+                                const isSectionActive =
+                                  (sectionHash ? sectionHash === activeSection : false) || hasActiveSubsection;
+                                const sectionClassName = [
                                   "sidebar-sublink",
-                                  subItem.level === 3 ? "is-subheading" : "",
-                                  isSubActive ? "is-active" : ""
+                                  "sidebar-section-link",
+                                  isSectionActive ? "is-active" : ""
                                 ]
                                   .filter(Boolean)
                                   .join(" ");
 
                                 return (
-                                  <li key={subItem.href}>
-                                    <a className={subClassName} href={subItem.href} onClick={closeNav}>
-                                      {subItem.label}
-                                    </a>
+                                  <li key={section.id}>
+                                    <div className="nav-item-row nav-item-row--section">
+                                      <a className={sectionClassName} href={section.href} onClick={closeNav}>
+                                        {section.label}
+                                      </a>
+                                      {sectionHasChildren ? (
+                                        <button
+                                          type="button"
+                                          className="sidebar-toggle"
+                                          aria-label={`${isSectionExpanded ? "Collapse" : "Expand"} ${section.label}`}
+                                          aria-expanded={isSectionExpanded}
+                                          aria-controls={sectionChildrenId}
+                                          onClick={() => toggleSection(item.id, section.id)}
+                                        >
+                                          <span className="sidebar-toggle__chevron" aria-hidden="true">
+                                            ▸
+                                          </span>
+                                        </button>
+                                      ) : null}
+                                    </div>
+
+                                    {sectionHasChildren && isSectionExpanded ? (
+                                      <ul className="nav-subsublist" id={sectionChildrenId}>
+                                        {section.children?.map((subsection) => {
+                                          const isSubActive =
+                                            activeSection === getHashId(subsection.href);
+                                          const subClassName = [
+                                            "sidebar-sublink",
+                                            "is-subheading",
+                                            isSubActive ? "is-active" : ""
+                                          ]
+                                            .filter(Boolean)
+                                            .join(" ");
+
+                                          return (
+                                            <li key={subsection.id}>
+                                              <a
+                                                className={subClassName}
+                                                href={subsection.href}
+                                                onClick={closeNav}
+                                              >
+                                                {subsection.label}
+                                              </a>
+                                            </li>
+                                          );
+                                        })}
+                                      </ul>
+                                    ) : null}
                                   </li>
                                 );
                               })}
