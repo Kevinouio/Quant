@@ -6,33 +6,247 @@ format:
   pdf: default
 ---
 
-## Objective
 
-Draft Chapter 6 content before turning it into a TSX chapter page.
 
-## Sections
 
-### What passive indexing is
 
-- What passive indexing is placeholder for Passive indexing and benchmarking.
-- Add concrete definitions, formulas, and implementation notes in a later pass.
+## Why passive Investing matters
 
-### Why benchmarking matters
 
-- Why benchmarking matters placeholder for Passive indexing and benchmarking.
-- Add concrete definitions, formulas, and implementation notes in a later pass.
+Passive indexing matters because it provides one of the simplest and most practical ways for investors to participate in *financial markets*. Rather than trying to identify the individual *securities* that will outperform, a passive strategy seeks to capture the return of a broad market or market segment by tracking a chosen *index*. This makes passive investing especially important in long-horizon portfolio construction, where diversification, cost control, and disciplined exposure are more important than the short-term predictions. 
 
-### Active vs passive
+### Passive Indexing as a baseline
 
-- Active vs passive placeholder for Passive indexing and benchmarking.
-- Add concrete definitions, formulas, and implementation notes in a later pass.
+One of the main reasons that Passive Indexing matters is that it provides a natural baseline for investing. Before we consider the more complicated strategies like active stock selection, tactical allocation changes, or factor tilts, an investor must first understand the alternative of simply holding broad market exposure. Passive indexing answers that question of what an investor can earn by accepting market returns rather than attempting to beat them.
 
-### Tracking error
+This baseline role is important as many later [portfolio] decisions are really decisions about how and why we deviate from a passive benchmark. In that sense, passive indexing is not just one investing methods among many as it is a reference point against which other methods are compared. 
 
-- Tracking error placeholder for Passive indexing and benchmarking.
-- Add concrete definitions, formulas, and implementation notes in a later pass.
+### Diversification and Broad Market Exposure
 
-### Fees, taxes, and implementation frictions
+Passive Indexing also matters as it offers diversification in a straightforward and scalable form. By tracking a broad index, an investor typically spreads capital across many securities rather than concentrating heavily in a few names. This reduces exposure to firm-specific events such as [earnings collapse], a [management scandal], or the [default] of a single issuer.
 
-- Fees, taxes, and implementation frictions placeholder for Passive indexing and benchmarking.
-- Add concrete definitions, formulas, and implementation notes in a later pass.
+Diversification does not eliminate risk entirely. A broad market index can still lose value when the market as a whole declines. However, diversification does reduce the [idiosyncratic risk], which is the risk tied to individual securities rather than the market itself. For many investors, this is one of the strongest arguments for passive indexing since it allows them to take broad market risk without taking unnecessary concentration risk. 
+
+### Costs, Fees, and Long-Horizon compounding
+
+Another reason passive indexing matters is [cost]. Passive strategies usually follow a predetermined set of rules rather than relying on frequent research, forecasting, and discretionary trading. Because of this, passive funds often have lower expense ratios and lower turnover than actively managed alternatives.
+
+This cost advantage becomes especially important over long horizons. Even small differences in annual fees can compound into large differences in ending wealth over time. In investing, returns compound, but so do costs. A strategy that consistently avoids unnecessary expenses may therefore produce meaningfully better net outcomes than a more expensive strategy with similar gross performance. For long-horizon investors, controlling fees is one of the most reliable ways to improve results. 
+
+### Why Beating the Market is Difficult
+
+Passive indexing also reflects an important practical reality: consistently outperforming a broad market benchmark is difficult. Financial markets are highly competitive environments in which prices are shaped by many participants, including institutions, analysts, professional traders, and algorithmic systems. These participants continuously process new information and act on it quickly.
+
+Passive investing does not require the belief that markets are always perfectly priced. Rather it recognizes that finding mispriced securities and profiting from them consistently is hard, especially after accounting for fees, taxes, and trading costs. As a result, many investors may be better served by reliably capturing market returns at low cost than by pursuing excess return through costly and uncertain attempts at outperformance.
+
+### Passive Indexing as a Foundation
+
+Passive indexing matters not only because it is a practical investment method, but also because it forms the foundation for much of modern portfolio thinking. Concepts such as [benchmarks], [tracking error], [active return], [beta], and [risk budgeting] all depend on the existence of a baseline portfolio against which deviations can be measured. 
+
+This makes passive indexing especially important in a book on portfolio construction. Later on in future chapters, we observe questions of how to allocate across asset classes, how to optimize risk and return, how to tilt towards factors, or how to weight capital according to risk rather than market value. But before asking how to depart from the market portfolio, one must first understand what that baseline portfolio is and why it matters. Passive indexing provides that foundation. 
+
+
+
+## What is an Index
+
+
+
+An [index] is a rule-based measure designed to represent the performance of a market, a market segment, or a particular group of financial assets. In finance, indexes are used to summarize the behavior of large collections of securities into a single reference value that can be tracked over time. Rather than following each stock, bond, or asset individually, investors often look at an index to understand how a broader part of the market has moved. 
+
+Indexes are important because financial markets contain too many securities to study one by one in every context. A broad stock market, for example, may contain hundreds or thousands of tradable securities. An index provides a way to compress that information into a manageable form. If a broad equity index rises, one may say that the market segment it represents has performed well overall. If it falls, that suggests weakness in that segment. In this way, indexes act as a summary measure of market performance. 
+
+### Index as a Market Measure
+
+
+At the most basic level, an index is not a single company, bond, or contract. It is a constructed measure based on a collection of underlying assets. (LMAO REAL ANALYSIS) One can think of it as a hypothetical portfolio built according to a stated set of rules. Those rules determine which securities belong in the index, how much weight each security receives, and how the index is updated over time. 
+
+This is an important distinction. (rewrite this paragraph later) A stock represents an ownership claim in a company. A bond represents a debt claim. An index, by contrast, is not itself an economic claim in the same direct sense. It is better understood as a [measurement framework] or [reference portfolio]. It tells us how a defined basket of assets has performed, but the index itself is usually a concept or benchmark rather than a security that investors buy directly. 
+
+For example, when people say that "the market was up today," they often really mean that some index representing a market segment increased in value. The index is being used as a shorthand for a much larger collection of assets.
+
+
+(Suggestion give an example here cause ngl it's kinda effy here on what an index would look like)
+
+### Rules Behind an Index
+
+An index is only meaningful because it is governed by the rules. These rules specify what the index is trying to represent and how it will be maintained. Without such rules, the index would be arbitrary and unstable. 
+
+At a minimum, index rules usually address several basic questions. First, which securities are eligible for [inclusion]? A stock index might include only companies from a certain country, exchange, size range, or liquidity threshold. A bond index might include only bonds above a certain credit quality, maturity range, or issuance size. Second, how are the included securities weighted relative to one another? Third, how often is the index reviewed and updated? 
+
+Because of this rule-based structure, an index is not simply "a list of securities." It is more of a methodology. Two indexes may both claim to represent the same general market but still behave differently because of different rules for inclusion, weighting, or maintenance. This is one of the key reasons index design matters so much in practice. 
+
+
+### How Indexes Assign Weights
+
+Once the [constituents] of an index have been selected, the next question is how much importance each constituent should have. This is determined by the index's [weighting method]. The weighting scheme has a major effect on how the index behaves, since it determines which securities contribute the most to changes in the index value. 
+
+The most common approach in modern passive investing is [market-cap weighting]. Under this method, larger companies receive larger weights because they represent a greater share of the total market value of the index universe. If one company is worth twice as much as another in the market, then it will generally have roughly twice the weight in a market-cap-weighted index. This method is popular as it is scalable, transparent, and naturally reflects the size distribution of the market.
+
+Another approach is [equal weighting], in which each constituent receives the same weight regardless of size. Under equal weighting, a small company and a very large company may matter equally to index performance. This produces a different pattern of exposure and often gives relatively greater importance to smaller securities than a cap-weighted index would.
+
+A third historical method is [price weighting], in which securities with higher nominal share prices receive greater weight. This method is much less common in modern portfolio construction, since a stock's price per share alone does not necessarily reflect its economic importance. Still, it remains relevant because some well-known historical indexes use versions of this approach.
+
+There are also other weighting approaches, including weighting by [fundamentals], [volatility], or other portfolio rules. The important idea for this chapter is not to memorize every weighting scheme, but to recognize that the weighting method changes the meaning and behavior of the index. An index is not neutral simply because it is rule-based. The rules themselves embody choices.
+
+
+### Rebalancing and reconstitution
+Indexes do not remain fixed forever. Markets change, companies grow or shrink, securities become [illiquid], firms merge, bonds mature, and new securities are issued. Because of this, indexes must be maintained over time. Two important processes in index maintenance are rebalancing and reconstitution.
+
+[Rebalancing] refers to restoring the index weights according to its stated methodology. For example, an equal-weighted index will drift away from equal weights as prices move. To preserve its design, the index must periodically rebalance by adjusting holdings back toward equal proportions. In a market-cap-weighted index, rebalancing may be less dramatic because price changes automatically change weights, but there may still be adjustments when constituent shares outstanding or float values change.
+
+[Reconstitution] refers to updating the membership of the index itself. This occurs when securities are added or removed according to the eligibility rules. A stock may enter an index if it becomes large enough or liquid enough, and another may leave if it no longer qualifies. In bond indexes, reconstitution is especially important because bonds mature, are called, or no longer satisfy maturity requirements.
+
+These maintenance processes matter because they affect turnover, trading costs, and the actual behavior of funds that attempt to track the index. An index is therefore not just a snapshot of current holdings. It is an evolving rule-based portfolio.
+
+### Investable and non-investable indexes
+
+Another important distinction is between an index as a concept and an index as something that can be closely tracked in practice. Some indexes are relatively easy to replicate because their [constituents] are liquid, transparent, and easy to trade. Others are harder to replicate because they contain illiquid securities, very large numbers of constituents, or assets with significant trading frictions.
+
+This means that not every index is equally [investable]. An index may be useful as a market measure even if it is difficult or expensive for a fund to track exactly. For example, an index might include many small or illiquid securities that are costly to trade. In that case, an investment fund may use sampling or optimization methods rather than full replication. The index still serves as a benchmark, but actual implementation becomes more complicated.
+
+This distinction is especially important in passive investing. People sometimes speak as if "buying the index" were always a straightforward action. In reality, investors usually do not buy an index directly. They buy a [mutual fund], [ETF], or other [vehicle] that attempts to track it. The quality of that tracking depends on how investable the underlying index really is.
+
+
+### Why Index Construction Matters
+
+The construction of an index matters because indexes shape both investment outcomes and performance evaluation. If an index gives greater weight to large companies, then its returns will be driven more heavily by those companies. If it equal-weights its constituents, then smaller companies will have more influence. If it excludes certain industries, countries, or bond types, then its performance will reflect those exclusions. In other words, an index is not simply "the market" in some abstract universal sense. It is a particular representation of a market according to a chosen set of rules.
+
+This is why investors must be careful when using indexes for passive exposure or benchmarking. Two indexes that appear similar in name may produce different returns, different sector exposures, different concentration levels, and different risk profiles. The choice of index therefore affects not only what a passive investor owns, but also what counts as success or failure when evaluating a portfolio.
+
+In the context of passive indexing, understanding what an index is means understanding that it is both a summary of market performance and a designed portfolio methodology. It is a reference point, a benchmark candidate, and often the target that passive funds attempt to replicate. For that reason, the study of passive investing begins not merely with funds or trading vehicles, but with the index itself.
+
+
+
+## What is a Benchmark
+
+A [benchmark] is a standard of comparison used to evaluate the performance of an [investment portfolio], [fund], or [strategy]. In investing, a return does not mean very much by itself. A portfolio might gain 8 percent over a year, but whether that is good or bad depends on what kind of portfolio it is and what a relevant alternative earned over the same period. A benchmark gives that return context.
+
+[FIGURE: A single portfolio return shown next to two different benchmark returns, illustrating that the same return can look strong or weak depending on the benchmark]
+
+Because of this, a benchmark helps answer a fundamental question in portfolio management: relative to what? A portfolio may earn a positive return and still underperform if a relevant benchmark earned more. Likewise, a portfolio may lose money during a difficult period and still be judged favorably if its benchmark performed even worse. A benchmark therefore does not just provide a number for comparison. It provides the frame through which investment results become interpretable.
+
+### A Benchmark as a Standard of Comparison
+
+At its core, a benchmark is a reference standard used to judge actual investment outcomes. It serves as a measuring stick. Just as length has meaning only when measured against a unit such as inches or meters, portfolio performance has meaning only when measured against an appropriate investment standard.
+
+This is necessary because different portfolios are built for different purposes. A conservative bond portfolio should not be judged the same way as an aggressive equity portfolio, and a global portfolio should not be evaluated as though it were purely domestic. The benchmark should reflect the type of assets, risks, and market exposure that are relevant to the strategy being considered.
+
+[DIAGRAM: A portfolio being measured with a ruler labeled "benchmark," showing the benchmark as the reference standard]
+
+A benchmark is therefore not merely something attached to a performance report after the fact. It is part of the logic of the portfolio itself. It helps define what kind of performance should count as typical, weak, or strong for that particular investment approach.
+
+### The Relationship Between a Benchmark and an Index
+
+A benchmark is often an [index], but the two concepts are not exactly the same. An index is a rule-based measure of the performance of a market or market segment. A benchmark is the standard used to evaluate a portfolio. In many cases, a benchmark is chosen from a published index because indexes are transparent, widely recognized, and relatively easy to interpret.
+
+[DIAGRAM: On the left, an index shown as a basket of securities forming a market measure; on the right, a benchmark shown as the comparison standard used to evaluate a portfolio]
+
+For example, a large-cap U.S. equity fund may use the [S&P 500] as its benchmark. In that case, the S&P 500 is both an index and a benchmark. It is an index because it measures the performance of a rule-based basket of securities, and it is a benchmark because it is being used to evaluate the fund's results.
+
+The distinction still matters. An index exists as a market measure whether or not any portfolio uses it for evaluation. A benchmark, by contrast, exists in relation to a specific evaluative purpose. Put differently, an index describes a market segment, while a benchmark provides the standard against which a portfolio is judged.
+
+### Why Benchmarks Are Necessary
+
+Benchmarks are necessary because performance in investing is always relative to some alternative. If an investor chooses one portfolio, that investor is implicitly choosing not to hold another set of exposures. A benchmark makes that comparison explicit.
+
+Consider a portfolio that earns 12 percent in a year. That result may sound strong in isolation. But if a relevant benchmark earned 18 percent over the same period, then the portfolio lagged behind what was available in its intended market segment. If instead the benchmark earned 5 percent, then the same 12 percent return would represent substantial outperformance.
+
+[FIGURE: Two side-by-side comparisons of the same 12 percent portfolio return, once against an 18 percent benchmark and once against a 5 percent benchmark]
+
+This is why absolute return alone is not enough. A benchmark helps distinguish between performance that merely moved with the market and performance that actually exceeded or failed to meet a relevant standard. In professional portfolio management, this distinction is essential. Investors usually care not only whether a manager made money, but whether the manager added value relative to a suitable alternative after costs and risk are taken into account.
+
+### Good and Bad Benchmark Choices
+
+A benchmark is only useful if it is appropriate. A good benchmark should match the portfolio's actual investment universe, style, and major risk exposures. If the benchmark does not reflect what the portfolio is really trying to do, then the comparison can become misleading.
+
+For example, a [small-cap] stock strategy should not usually be judged against a benchmark dominated by [large-cap] companies. A [globally diversified stock] portfolio should not usually be evaluated only against a [domestic equity] benchmark. A high-yield bond strategy should not be compared to a short-term Treasury benchmark as though the risks were similar.
+
+[TABLE: Good vs. Poor Benchmark Pairings - small-cap fund with small-cap index, global equity fund with global equity benchmark, bond strategy with bond benchmark, and examples of mismatches]
+
+A poor benchmark can create the illusion of skill or the illusion of failure. If the benchmark is too easy, the manager may appear impressive without actually delivering meaningful excess value. If the benchmark is irrelevant or too demanding, a sensible strategy may appear weak even when it is performing well relative to its true opportunity set. Choosing a benchmark is therefore not a cosmetic decision. It is a central part of fair evaluation.
+
+### Benchmarks in Passive and Active Investing
+
+Benchmarks play different roles in passive and active management. In [passive investing], the benchmark is usually the target itself. A [passive fund] seeks to track the benchmark as closely as possible rather than outperform it. Success is therefore measured by how small the deviations from the benchmark are, after accounting for fees and implementation frictions.
+
+[DIAGRAM: Passive portfolio line closely following a benchmark line over time]
+
+In [active investing], the benchmark plays a different role. The manager intentionally deviates from the benchmark by holding different securities, assigning different weights, or taking different risk exposures in an attempt to produce superior returns. The benchmark is not the portfolio's exact target, but the reference point from which active decisions are measured.
+
+[DIAGRAM: Active portfolio line moving above and below the benchmark line, showing deliberate deviation]
+
+This distinction matters because both passive and active strategies are benchmark-relative, but in different ways. Passive management tries to minimize deviation from the benchmark. Active management deliberately introduces deviation from the benchmark in the hope that those differences will be rewarded.
+
+### Why Benchmark Choice Matters
+
+Benchmark choice matters because many of the most important concepts in portfolio construction depend on it. Measures such as [active return], [tracking error], and [beta] are all defined relative to a benchmark. If the benchmark changes, then the interpretation of those quantities changes as well.
+
+A portfolio may appear conservative relative to one benchmark and aggressive relative to another. A manager may seem highly skilled against one comparison standard and ordinary against another. This means the benchmark helps shape not only how performance is evaluated, but also how risk and portfolio behavior are described.
+
+[FIGURE: The same portfolio compared against two different benchmarks, showing different active return and tracking interpretations]
+
+For that reason, a benchmark is more than a scorekeeping device. It is part of the conceptual structure of portfolio management. Passive indexing seeks to replicate a benchmark. Active management seeks to outperform one. Asset allocation decisions, factor tilts, and risk-budgeting approaches can all be understood as choices made relative to some baseline benchmark portfolio.
+
+
+
+## How indexes are constructed
+
+
+a
+
+
+## Market Cap weighting
+
+
+a
+
+
+## Vehicles for passive investing 
+
+
+a
+
+
+## Full replication, sampling, and synthetic exposure
+
+
+a
+
+
+## Tracking Error and Tracking difference
+
+
+a
+
+
+## Fees, turnover, taxes, and implementation frictions
+
+
+a
+
+
+## Active vs passive management
+
+
+a
+
+
+## Choosing the right benchmark
+
+
+a
+
+
+## Limits of Passive Indexing 
+
+
+a
+
+
+## Summary
+
+
+a
+
+
+

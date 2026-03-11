@@ -1,6 +1,6 @@
 ---
 title: "Chapter 1. Financial markets and instruments"
-summary: "Foundations chapter introducing markets, stocks, and bonds, plus core fixed-income terms and risks."
+summary: "Foundations chapter introducing markets, stocks, and bonds, plus core fixed-income terms and risks. This chapter will be the longest chapter out of each one as esentially this is all a review of finance and "
 format:
   pdf: default
 ---
@@ -61,7 +61,7 @@ Because of this, economists often say that markets aggregate information. Each p
 
 ### How are prices Formed?
 
-The price of somethign ina  market reflects on the balance between the willingness of buyers to purchase and willingness of sellers to sell. However, in real markets, price formation is often more complicated than a simple supply and demand curve. 
+The price of something in a market reflects on the balance between the willingness of buyers to purchase and willingness of sellers to sell. However, in real markets, price formation is often more complicated than a simple supply and demand curve. 
 
 In [[financial markets|financial markets]], this can be influenced by:
 

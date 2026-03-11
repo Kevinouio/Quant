@@ -109,7 +109,7 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "The price of somethign ina market reflects on the balance between the willingness of buyers to purchase and willingness of sellers to sell. However, in real markets, price formation is often more complicated than a simple supply and demand curve."
+        "text": "The price of something in a market reflects on the balance between the willingness of buyers to purchase and willingness of sellers to sell. However, in real markets, price formation is often more complicated than a simple supply and demand curve."
       },
       {
         "type": "paragraph",
