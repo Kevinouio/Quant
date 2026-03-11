@@ -392,7 +392,19 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "Once the universe has been defined, the next step is establishing [[Eligibility Rules|eligibility rules]]. These rules determine which securities are actually allowed to enter the index. Eligibility criteria often include requirements related to size, liquidity, exchange listing, share class, country, credit quality, or maturity."
+        "text": "Once the universe has been defined, the next step is establishing [[Eligibility Rules|eligibility rules]]. These rules determine which securities are actually allowed to enter the index. Eligibility criteria often include requirements related to"
+      },
+      {
+        "type": "unorderedList",
+        "items": [
+          "size",
+          "liquidity",
+          "exchange listing",
+          "share class",
+          "country",
+          "credit quality",
+          "maturity."
+        ]
       },
       {
         "type": "paragraph",
@@ -412,7 +424,7 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "After the eligibility rules are applied, the index provider selects the actual [[Constituents|constituents]] of the index. In some indexes, every eligible security is included. In others, only a subset is chosen. For example, an index may include only the largest 500 companies, only firms within a particular sector, or only securities satisfying a style classification such as value or growth."
+        "text": "After the eligibility rules are applied, the index provider selects the actual [[Constituents|constituents]] of the index. In some indexes, every eligible security is included. In others, only a subset is chosen. For example, an index may include only the largest 500 companies (S&P 500), only firms within a particular sector, or only securities satisfying a style classification such as value or growth."
       },
       {
         "type": "paragraph",
@@ -459,33 +471,33 @@ const sectionContent: ChapterSectionContent[] = [
         "rows": [
           [
             "Atlas Tech",
-            "$100",
+            "\\$100",
             "10 million",
-            "$1,000 million"
+            "\\$1,000 million"
           ],
           [
             "Beacon Retail",
-            "$50",
+            "\\$50",
             "8 million",
-            "$400 million"
+            "\\$400 million"
           ],
           [
             "Crest Energy",
-            "$25",
+            "\\$25",
             "12 million",
-            "$300 million"
+            "\\$300 million"
           ],
           [
             "Delta Health",
-            "$80",
+            "\\$80",
             "2 million",
-            "$160 million"
+            "\\$160 million"
           ],
           [
             "Elm Foods",
-            "$20",
+            "\\$20",
             "7 million",
-            "$140 million"
+            "\\$140 million"
           ]
         ]
       },
@@ -663,11 +675,11 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "This means we can interpret each index as a notional $100 portfolio."
+        "text": "This means we can interpret each index as a notional \\$100 portfolio."
       },
       {
         "type": "paragraph",
-        "text": "Under equal weighting, the initial $100 is divided evenly into five $20 positions. Under market-cap weighting, the initial $100 is allocated according to the market-cap weights above, so Atlas Tech receives $50, Beacon Retail $20, Crest Energy $15, Delta Health $8, and Elm Foods $7."
+        "text": "Under equal weighting, the initial \\$100 is divided evenly into five \\$20 positions. Under market-cap weighting, the initial \\$100 is allocated according to the market-cap weights above, so Atlas Tech receives \\$50, Beacon Retail \\$20, Crest Energy \\$15, Delta Health \\$8, and Elm Foods \\$7."
       },
       {
         "type": "paragraph",
@@ -675,7 +687,7 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "[FIGURE: Three initial index setups: a $100 equal-weighted portfolio, a $100 market-cap-weighted portfolio, and a price-weighted index initialized to 100 through a divisor]"
+        "text": "[FIGURE: Three initial index setups: a \\$100 equal-weighted portfolio, a \\$100 market-cap-weighted portfolio, and a price-weighted index initialized to 100 through a divisor]"
       },
       {
         "type": "paragraph",
@@ -859,7 +871,7 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "In a price-weighted index, stock splits are especially important because the index depends directly on nominal prices. If Atlas Tech were split 2-for-1, its price would fall from $100 to about $50, and without adjusting the divisor, the price-weighted index would show a sharp artificial decline even though no real value was lost. That is why the divisor must be adjusted after such events."
+        "text": "In a price-weighted index, stock splits are especially important because the index depends directly on nominal prices. If Atlas Tech were split 2-for-1, its price would fall from \\$100 to about \\$50, and without adjusting the divisor, the price-weighted index would show a sharp artificial decline even though no real value was lost. That is why the divisor must be adjusted after such events."
       },
       {
         "type": "paragraph",

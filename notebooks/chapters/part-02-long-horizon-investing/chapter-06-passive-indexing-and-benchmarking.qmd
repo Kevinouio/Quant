@@ -189,7 +189,6 @@ For that reason, a benchmark is more than a scorekeeping device. It is part of t
 
 
 
-## How indexes are constructed
 
 ## How Indexes Are Constructed
 
@@ -218,7 +217,14 @@ In our simplified example, we will take the universe to be just the five firms l
 
 ### Setting Eligibility Rules
 
-Once the universe has been defined, the next step is establishing [[Eligibility Rules|eligibility rules]]. These rules determine which securities are actually allowed to enter the index. Eligibility criteria often include requirements related to size, liquidity, exchange listing, share class, country, credit quality, or maturity.
+Once the universe has been defined, the next step is establishing [[Eligibility Rules|eligibility rules]]. These rules determine which securities are actually allowed to enter the index. Eligibility criteria often include requirements related to 
+- size
+- liquidity
+- exchange listing
+- share class
+- country
+- credit quality
+- maturity.
 
 For example, an equity index provider may require that a company exceed a minimum market capitalization and trade with sufficient regularity before it can be included. A bond index may require a minimum issue size, an investment-grade credit rating, and a remaining maturity above some threshold. These rules help ensure that the index is both representative and reasonably investable.
 
@@ -228,7 +234,7 @@ In our five-company example, suppose all five firms satisfy the eligibility rule
 
 ### Selecting Constituents
 
-After the eligibility rules are applied, the index provider selects the actual [[Constituents|constituents]] of the index. In some indexes, every eligible security is included. In others, only a subset is chosen. For example, an index may include only the largest 500 companies, only firms within a particular sector, or only securities satisfying a style classification such as value or growth.
+After the eligibility rules are applied, the index provider selects the actual [[Constituents|constituents]] of the index. In some indexes, every eligible security is included. In others, only a subset is chosen. For example, an index may include only the largest 500 companies (S&P 500), only firms within a particular sector, or only securities satisfying a style classification such as value or growth.
 
 This stage matters because the index's membership determines what part of the market it truly reflects. Even before weights are assigned, constituent selection already shapes the index's risk profile, diversification, and economic meaning.
 

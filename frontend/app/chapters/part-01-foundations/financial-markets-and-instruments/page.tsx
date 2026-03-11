@@ -293,11 +293,11 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "The [[face value|face value]], also called the [[par value|par value]] or [[principal|principal]], is the amount the issuer promises to repay at the end of the bond’s life. A bond might have a face value of $1,000, meaning that if the bond is held to [[maturity|maturity]] and the issuer does not [[default|default]], the bondholder will receive $1,000 at the maturity date."
+        "text": "The [[face value|face value]], also called the [[par value|par value]] or [[principal|principal]], is the amount the issuer promises to repay at the end of the bond’s life. A bond might have a face value of \\$1,000, meaning that if the bond is held to [[maturity|maturity]] and the issuer does not [[default|default]], the bondholder will receive \\$1,000 at the maturity date."
       },
       {
         "type": "paragraph",
-        "text": "The [[coupon|coupon]] is the interest payment promised by the bond. If a $1,000 bond has a 5% annual coupon, then it pays $50 per year in interest. In practice, many bonds make coupon payments semiannually, so that $50 annual coupon would be paid as two $25 payments over the year."
+        "text": "The [[coupon|coupon]] is the interest payment promised by the bond. If a \\$1,000 bond has a 5% annual coupon, then it pays \\$50 per year in interest. In practice, many bonds make coupon payments semiannually, so that \\$50 annual coupon would be paid as two \\$25 payments over the year."
       },
       {
         "type": "paragraph",
