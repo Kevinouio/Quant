@@ -19,17 +19,17 @@ Passive indexing matters because it provides one of the simplest and most practi
 
 One of the main reasons that Passive Indexing matters is that it provides a natural baseline for investing. Before we consider the more complicated strategies like active stock selection, tactical allocation changes, or factor tilts, an investor must first understand the alternative of simply holding broad market exposure. Passive indexing answers that question of what an investor can earn by accepting market returns rather than attempting to beat them.
 
-This baseline role is important as many later [portfolio] decisions are really decisions about how and why we deviate from a passive benchmark. In that sense, passive indexing is not just one investing methods among many as it is a reference point against which other methods are compared. 
+This baseline role is important as many later [[Investment Portfolio|portfolio]] decisions are really decisions about how and why we deviate from a passive benchmark. In that sense, passive indexing is not just one investing methods among many as it is a reference point against which other methods are compared. 
 
 ### Diversification and Broad Market Exposure
 
-Passive Indexing also matters as it offers diversification in a straightforward and scalable form. By tracking a broad index, an investor typically spreads capital across many securities rather than concentrating heavily in a few names. This reduces exposure to firm-specific events such as [earnings collapse], a [management scandal], or the [default] of a single issuer.
+Passive Indexing also matters as it offers diversification in a straightforward and scalable form. By tracking a broad index, an investor typically spreads capital across many securities rather than concentrating heavily in a few names. This reduces exposure to firm-specific events such as earnings collapse, a management scandal, or the [[Default|default]] of a single issuer.
 
-Diversification does not eliminate risk entirely. A broad market index can still lose value when the market as a whole declines. However, diversification does reduce the [idiosyncratic risk], which is the risk tied to individual securities rather than the market itself. For many investors, this is one of the strongest arguments for passive indexing since it allows them to take broad market risk without taking unnecessary concentration risk. 
+Diversification does not eliminate risk entirely. A broad market index can still lose value when the market as a whole declines. However, diversification does reduce the [[Idiosyncratic Risk|idiosyncratic risk]], which is the risk tied to individual securities rather than the market itself. For many investors, this is one of the strongest arguments for passive indexing since it allows them to take broad market risk without taking unnecessary concentration risk. 
 
 ### Costs, Fees, and Long-Horizon compounding
 
-Another reason passive indexing matters is [cost]. Passive strategies usually follow a predetermined set of rules rather than relying on frequent research, forecasting, and discretionary trading. Because of this, passive funds often have lower expense ratios and lower turnover than actively managed alternatives.
+Another reason passive indexing matters is [[Cost Drag|cost]]. Passive strategies usually follow a predetermined set of rules rather than relying on frequent research, forecasting, and discretionary trading. Because of this, passive funds often have lower expense ratios and lower turnover than actively managed alternatives.
 
 This cost advantage becomes especially important over long horizons. Even small differences in annual fees can compound into large differences in ending wealth over time. In investing, returns compound, but so do costs. A strategy that consistently avoids unnecessary expenses may therefore produce meaningfully better net outcomes than a more expensive strategy with similar gross performance. For long-horizon investors, controlling fees is one of the most reliable ways to improve results. 
 
@@ -41,7 +41,7 @@ Passive investing does not require the belief that markets are always perfectly 
 
 ### Passive Indexing as a Foundation
 
-Passive indexing matters not only because it is a practical investment method, but also because it forms the foundation for much of modern portfolio thinking. Concepts such as [benchmarks], [tracking error], [active return], [beta], and [risk budgeting] all depend on the existence of a baseline portfolio against which deviations can be measured. 
+Passive indexing matters not only because it is a practical investment method, but also because it forms the foundation for much of modern portfolio thinking. Concepts such as [[Benchmark|benchmarks]], [[Tracking Error|tracking error]], [[Active Return|active return]], [[Beta|beta]], and [[Risk Budgeting|risk budgeting]] all depend on the existence of a baseline portfolio against which deviations can be measured. 
 
 This makes passive indexing especially important in a book on portfolio construction. Later on in future chapters, we observe questions of how to allocate across asset classes, how to optimize risk and return, how to tilt towards factors, or how to weight capital according to risk rather than market value. But before asking how to depart from the market portfolio, one must first understand what that baseline portfolio is and why it matters. Passive indexing provides that foundation. 
 
@@ -51,7 +51,7 @@ This makes passive indexing especially important in a book on portfolio construc
 
 
 
-An [index] is a rule-based measure designed to represent the performance of a market, a market segment, or a particular group of financial assets. In finance, indexes are used to summarize the behavior of large collections of securities into a single reference value that can be tracked over time. Rather than following each stock, bond, or asset individually, investors often look at an index to understand how a broader part of the market has moved. 
+An [[Index|index]] is a rule-based measure designed to represent the performance of a market, a market segment, or a particular group of financial assets. In finance, indexes are used to summarize the behavior of large collections of securities into a single reference value that can be tracked over time. Rather than following each stock, bond, or asset individually, investors often look at an index to understand how a broader part of the market has moved. 
 
 Indexes are important because financial markets contain too many securities to study one by one in every context. A broad stock market, for example, may contain hundreds or thousands of tradable securities. An index provides a way to compress that information into a manageable form. If a broad equity index rises, one may say that the market segment it represents has performed well overall. If it falls, that suggests weakness in that segment. In this way, indexes act as a summary measure of market performance. 
 
@@ -60,7 +60,7 @@ Indexes are important because financial markets contain too many securities to s
 
 At the most basic level, an index is not a single company, bond, or contract. It is a constructed measure based on a collection of underlying assets. (LMAO REAL ANALYSIS) One can think of it as a hypothetical portfolio built according to a stated set of rules. Those rules determine which securities belong in the index, how much weight each security receives, and how the index is updated over time. 
 
-This is an important distinction. (rewrite this paragraph later) A stock represents an ownership claim in a company. A bond represents a debt claim. An index, by contrast, is not itself an economic claim in the same direct sense. It is better understood as a [measurement framework] or [reference portfolio]. It tells us how a defined basket of assets has performed, but the index itself is usually a concept or benchmark rather than a security that investors buy directly. 
+This is an important distinction. (rewrite this paragraph later) A stock represents an ownership claim in a company. A bond represents a debt claim. An index, by contrast, is not itself an economic claim in the same direct sense. It is better understood as a [[Measurement Framework|measurement framework]] or [[Reference Portfolio|reference portfolio]]. It tells us how a defined basket of assets has performed, but the index itself is usually a concept or benchmark rather than a security that investors buy directly. 
 
 For example, when people say that "the market was up today," they often really mean that some index representing a market segment increased in value. The index is being used as a shorthand for a much larger collection of assets.
 
@@ -71,40 +71,40 @@ For example, when people say that "the market was up today," they often really m
 
 An index is only meaningful because it is governed by the rules. These rules specify what the index is trying to represent and how it will be maintained. Without such rules, the index would be arbitrary and unstable. 
 
-At a minimum, index rules usually address several basic questions. First, which securities are eligible for [inclusion]? A stock index might include only companies from a certain country, exchange, size range, or liquidity threshold. A bond index might include only bonds above a certain credit quality, maturity range, or issuance size. Second, how are the included securities weighted relative to one another? Third, how often is the index reviewed and updated? 
+At a minimum, index rules usually address several basic questions. First, which securities are eligible for [[Inclusion Criteria|inclusion]]? A stock index might include only companies from a certain country, exchange, size range, or liquidity threshold. A bond index might include only bonds above a certain credit quality, maturity range, or issuance size. Second, how are the included securities weighted relative to one another? Third, how often is the index reviewed and updated? 
 
 Because of this rule-based structure, an index is not simply "a list of securities." It is more of a methodology. Two indexes may both claim to represent the same general market but still behave differently because of different rules for inclusion, weighting, or maintenance. This is one of the key reasons index design matters so much in practice. 
 
 
 ### How Indexes Assign Weights
 
-Once the [constituents] of an index have been selected, the next question is how much importance each constituent should have. This is determined by the index's [weighting method]. The weighting scheme has a major effect on how the index behaves, since it determines which securities contribute the most to changes in the index value. 
+Once the [[Constituents|constituents]] of an index have been selected, the next question is how much importance each constituent should have. This is determined by the index's [[Weighting Method|weighting method]]. The weighting scheme has a major effect on how the index behaves, since it determines which securities contribute the most to changes in the index value. 
 
-The most common approach in modern passive investing is [market-cap weighting]. Under this method, larger companies receive larger weights because they represent a greater share of the total market value of the index universe. If one company is worth twice as much as another in the market, then it will generally have roughly twice the weight in a market-cap-weighted index. This method is popular as it is scalable, transparent, and naturally reflects the size distribution of the market.
+The most common approach in modern passive investing is [[Market-Cap Weighted|market-cap weighting]]. Under this method, larger companies receive larger weights because they represent a greater share of the total market value of the index universe. If one company is worth twice as much as another in the market, then it will generally have roughly twice the weight in a market-cap-weighted index. This method is popular as it is scalable, transparent, and naturally reflects the size distribution of the market.
 
-Another approach is [equal weighting], in which each constituent receives the same weight regardless of size. Under equal weighting, a small company and a very large company may matter equally to index performance. This produces a different pattern of exposure and often gives relatively greater importance to smaller securities than a cap-weighted index would.
+Another approach is [[Equal Weighted|equal weighting]], in which each constituent receives the same weight regardless of size. Under equal weighting, a small company and a very large company may matter equally to index performance. This produces a different pattern of exposure and often gives relatively greater importance to smaller securities than a cap-weighted index would.
 
-A third historical method is [price weighting], in which securities with higher nominal share prices receive greater weight. This method is much less common in modern portfolio construction, since a stock's price per share alone does not necessarily reflect its economic importance. Still, it remains relevant because some well-known historical indexes use versions of this approach.
+A third historical method is [[Price Weighted|price weighting]], in which securities with higher nominal share prices receive greater weight. This method is much less common in modern portfolio construction, since a stock's price per share alone does not necessarily reflect its economic importance. Still, it remains relevant because some well-known historical indexes use versions of this approach.
 
-There are also other weighting approaches, including weighting by [fundamentals], [volatility], or other portfolio rules. The important idea for this chapter is not to memorize every weighting scheme, but to recognize that the weighting method changes the meaning and behavior of the index. An index is not neutral simply because it is rule-based. The rules themselves embody choices.
+There are also other weighting approaches, including weighting by [[Fundamentals|fundamentals]], [[Volatility|volatility]], or other portfolio rules. The important idea for this chapter is not to memorize every weighting scheme, but to recognize that the weighting method changes the meaning and behavior of the index. An index is not neutral simply because it is rule-based. The rules themselves embody choices.
 
 
 ### Rebalancing and reconstitution
-Indexes do not remain fixed forever. Markets change, companies grow or shrink, securities become [illiquid], firms merge, bonds mature, and new securities are issued. Because of this, indexes must be maintained over time. Two important processes in index maintenance are rebalancing and reconstitution.
+Indexes do not remain fixed forever. Markets change, companies grow or shrink, securities become [[Illiquid|illiquid]], firms merge, bonds mature, and new securities are issued. Because of this, indexes must be maintained over time. Two important processes in index maintenance are rebalancing and reconstitution.
 
-[Rebalancing] refers to restoring the index weights according to its stated methodology. For example, an equal-weighted index will drift away from equal weights as prices move. To preserve its design, the index must periodically rebalance by adjusting holdings back toward equal proportions. In a market-cap-weighted index, rebalancing may be less dramatic because price changes automatically change weights, but there may still be adjustments when constituent shares outstanding or float values change.
+[[Rebalancing|Rebalancing]] refers to restoring the index weights according to its stated methodology. For example, an equal-weighted index will drift away from equal weights as prices move. To preserve its design, the index must periodically rebalance by adjusting holdings back toward equal proportions. In a market-cap-weighted index, rebalancing may be less dramatic because price changes automatically change weights, but there may still be adjustments when constituent shares outstanding or float values change.
 
-[Reconstitution] refers to updating the membership of the index itself. This occurs when securities are added or removed according to the eligibility rules. A stock may enter an index if it becomes large enough or liquid enough, and another may leave if it no longer qualifies. In bond indexes, reconstitution is especially important because bonds mature, are called, or no longer satisfy maturity requirements.
+[[Reconstitution|Reconstitution]] refers to updating the membership of the index itself. This occurs when securities are added or removed according to the eligibility rules. A stock may enter an index if it becomes large enough or liquid enough, and another may leave if it no longer qualifies. In bond indexes, reconstitution is especially important because bonds mature, are called, or no longer satisfy maturity requirements.
 
 These maintenance processes matter because they affect turnover, trading costs, and the actual behavior of funds that attempt to track the index. An index is therefore not just a snapshot of current holdings. It is an evolving rule-based portfolio.
 
 ### Investable and non-investable indexes
 
-Another important distinction is between an index as a concept and an index as something that can be closely tracked in practice. Some indexes are relatively easy to replicate because their [constituents] are liquid, transparent, and easy to trade. Others are harder to replicate because they contain illiquid securities, very large numbers of constituents, or assets with significant trading frictions.
+Another important distinction is between an index as a concept and an index as something that can be closely tracked in practice. Some indexes are relatively easy to replicate because their [[Constituents|constituents]] are liquid, transparent, and easy to trade. Others are harder to replicate because they contain illiquid securities, very large numbers of constituents, or assets with significant trading frictions.
 
-This means that not every index is equally [investable]. An index may be useful as a market measure even if it is difficult or expensive for a fund to track exactly. For example, an index might include many small or illiquid securities that are costly to trade. In that case, an investment fund may use sampling or optimization methods rather than full replication. The index still serves as a benchmark, but actual implementation becomes more complicated.
+This means that not every index is equally [[Investability|investable]]. An index may be useful as a market measure even if it is difficult or expensive for a fund to track exactly. For example, an index might include many small or illiquid securities that are costly to trade. In that case, an investment fund may use sampling or optimization methods rather than full replication. The index still serves as a benchmark, but actual implementation becomes more complicated.
 
-This distinction is especially important in passive investing. People sometimes speak as if "buying the index" were always a straightforward action. In reality, investors usually do not buy an index directly. They buy a [mutual fund], [ETF], or other [vehicle] that attempts to track it. The quality of that tracking depends on how investable the underlying index really is.
+This distinction is especially important in passive investing. People sometimes speak as if "buying the index" were always a straightforward action. In reality, investors usually do not buy an index directly. They buy a [[Mutual Fund|mutual fund]], [[ETF|ETF]], or other [[Vehicle|vehicle]] that attempts to track it. The quality of that tracking depends on how investable the underlying index really is.
 
 
 ### Why Index Construction Matters
@@ -119,7 +119,7 @@ In the context of passive indexing, understanding what an index is means underst
 
 ## What is a Benchmark
 
-A [benchmark] is a standard of comparison used to evaluate the performance of an [investment portfolio], [fund], or [strategy]. In investing, a return does not mean very much by itself. A portfolio might gain 8 percent over a year, but whether that is good or bad depends on what kind of portfolio it is and what a relevant alternative earned over the same period. A benchmark gives that return context.
+A [[Benchmark|benchmark]] is a standard of comparison used to evaluate the performance of an [[Investment Portfolio|investment portfolio]], fund, or strategy. In investing, a return does not mean very much by itself. A portfolio might gain 8 percent over a year, but whether that is good or bad depends on what kind of portfolio it is and what a relevant alternative earned over the same period. A benchmark gives that return context.
 
 [FIGURE: A single portfolio return shown next to two different benchmark returns, illustrating that the same return can look strong or weak depending on the benchmark]
 
@@ -137,11 +137,11 @@ A benchmark is therefore not merely something attached to a performance report a
 
 ### The Relationship Between a Benchmark and an Index
 
-A benchmark is often an [index], but the two concepts are not exactly the same. An index is a rule-based measure of the performance of a market or market segment. A benchmark is the standard used to evaluate a portfolio. In many cases, a benchmark is chosen from a published index because indexes are transparent, widely recognized, and relatively easy to interpret.
+A benchmark is often an [[Index|index]], but the two concepts are not exactly the same. An index is a rule-based measure of the performance of a market or market segment. A benchmark is the standard used to evaluate a portfolio. In many cases, a benchmark is chosen from a published index because indexes are transparent, widely recognized, and relatively easy to interpret.
 
 [DIAGRAM: On the left, an index shown as a basket of securities forming a market measure; on the right, a benchmark shown as the comparison standard used to evaluate a portfolio]
 
-For example, a large-cap U.S. equity fund may use the [S&P 500] as its benchmark. In that case, the S&P 500 is both an index and a benchmark. It is an index because it measures the performance of a rule-based basket of securities, and it is a benchmark because it is being used to evaluate the fund's results.
+For example, a large-cap U.S. equity fund may use the [[S&P 500|S&P 500]] as its benchmark. In that case, the S&P 500 is both an index and a benchmark. It is an index because it measures the performance of a rule-based basket of securities, and it is a benchmark because it is being used to evaluate the fund's results.
 
 The distinction still matters. An index exists as a market measure whether or not any portfolio uses it for evaluation. A benchmark, by contrast, exists in relation to a specific evaluative purpose. Put differently, an index describes a market segment, while a benchmark provides the standard against which a portfolio is judged.
 
@@ -159,7 +159,7 @@ This is why absolute return alone is not enough. A benchmark helps distinguish b
 
 A benchmark is only useful if it is appropriate. A good benchmark should match the portfolio's actual investment universe, style, and major risk exposures. If the benchmark does not reflect what the portfolio is really trying to do, then the comparison can become misleading.
 
-For example, a [small-cap] stock strategy should not usually be judged against a benchmark dominated by [large-cap] companies. A [globally diversified stock] portfolio should not usually be evaluated only against a [domestic equity] benchmark. A high-yield bond strategy should not be compared to a short-term Treasury benchmark as though the risks were similar.
+For example, a [[Small-Cap|small-cap]] stock strategy should not usually be judged against a benchmark dominated by [[Large-Cap|large-cap]] companies. A [[Global Equity Portfolio|globally diversified stock]] portfolio should not usually be evaluated only against a [[Domestic Equity|domestic equity]] benchmark. A high-yield bond strategy should not be compared to a short-term Treasury benchmark as though the risks were similar.
 
 [TABLE: Good vs. Poor Benchmark Pairings - small-cap fund with small-cap index, global equity fund with global equity benchmark, bond strategy with bond benchmark, and examples of mismatches]
 
@@ -167,11 +167,11 @@ A poor benchmark can create the illusion of skill or the illusion of failure. If
 
 ### Benchmarks in Passive and Active Investing
 
-Benchmarks play different roles in passive and active management. In [passive investing], the benchmark is usually the target itself. A [passive fund] seeks to track the benchmark as closely as possible rather than outperform it. Success is therefore measured by how small the deviations from the benchmark are, after accounting for fees and implementation frictions.
+Benchmarks play different roles in passive and active management. In [[Passive Investing|passive investing]], the benchmark is usually the target itself. A [[Passive Fund|passive fund]] seeks to track the benchmark as closely as possible rather than outperform it. Success is therefore measured by how small the deviations from the benchmark are, after accounting for fees and implementation frictions.
 
 [DIAGRAM: Passive portfolio line closely following a benchmark line over time]
 
-In [active investing], the benchmark plays a different role. The manager intentionally deviates from the benchmark by holding different securities, assigning different weights, or taking different risk exposures in an attempt to produce superior returns. The benchmark is not the portfolio's exact target, but the reference point from which active decisions are measured.
+In [[Active Investing|active investing]], the benchmark plays a different role. The manager intentionally deviates from the benchmark by holding different securities, assigning different weights, or taking different risk exposures in an attempt to produce superior returns. The benchmark is not the portfolio's exact target, but the reference point from which active decisions are measured.
 
 [DIAGRAM: Active portfolio line moving above and below the benchmark line, showing deliberate deviation]
 
@@ -179,7 +179,7 @@ This distinction matters because both passive and active strategies are benchmar
 
 ### Why Benchmark Choice Matters
 
-Benchmark choice matters because many of the most important concepts in portfolio construction depend on it. Measures such as [active return], [tracking error], and [beta] are all defined relative to a benchmark. If the benchmark changes, then the interpretation of those quantities changes as well.
+Benchmark choice matters because many of the most important concepts in portfolio construction depend on it. Measures such as [[Active Return|active return]], [[Tracking Error|tracking error]], and [[Beta|beta]] are all defined relative to a benchmark. If the benchmark changes, then the interpretation of those quantities changes as well.
 
 A portfolio may appear conservative relative to one benchmark and aggressive relative to another. A manager may seem highly skilled against one comparison standard and ordinary against another. This means the benchmark helps shape not only how performance is evaluated, but also how risk and portfolio behavior are described.
 
@@ -191,9 +191,329 @@ For that reason, a benchmark is more than a scorekeeping device. It is part of t
 
 ## How indexes are constructed
 
+## How Indexes Are Constructed
 
-a
+An index is not something that simply exists in nature. It is a designed object. It is created through a sequence of rules that determine which securities belong in the index, how much influence each security has, how the index value is calculated, and how the index is updated as market conditions change. Because of this, an index is best understood not just as a list of securities, but as a [[Methodology|methodology]] for representing a market or market segment.
 
+In passive investing, this point is especially important. A passive fund is often described as "tracking the market," but in practice it tracks a particular index, and that index depends on explicit design choices. To understand what passive investing really means, one must therefore understand how an index is constructed.
+
+Throughout this section, it will be helpful to keep a small example in mind. Suppose our index universe consists of five fictional companies:
+
+- **Atlas Tech**
+- **Beacon Retail**
+- **Crest Energy**
+- **Delta Health**
+- **Elm Foods**
+
+We will return to these five firms at several points to see how an index might actually be built in practice.
+
+
+### Defining the Index Universe
+
+The first step in constructing an index is defining the [[Index Universe|index universe]]. The universe is the broad set of securities from which the index may draw its constituents. In real markets, this universe might include all publicly traded U.S. equities, all large-cap firms in a country, all investment-grade corporate bonds in a currency, or all securities satisfying some sector or style criterion.
+
+The universe matters because it sets the outer boundary of what the index is trying to represent. A broad universe may provide wide market coverage, while a narrow universe may focus on a specific segment such as healthcare stocks, emerging-market bonds, or dividend-paying firms.
+
+In our simplified example, we will take the universe to be just the five firms listed above. This is obviously much smaller than a real index universe, but it is useful because it lets us see the construction process clearly.
+
+### Setting Eligibility Rules
+
+Once the universe has been defined, the next step is establishing [[Eligibility Rules|eligibility rules]]. These rules determine which securities are actually allowed to enter the index. Eligibility criteria often include requirements related to size, liquidity, exchange listing, share class, country, credit quality, or maturity.
+
+For example, an equity index provider may require that a company exceed a minimum market capitalization and trade with sufficient regularity before it can be included. A bond index may require a minimum issue size, an investment-grade credit rating, and a remaining maturity above some threshold. These rules help ensure that the index is both representative and reasonably investable.
+
+In our five-company example, suppose all five firms satisfy the eligibility rules. That means each of them is allowed to be considered for inclusion. In a more realistic setting, one or more firms might fail a size or liquidity screen and would therefore be excluded before the index is finalized.
+
+[DIAGRAM: Universe of securities passing through an eligibility filter, with eligible names moving forward into the index construction process]
+
+### Selecting Constituents
+
+After the eligibility rules are applied, the index provider selects the actual [[Constituents|constituents]] of the index. In some indexes, every eligible security is included. In others, only a subset is chosen. For example, an index may include only the largest 500 companies, only firms within a particular sector, or only securities satisfying a style classification such as value or growth.
+
+This stage matters because the index's membership determines what part of the market it truly reflects. Even before weights are assigned, constituent selection already shapes the index's risk profile, diversification, and economic meaning.
+
+In our example, we will assume that all five eligible firms become constituents. So the index membership is simply
+
+$$
+\{\text{Atlas Tech, Beacon Retail, Crest Energy, Delta Health, Elm Foods}\}.
+$$
+
+That choice keeps the example simple and lets the main differences arise from the weighting methodology rather than from membership changes.
+
+### Gathering Security Data
+
+To calculate an index, the provider must gather the relevant data for each constituent. In an equity index, this often includes share price, shares outstanding, free-float adjustments, and sector classification. In a bond index, it may include price, coupon, maturity, duration, issuance size, and credit quality.
+
+For our example, suppose the five firms have the following characteristics.
+
+
+
+| Company | Share Price | Shares Outstanding | Market Capitalization |
+|---|---:|---:|---:|
+| Atlas Tech | $100 | 10 million | $1,000 million |
+| Beacon Retail | $50 | 8 million | $400 million |
+| Crest Energy | $25 | 12 million | $300 million |
+| Delta Health | $80 | 2 million | $160 million |
+| Elm Foods | $20 | 7 million | $140 million |
+
+For each company, market capitalization is computed as
+
+$$
+\text{Market Cap} = \text{Price} \times \text{Shares Outstanding}.
+$$
+
+The total market capitalization of the five firms is therefore
+
+$$
+1000 + 400 + 300 + 160 + 140 = 2000
+$$
+
+million dollars.
+
+This data will become especially important when we discuss weighting.
+
+### Assigning Weights
+
+Once the constituents are known, the index provider must decide how much weight to assign to each one. This is one of the most important parts of index construction, because the weighting rule determines how strongly each constituent affects the index's performance.
+
+Different weighting methods produce different indexes even when the constituent list is identical. Common approaches include [[Market-Cap-Weighted Index|market-cap weighting]], [[Equal-Weighted Index|equal weighting]], and [[Price-Weighted Index|price weighting]], among others.
+
+
+
+In an [[Equal-Weighted Index|equal-weighted index]], every constituent receives the same weight. If the index contains $N$ securities, then each security receives
+
+$$
+w_i = \frac{1}{N}.
+$$
+
+In our five-company example, that means each firm receives weight
+
+$$
+\frac{1}{5} = 20\%.
+$$
+
+So under equal weighting, Atlas Tech, Beacon Retail, Crest Energy, Delta Health, and Elm Foods each receive exactly 20 percent of the index, even though the firms differ substantially in size.
+
+Equal weighting has the advantage of simplicity and gives smaller firms more influence than they would receive in a market-cap-weighted framework. At the same time, equal weighting tends to require more rebalancing because price changes cause weights to drift away from equality.
+
+
+
+In a [[Market-Cap-Weighted Index|market-cap-weighted index]], each constituent receives a weight proportional to its market capitalization. The basic formula is
+
+$$
+w_i = \frac{\text{Market Cap}_i}{\sum_{j=1}^{N} \text{Market Cap}_j}.
+$$
+
+Using our five-company data, the weights become:
+
+- Atlas Tech: $1000/2000 = 50\%$
+- Beacon Retail: $400/2000 = 20\%$
+- Crest Energy: $300/2000 = 15\%$
+- Delta Health: $160/2000 = 8\%$
+- Elm Foods: $140/2000 = 7\%$
+
+So although the equal-weighted and market-cap-weighted indexes contain the same firms, they are very different portfolios. In the equal-weighted version, every company matters equally. In the market-cap-weighted version, Atlas Tech dominates because it represents half of the total market capitalization.
+
+
+
+In a [[Price-Weighted Index|price-weighted index]], each constituent's influence depends on its share price rather than on its market capitalization. A stock with a higher nominal price receives more influence even if the company itself is not especially large. A simplified price-weighted index level can be written as
+
+$$
+I_t = \frac{\sum_{i=1}^{N} P_{i,t}}{D_t},
+$$
+
+where $D_t$ is a divisor used to keep the index continuous when events such as stock splits occur.
+
+Using our five companies, the total of the share prices is
+
+$$
+100 + 50 + 25 + 80 + 20 = 275.
+$$
+
+If we want the initial price-weighted index level to start at 100, then we choose the initial divisor $D_0$ so that
+
+$$
+100 = \frac{275}{D_0}.
+$$
+
+This gives
+
+$$
+D_0 = 2.75.
+$$
+
+So the initial price-weighted index level is
+
+$$
+I_0^{\text{PW}} = \frac{275}{2.75} = 100.
+$$
+
+To see the relative influence of each stock in a price-weighted index, it is helpful to compare each stock's price to the total price sum. That gives the following approximate price-based shares of influence:
+
+- Atlas Tech: $100/275 \approx 36.4\%$
+- Beacon Retail: $50/275 \approx 18.2\%$
+- Crest Energy: $25/275 \approx 9.1\%$
+- Delta Health: $80/275 \approx 29.1\%$
+- Elm Foods: $20/275 \approx 7.3\%$
+
+These are not portfolio weights in exactly the same sense as equal-weighted or market-cap-weighted allocations, but they do show which stocks exert more influence on the index's movement. The main point is that price weighting depends on nominal share price, not economic size.
+
+[DIAGRAM: Side-by-side comparison of equal weighting, market-cap weighting, and price weighting for the same five firms]
+
+This is a central lesson in index construction: the constituent set alone does not determine the index. The weighting methodology is equally important.
+
+### Setting the Initial Index Level
+
+After the constituents and weights are determined, the provider must define the initial [[Index Level|index level]]. In practice, an index is usually started at a convenient base value such as 100, 1000, or some other round number. The absolute level itself is not usually the key point; what matters is how that level changes over time.
+
+Suppose the equal-weighted and market-cap-weighted indexes both begin at
+
+$$
+I_0 = 100.
+$$
+
+This means we can interpret each index as a notional $100 portfolio.
+
+Under equal weighting, the initial $100 is divided evenly into five $20 positions. Under market-cap weighting, the initial $100 is allocated according to the market-cap weights above, so Atlas Tech receives $50, Beacon Retail $20, Crest Energy $15, Delta Health $8, and Elm Foods $7.
+
+For the price-weighted index, the interpretation is slightly different. It is built from the sum of constituent prices divided by a divisor rather than from an explicit capital allocation into the firms. Still, it may also be initialized at 100 through the choice of divisor, as we did above.
+
+[FIGURE: Three initial index setups: a $100 equal-weighted portfolio, a $100 market-cap-weighted portfolio, and a price-weighted index initialized to 100 through a divisor]
+
+At this stage, the index has become more than a list of firms. It is now a precisely specified calculation framework with a defined starting value.
+
+### Calculating the Index Level Through Time
+
+Once the index begins, its level changes as the prices of its constituents change. In general, the index return over a period is determined by the returns of the constituents and the weighting system used.
+
+For an equal-weighted index, the index return over a period is the average of the constituent returns:
+
+$$
+r_{\text{EW}} = \frac{1}{N}\sum_{i=1}^{N} r_i.
+$$
+
+For a market-cap-weighted index, the index return is the weighted average of constituent returns:
+
+$$
+r_{\text{MC}} = \sum_{i=1}^{N} w_i r_i.
+$$
+
+For a price-weighted index, the new index level is obtained by summing the updated prices and dividing by the divisor.
+
+To make this concrete, suppose the five companies earn the following returns over one period:
+
+- Atlas Tech: $+10\%$
+- Beacon Retail: $+4\%$
+- Crest Energy: $-8\%$
+- Delta Health: $+20\%$
+- Elm Foods: $-5\%$
+
+Then the new prices become:
+
+- Atlas Tech: $100 \to 110$
+- Beacon Retail: $50 \to 52$
+- Crest Energy: $25 \to 23$
+- Delta Health: $80 \to 96$
+- Elm Foods: $20 \to 19$
+
+The equal-weighted index return is
+
+$$
+r_{\text{EW}} = \frac{1}{5}(10\% + 4\% - 8\% + 20\% - 5\%) = 4.2\%.
+$$
+
+So the new equal-weighted index level becomes
+
+$$
+I_1^{\text{EW}} = 100(1.042) = 104.2.
+$$
+
+The market-cap-weighted index return is
+
+$$
+r_{\text{MC}} = 0.50(10\%) + 0.20(4\%) + 0.15(-8\%) + 0.08(20\%) + 0.07(-5\%) = 5.85\%.
+$$
+
+So the new market-cap-weighted index level becomes
+
+$$
+I_1^{\text{MC}} = 100(1.0585) = 105.85.
+$$
+
+For the price-weighted index, we sum the new prices:
+
+$$
+110 + 52 + 23 + 96 + 19 = 300.
+$$
+
+Using the same divisor $2.75$, the new price-weighted index level is
+
+$$
+I_1^{\text{PW}} = \frac{300}{2.75} \approx 109.09.
+$$
+
+[FIGURE: Equal-weighted index rising from 100 to 104.2, market-cap-weighted index rising from 100 to 105.85, and price-weighted index rising from 100 to about 109.09 after the same company returns]
+
+This example shows clearly that different weighting schemes can produce different index behavior even when the underlying firms are identical.
+
+### Rebalancing
+
+As prices change, portfolio weights also change. This means that an index may drift away from its intended design unless it is periodically adjusted. The process of restoring the intended weights is called [[Rebalancing|rebalancing]].
+
+Rebalancing is especially important for equal-weighted indexes. In our example, the equal-weighted index began with all five firms at 20 percent. But once the firms experienced different returns, those weights changed. Delta Health's strong performance increased its share of the index, while Crest Energy and Elm Foods became smaller shares.
+
+To remain an equal-weighted index, the portfolio would need to be reset so that each firm once again carries 20 percent of total value. That means selling part of the firms that rose the most and buying more of the firms that lagged behind.
+
+By contrast, a market-cap-weighted index does not need to rebalance in the same way just because prices move. Its weights naturally update with market values. If Atlas Tech becomes a larger company relative to the others, its weight rises automatically.
+
+Price-weighted indexes also do not rebalance in the same way as equal-weighted indexes. Their behavior is driven directly by the price levels of the constituent stocks, although they still require maintenance when corporate actions change prices mechanically.
+
+[DIAGRAM: Equal-weighted portfolio drifting away from equal shares over time, while market-cap and price-weighted structures evolve differently]
+
+This difference helps explain why equal-weighted indexes often have higher turnover than market-cap-weighted indexes.
+
+### Reconstitution
+
+A separate process is [[Reconstitution|reconstitution]], which refers to changing the membership of the index itself. Rebalancing changes the weights of existing constituents. Reconstitution changes which securities are in the index.
+
+For example, if Elm Foods were to shrink below a minimum market-cap requirement, it might be removed from the index. If a new firm entered the eligible universe and satisfied the methodology better than an existing constituent, that new firm might be added.
+
+In our simplified example, we are keeping the constituent set fixed at five firms, so reconstitution does not occur. But in real-world indexes, reconstitution is common and can have important effects on turnover, costs, and index behavior.
+
+[DIAGRAM: Rebalancing versus reconstitution — one panel showing weights changing, another showing names entering and leaving the index]
+
+### Corporate Actions and Adjustments
+
+Real indexes must also account for [[Corporate Actions|corporate actions]] such as stock splits, mergers, spinoffs, buybacks, and new share issuance. These events can mechanically change prices or shares outstanding without representing true economic gains or losses.
+
+For instance, if Atlas Tech undergoes a 2-for-1 stock split, its share price would roughly halve while its number of shares would roughly double. Its total market capitalization would remain essentially unchanged. A properly constructed market-cap-weighted index should not show a false drop simply because the unit of account changed.
+
+In a price-weighted index, stock splits are especially important because the index depends directly on nominal prices. If Atlas Tech were split 2-for-1, its price would fall from $100 to about $50, and without adjusting the divisor, the price-weighted index would show a sharp artificial decline even though no real value was lost. That is why the divisor must be adjusted after such events.
+
+[FIGURE: Stock split example showing price down, shares up, and market cap unchanged before and after the split, alongside a note that the price-weighted divisor must be adjusted]
+
+This is one reason many real indexes use adjustment methods involving divisors or equivalent continuity corrections. The goal is to ensure that the index reflects genuine market movement rather than accounting artifacts.
+
+### Investability and Practical Constraints
+
+Even when an index is conceptually well designed, it may not be easy to implement in practice. Some securities may be difficult to trade, too illiquid, or too costly to hold in exact proportions. This is why real-world index construction often balances two goals at once:
+
+- representing the intended market accurately
+- making the index practical enough for investment funds to track
+
+In our five-company example, replication is easy because there are only five names. In real markets, a broad equity index may contain hundreds or thousands of firms, and a bond index may include many issues that rarely trade. For this reason, index methodologies often use liquidity screens, float adjustments, or constituent limits to make tracking more practical.
+
+### Why Construction Choices Matter
+
+The construction of an index matters because it determines what the index actually represents. An index is not simply the market written down in numerical form. It is a market representation shaped by rules.
+
+Our five-company example makes this clear. The equal-weighted index, the market-cap-weighted index, and the price-weighted index contained the exact same firms, yet they differed in structure, in sensitivity to individual company performance, in rebalancing needs, and in returns over time. The difference came entirely from the construction method.
+
+Equal weighting gave the smaller firms more influence than market-cap weighting did. Market-cap weighting concentrated the index more heavily in Atlas Tech because Atlas Tech was the largest company. Price weighting gave extra influence to Atlas Tech and Delta Health because they had the highest nominal share prices, even though Delta Health was much smaller than Beacon Retail and Crest Energy in market capitalization terms.
+
+[FIGURE: Same five companies producing three different index paths under equal-weighted, market-cap-weighted, and price-weighted methodologies]
+
+This is why understanding index construction is fundamental to passive investing. A passive strategy does not passively accept reality in some neutral sense. It follows a specific benchmark design. To understand the investment, one must therefore understand the rules that define the index itself.
 
 ## Market Cap weighting
 
@@ -247,6 +567,7 @@ a
 
 
 a
+
 
 
 

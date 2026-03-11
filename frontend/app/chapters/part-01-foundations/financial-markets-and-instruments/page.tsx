@@ -139,7 +139,15 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "A stock and also be referred to as [[equity|equity]], a claim on the residual value of a company after its obligations have been satisfied. ######## Equities can also be defined as $$ Assets - Liabilities = Equity$$ Assets things that a person or company own that have a value and liabilities is what the company owes or the amount in \"debt\" they are in."
+        "text": "A stock and also be referred to as [[equity|equity]], a claim on the residual value of a company after its obligations have been satisfied. ######## Equities can also be defined as"
+      },
+      {
+        "type": "mathDisplay",
+        "latex": "Assets - Liabilities = Equity"
+      },
+      {
+        "type": "paragraph",
+        "text": "Assets things that a person or company own that have a value and liabilities is what the company owes or the amount in \"debt\" they are in."
       },
       {
         "type": "subheading",
@@ -683,7 +691,7 @@ const sectionContent: ChapterSectionContent[] = [
       },
       {
         "type": "paragraph",
-        "text": "That daily price is called the [[net asset value|net asset value]], or [[NAV|NAV]]. The NAV is calculated by taking the total value of the fund’s assets, subtracting its liabilities, and dividing by the number of shares outstanding. All purchase and redemption orders made during the day are usually carried out at that same end-of-day NAV. (ADD DISPLAY NOTATION FOR CALCULATING THE NAV) $$ $$"
+        "text": "That daily price is called the [[net asset value|net asset value]], or [[NAV|NAV]]. The NAV is calculated by taking the total value of the fund’s assets, subtracting its liabilities, and dividing by the number of shares outstanding. All purchase and redemption orders made during the day are usually carried out at that same end-of-day NAV. (ADD DISPLAY NOTATION FOR CALCULATING THE NAV)"
       },
       {
         "type": "paragraph",
