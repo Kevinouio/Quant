@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 import { GlossaryPanelProvider } from "../glossary/GlossaryPanelContext";
 import { GlossarySidePanel } from "../glossary/GlossarySidePanel";
@@ -83,6 +83,8 @@ export function DocsShell({
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [expandedChapterId, setExpandedChapterId] = useState<string | null>(null);
   const [expandedSectionByChapter, setExpandedSectionByChapter] = useState<Record<string, string | null>>({});
+  const tocContainerRef = useRef<HTMLElement | null>(null);
+  const tocLinkRefs = useRef(new Map<string, HTMLAnchorElement>());
   const sectionIds = useMemo(
     () => tocItems.map((item) => getHashId(item.href)).filter(Boolean) as string[],
     [tocItems]
@@ -115,6 +117,7 @@ export function DocsShell({
 
   useEffect(() => {
     if (!sectionIds.length) {
+      setActiveSection(null);
       return;
     }
 
@@ -123,39 +126,92 @@ export function DocsShell({
       .filter(Boolean) as HTMLElement[];
 
     if (!sections.length) {
+      setActiveSection(null);
       return;
     }
 
-    if (window.location.hash) {
-      const current = window.location.hash.replace("#", "");
-      if (sectionIds.includes(current)) {
-        setActiveSection(current);
+    const getReadingOffset = () => {
+      const topbar = document.querySelector(".topbar") as HTMLElement | null;
+      const topbarHeight = topbar?.offsetHeight ?? 60;
+      return topbarHeight + 24;
+    };
+
+    const computeActiveSection = () => {
+      const readingLine = getReadingOffset();
+      let candidateId = sections[0].id;
+
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= readingLine) {
+          candidateId = section.id;
+        } else {
+          break;
+        }
       }
+
+      return candidateId;
+    };
+
+    const getHashTarget = () => {
+      const hash = window.location.hash.replace("#", "");
+      return sectionIds.includes(hash) ? hash : null;
+    };
+
+    let frameId: number | null = null;
+
+    const syncActiveSection = () => {
+      if (frameId !== null) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = null;
+        const nextId = computeActiveSection();
+        setActiveSection((current) => (current === nextId ? current : nextId));
+      });
+    };
+
+    const hashTarget = getHashTarget();
+    if (hashTarget) {
+      setActiveSection(hashTarget);
     } else {
-      setActiveSection(sections[0].id);
+      syncActiveSection();
     }
 
-    if (!("IntersectionObserver" in window)) {
+    const onHashChange = () => {
+      const nextHashTarget = getHashTarget();
+      if (nextHashTarget) {
+        setActiveSection(nextHashTarget);
+      }
+      syncActiveSection();
+    };
+
+    window.addEventListener("scroll", syncActiveSection, { passive: true });
+    window.addEventListener("resize", syncActiveSection);
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener("scroll", syncActiveSection);
+      window.removeEventListener("resize", syncActiveSection);
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, [sectionIds]);
+
+  useEffect(() => {
+    if (!activeSection) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: "-35% 0px -55% 0px",
-        threshold: 0.15
-      }
-    );
+    const container = tocContainerRef.current;
+    const activeLink = tocLinkRefs.current.get(activeSection);
+    if (!container || !activeLink || !container.contains(activeLink)) {
+      return;
+    }
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, [sectionIds]);
+    activeLink.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "auto" });
+  }, [activeSection]);
 
   useEffect(() => {
     if (!activeChapterId) {
@@ -360,12 +416,13 @@ export function DocsShell({
             </main>
           </div>
 
-          <aside className="right-toc">
+          <aside className="right-toc" ref={tocContainerRef}>
             <nav aria-label="On this page">
               <h2>On This Page</h2>
               <ul className="section-nav">
                 {tocItems.map((item) => {
-                  const isActive = activeSection === getHashId(item.href);
+                  const hashId = getHashId(item.href);
+                  const isActive = activeSection === hashId;
                   const className = [
                     item.level === 3 ? "is-subheading" : "",
                     isActive ? "is-active" : ""
@@ -375,7 +432,21 @@ export function DocsShell({
 
                   return (
                     <li key={item.href}>
-                      <a className={className} href={item.href}>
+                      <a
+                        ref={(node) => {
+                          if (!hashId) {
+                            return;
+                          }
+
+                          if (node) {
+                            tocLinkRefs.current.set(hashId, node);
+                          } else {
+                            tocLinkRefs.current.delete(hashId);
+                          }
+                        }}
+                        className={className}
+                        href={item.href}
+                      >
                         {item.label}
                       </a>
                     </li>
