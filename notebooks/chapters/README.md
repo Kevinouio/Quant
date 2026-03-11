@@ -2,6 +2,22 @@
 
 Generated index for notebook draft chapters.
 
+## Authoring Summary (QMD)
+
+Use frontmatter `summary` in each chapter `.qmd` to control the top hero summary shown on the website:
+
+```yaml
+---
+title: "Chapter 1. Financial markets and instruments"
+summary: "High-level overview of markets, stocks, and bonds."
+format:
+  html: default
+  pdf: default
+---
+```
+
+If `summary` is missing, sync keeps the existing summary value already present in `frontend/lib/chapterMetadata.ts`.
+
 ## Part 0. Preface and how to use the book
 
 - Chapter 0: `part-00-preface/chapter-00-preface.qmd` -> `/chapters/part-00-preface/preface`

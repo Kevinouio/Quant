@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { GlossaryInlineTerm } from "../glossary/GlossaryInlineTerm";
+import { glossaryAnchorId, normalizeGlossaryKey, resolveGlossaryTermId } from "../../lib/glossary";
 import { chapterHref, chaptersByPart, type ChapterMeta } from "../../lib/chapterMetadata";
 import { DocsShell } from "./DocsShell";
 
@@ -32,8 +34,36 @@ function chapterDisplayLabel(chapter: ChapterMeta): string {
   return `Chapter ${chapter.chapterNumber}. ${chapter.chapterTitle}`;
 }
 
+function chapterNumberPrefix(chapter: ChapterMeta): string {
+  return chapter.chapterCode ?? `${chapter.chapterNumber}`;
+}
+
+function parseGlossaryToken(token: string): { lookup: string; displayText: string } | null {
+  if (!token.startsWith("[[") || !token.endsWith("]]")) {
+    return null;
+  }
+
+  const payload = token.slice(2, -2).trim();
+  if (!payload) {
+    return null;
+  }
+
+  const separatorIndex = payload.indexOf("|");
+  if (separatorIndex === -1) {
+    return { lookup: payload, displayText: payload };
+  }
+
+  const lookup = payload.slice(0, separatorIndex).trim();
+  const displayText = payload.slice(separatorIndex + 1).trim();
+  if (!lookup || !displayText) {
+    return null;
+  }
+
+  return { lookup, displayText };
+}
+
 function renderInlineMarkdown(text: string): ReactNode {
-  const tokenPattern = /(\*\*[^*\n]+\*\*|__[^_\n]+__|\*[^*\n]+\*|_[^_\n]+_)/g;
+  const tokenPattern = /(\[\[[^[\]\n]+\]\]|\*\*[^*\n]+\*\*|__[^_\n]+__|\*[^*\n]+\*|_[^_\n]+_)/g;
   const nodes: ReactNode[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null = null;
@@ -51,7 +81,14 @@ function renderInlineMarkdown(text: string): ReactNode {
     const token = match[0];
     const key = `${match.index}-${token}`;
 
-    if (
+    const glossaryToken = parseGlossaryToken(token);
+    if (glossaryToken) {
+      nodes.push(
+        <GlossaryInlineTerm key={key} lookup={glossaryToken.lookup}>
+          {glossaryToken.displayText}
+        </GlossaryInlineTerm>
+      );
+    } else if (
       (token.startsWith("**") && token.endsWith("**")) ||
       (token.startsWith("__") && token.endsWith("__"))
     ) {
@@ -70,6 +107,11 @@ function renderInlineMarkdown(text: string): ReactNode {
   return nodes.length === 0 ? text : nodes;
 }
 
+function glossaryHeadingFromParagraph(text: string): string | null {
+  const match = /^\*\*([^*\n]+)\*\*$/.exec(text.trim());
+  return match ? match[1].trim() : null;
+}
+
 export function ChapterPageLayout({
   chapter,
   sectionContent,
@@ -79,34 +121,41 @@ export function ChapterPageLayout({
   sectionContent: ChapterSectionContent[];
   sectionExtras?: Record<string, ReactNode>;
 }) {
+  const chapterPrefix = chapterNumberPrefix(chapter);
   const sectionModels = sectionContent.map((section, sectionIndex) => {
     const sectionId = toSectionId(section.title);
+    const sectionNumber = `${chapterPrefix}.${sectionIndex + 1}`;
+    const sectionLabel = `${sectionNumber} ${section.title}`;
     const subheadingIdsByBlockIndex = new Map<number, string>();
+    const subheadingLabelsByBlockIndex = new Map<number, string>();
     let subheadingCount = 0;
 
     section.blocks?.forEach((block, blockIndex) => {
       if (block.type === "subheading") {
         subheadingCount += 1;
         const subheadingId = toSectionId(`${section.title}-${block.text}-${subheadingCount}`);
+        const subheadingLabel = `${sectionNumber}.${subheadingCount} ${block.text}`;
         subheadingIdsByBlockIndex.set(blockIndex, subheadingId);
+        subheadingLabelsByBlockIndex.set(blockIndex, subheadingLabel);
       }
     });
 
-    return { section, sectionId, sectionIndex, subheadingIdsByBlockIndex };
+    return { section, sectionId, sectionIndex, sectionLabel, subheadingIdsByBlockIndex, subheadingLabelsByBlockIndex };
   });
 
   const tocItems = [
     { href: "#overview", label: "Overview", level: 1 },
-    ...sectionModels.flatMap(({ section, sectionId, subheadingIdsByBlockIndex }) => {
+    ...sectionModels.flatMap(({ section, sectionId, sectionLabel, subheadingIdsByBlockIndex, subheadingLabelsByBlockIndex }) => {
       const items: { href: string; label: string; level: number }[] = [
-        { href: `#${sectionId}`, label: section.title, level: 2 }
+        { href: `#${sectionId}`, label: sectionLabel, level: 2 }
       ];
 
       section.blocks?.forEach((block, blockIndex) => {
         if (block.type === "subheading") {
           const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
+          const subheadingLabel = subheadingLabelsByBlockIndex.get(blockIndex);
           if (subheadingId) {
-            items.push({ href: `#${subheadingId}`, label: block.text, level: 3 });
+            items.push({ href: `#${subheadingId}`, label: subheadingLabel ?? block.text, level: 3 });
           }
         }
       });
@@ -148,20 +197,37 @@ export function ChapterPageLayout({
           <p>{chapter.summary}</p>
         </header>
 
-        {sectionModels.map(({ section, sectionId, subheadingIdsByBlockIndex }) => (
+        {sectionModels.map(({ section, sectionId, sectionLabel, subheadingIdsByBlockIndex, subheadingLabelsByBlockIndex }) => (
           <section className="article-section" id={sectionId} key={section.title}>
-            <h2>{section.title}</h2>
+            <h2>{sectionLabel}</h2>
             {section.blocks ? (
               section.blocks.map((block, blockIndex) => {
                 if (block.type === "paragraph") {
+                  const glossaryHeading =
+                    chapter.partSlug === "part-10-glossary" ? glossaryHeadingFromParagraph(block.text) : null;
+
+                  if (glossaryHeading) {
+                    const glossaryTermId = resolveGlossaryTermId(glossaryHeading) ?? normalizeGlossaryKey(glossaryHeading);
+                    return (
+                      <h3
+                        id={glossaryAnchorId(glossaryTermId)}
+                        className="glossary-entry-heading"
+                        key={`${section.title}-block-${blockIndex}`}
+                      >
+                        {glossaryHeading}
+                      </h3>
+                    );
+                  }
+
                   return <p key={`${section.title}-block-${blockIndex}`}>{renderInlineMarkdown(block.text)}</p>;
                 }
 
                 if (block.type === "subheading") {
                   const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
+                  const subheadingLabel = subheadingLabelsByBlockIndex.get(blockIndex) ?? block.text;
                   return (
                     <h3 id={subheadingId} key={`${section.title}-block-${blockIndex}`}>
-                      {renderInlineMarkdown(block.text)}
+                      {renderInlineMarkdown(subheadingLabel)}
                     </h3>
                   );
                 }
