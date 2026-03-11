@@ -36,4 +36,6 @@ Open: `http://localhost:3000`
 
 1. Implement a glossary for terms that are generally unfamiliar or are already in the glossary
 2. Continue writing chapters (CURRENT Chapter 1)
+3. During Classes get figures as needed
+4.
 

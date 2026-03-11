@@ -1,5 +1,6 @@
 ---
 title: "Chapter 6. Passive indexing and benchmarking"
+summary: "This chapter will review a couple topics that are needed for this part of the book. This chapter is just mainly foundational knowledge and the part will discuss all of the different passive investing methods that you can use. The later parts will discuss topics of active investing."
 format:
   html: default
   pdf: default

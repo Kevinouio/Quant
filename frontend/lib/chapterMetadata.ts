@@ -201,7 +201,7 @@ export const chapterMetadata: ChapterMeta[] = [
     "partNumber": 2,
     "partTitle": "Long-horizon investing and portfolio construction",
     "partSlug": "part-02-long-horizon-investing",
-    "summary": "Placeholder summary for Passive indexing and benchmarking.",
+    "summary": "This chapter will review a couple topics that are needed for this part of the book. This chapter is just mainly foundational knowledge and the part will discuss all of the different passive investing methods that you can use. The later parts will discuss topics of active investing.",
     "status": "detailed"
   },
   {
