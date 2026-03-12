@@ -159,18 +159,14 @@ function normalizePlainText(text: string): string {
   return text.replace(/\\\$/g, "$");
 }
 
-function renderInlineMath(text: string, keyPrefix: string): ReactNode[] {
-  const nodes: ReactNode[] = [];
+type InlineSegment =
+  | { kind: "text"; text: string }
+  | { kind: "math"; latex: string };
+
+function splitInlineMathSegments(text: string): InlineSegment[] {
+  const segments: InlineSegment[] = [];
   let cursor = 0;
   let plainStart = 0;
-  let mathIndex = 0;
-
-  const pushPlain = (endExclusive: number) => {
-    if (endExclusive <= plainStart) {
-      return;
-    }
-    nodes.push(normalizePlainText(text.slice(plainStart, endExclusive)));
-  };
 
   while (cursor < text.length) {
     const currentChar = text[cursor];
@@ -198,25 +194,27 @@ function renderInlineMath(text: string, keyPrefix: string): ReactNode[] {
       continue;
     }
 
-    pushPlain(cursor);
-    nodes.push(
-      renderMathNode({
-        latex: candidate.trim(),
-        displayMode: false,
-        key: `${keyPrefix}-math-${mathIndex}`
-      })
-    );
-    mathIndex += 1;
+    if (cursor > plainStart) {
+      segments.push({ kind: "text", text: text.slice(plainStart, cursor) });
+    }
+    segments.push({ kind: "math", latex: candidate.trim() });
     cursor = closing + 1;
     plainStart = cursor;
   }
 
-  pushPlain(text.length);
-  return nodes;
+  if (plainStart < text.length) {
+    segments.push({ kind: "text", text: text.slice(plainStart) });
+  }
+
+  if (segments.length === 0) {
+    segments.push({ kind: "text", text });
+  }
+
+  return segments;
 }
 
-function renderInlineMarkdown(text: string): ReactNode {
-  const tokenPattern = /(\[\[[^[\]\n]+\]\]|\*\*[^*\n]+\*\*|__[^_\n]+__|\*[^*\n]+\*|_[^_\n]+_)/g;
+function renderInlineTextTokens(text: string, keyPrefix: string): ReactNode[] {
+  const tokenPattern = /(\[\[[^[\]\n]+\]\]|\*\*[^*\n]+\*\*|__[^_\n]+\_\_|\*[^*\n]+\*|_[^_\n]+_)/g;
   const nodes: ReactNode[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null = null;
@@ -228,13 +226,13 @@ function renderInlineMarkdown(text: string): ReactNode {
     }
 
     if (match.index > lastIndex) {
-      nodes.push(...renderInlineMath(text.slice(lastIndex, match.index), `plain-${match.index}`));
+      nodes.push(normalizePlainText(text.slice(lastIndex, match.index)));
     }
 
     const token = match[0];
-    const key = `${match.index}-${token}`;
-
+    const key = `${keyPrefix}-${match.index}-${token}`;
     const glossaryToken = parseGlossaryToken(token);
+
     if (glossaryToken) {
       nodes.push(
         <GlossaryInlineTerm key={key} lookup={glossaryToken.lookup}>
@@ -245,17 +243,43 @@ function renderInlineMarkdown(text: string): ReactNode {
       (token.startsWith("**") && token.endsWith("**")) ||
       (token.startsWith("__") && token.endsWith("__"))
     ) {
-      nodes.push(<strong key={key}>{renderInlineMath(token.slice(2, -2), `${key}-strong`)}</strong>);
+      nodes.push(<strong key={key}>{normalizePlainText(token.slice(2, -2))}</strong>);
     } else {
-      nodes.push(<em key={key}>{renderInlineMath(token.slice(1, -1), `${key}-em`)}</em>);
+      nodes.push(<em key={key}>{normalizePlainText(token.slice(1, -1))}</em>);
     }
 
     lastIndex = tokenPattern.lastIndex;
   }
 
   if (lastIndex < text.length) {
-    nodes.push(...renderInlineMath(text.slice(lastIndex), `plain-tail-${lastIndex}`));
+    nodes.push(normalizePlainText(text.slice(lastIndex)));
   }
+
+  if (nodes.length === 0) {
+    nodes.push(normalizePlainText(text));
+  }
+
+  return nodes;
+}
+
+function renderInlineMarkdown(text: string): ReactNode {
+  const nodes: ReactNode[] = [];
+  const segments = splitInlineMathSegments(text);
+
+  segments.forEach((segment, index) => {
+    if (segment.kind === "math") {
+      nodes.push(
+        renderMathNode({
+          latex: segment.latex,
+          displayMode: false,
+          key: `inline-math-${index}`
+        })
+      );
+      return;
+    }
+
+    nodes.push(...renderInlineTextTokens(segment.text, `inline-text-${index}`));
+  });
 
   if (nodes.length === 0) {
     return normalizePlainText(text);

@@ -657,6 +657,11 @@ export function DocsShell({
               {hasChapterContext ? (
                 <>
                   <section className="right-toc__group">
+                    <h3 className="right-toc__group-title">In this section</h3>
+                    <ul className="section-nav">{inSectionNavItems}</ul>
+                  </section>
+
+                  <section className="right-toc__group">
                     <h3 className="right-toc__group-title">Sections in this chapter</h3>
                     <ul className="section-nav section-nav--chapter">
                       {chapterContextItems?.map((sectionLink) => (
@@ -670,11 +675,6 @@ export function DocsShell({
                         </li>
                       ))}
                     </ul>
-                  </section>
-
-                  <section className="right-toc__group">
-                    <h3 className="right-toc__group-title">In this section</h3>
-                    <ul className="section-nav">{inSectionNavItems}</ul>
                   </section>
                 </>
               ) : (

@@ -6,7 +6,7 @@ import { chapterSectionByRoute, chapterSectionHref, chapterSectionsByRoute, type
 
 const partSlug = "part-02-long-horizon-investing";
 const chapterSlug = "passive-indexing-and-benchmarking";
-const sectionSlug = "s13-summary";
+const sectionSlug = "s10-choosing-the-right-benchmark";
 
 export default function Page() {
   const chapter = chapterByRoute(partSlug, chapterSlug);

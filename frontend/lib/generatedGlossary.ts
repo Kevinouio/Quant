@@ -1374,7 +1374,11 @@ export const glossaryEntries: GlossaryEntry[] = [
   {
     "id": "etf",
     "term": "ETF",
-    "aliases": [],
+    "aliases": [
+      "Exchange-Traded Fund",
+      "Exchange-Traded Funds",
+      "ETFs"
+    ],
     "definition": "An ETF (exchange-traded fund) is a pooled fund whose shares trade on an exchange throughout the day like a stock, while the fund itself holds a basket of underlying assets.",
     "intuition": "It is a fund wrapper with intraday tradability.",
     "whyItMatters": "ETFs are a core building block for passive exposure, tactical positioning, and low-friction portfolio implementation.",
@@ -1825,7 +1829,9 @@ export const glossaryEntries: GlossaryEntry[] = [
   {
     "id": "derivatives",
     "term": "Derivatives",
-    "aliases": [],
+    "aliases": [
+      "Derivative"
+    ],
     "definition": "Derivatives are contracts whose value is derived from underlying assets, rates, indexes, or other references, and are used for hedging, speculation, and exposure shaping.",
     "intuition": "The contract value depends on something else moving.",
     "whyItMatters": "Derivatives can improve risk control or capital efficiency, but they add complexity and model risk.",
@@ -2270,7 +2276,9 @@ export const glossaryEntries: GlossaryEntry[] = [
   {
     "id": "constituents",
     "term": "Constituents",
-    "aliases": [],
+    "aliases": [
+      "Constituent"
+    ],
     "definition": "Constituents are the individual securities included in an index or portfolio according to a defined methodology.",
     "intuition": "They are the actual names inside the basket.",
     "whyItMatters": "Constituent selection directly shapes diversification, sector exposure, and behavior during stress.",
@@ -2764,6 +2772,1085 @@ export const glossaryEntries: GlossaryEntry[] = [
     "chapterReferences": [
       "Chapter 6 (Passive indexing and benchmarking)",
       "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "passive-index",
+    "term": "Passive Index",
+    "aliases": [],
+    "definition": "A passive index is a benchmark design with predefined inclusion, weighting, and maintenance rules that is meant to be followed rather than actively forecasted against security by security.",
+    "intuition": "It is the target blueprint passive funds try to mirror.",
+    "whyItMatters": "Passive investing results depend on the index design itself, so understanding the passive index is as important as choosing the fund wrapper.",
+    "relatedTerms": [
+      "Index",
+      "Benchmark",
+      "Passive Investing",
+      "Passive Fund"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "exposure",
+    "term": "Exposure",
+    "aliases": [],
+    "definition": "Exposure is how sensitive a portfolio is to a market, factor, sector, rate, or instrument, based on what it actually holds or references.",
+    "intuition": "Exposure tells you what you are truly betting on.",
+    "whyItMatters": "A strategy can look similar by name but behave very differently if its underlying exposures are different.",
+    "relatedTerms": [
+      "Index Exposure",
+      "Sector Exposure",
+      "Beta",
+      "Risk Budgeting"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 9 (CAPM, beta, and risk budgeting)"
+    ]
+  },
+  {
+    "id": "pooling",
+    "term": "Pooling",
+    "aliases": [],
+    "definition": "Pooling is the process of combining capital from many investors into one shared vehicle that invests according to a common mandate.",
+    "intuition": "Many investors contribute to one basket instead of each building a full portfolio alone.",
+    "whyItMatters": "Pooling makes broad diversification and benchmark tracking practical for investors who cannot efficiently trade every constituent directly.",
+    "relatedTerms": [
+      "Investor Capital",
+      "Investment Vehicle",
+      "Mutual Fund",
+      "ETF"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "investor-capital",
+    "term": "Investor Capital",
+    "aliases": [],
+    "definition": "Investor capital is the contributed money from fund holders that a manager deploys into securities to implement a benchmark or strategy.",
+    "intuition": "It is the funding base the fund uses to build exposures.",
+    "whyItMatters": "The scale and flow of investor capital affect replication choices, trading impact, and operational constraints.",
+    "relatedTerms": [
+      "Pooling",
+      "Fund",
+      "Investment Vehicle",
+      "Assets Under Management"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "direct-indexing",
+    "term": "Direct Indexing",
+    "aliases": [],
+    "definition": "Direct indexing is implementing an index-like strategy by directly holding many underlying securities in a separately managed account instead of buying a pooled fund.",
+    "intuition": "You own the components directly rather than owning a fund wrapper.",
+    "whyItMatters": "It can improve customization and tax control, but usually increases operational complexity.",
+    "relatedTerms": [
+      "Investment Vehicle",
+      "Tax Management",
+      "Constituents",
+      "Passive Investing"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "tax-management",
+    "term": "Tax Management",
+    "aliases": [],
+    "definition": "Tax management is the set of portfolio actions used to improve after-tax outcomes, such as loss harvesting, lot selection, and holding-period control.",
+    "intuition": "It is return optimization after taxes, not just before fees.",
+    "whyItMatters": "Two portfolios with similar pre-tax returns can produce very different investor outcomes after tax effects.",
+    "relatedTerms": [
+      "Direct Indexing",
+      "Turnover",
+      "Capital Gains",
+      "Net Return"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 8 (Mean-variance portfolio construction)"
+    ]
+  },
+  {
+    "id": "fund",
+    "term": "Fund",
+    "aliases": [],
+    "definition": "A fund is a managed investment pool that holds a portfolio on behalf of investors according to stated objectives, constraints, and legal structure.",
+    "intuition": "It is the operating entity that turns an index or strategy into actual holdings.",
+    "whyItMatters": "Benchmark tracking quality depends on how the fund implements trading, rebalancing, and cost control in practice.",
+    "relatedTerms": [
+      "Passive Fund",
+      "Investment Vehicle",
+      "ETF",
+      "Mutual Fund"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 1 (Financial markets and instruments)"
+    ]
+  },
+  {
+    "id": "full-replication",
+    "term": "Full Replication",
+    "aliases": [],
+    "definition": "Full replication is a benchmark implementation method where the fund holds all or nearly all index constituents at approximately benchmark weights.",
+    "intuition": "Match the benchmark basket name-for-name and weight-for-weight as closely as possible.",
+    "whyItMatters": "It can produce tighter tracking in liquid markets, but may be expensive or impractical for very broad or illiquid indexes.",
+    "relatedTerms": [
+      "Sampling",
+      "Constituents",
+      "Tracking Error",
+      "Bond Index"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "sampling",
+    "term": "Sampling",
+    "aliases": [],
+    "definition": "Sampling is a replication method where the fund holds a representative subset of benchmark securities designed to approximate overall benchmark behavior.",
+    "intuition": "Copy the benchmark's key characteristics without owning every name.",
+    "whyItMatters": "Sampling improves implementation feasibility in difficult markets but can increase tracking differences.",
+    "relatedTerms": [
+      "Full Replication",
+      "Optimization-Based Replication",
+      "Tracking Error",
+      "Sector Exposure"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "sector-exposure",
+    "term": "Sector Exposure",
+    "aliases": [],
+    "definition": "Sector exposure is the share of portfolio risk or capital linked to a specific economic sector, such as technology, healthcare, or energy.",
+    "intuition": "It shows how much your results depend on each part of the economy.",
+    "whyItMatters": "Sampling and replication decisions often aim to preserve sector exposure so benchmark behavior remains comparable.",
+    "relatedTerms": [
+      "Market-Cap Distribution",
+      "Factor Behavior",
+      "Diversification",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "market-cap-distribution",
+    "term": "Market-Cap Distribution",
+    "aliases": [],
+    "definition": "Market-cap distribution describes how portfolio weight is spread across company-size buckets, from small-cap to large-cap exposures.",
+    "intuition": "It is the size mix of the holdings.",
+    "whyItMatters": "Different size mixes change return drivers, liquidity conditions, and risk characteristics.",
+    "relatedTerms": [
+      "Market Capitalization",
+      "Large-Cap",
+      "Small-Cap",
+      "Sector Exposure"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "duration-profile",
+    "term": "Duration Profile",
+    "aliases": [],
+    "definition": "Duration profile is the distribution of interest-rate sensitivity across a bond portfolio, usually summarized by effective or modified duration metrics.",
+    "intuition": "It shows how rate-sensitive the portfolio is across its holdings.",
+    "whyItMatters": "Bond-index sampling often targets duration profile to keep rate exposure aligned with the benchmark.",
+    "relatedTerms": [
+      "Duration",
+      "Interest Rate Risk",
+      "Bond Index",
+      "Credit Quality"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 12 (Portfolio risk management)"
+    ]
+  },
+  {
+    "id": "credit-quality",
+    "term": "Credit Quality",
+    "aliases": [],
+    "definition": "Credit quality is the assessed ability of issuers to meet debt obligations, often represented through ratings or spread-based risk measures.",
+    "intuition": "It indicates how reliable debt cash flows are likely to be.",
+    "whyItMatters": "Bond benchmark replication requires maintaining similar credit-quality exposure to avoid unintended risk drift.",
+    "relatedTerms": [
+      "Credit Risk",
+      "Default Risk",
+      "Duration Profile",
+      "Bond Index"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 12 (Portfolio risk management)"
+    ]
+  },
+  {
+    "id": "factor-behavior",
+    "term": "Factor Behavior",
+    "aliases": [],
+    "definition": "Factor behavior is how a portfolio's returns and risks respond to systematic drivers such as value, momentum, size, quality, or volatility.",
+    "intuition": "It is the style fingerprint behind performance patterns.",
+    "whyItMatters": "Sampled portfolios often target similar factor behavior so they track benchmark dynamics more closely.",
+    "relatedTerms": [
+      "Factor Exposure",
+      "Sector Exposure",
+      "Market-Cap Distribution",
+      "Active Return"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "bond-index",
+    "term": "Bond Index",
+    "aliases": [],
+    "definition": "A bond index is a rules-based benchmark made of fixed-income securities, typically constrained by maturity, rating, currency, and issue-size criteria.",
+    "intuition": "It is the bond-market version of an equity index.",
+    "whyItMatters": "Bond indexes are often harder to replicate fully due to large constituent counts and lower trading frequency.",
+    "relatedTerms": [
+      "Full Replication",
+      "Sampling",
+      "Duration Profile",
+      "Credit Quality"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 7 (Strategic asset allocation)"
+    ]
+  },
+  {
+    "id": "optimization-based-replication",
+    "term": "Optimization-Based Replication",
+    "aliases": [],
+    "definition": "Optimization-based replication is a structured sampling method that selects holdings through a model to minimize expected tracking error under practical constraints.",
+    "intuition": "Use math to choose the most representative subset instead of a simple heuristic sample.",
+    "whyItMatters": "It can improve tracking quality in complex markets while controlling costs, turnover, and liquidity constraints.",
+    "relatedTerms": [
+      "Sampling",
+      "Full Replication",
+      "Tracking Error",
+      "Constraints"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 8 (Mean-variance portfolio construction)"
+    ]
+  },
+  {
+    "id": "contractual-arrangements",
+    "term": "Contractual Arrangements",
+    "aliases": [],
+    "definition": "Contractual arrangements are legal agreements used to transfer risk, return, or obligations between parties, often in synthetic replication structures.",
+    "intuition": "Exposure is obtained through contracts instead of direct ownership.",
+    "whyItMatters": "Contract terms determine cash-flow rights, collateral requirements, and failure modes in synthetic implementations.",
+    "relatedTerms": [
+      "Swaps",
+      "Futures",
+      "Counterparty",
+      "Contract Structure"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "swaps",
+    "term": "Swaps",
+    "aliases": [],
+    "definition": "Swaps are derivative contracts where two parties exchange cash-flow streams based on agreed formulas, often used to transfer index or rate exposure.",
+    "intuition": "Two parties trade payoff streams without exchanging full asset ownership.",
+    "whyItMatters": "Swaps are common in synthetic replication but introduce counterparty and collateral-management considerations.",
+    "relatedTerms": [
+      "Derivatives",
+      "Counterparty",
+      "Contractual Arrangements",
+      "Index Exposure"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 26 (Options relative value and VRP)"
+    ]
+  },
+  {
+    "id": "futures",
+    "term": "Futures",
+    "aliases": [],
+    "definition": "Futures are standardized exchange-traded derivative contracts committing counterparties to transact an underlying asset or cash equivalent at a future date and agreed price.",
+    "intuition": "Lock in future exposure using a standardized contract.",
+    "whyItMatters": "Futures can deliver efficient benchmark exposure but require margin, roll management, and risk controls.",
+    "relatedTerms": [
+      "Derivatives",
+      "Swaps",
+      "Index Exposure",
+      "Contract Structure"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 25 (Futures basis and cash-and-carry)"
+    ]
+  },
+  {
+    "id": "counterparty",
+    "term": "Counterparty",
+    "aliases": [],
+    "definition": "A counterparty is the other legal party in a financial contract who owes and receives contractual cash flows.",
+    "intuition": "It is the institution on the other side of your trade agreement.",
+    "whyItMatters": "Synthetic replication quality depends on counterparty reliability and contract enforcement.",
+    "relatedTerms": [
+      "Counterparty Risk",
+      "Swaps",
+      "Contractual Arrangements",
+      "Collateral Basket"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 31 (Order types and trade lifecycle)"
+    ]
+  },
+  {
+    "id": "collateral-basket",
+    "term": "Collateral Basket",
+    "aliases": [],
+    "definition": "A collateral basket is the set of assets posted to secure obligations in derivative or financing contracts.",
+    "intuition": "It is the pledged asset pool backing contractual promises.",
+    "whyItMatters": "Collateral quality and composition affect recovery prospects and tracking stability under stress.",
+    "relatedTerms": [
+      "Counterparty",
+      "Contract Structure",
+      "Counterparty Risk",
+      "Index Exposure"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 12 (Portfolio risk management)"
+    ]
+  },
+  {
+    "id": "index-exposure",
+    "term": "Index Exposure",
+    "aliases": [],
+    "definition": "Index exposure is the economic sensitivity of a portfolio to a specific benchmark's return path, whether obtained through physical holdings or derivatives.",
+    "intuition": "It measures how strongly your portfolio moves with the chosen index.",
+    "whyItMatters": "Passive products are evaluated by how accurately and efficiently they deliver intended index exposure.",
+    "relatedTerms": [
+      "Exposure",
+      "Benchmark",
+      "Full Replication",
+      "Synthetic Replication"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "counterparty-risk",
+    "term": "Counterparty Risk",
+    "aliases": [],
+    "definition": "Counterparty risk is the risk that the other party in a contract fails to perform required payments or deliveries.",
+    "intuition": "The contract may be valid, but the other side may not pay.",
+    "whyItMatters": "Synthetic replication can track well in normal conditions but still fail under counterparty stress.",
+    "relatedTerms": [
+      "Counterparty",
+      "Collateral Basket",
+      "Swaps",
+      "Credit Risk"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 12 (Portfolio risk management)"
+    ]
+  },
+  {
+    "id": "contract-structure",
+    "term": "Contract Structure",
+    "aliases": [],
+    "definition": "Contract structure is the detailed legal and economic design of a derivative agreement, including payoff terms, triggers, margin, settlement, and termination rules.",
+    "intuition": "It defines exactly how the contract behaves in normal and stress scenarios.",
+    "whyItMatters": "Small structural differences can materially change risk transfer, liquidity needs, and realized tracking outcomes.",
+    "relatedTerms": [
+      "Contractual Arrangements",
+      "Swaps",
+      "Futures",
+      "Collateral Management"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 29 (Hedging and replication)"
+    ]
+  },
+  {
+    "id": "collateral-management",
+    "term": "Collateral Management",
+    "aliases": [],
+    "definition": "Collateral management is the operational process of valuing, posting, receiving, and adjusting collateral to secure contractual exposures over time.",
+    "intuition": "It is the day-to-day risk-control workflow for collateralized contracts.",
+    "whyItMatters": "Poor collateral management can turn manageable exposure into large loss risk during volatility spikes.",
+    "relatedTerms": [
+      "Collateral Basket",
+      "Counterparty Risk",
+      "Contract Structure",
+      "Liquidity Risk"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 12 (Portfolio risk management)"
+    ]
+  },
+  {
+    "id": "alpha",
+    "term": "Alpha",
+    "aliases": [],
+    "definition": "Alpha is benchmark-relative excess return after adjusting for systematic exposure, commonly interpreted as performance not explained by beta alone.",
+    "intuition": "It is the portion of return that looks like manager skill rather than broad market movement.",
+    "whyItMatters": "Active strategies are often evaluated by whether they produce positive alpha net of costs.",
+    "relatedTerms": [
+      "Active Return",
+      "Beta",
+      "Benchmark",
+      "Active Management"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 9 (CAPM, beta, and risk budgeting)"
+    ]
+  },
+  {
+    "id": "tracking-difference",
+    "term": "Tracking Difference",
+    "aliases": [],
+    "definition": "Tracking difference is the average return gap between a portfolio and its benchmark over a period, usually measured as average active return.",
+    "intuition": "It tells you whether the fund tends to run above or below the benchmark on average.",
+    "whyItMatters": "Passive funds are expected to keep tracking difference small, often slightly negative after costs.",
+    "relatedTerms": [
+      "Tracking Error",
+      "Active Return",
+      "Expense Ratio",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "low-cost-investing",
+    "term": "Low-Cost Investing",
+    "aliases": [],
+    "definition": "Low-cost investing is an approach that prioritizes minimizing recurring fees, turnover, and implementation drag to preserve long-run net returns.",
+    "intuition": "Keep unavoidable costs small so more gross return reaches the investor.",
+    "whyItMatters": "Over long horizons, even small annual cost gaps can compound into large wealth differences.",
+    "relatedTerms": [
+      "Fees",
+      "Expense Ratio",
+      "Turnover",
+      "Cost Drag"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "implementation-frictions",
+    "term": "Implementation Frictions",
+    "aliases": [
+      "Frictions"
+    ],
+    "definition": "Implementation frictions are real-world costs and constraints that prevent a live portfolio from matching a frictionless theoretical benchmark exactly.",
+    "intuition": "The portfolio in practice always has little drags that theory ignores.",
+    "whyItMatters": "Frictions explain persistent benchmark-relative gaps in passive fund performance.",
+    "relatedTerms": [
+      "Tracking Difference",
+      "Trading Costs",
+      "Cash Drag",
+      "Operational Constraints"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 32 (Transaction costs and slippage)"
+    ]
+  },
+  {
+    "id": "management-fee",
+    "term": "Management Fee",
+    "aliases": [
+      "Management Fees"
+    ],
+    "definition": "A management fee is the recurring charge paid to the fund manager for portfolio administration and oversight, usually expressed as a percentage of assets.",
+    "intuition": "It is the direct annual fee for running the fund.",
+    "whyItMatters": "Management fees are a predictable source of negative tracking difference.",
+    "relatedTerms": [
+      "Expense Ratio",
+      "Fees",
+      "Cost Drag",
+      "Passive Fund"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "fees",
+    "term": "Fees",
+    "aliases": [
+      "Fee"
+    ],
+    "definition": "Fees are contractual charges paid by investors or funds for management, administration, distribution, custody, and related services.",
+    "intuition": "They are the recurring deductions that reduce net investor return.",
+    "whyItMatters": "Passive products with similar exposure can deliver different outcomes because fee levels differ.",
+    "relatedTerms": [
+      "Expense Ratio",
+      "Management Fee",
+      "Cost Drag",
+      "Low-Cost Investing"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "expenses",
+    "term": "Expenses",
+    "aliases": [
+      "Expense"
+    ],
+    "definition": "Expenses are operating costs of running an investment vehicle, including management, legal, custody, accounting, and platform-related costs.",
+    "intuition": "They are the day-to-day costs of keeping the fund active and compliant.",
+    "whyItMatters": "Expenses are a central reason realized fund returns can trail benchmark returns.",
+    "relatedTerms": [
+      "Expense Ratio",
+      "Fees",
+      "Management Fee",
+      "Tracking Difference"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "turnover",
+    "term": "Turnover",
+    "aliases": [],
+    "definition": "Turnover is the rate at which portfolio holdings are bought and sold over time, usually measured as a percentage of portfolio value.",
+    "intuition": "Higher turnover means the portfolio is changing more often.",
+    "whyItMatters": "More turnover usually means higher trading costs, taxes, and implementation drag.",
+    "relatedTerms": [
+      "Rebalancing",
+      "Reconstitution",
+      "Trading Costs",
+      "Taxes"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 32 (Transaction costs and slippage)"
+    ]
+  },
+  {
+    "id": "cash-flows",
+    "term": "Cash Flows",
+    "aliases": [],
+    "definition": "Cash flows are money movements into and out of a fund from subscriptions, redemptions, distributions, and operational transfers.",
+    "intuition": "They are the incoming and outgoing cash that portfolio managers must handle.",
+    "whyItMatters": "Cash-flow timing can force trading and create temporary tracking gaps versus the benchmark.",
+    "relatedTerms": [
+      "Cash Inflows",
+      "Redemption",
+      "Cash Drag",
+      "Turnover"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "cash-inflows",
+    "term": "Cash Inflows",
+    "aliases": [
+      "Cash Inflow"
+    ],
+    "definition": "Cash inflows are new money entering a portfolio through investor subscriptions, contributions, or internal transfers.",
+    "intuition": "It is fresh capital that must be deployed into holdings.",
+    "whyItMatters": "Large inflows can create temporary allocation and execution challenges in index-tracking funds.",
+    "relatedTerms": [
+      "Cash Flows",
+      "Redemption",
+      "Cash Drag",
+      "Rebalancing"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "cash-drag",
+    "term": "Cash Drag",
+    "aliases": [],
+    "definition": "Cash drag is the performance gap that arises when part of a portfolio sits in cash instead of being fully invested in benchmark-like holdings.",
+    "intuition": "Idle cash usually lags risky assets when markets rise.",
+    "whyItMatters": "Cash drag is a common cause of small negative tracking difference in passive funds.",
+    "relatedTerms": [
+      "Cash Flows",
+      "Tracking Difference",
+      "Benchmark",
+      "Implementation Frictions"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "taxes",
+    "term": "Taxes",
+    "aliases": [
+      "Tax"
+    ],
+    "definition": "Taxes are mandatory levies on income, gains, dividends, and transactions that reduce investors' net realized returns.",
+    "intuition": "Pre-tax and after-tax returns can differ meaningfully, even with the same gross strategy.",
+    "whyItMatters": "Tax treatment can materially change passive fund outcomes across jurisdictions and account types.",
+    "relatedTerms": [
+      "Dividends",
+      "Turnover",
+      "Cash Drag",
+      "Expenses"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "redemption",
+    "term": "Redemption",
+    "aliases": [
+      "Redemptions"
+    ],
+    "definition": "Redemption is the process where investors exit a fund and receive cash or securities in exchange for their fund shares.",
+    "intuition": "It is money leaving the portfolio that may force asset sales.",
+    "whyItMatters": "Redemptions can create trading pressure and short-term tracking slippage.",
+    "relatedTerms": [
+      "Cash Flows",
+      "Cash Inflows",
+      "Turnover",
+      "Creation and Redemption Mechanism"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 31 (Order types and trade lifecycle)"
+    ]
+  },
+  {
+    "id": "pending-purchases",
+    "term": "Pending Purchases",
+    "aliases": [],
+    "definition": "Pending purchases are committed but not yet settled buy orders that temporarily leave cash uninvested.",
+    "intuition": "The portfolio has already decided to buy, but settlement timing creates a short delay.",
+    "whyItMatters": "Settlement lags can contribute to temporary cash drag and tracking differences.",
+    "relatedTerms": [
+      "Cash Flows",
+      "Cash Drag",
+      "Securities Trading",
+      "Operational Constraints"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "persistence",
+    "term": "Persistence",
+    "aliases": [
+      "Persistent"
+    ],
+    "definition": "Persistence is the tendency for a return pattern, cost drag, risk exposure, or performance gap to repeat over time rather than disappear quickly.",
+    "intuition": "Small effects matter a lot if they keep happening every period.",
+    "whyItMatters": "Persistent annual drags compound and can materially lower long-run wealth.",
+    "relatedTerms": [
+      "Cost Drag",
+      "Tracking Difference",
+      "Fees",
+      "Low-Cost Investing"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "active-management",
+    "term": "Active Management",
+    "aliases": [],
+    "definition": "Active management is an investment approach that intentionally departs from a benchmark through security selection, timing, or allocation choices to seek outperformance.",
+    "intuition": "Instead of copying the benchmark, the manager makes directional choices to try to beat it.",
+    "whyItMatters": "Active management introduces the possibility of alpha, but also higher costs and benchmark-relative risk.",
+    "relatedTerms": [
+      "Active Strategy",
+      "Active Return",
+      "Alpha",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 40 (Comparing investing and trading styles)"
+    ]
+  },
+  {
+    "id": "passive-management",
+    "term": "Passive Management",
+    "aliases": [],
+    "definition": "Passive management is an investment approach that aims to replicate a benchmark as closely and efficiently as possible rather than outperform it.",
+    "intuition": "The job is to track the index cleanly, not to outguess the market.",
+    "whyItMatters": "Passive management emphasizes low costs, low turnover, and tight benchmark tracking.",
+    "relatedTerms": [
+      "Passive Indexing",
+      "Tracking Error",
+      "Tracking Difference",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "active-strategy",
+    "term": "Active Strategy",
+    "aliases": [
+      "Active Strategies"
+    ],
+    "definition": "An active strategy is a ruleset or discretionary framework that takes benchmark-relative positions to seek excess return.",
+    "intuition": "It is a deliberate plan for where and why to differ from the benchmark.",
+    "whyItMatters": "Comparing active strategies requires evaluating both return and benchmark-relative risk.",
+    "relatedTerms": [
+      "Active Management",
+      "Alpha",
+      "Active Return",
+      "Security Selection"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 13 (Cross-sectional momentum)"
+    ]
+  },
+  {
+    "id": "passive-strategy",
+    "term": "Passive Strategy",
+    "aliases": [
+      "Passive Strategies"
+    ],
+    "definition": "A passive strategy is a portfolio approach designed to capture benchmark exposure with minimal discretionary deviations.",
+    "intuition": "Follow predefined index rules and focus on implementation efficiency.",
+    "whyItMatters": "Passive strategies provide baseline market exposure and a reference point for active decisions.",
+    "relatedTerms": [
+      "Passive Management",
+      "Passive Indexing",
+      "Benchmark",
+      "Tracking Error"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "security-selection",
+    "term": "Security Selection",
+    "aliases": [],
+    "definition": "Security selection is the process of choosing specific assets expected to perform better or fit portfolio objectives better than alternatives.",
+    "intuition": "It is picking what to own and what not to own.",
+    "whyItMatters": "Selection skill is a core source of potential alpha in active management.",
+    "relatedTerms": [
+      "Active Management",
+      "Active Strategy",
+      "Alpha",
+      "Sector"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 36 (Discretionary fundamental investing)"
+    ]
+  },
+  {
+    "id": "sector",
+    "term": "Sector",
+    "aliases": [],
+    "definition": "A sector is a category of companies grouped by similar economic activity, such as technology, healthcare, or energy.",
+    "intuition": "Sectors cluster businesses that tend to react to similar macro and industry drivers.",
+    "whyItMatters": "Sector positioning strongly influences portfolio behavior across regimes.",
+    "relatedTerms": [
+      "Sector Exposure",
+      "Market Segment",
+      "Asset Class",
+      "Security Selection"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "market-timing",
+    "term": "Market Timing",
+    "aliases": [],
+    "definition": "Market timing is the attempt to improve returns by changing exposure based on expected short-term or medium-term market direction.",
+    "intuition": "Increase risk before expected rises and reduce risk before expected declines.",
+    "whyItMatters": "Timing decisions can dominate outcomes, but are difficult to execute consistently after costs.",
+    "relatedTerms": [
+      "Active Management",
+      "Active Strategy",
+      "Asset Allocation",
+      "Beta"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 14 (Time-series momentum and trend following)"
+    ]
+  },
+  {
+    "id": "factor-tilt",
+    "term": "Factor Tilt",
+    "aliases": [
+      "Factor Tilts"
+    ],
+    "definition": "A factor tilt is a deliberate portfolio deviation that increases exposure to selected risk factors such as value, momentum, quality, or size.",
+    "intuition": "Keep the benchmark as a base, then lean toward chosen factor characteristics.",
+    "whyItMatters": "Factor tilts change both expected return drivers and drawdown behavior.",
+    "relatedTerms": [
+      "Factor Behavior",
+      "Active Strategy",
+      "Asset Allocation",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "asset-allocation",
+    "term": "Asset Allocation",
+    "aliases": [],
+    "definition": "Asset allocation is the choice of how portfolio capital is distributed across major asset classes, regions, and strategy buckets.",
+    "intuition": "It is the high-level mix of what the portfolio owns.",
+    "whyItMatters": "Allocation decisions are often the largest long-run driver of portfolio risk and return.",
+    "relatedTerms": [
+      "Asset Class",
+      "Investment Strategy",
+      "Risk Profile",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 7 (Strategic asset allocation)"
+    ]
+  },
+  {
+    "id": "modern-portfolio-theory",
+    "term": "Modern Portfolio Theory",
+    "aliases": [],
+    "definition": "Modern portfolio theory is a framework for portfolio construction that studies the tradeoff between expected return and risk under diversification.",
+    "intuition": "Combine imperfectly correlated assets to improve risk-adjusted outcomes.",
+    "whyItMatters": "Many benchmark-relative and optimization concepts build directly on this framework.",
+    "relatedTerms": [
+      "Diversification",
+      "Mean-Variance",
+      "Beta",
+      "Risk Budgeting"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 8 (Mean-variance portfolio construction)"
+    ]
+  },
+  {
+    "id": "investment-universe",
+    "term": "Investment Universe",
+    "aliases": [],
+    "definition": "An investment universe is the full set of eligible securities a strategy can choose from before constraints and weights are applied.",
+    "intuition": "It defines the menu of assets available to the portfolio.",
+    "whyItMatters": "Universe design sets the boundary for diversification, benchmark relevance, and feasible strategy choices.",
+    "relatedTerms": [
+      "Index Universe",
+      "Eligibility Rules",
+      "Benchmark",
+      "Market Segment"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "risk-profile",
+    "term": "Risk Profile",
+    "aliases": [],
+    "definition": "A risk profile is the overall pattern of risk exposures a portfolio carries, including volatility, drawdown sensitivity, factor loadings, and concentration.",
+    "intuition": "It describes how and where the portfolio can lose money.",
+    "whyItMatters": "Benchmark choice and strategy evaluation are only meaningful when risk profiles are comparable.",
+    "relatedTerms": [
+      "Market Risk",
+      "Idiosyncratic Risk",
+      "Asset Allocation",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 3 (Risk, volatility, and drawdowns)"
+    ]
+  },
+  {
+    "id": "investment-strategy",
+    "term": "Investment Strategy",
+    "aliases": [
+      "Strategy"
+    ],
+    "definition": "An investment strategy is a defined decision framework for selecting assets, sizing exposures, and managing risk over time.",
+    "intuition": "It is the repeatable playbook that governs portfolio decisions.",
+    "whyItMatters": "Benchmark evaluation depends on understanding the strategy's objective and constraints.",
+    "relatedTerms": [
+      "Active Strategy",
+      "Passive Strategy",
+      "Asset Allocation",
+      "Risk Profile"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "market-segment",
+    "term": "Market Segment",
+    "aliases": [],
+    "definition": "A market segment is a subset of the broader market defined by shared characteristics such as size, geography, sector, or credit quality.",
+    "intuition": "It is a specific slice of the market, not the whole market.",
+    "whyItMatters": "Benchmarks must match the intended segment to make performance comparisons fair.",
+    "relatedTerms": [
+      "Asset Class",
+      "Investment Universe",
+      "Benchmark",
+      "Sector"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "asset-class",
+    "term": "Asset Class",
+    "aliases": [],
+    "definition": "An asset class is a broad category of investable assets with similar risk-return drivers and market structure, such as equities, bonds, cash, or commodities.",
+    "intuition": "It is a top-level bucket for organizing exposure types.",
+    "whyItMatters": "Allocation, risk management, and benchmark selection all start at the asset-class level.",
+    "relatedTerms": [
+      "Asset Allocation",
+      "Market Segment",
+      "Benchmark",
+      "Investment Universe"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 7 (Strategic asset allocation)"
+    ]
+  },
+  {
+    "id": "passive-indexing",
+    "term": "Passive Indexing",
+    "aliases": [],
+    "definition": "Passive indexing is the practice of building a portfolio to track a published benchmark index with minimal discretionary deviation.",
+    "intuition": "Follow index rules and focus on efficient implementation instead of stock picking.",
+    "whyItMatters": "Passive indexing provides a transparent baseline for portfolio construction and performance evaluation.",
+    "relatedTerms": [
+      "Passive Management",
+      "Benchmark",
+      "Tracking Error",
+      "Tracking Difference"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "passive-index-fund",
+    "term": "Passive Index Fund",
+    "aliases": [],
+    "definition": "A passive index fund is an investment vehicle designed to replicate a specific index's return path through physical or synthetic implementation.",
+    "intuition": "It is the product investors buy when they want benchmark exposure.",
+    "whyItMatters": "Fund structure, costs, and replication method determine how closely investors receive index performance.",
+    "relatedTerms": [
+      "Passive Fund",
+      "Passive Indexing",
+      "ETF",
+      "Mutual Fund"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "index-methodology",
+    "term": "Index Methodology",
+    "aliases": [],
+    "definition": "Index methodology is the full rulebook specifying index eligibility, weighting, maintenance, and corporate-action handling.",
+    "intuition": "It is the recipe that determines what the index actually represents.",
+    "whyItMatters": "Different methodologies can produce different risk and return behavior even within the same broad market label.",
+    "relatedTerms": [
+      "Methodology",
+      "Eligibility Rules",
+      "Weighting Method",
+      "Reconstitution"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "operational-constraints",
+    "term": "Operational Constraints",
+    "aliases": [],
+    "definition": "Operational constraints are implementation limits from trading systems, settlement processes, custody rules, staffing, and legal infrastructure.",
+    "intuition": "They are practical limits that shape what can be executed in real portfolios.",
+    "whyItMatters": "Operational constraints can introduce tracking slippage even when the strategy design is sound.",
+    "relatedTerms": [
+      "Implementation Frictions",
+      "Securities Trading",
+      "Cash Flows",
+      "Rebalancing"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 33 (Optimal execution)"
+    ]
+  },
+  {
+    "id": "securities-trading",
+    "term": "Securities Trading",
+    "aliases": [
+      "Trade Securities"
+    ],
+    "definition": "Securities trading is the process of buying and selling financial instruments in the market to implement or adjust portfolio exposures.",
+    "intuition": "It is the execution step that turns portfolio rules into actual positions.",
+    "whyItMatters": "Trading quality directly affects turnover costs, slippage, and tracking quality.",
+    "relatedTerms": [
+      "Turnover",
+      "Transaction Costs",
+      "Rebalancing",
+      "Operational Constraints"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 31 (Order types and trade lifecycle)"
     ]
   }
 ];

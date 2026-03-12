@@ -1,6 +1,6 @@
 ---
 title: "Chapter 6. Passive indexing and benchmarking"
-summary: "This chapter will review a couple topics that are needed for this part of the book. This chapter is just mainly foundational knowledge and the part will discuss all of the different passive investing methods that you can use. The later parts will discuss topics of active investing."
+summary: "This chapter will review a couple topics that are needed for this part of the book. This chapter is just mainly foundational knowledge and the part will discuss all of the different passive investing methods that you can use."
 format:
   html: default
   pdf: default
@@ -521,6 +521,16 @@ Equal weighting gave the smaller firms more influence than market-cap weighting 
 
 This is why understanding index construction is fundamental to passive investing. A passive strategy does not passively accept reality in some neutral sense. It follows a specific benchmark design. To understand the investment, one must therefore understand the rules that define the index itself.
 
+### What is the Current Standard?
+
+Market-cap weighting became the default in passive investing because it is simple, scalable, and inexpensive to maintain. By assigning weights according to market value, it reflects the market’s existing size distribution and provides a natural approximation to broad market ownership.
+
+Unlike equal-weighted indexes, market-cap-weighted indexes do not require frequent rebalancing just because prices move. This lowers turnover and helps reduce implementation costs. It also makes the method practical for very large index funds, since more weight is placed in the largest and most liquid securities.
+
+[FIGURE: Same five-company universe under equal weighting and market-cap weighting]
+
+Although market-cap weighting can create concentration in the largest firms, it remains the standard because it offers a strong combination of market representation, transparency, and low-cost implementation. In passive investing, it therefore serves as the default benchmark structure from which many alternative weighting methods depart.
+
 
 ### Interactive Example
 Now let's move from the fictional company setup to a real market-data example. In the interactive block below, you choose five stocks (default: AAPL, MSFT, NVDA, GOOGL, AMZN) and a date range, then compare how different index construction rules change outcomes.
@@ -559,56 +569,680 @@ After running a few ticker sets, focus on what changes when the universe is held
 
 
 
-
-## Why Market-Cap Weighting?
-
-You might wonder whic
-
-
 ## Vehicles for passive investing 
+A [[Passive Index|passive index]] is a benchmark or target portfolio, but investors do not usually buy an index directly. Instead, they gain exposure to an index through an [[Investment Vehicle|investment vehicle]]. A passive investment vehicle is a fund or structure designed to track the performance of a chosen benchmark as closely as possible. In practice, the most common vehicles for passive investing are [[Index Mutual Funds|index mutual funds]] and [[ETF|exchange-traded funds]] ([[ETF|ETFs]]).
+
+This distinction is important because the index and the vehicle are not the same thing. The index defines the target exposure, while the vehicle is the mechanism through which investors hold that exposure. Two different funds may track the same benchmark while using different legal or trading structures.
+
+[DIAGRAM: Benchmark index -> passive fund vehicle -> investor]
+
+### Why Passive Vehicles Are Needed
+
+Indexes are usually not directly investable objects. An index is a rule-based portfolio or market measure, but it is not generally something an ordinary investor can buy in the same way they buy one share of stock. To gain [[Exposure|exposure]] to an index, investors therefore need a fund or portfolio structure that holds the underlying [[Securities|securities]] on their behalf.
+
+Passive vehicles solve this problem by [[Pooling|pooling]] [[Investor Capital|investor capital]] and using it to build a portfolio designed to track a benchmark. Instead of purchasing dozens, hundreds, or even thousands of securities individually, an investor can buy shares of a single fund that represents the broader portfolio.
+
+This makes passive investing more accessible. It lowers the operational burden on the investor, simplifies diversification, and provides a practical way to hold broad market exposure at relatively low cost.
+
+### Index Mutual Funds
+
+An index mutual fund is a mutual fund whose objective is to track the performance of a specified benchmark rather than outperform it through active security selection. The fund pools money from many investors and uses that money to hold a portfolio designed to replicate the target index.
+
+In this structure, investors buy and redeem fund shares directly through the fund company, usually at the fund’s [[NAV|net asset value]] ([[NAV|NAV]]) calculated at the end of the trading day. This means that index mutual funds do not trade continuously throughout the day like stocks. Instead, all transactions are processed at the closing NAV.
+
+For passive investors, index mutual funds are often appealing because they are simple, automatic, and well suited to long-horizon investing. They are commonly used in retirement accounts, recurring contribution plans, and buy-and-hold portfolios.
+
+[FIGURE: Index mutual fund structure showing many investors contributing to one pooled fund that holds the underlying index securities]
+
+### Exchange-Traded Funds (ETFs)
+
+An [[ETF|exchange-traded fund]], or [[ETF|ETF]], is another common vehicle for passive indexing. Like an index mutual fund, an ETF holds a portfolio designed to track a benchmark. The main difference is that ETF shares trade on an exchange throughout the day, just like shares of common stock.
+
+This gives ETFs a different trading structure from mutual funds. Investors can buy and sell ETF shares during market hours, observe changing market prices, and use order types such as market orders or limit orders. In many cases, ETFs are also associated with relatively low expense ratios and, depending on the jurisdiction and tax setting, may offer tax advantages compared with some mutual fund structures.
+
+For passive investing, ETFs are especially useful because they combine diversification with trading flexibility. An investor can gain exposure to a broad index, such as a large-cap stock index or a total market index, by purchasing a single ETF share through a brokerage account.
+
+[FIGURE: ETF structure showing fund shares trading on an exchange while the fund holds the underlying benchmark portfolio]
+
+### Index Mutual Funds and ETFs Compared
+
+Index mutual funds and ETFs often serve the same economic purpose: both are pooled vehicles used to track a benchmark. In many cases, an index mutual fund and an ETF may even follow the same underlying index. The main differences lie in how they trade, how they are priced, and how investors interact with them.
+
+An index mutual fund is typically bought or redeemed directly with the fund at end-of-day NAV. An ETF is bought or sold on an exchange at market prices throughout the day. Mutual funds are often convenient for automatic investing plans and retirement contributions, while ETFs are often convenient for brokerage-based portfolios and investors who want more control over execution.
+
+| Feature             | Index Mutual Fund                         | ETF                                     |
+| ------------------- | ----------------------------------------- | --------------------------------------- |
+| Trading             | Bought and redeemed through the fund      | Bought and sold on an exchange          |
+| Pricing             | End-of-day NAV                            | Market price throughout the day         |
+| Intraday trading    | No                                        | Yes                                     |
+| Automatic investing | Often very convenient                     | Sometimes less direct                   |
+| Typical use         | Retirement and long-term pooled investing | Brokerage accounts and flexible trading |
 
 
-a
+From the perspective of passive indexing, however, the key point is that both vehicles are usually judged by the same criterion: how closely they track the benchmark after fees and implementation costs.
+
+### Direct Indexing and Other Alternatives
+
+Although index mutual funds and ETFs are the dominant passive vehicles, they are not the only possible structures. In some cases, investors may use [[Direct Indexing|direct indexing]], which means directly holding many of the individual securities of an index in a separately managed account rather than buying a pooled fund. This can allow for greater customization, [[Tax Management|tax management]], or exclusion of certain holdings, but it is typically more complex than using a mutual fund or ETF.
+
+There are also institutional structures, [[Derivatives|derivative]]-based approaches, and synthetic replication methods that can provide passive benchmark exposure. However, for most investors, index mutual funds and ETFs remain the primary and most practical vehicles.
+
+[DIAGRAM: Three passive-access routes — index mutual fund, ETF, and direct indexing]
+
+### Why Vehicles Matter in Passive Investing
+
+The choice of vehicle matters because even when two products track the same benchmark, they may differ in cost, tax treatment, liquidity, convenience, and tracking precision. A passive investor is not only choosing an index. The investor is also choosing the structure through which that index exposure is accessed.
+
+This means that passive investing always involves two linked decisions. First, the investor decides which benchmark they want to track. Second, the investor decides which [[Vehicle|vehicle]] is the most appropriate way to obtain that exposure. A broad equity benchmark, for example, could be accessed through an index mutual fund, an ETF, or a direct indexing platform, each with different practical tradeoffs.
+
+For this reason, passive investment vehicles are an essential part of passive indexing. They translate a theoretical benchmark into an actual investable product. Without them, an index would remain only a market measure or reference portfolio. With them, passive exposure becomes something investors can actually hold.
 
 
-## Full replication, sampling, and synthetic exposure
+## Replication Methods: Full Replication, Sampling, and Synthetic Exposure
+
+Once a benchmark has been chosen and an investment vehicle has been set up, the next issue is implementation. A passive fund does not track an index simply by naming it. It must actually build and maintain a portfolio whose behavior stays close to the benchmark. The method used to do this is called the fund’s replication method.
+
+Replication matters because some indexes are easier to track than others. A narrow equity index with a small number of large, liquid stocks may be straightforward to follow closely. A broad bond index, by contrast, may contain thousands of securities, many of which trade infrequently. For this reason, passive funds do not all replicate their benchmarks in exactly the same way.
+
+At a high level, the main approaches are full replication, sampling, and synthetic replication. We will mainly go through a high level view of each approach.
+
+[DIAGRAM: Benchmark index leading into three implementation paths — full replication, sampling, and synthetic replication]
+
+### Why Replication Methods Are Needed
+
+An index is a rule-based target portfolio, but a [[Fund|fund]] must turn that target into an actual investable portfolio. In the simplest case, this means buying the same securities in the same proportions as the benchmark. In practice, however, this may not always be feasible or cost-effective.
+
+Some benchmarks contain very many securities. Some securities may be illiquid or expensive to trade. Others may face tax, custody, or market-access constraints. As a result, a passive fund must often balance two competing goals:
+
+- staying close to the benchmark
+- keeping implementation practical and cost-efficient
+
+This tradeoff is the reason replication methods matter. A fund’s performance relative to its benchmark depends not only on fees and market movement, but also on how the benchmark is actually implemented.
+
+### Full Replication
+
+In [[Full Replication|full replication]], the fund holds every [[Constituents|constituent]] of the index in approximately the same weights as the benchmark. If the index contains 500 stocks, the fund attempts to hold all 500. If one company has a 3 percent weight in the benchmark, the fund attempts to hold that company at roughly 3 percent of portfolio value.
+
+This is the most direct way to track an index. Because the portfolio closely mirrors the constituent list and weight structure of the benchmark, full replication can produce very close tracking when implementation costs are low and the underlying securities are easy to trade.
+
+[FIGURE: Benchmark basket and fund basket shown as nearly identical, with the same securities and the same weights]
+
+Full replication works especially well when the benchmark consists of:
+
+- a manageable number of securities
+- liquid securities
+- assets that are easy to trade and custody
+- markets with relatively low transaction friction
+
+For example, a large-cap equity index made up of heavily traded stocks is often a good candidate for full replication.
+
+The main advantage of full replication is conceptual simplicity. The fund closely resembles the benchmark, so there is less ambiguity about how exposure is being generated. The main disadvantage is that full replication can become expensive or cumbersome when the benchmark is very broad, highly dynamic, or illiquid.
+
+### Sampling
+
+In [[Sampling|sampling]], the fund holds only a subset of the benchmark’s securities rather than every [[Constituents|constituent]]. The idea is to choose a smaller portfolio that still captures the main characteristics of the index, such as [[Sector Exposure|sector exposure]], [[Market-Cap Distribution|market-cap distribution]], [[Duration Profile|duration profile]], [[Credit Quality|credit quality]], or [[Factor Behavior|factor behavior]].
+
+Sampling is often used when full replication would be too expensive or impractical. For example, a [[Bond Index|bond index]] may contain thousands of bonds, many of which trade infrequently. Rather than buying every bond, a passive fund may buy a representative sample chosen to behave similarly to the full benchmark.
+
+[DIAGRAM: Very large benchmark basket being approximated by a smaller basket chosen to preserve the main characteristics of the full index]
+
+The goal of sampling is not to match the benchmark security by security. Instead, it is to match the benchmark’s overall behavior as closely as possible. A sampled portfolio might seek to preserve things such as:
+
+- sector allocation
+- average maturity or duration
+- credit quality
+- country exposure
+- size distribution
+- yield characteristics
+
+This method can reduce trading costs and operational complexity, but it also introduces the risk that the sample will not track the index perfectly. Because the fund does not hold every benchmark constituent, some deviation from benchmark returns may occur.
+
+Sampling is especially common in:
+
+- broad bond indexes
+- international or emerging-market indexes
+- very broad equity indexes
+- indexes containing less liquid securities
+
+### Optimization-Based Sampling
+
+A more structured form of sampling is sometimes called [[Optimization-Based Replication|optimization-based replication]]. In this approach, the fund chooses holdings using a formal model designed to minimize expected tracking error while respecting practical constraints such as liquidity, turnover, position limits, or transaction costs.
+
+Instead of simply selecting a rough representative subset, the manager uses an optimization procedure to decide which combination of securities is most likely to behave like the benchmark. The result is still a sampled portfolio, but one chosen more systematically.
+
+You do not need to go deeply into optimization here, but it is useful to recognize that some sampled portfolios are built with much more formal methods than simple proportional selection.
+
+### Synthetic Replication
+
+In synthetic replication, the fund does not necessarily hold the benchmark constituents directly. Instead, it uses [[Derivatives|derivatives]] or [[Contractual Arrangements|contractual arrangements]], such as [[Swaps|swaps]] or [[Futures|futures]], to obtain the economic return of the benchmark.
+
+For example, a fund may enter into an agreement with a [[Counterparty|counterparty]] under which the counterparty pays the return of the target index, while the fund pays some financing rate or return on a [[Collateral Basket|collateral basket]]. In this structure, the fund gains [[Index Exposure|index exposure]] indirectly rather than by physically holding all the underlying securities.
+
+[DIAGRAM: Fund holding collateral or a substitute basket while a swap contract transfers benchmark return exposure from a counterparty]
+
+Synthetic replication can be useful when:
+
+- the benchmark is difficult to access directly
+- the underlying securities are illiquid
+- direct trading is expensive
+- market access is restricted
+- derivatives provide a more efficient route to exposure
+
+This method can **sometimes** produce close benchmark exposure in markets where physical replication would be difficult. However, it also introduces additional considerations, especially [[Counterparty Risk|counterparty risk]], [[Contract Structure|contract structure]], [[Collateral Management|collateral management]], and operational complexity.
+
+Because of these extra risks, synthetic replication should be understood as an implementation tool, not simply as a mechanical shortcut.
+
+### Full Replication Versus Sampling
+
+The main difference between full replication and sampling is the degree of exactness. Full replication attempts to match the benchmark constituent by constituent, while sampling attempts to match the benchmark’s broader characteristics using fewer holdings.
+
+Full replication is usually easier to understand and may produce tighter benchmark tracking when feasible. Sampling is often more practical when the index is large, illiquid, or costly to hold in full. In that sense, sampling is often a compromise between benchmark precision and implementation efficiency.
 
 
-a
+
+| Feature            | Full Replication                          | Sampling                                  |
+| ------------------ | ----------------------------------------- | ----------------------------------------- |
+| Holdings           | All or nearly all benchmark constituents  | Representative subset                     |
+| Tracking precision | Usually higher                            | Usually somewhat lower                    |
+| Trading complexity | Higher for broad indexes                  | Lower                                     |
+| Cost efficiency    | Lower when benchmark is large or illiquid | Often better in difficult markets         |
+| Common use         | Large-cap equities, liquid indexes        | Bonds, broad indexes, less liquid markets |
+
+
+A fund provider does not choose between these methods in the abstract. The choice depends on the nature of the index and the practical costs of implementation.
+
+### Physical Replication Versus Synthetic Replication
+
+Another useful distinction is between physical and synthetic replication. Full replication and sampling are both forms of physical replication, because the fund holds actual securities from the benchmark universe. Synthetic replication, by contrast, obtains benchmark exposure indirectly through derivatives or contractual claims.
+
+Physical replication tends to be more intuitive because the investor can directly associate the fund with the underlying holdings. Synthetic replication may be more efficient in some cases, but it is less transparent to many investors and introduces different forms of risk.
+
+[FIGURE: Physical replication shown as direct ownership of securities, synthetic replication shown as indirect exposure through contracts]
+
+This distinction matters because two funds tracking the same index may appear similar on the surface while actually using very different implementation methods underneath.
+
+### Why Replication Method Affects Tracking
+
+Replication method matters because it affects how closely the fund can follow its benchmark. A fully replicated portfolio may stay close to the benchmark because it holds nearly the same securities in nearly the same weights. A sampled portfolio may deviate more if the selected subset does not perfectly capture the benchmark’s behavior. A synthetic portfolio may track closely under normal conditions but still carry structural risks tied to contracts and counterparties.
+
+For this reason, replication method is one of the key determinants of tracking difference and tracking error, which will be studied in the next section. Investors often focus on a fund’s name or benchmark, but the implementation method also matters because it influences cost, transparency, liquidity, and the quality of benchmark tracking.
+
+### Why Different Markets Use Different Methods
+
+Not all markets are equally easy to index. Large-cap domestic equities are often relatively straightforward to replicate physically because the underlying securities are liquid and widely traded. Broad bond markets are usually harder because there may be thousands of issues, many with limited liquidity. International markets may involve settlement frictions, taxes, and custody constraints. Commodity or volatility-related exposures may rely more naturally on derivatives.
+
+Because of this, different passive funds often use different replication methods even when they are all pursuing the same broad passive objective. The method chosen reflects the tradeoff between fidelity to the benchmark and the practical realities of implementation.
+
+[FIGURE: Different asset classes mapped to common replication choices — large-cap equities to full replication, broad bonds to sampling, harder-to-access markets to synthetic replication]
 
 
 ## Tracking Error and Tracking difference
 
+A passive fund is usually not trying to outperform its benchmark. Instead, its goal is to match the benchmark as closely as possible, subject to fees, trading costs, taxes, and implementation constraints. Because of this, passive funds are not usually judged by [[Alpha|alpha]] in the same way active funds are. They are judged by how closely their returns follow the benchmark. Two of the most important measures used for this purpose are [[Tracking Difference|tracking difference]] and [[Tracking Error|tracking error]].
 
-a
+Although the two terms sound similar, they describe different things. [[Tracking Difference|Tracking difference]] measures the average gap between the fund’s return and the benchmark’s return. [[Tracking Error|Tracking error]] measures the variability of that gap through time. One tells us whether the fund tends to run above or below the benchmark on average. The other tells us how stable or unstable that gap is.
+
+### Why These Measures Matter
+
+If a passive fund claims to track an index, then investors need a way to evaluate whether it is doing that successfully. Looking only at the fund’s return is not enough, because a high return may simply reflect the fact that the benchmark itself performed well. What matters is how close the fund stayed to the benchmark it was supposed to follow.
+
+This is especially important because even a passive fund will not usually match its benchmark perfectly. Management fees, transaction costs, cash holdings, rebalancing frictions, taxes, and replication choices can all cause deviations. Tracking difference and tracking error help summarize those deviations in a more precise way.
+
+[FIGURE: Benchmark return line and fund return line over time, with small gaps between them highlighted]
+
+### Active Returns
+
+Both tracking difference and tracking error begin with the idea of [[Active Return|active return]], even in a passive context. Here, active return does not mean the fund is actively managed. It simply means the difference between the portfolio return and the benchmark return over a given period.
+
+If $R_{p,t}$ is the portfolio return in period t and $ R_{b,t} $ is the benchmark return in the same period, then the active return is
+
+$$
+AR_t = R_{p,t} - R_{b,t}.
+$$
+
+If this number is positive, the [[Fund|fund]] outperformed the benchmark in that period. If it is negative, the fund underperformed. For a passive fund, the goal is usually for this quantity to remain small in magnitude over time.
+
+[DIAGRAM: Portfolio return minus benchmark return giving active return for each time period]
+
+
+### Tracking Difference
+
+[[Tracking Difference|Tracking difference]] measures the average difference between the fund’s return and the benchmark’s return over a chosen time horizon. It is often expressed as the average active return:
+
+$$
+\text{Tracking Difference} = \frac{1}{T} \sum^T_{t=1}(R_{p,t} - R_{b,t}).
+$$
+
+This tells us whether the fund tends to sit above or below the benchmark on average.
+
+If the tracking difference is negative, the fund has underperformed the benchmark on average over the period. For passive funds, this is common because fees and other costs usually reduce returns slightly relative to the index. If the tracking difference is close to zero, the fund has tracked the benchmark closely on average. A positive tracking difference can occur, but over long periods a passive fund more often experiences a slightly negative tracking difference because of expenses and implementation frictions.
+
+Suppose a fund and its benchmark have the following monthly returns:
+
+| Month | Portfolio Return | Benchmark Return | Active Return |
+| ----- | ---------------: | ---------------: | ------------: |
+| 1     |             1.8% |             2.0% |         -0.2% |
+| 2     |            -0.9% |            -0.8% |         -0.1% |
+| 3     |             3.2% |             3.4% |         -0.2% |
+| 4     |             0.7% |             0.9% |         -0.2% |
+
+The average active return is -0.175%. So the tracking difference is −0.175% per month over this period.
+
+This means the fund lagged the benchmark by about 0.175 percent per month on average.
+
+### Interpreting Tracking Difference
+
+Tracking difference is useful because it summarizes the direction and average size of deviation from the benchmark. A passive fund with a consistently small negative tracking difference may still be doing its job well, especially if that shortfall is roughly explained by fees and implementation costs.
+
+In practice, a passive investor often expects a small negative tracking difference rather than exact equality with the benchmark. The more relevant question is whether the average lag is reasonably small relative to the fund’s stated costs and replication method.
+
+Tracking difference, however, does not tell the whole story. Two funds may have the same average active return but behave very differently through time. One may lag the benchmark by almost the same amount every month, while another may alternate between overperforming and underperforming. This is why tracking error is also needed.
+
+### Tracking Error
+
+Tracking error measures the variability of active returns through time. In other words, it tells us how much the fund’s deviations from the benchmark fluctuate.
+
+If the average active return is $\overline{AR}$, then tracking error is usually defined as the standard deviation of active returns:
+ 
+
+$$
+\text{Tracking Error} = \sqrt{\frac{1}{T-1}  \sum^T_{t=1}[(R_{p,t} - R_{b,t}) - \overline{AR}]^2 }
+$$
+
+This means tracking error is not about whether the fund is above or below the benchmark on average. Instead, it measures how unstable the gap is.
+
+A low tracking error means the fund stays very close to the benchmark in a consistent way. A higher tracking error means the fund’s deviations from the benchmark are more erratic or spread out over time.
+
+[FIGURE: Two funds with the same average tracking difference, but one has very stable deviations and the other has much more volatile deviations]
+
+### A Simple Example of Tracking Error
+
+Using the monthly active returns from the previous example,
+$$
+−0.2\%, −0.1\%, −0.2\%, −0.2\%,
+$$
+the average active return is −0.175%. To compute tracking error, we look at how far each monthly active return is from this average.
+
+The deviations from the average are:
+
+- Month 1: -0.2% - (-0.175) = -0.025%
+- Month 2: -0.1% - (-0.175) = 0.075%
+- Month 3: -0.2% - (-0.175) = -0.025%
+- Month 4: -0.2% - (-0.175) = -0.025%
+
+
+These are all fairly small, so the tracking error would also be small. This tells us that the fund not only lagged the benchmark slightly on average, but did so in a fairly stable way.
+
+That distinction matters. A passive investor may tolerate a small consistent lag much more easily than an unpredictable pattern of benchmark-relative deviations.
+
+### Tracking Difference Versus Tracking Error
+
+The difference between the two measures can be summarized simply:
+
+- Tracking difference asks: how far above or below the benchmark is the fund on average?
+- Tracking error asks: how much does that gap vary through time?
+
+A fund can have:
+
+- a negative tracking difference and low tracking error
+- a near-zero tracking difference and high tracking error
+- a negative tracking difference and high tracking error
+- a near-zero tracking difference and low tracking error
+
+These combinations reflect different types of benchmark-relative behavior.
+
+| Measure             | What it captures                    | Interpretation                                            |
+| ------------------- | ----------------------------------- | --------------------------------------------------------- |
+| Tracking Difference | Average active return               | Average benchmark-relative shortfall or excess            |
+| Tracking Error      | Standard deviation of active return | Stability or instability of benchmark-relative deviations |
+
+This is why both measures are useful. Tracking difference shows the average level of lag or excess return, while tracking error shows how tightly the fund hugs the benchmark over time.
+
+### Why Passive Funds Usually Have Negative Tracking Difference
+
+In most ordinary cases, a passive fund tends to have a slightly negative tracking difference over long horizons. This happens because the benchmark is usually a theoretical or pre-cost construct, while the fund is a real product with expenses.
+
+Common sources of negative tracking difference include:
+
+- management fees
+- transaction costs
+- bid-ask spreads
+- taxes
+- cash drag
+- imperfect replication
+
+
+A well-run passive fund is therefore often expected to trail its benchmark slightly on average. What matters is whether that lag remains reasonably small and whether it is consistent with the fund’s cost structure.
+
+### Why Tracking Error Can Arise
+
+Tracking error can arise from many sources besides fees. Even if a fund has low expenses, its returns may still deviate from the benchmark in varying ways due to:
+
+- sampling instead of full replication
+- delayed rebalancing
+- corporate action timing differences
+- liquidity constraints
+- cash holdings
+- currency effects in international funds
+- tax and withholding effects
+- derivative-based replication differences
+
+
+Because of this, two passive funds tracking the same benchmark may have different tracking errors depending on how they are implemented.
+
+[DIAGRAM: Multiple sources feeding into tracking error, including fees, sampling, taxes, cash drag, and trading frictions]
+
+### Good Passive Tracking
+
+For a passive fund, good benchmark tracking usually means two things:
+
+1. the average deviation from the benchmark is small
+2. the deviations are reasonably stable through time
+
+In other words, investors generally want both low tracking difference and low tracking error. A passive fund that consistently lags its benchmark by a tiny and predictable amount may still be considered effective. A fund with erratic benchmark-relative performance may be less appealing, even if its average lag is small.
+
+This is why benchmark tracking should be evaluated with more than one number. A single average may hide instability, while a volatility measure alone may hide persistent underperformance.
 
 
 ## Fees, turnover, taxes, and implementation frictions
 
+Passive investing is often described as [[Low-Cost Investing|low-cost investing]], but low-cost does not mean costless. Even a passive fund that is designed to track an index as closely as possible will usually face expenses and practical [[Implementation Frictions|frictions]] that cause its realized return to differ from the benchmark. These frictions help explain why a passive fund often has a small negative tracking difference over time.
 
-a
+The benchmark itself is usually a theoretical portfolio or pre-cost reference portfolio. By contrast, a real fund must pay operating [[Expenses|expenses]], [[Securities Trading|trade securities]], manage [[Cash Flows|cash flows]], and respond to market conditions. Because of this, passive implementation always takes place in the presence of small but important sources of drag.
+
+[FIGURE: Benchmark return line above a slightly lower net-of-cost passive fund return line over time]
+
+### Management Fees and Expense Ratios
+
+The most direct cost faced by a passive fund is its [[Management Fee|management fee]], usually summarized as part of the fund’s expense ratio. The [[Expense Ratio|expense ratio]] represents the annual cost of operating the fund, expressed as a percentage of assets. It may include management, administration, custody, accounting, and other operational expenses.
+
+If a [[Benchmark|benchmark]] earns 8 percent over a year and a passive fund tracking that benchmark charges an expense ratio of 0.10 percent, then all else equal, the fund should be expected to earn slightly less than the benchmark before considering any additional frictions. The expense ratio therefore creates a built-in source of negative tracking difference.
+
+This is one reason fees matter so much in passive investing. Since passive funds are usually not trying to generate large positive alpha, even small cost differences can meaningfully affect long-run net returns. Over long horizons, those costs compound.
+
+$$
+\text{Net Return} \approx \text{Benchmark Reutrn} - \text{Expenses} - \text{Other Frictions}
+$$
+
+The expense ratio is often one of the first numbers an investor looks at when comparing passive funds, because it gives a direct indication of how much return may be lost each year to fund operations.
+
+### Turnover and Trading Costs
+
+A passive fund also incurs costs when it trades. These costs arise from [[Turnover|turnover]], which is the rate at which the portfolio changes through time. Even though passive funds generally trade less than active funds, they still need to trade when the benchmark [[Rebalancing|rebalances]], [[Reconstitution|reconstitutes]], receives [[Cash Inflows|cash inflows]], meets [[Redemption|redemptions]], or responds to [[Corporate Actions|corporate actions]].
+
+Trading costs can include:
+
+- brokerage commissions
+- bid-ask spreads
+- market impact
+- settlement and execution costs
+
+These costs may seem small on any one transaction, but they accumulate over time. Funds tracking broad or frequently updated indexes may face more of these costs than funds tracking narrower, more stable benchmarks.
+
+[DIAGRAM: Benchmark change -> fund trading -> transaction costs -> slight drag on fund return]
+
+Turnover is especially relevant when comparing different index designs. For example, an [[Equal-Weighted Index|equal-weighted index]] usually requires more rebalancing than a market-cap-weighted index, so it may generate more trading costs. This is one practical reason why some index structures are more expensive to track than others.
+
+### Taxes and Cash Drag
+
+Another source of deviation comes from [[Taxes|taxes]] and [[Cash Drag|cash drag]]. These effects may vary depending on the fund structure, jurisdiction, and account type, but they can still matter for benchmark tracking.
+
+Tax effects may arise from:
+
+- [[Dividends|dividend]] withholding taxes
+- capital gains distributions
+- taxes on portfolio turnover
+- cross-border tax treatment in international funds
+
+[[Cash Drag|Cash drag]] occurs when part of the portfolio is held in cash rather than being fully invested in the benchmark constituents. This may happen because the fund needs liquidity for [[Redemption|redemptions]], [[Pending Purchases|pending purchases]], [[Expenses|expenses]], or operational reasons. If the benchmark is fully invested while the fund temporarily holds some cash, then the fund may underperform when markets rise.
+
+A passive benchmark is often modeled as though it were fully invested and frictionless. A real fund is not. That difference helps explain why realized returns may fall slightly short.
+
+### Why Small Frictions Matter Over Time
+
+One of the most important lessons in passive investing is that small frictions matter because they are [[Persistence|persistent]]. A one-time cost may not seem significant, but a recurring drag that appears year after year can materially reduce long-run wealth.
+
+Suppose two passive funds track the same benchmark, but one has total implementation drag of 0.10 percent per year while the other has 0.50 percent per year. That difference may sound minor in a single year, but over long horizons the cumulative effect can become substantial.
+
+[FIGURE: Two passive funds starting together, then gradually separating over time because one has higher annual cost drag]
+
+This is why passive investing places so much emphasis on cost efficiency. When a strategy is not trying to generate large active outperformance, preserving as much of the benchmark return as possible becomes especially important.
+
+### Why Fees and Frictions Matter in Passive Investing
+
+Fees, turnover, taxes, and related frictions matter because they explain why a passive fund usually does not match its benchmark perfectly, even when it is well managed. They also help investors compare passive products more intelligently. Two funds may track the same index, yet deliver slightly different outcomes because one is cheaper, more tax-efficient, or easier to implement than the other.
+
+For that reason, passive investing is not only about choosing the right benchmark. It is also about choosing an efficient way to hold that benchmark. A fund that tracks a broad market index at low cost and with limited frictions may preserve more of the benchmark’s return than a more expensive alternative tracking the same benchmark.
+
+
+| Source of drag | How it affects the fund                                         |
+| -------------- | --------------------------------------------------------------- |
+| Expense ratio  | Reduces net return directly                                     |
+| Trading costs  | Creates small losses during implementation and rebalancing      |
+| Turnover       | Increases trading activity and related costs                    |
+| Taxes          | Reduces realized return depending on structure and jurisdiction |
+| Cash drag      | Causes temporary underinvestment relative to benchmark          |
+
+In this way, fees and other frictions are not side issues. They are part of the core economics of passive investing. A passive strategy succeeds not only by choosing a sensible benchmark, but also by delivering that benchmark exposure as efficiently as possible.
+
+
 
 
 ## Active vs passive management
 
+One of the most important distinctions in investing is the difference between [[Passive Management|passive management]] and [[Active Management|active management]]. Although both approaches involve building and managing portfolios, they differ in their objectives, their relationship to benchmarks, and the way they attempt to create value for investors.
 
-a
+At the broadest level, a passive strategy seeks to match the return of a chosen benchmark as closely as possible, while an active strategy seeks to outperform a benchmark by making decisions that differ from it. This difference in objective shapes nearly every other aspect of the investment process, including costs, turnover, risk, and performance evaluation.
+
+[DIAGRAM: A benchmark as the central reference line, with a passive portfolio staying close to it and an active portfolio deliberately moving away from it]
+
+### Different Goals and Different Roles for the Benchmark
+
+In [[Passive Management|passive management]], the benchmark is the target. The goal of the manager is not to choose better securities than the index, but to replicate the index as efficiently as possible. If the benchmark is a broad stock index, then the passive manager seeks to hold a portfolio that behaves very similarly to that index. Success is therefore measured by how small the deviations from the benchmark are.
+
+In [[Active Management|active management]], the benchmark plays a different role. It is not the target to copy, but the standard against which decisions are judged. The active manager deliberately chooses a portfolio that differs from the benchmark in the hope that those differences will lead to higher returns. These differences may come from [[Security Selection|security selection]], [[Sector|sector]] overweights or underweights, [[Market Timing|market timing]], [[Factor Tilt|factor tilts]], or changes in [[Asset Allocation|asset allocation]].
+
+This means that passive management tries to minimize benchmark-relative deviation, while active management intentionally creates benchmark-relative deviation.
+
+### Practical Differences in Implementation
+
+Because the two approaches have different goals, they also differ in how portfolios are managed in practice. Passive investing is usually rule-based and implementation-focused. The manager’s job is to track the benchmark at low cost, keep turnover under control, and reduce unnecessary tracking error. This tends to lead to lower fees, lower turnover, and greater transparency.
+
+Active investing usually requires more judgment. The manager must decide which securities appear attractive, which risks are worth taking, and where the benchmark may be improved upon. This often involves more research, more frequent trading, and greater portfolio variation through time. As a result, active strategies usually have higher fees and greater uncertainty in benchmark-relative performance.
+
+[TABLE: Passive vs. Active Management]
+
+| Feature               | Passive Management | Active Management    |
+| --------------------- | ------------------ | -------------------- |
+| Primary goal          | Match benchmark    | Outperform benchmark |
+| Role of benchmark     | Target to track    | Standard to beat     |
+| Portfolio changes     | Mostly rule-based  | More judgment-driven |
+| Fees                  | Usually lower      | Usually higher       |
+| Turnover              | Usually lower      | Usually higher       |
+| Typical outcome focus | Tracking quality   | Excess return        |
+
+These differences do not mean that one approach is always better than the other. Instead, they reflect different beliefs about what the manager is trying to accomplish and how difficult it is to improve on broad market exposure.
+
+### Why the Distinction Matters
+
+The distinction between active and passive management matters because much of [[Modern Portfolio Theory|modern portfolio theory]] is benchmark-relative. Once a passive benchmark portfolio exists, any decision to depart from it can be understood as an active choice. In that sense, passive investing provides the baseline, while active investing describes the decision to move away from that baseline in search of better results.
+
+This is one reason passive indexing plays such a central role in a chapter like this. It gives the reader a clear default portfolio against which other strategies can be compared. Later chapters on asset allocation, factor tilts, optimization, and risk-based weighting can then be understood as structured ways of departing from the passive benchmark.
+
+[FIGURE: Passive benchmark portfolio at the center, with arrows leading outward to active choices such as tilts, security selection, and allocation changes]
+
+Neither approach eliminates risk. Passive investing still bears market risk, and active investing may underperform after costs. But the comparison helps clarify the core question facing investors: should the portfolio primarily aim to capture market exposure efficiently, or should it depart from the market in pursuit of excess return? That is the basic divide between passive and active management.
 
 
 ## Choosing the right benchmark
 
+A [[Benchmark|benchmark]] is only useful if it is appropriate for the portfolio being evaluated. If the benchmark does not reflect the portfolio’s actual [[Investment Universe|investment universe]], [[Risk Profile|risk profile]], and [[Investment Strategy|strategy]], then the comparison can become misleading. For this reason, choosing a benchmark is not just a technical reporting decision. It is part of defining what the portfolio is supposed to do and how its success should be judged.
 
-a
+An appropriate benchmark should represent a realistic alternative to the portfolio. It should capture the [[Market Segment|market segment]], [[Asset Class|asset class]], and general style that the portfolio is intended to hold or compete against. A poor benchmark, by contrast, can make a strategy appear stronger or weaker than it really is.
+
+[FIGURE: The same portfolio compared to two different benchmarks, showing outperformance against one and underperformance against the other]
+
+### Matching the Benchmark to the Portfolio
+
+The first principle in benchmark selection is that the benchmark should match the portfolio’s actual opportunity set. A U.S. large-cap equity portfolio should generally be compared to a broad U.S. large-cap equity benchmark. A global equity portfolio should generally be compared to a global equity benchmark. A bond portfolio should usually be compared to a benchmark from the relevant fixed-income market rather than an equity benchmark.
+
+This means benchmark choice should account for things such as:
+
+- asset class
+- geographic exposure
+- market capitalization range
+- style orientation
+- sector concentration
+- currency exposure
+- duration and credit quality for bond portfolios
+
+For example, a small-cap value portfolio should not usually be judged against a broad large-cap growth benchmark. The mismatch would make it difficult to tell whether the portfolio’s relative performance came from manager skill or simply from having a different type of market exposure.
+
+An appropriate benchmark should therefore resemble the portfolio in broad structure, even if the portfolio is expected to differ from it in details.
+
+### What Makes a Good Benchmark
+
+A good benchmark should have several useful qualities. It should be relevant, meaning that it reflects the market segment or strategy being evaluated. It should be transparent, so that investors can understand what it represents and how it is constructed. It should be measurable, so that returns can be observed and compared over time. It should also be investable or at least reasonably replicable, especially in passive settings where the benchmark is meant to be tracked rather than simply referenced.
+
+These qualities matter because the benchmark is not merely an abstract reference point. It influences how investors interpret risk, performance, and portfolio decisions. If the benchmark is vague, opaque, or disconnected from the actual strategy, then the comparison loses much of its value.
+
+[TABLE: Characteristics of a Good Benchmark]
+
+| Characteristic           | Why it matters                            |
+| ------------------------ | ----------------------------------------- |
+| Relevant                 | Matches the portfolio’s opportunity set   |
+| Transparent              | Easy to understand and explain            |
+| Measurable               | Can be tracked consistently over time     |
+| Investable or replicable | Useful as a practical comparison standard |
+| Consistent               | Stable enough to support fair evaluation  |
+
+
+In practice, not every benchmark will satisfy these perfectly, but the closer it comes, the more meaningful the evaluation will be.
+
+### Common Benchmark Mistakes
+
+One of the most common mistakes in portfolio evaluation is using a benchmark that is too broad, too narrow, or simply unrelated to the portfolio’s true exposures. This can distort performance in either direction.
+
+For example, comparing a global stock portfolio only to a domestic U.S. index may ignore an important part of the portfolio’s opportunity set. Comparing a high-yield bond strategy to a Treasury-only benchmark may exaggerate the role of credit risk. Comparing a small-cap strategy to a large-cap benchmark may confuse size exposure with manager skill.
+
+[TABLE: Appropriate and Inappropriate Benchmark Examples]
+
+| Portfolio Type             | More Appropriate Benchmark  | Less Appropriate Benchmark |
+| -------------------------- | --------------------------- | -------------------------- |
+| U.S. large-cap equity fund | U.S. large-cap equity index | Global bond index          |
+| Small-cap stock fund       | Small-cap equity index      | Large-cap equity index     |
+| Global stock portfolio     | Global equity index         | Domestic-only equity index |
+| Investment-grade bond fund | Investment-grade bond index | Broad stock index          |
+
+
+A poor benchmark can make a manager look artificially successful if the benchmark is too easy, or unfairly weak if the benchmark is irrelevant or overly demanding. In either case, the benchmark fails to provide a fair standard of comparison.
+
+### Why Benchmark Choice Matters
+
+Benchmark choice matters because many important portfolio statistics depend on it. [[Active Return|Active return]], [[Tracking Error|tracking error]], and [[Beta|beta]] are all measured relative to some benchmark. If the benchmark changes, the interpretation of those quantities changes as well. A portfolio may appear conservative relative to one benchmark and aggressive relative to another.
+
+This is especially important in both passive and active management. In passive investing, a poor benchmark means the fund may be tracking the wrong target. In active investing, a poor benchmark means excess return may not be a meaningful measure of skill. In both cases, the benchmark shapes how the portfolio is understood.
+
+For this reason, benchmark selection should be treated as part of portfolio design, not as an afterthought added only when results are reported. A benchmark defines the baseline against which deviations are measured, and that makes it central to portfolio construction as a whole.
+
+[DIAGRAM: Portfolio -> benchmark selection -> performance interpretation, showing how benchmark choice affects tracking error, active return, and risk assessment]
+
+Choosing an appropriate benchmark therefore means choosing a comparison standard that truly reflects what the portfolio is trying to achieve. When the benchmark is well chosen, performance evaluation becomes more meaningful and more informative. When it is poorly chosen, even accurate return data can lead to misleading conclusions.
 
 
 ## Limits of Passive Indexing 
 
+[[Passive Indexing|Passive indexing]] offers diversification, transparency, and relatively low-cost access to broad market exposure. For many investors, those are major advantages. However, passive indexing also has important limits. It does not eliminate risk, it does not remove the effect of index design choices, and it does not guarantee that the benchmark being tracked is the best possible portfolio for every objective.
 
-a
+These limits do not make passive investing ineffective. Rather, they clarify what passive indexing can and cannot do. A [[Passive Strategy|passive strategy]] can provide efficient exposure to a chosen market segment, but it cannot avoid the risks and structural features of that market simply by being passive.
+
+[FIGURE: Passive index portfolio providing broad market exposure, but still exposed to market declines, concentration, and design choices]
+
+### Passive Does Not Eliminate Risk
+
+One of the most important limits of passive indexing is that it does not eliminate risk. A passive fund may reduce [[Idiosyncratic Risk|idiosyncratic risk]] by holding many securities, but it still remains exposed to [[Market Risk|market risk]]. If the overall market declines, a passive investor will generally decline with it.
+
+This is an important point because passive investing is sometimes described in a way that makes it sound automatically “safe.” In reality, a [[Passive Index Fund|passive index fund]] simply gives the investor the return of the benchmark, before or after modest implementation frictions. If the benchmark suffers a large drawdown, then the passive fund will usually experience a similar drawdown.
+
+For example, a broad equity index fund may be highly diversified across firms, but it can still fall sharply during a market crisis because the entire asset class is under pressure. Diversification helps reduce the impact of any one firm failing, but it does not remove the risk of broad market decline.
+
+[FIGURE: Broad passive equity index falling during a market downturn, showing that diversification does not eliminate market risk]
+
+### Indexes Are Constructed, Not Neutral
+
+Another limit of passive indexing is that passive funds do not track “the market” in some perfectly neutral or universal sense. They track a specific [[Index Methodology|index methodology]], and that methodology always reflects choices. Those choices include the index universe, eligibility rules, weighting scheme, rebalancing schedule, and treatment of corporate actions.
+
+This means passive indexing is never completely free of structure or bias. A market-cap-weighted index will emphasize the largest firms. An equal-weighted index will place more relative emphasis on smaller firms. A domestic benchmark excludes international exposure by design. A bond index may overweight the largest issuers of debt simply because they have the most debt outstanding.
+
+[DIAGRAM: Index construction choices feeding into different benchmark portfolios]
+
+For this reason, passive investing should not be thought of as avoiding portfolio design altogether. It avoids active security selection in the usual sense, but it still depends on a set of design rules that shape the resulting portfolio. Different indexes can produce meaningfully different outcomes even when all are labeled “passive.”
+
+### Passive Implementation Is Not Frictionless
+
+A third limit is that passive indexing is not completely frictionless in practice. A benchmark is often a theoretical or pre-cost portfolio, while a real fund must pay [[Fees|fees]], [[Securities Trading|trade securities]], manage [[Cash Flows|cash flows]], and deal with [[Taxes|taxes]] and [[Operational Constraints|operational constraints]]. As a result, passive funds usually do not match their benchmarks perfectly.
+
+These frictions may be small relative to those of many [[Active Strategy|active strategies]], but they still matter. [[Expense Ratio|Expense ratios]] reduce net returns. [[Rebalancing|Rebalancing]] and index changes create turnover and transaction costs. Sampling methods can introduce tracking deviations. In international or fixed-income markets, liquidity and access constraints may make precise replication more difficult.
+
+This means passive investing should be understood as an attempt to capture benchmark exposure efficiently, not perfectly. The benchmark remains the goal, but the realized portfolio return will usually fall somewhat short because real implementation takes place under costs and constraints.
+
+[FIGURE: Benchmark return line and actual passive fund return line, with small persistent implementation gap]
+
+### Passive Indexing May Not Fit Every Objective
+
+Passive indexing is also limited by the fact that not every investor has the same goal. A broad market benchmark may be a sensible default for many long-horizon investors, but some investors may want objectives that a simple passive index does not directly provide. These may include:
+
+- specific income targets
+- downside protection
+- liability matching
+- tax customization
+- ethical or sector exclusions
+- factor tilts
+- risk-balancing objectives across asset classes
+
+A passive index fund is usually designed to deliver market exposure, not to tailor that exposure to every investor’s individual constraints. For some investors, broad benchmark tracking may be sufficient. For others, it may need to be combined with other portfolio decisions or replaced by a more customized structure.
+
+This does not mean passive indexing fails. It means that passive indexing is a baseline framework, not a complete answer to every portfolio problem.
+
+Why These Limits Matter
+
+The limits of passive indexing matter because they prevent the chapter from presenting passive investing as a universal solution. Passive indexing is powerful because it gives investors diversified, transparent, and relatively low-cost exposure to broad markets. But it still leaves the investor exposed to the risks of the benchmark, the structure of the index, and the realities of implementation.
 
 
-## Summary
+| Strength                 | Corresponding limit                            |
+| ------------------------ | ---------------------------------------------- |
+| Broad diversification    | Does not remove market-wide risk               |
+| Transparent rules        | Rules still impose design choices              |
+| Low cost                 | Not costless or frictionless                   |
+| Clear benchmark exposure | Benchmark may not fit every investor objective |
 
 
-a
+Recognizing these limits is important because it sets up the later chapters well. Once passive indexing is understood as the baseline rather than the final answer, you will prepared to study the structured ways investors may depart from that baseline through asset allocation, factor tilts, optimization, and risk-based portfolio design.
+
+Passive indexing therefore remains foundational, but not exhaustive. It provides a disciplined starting point for portfolio construction, while also making clear that every benchmark comes with risks, constraints, and assumptions of its own.
+
+## Recreation of the S&P 500 and Dow Jones
+
+So far, there hasn't been really any coding examples of like trading or anything of the sort. Well of course theres no trading here, it's passive investing, we aren't trying to beat a market, we are just trying to understand how to follow a standard benchmark. If you want to actually talk about more on the trading part if you want to be a quant, then I suggest skipping to Part 3 of systematic trading and just move on from these chapter (I wouldn't personally as I would love the get the information quick then leave immediately). Otherwise I will move onto talking about recreating the indexes of the S&P 500 and Dow Jones.
+
+Now you may be wondering, if 
+
+### What is Dow Jones?
+
+### What is the S&P 500?
+
+### Recreating the Dow Jones Index
+
+### Recreating the S&P 500
+
+### Comparison of the two 
+
+
+
+
+
+
+
+
+
 
