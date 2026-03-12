@@ -111,6 +111,54 @@ Response includes:
 - `metrics`
 - `assumptions`
 
+### Passive indexing interactive (Chapter 6 demo)
+
+- `POST /backtest/passive-indexing/interactive`
+- Purpose: computes the Chapter 6 interactive example payload for
+  - selected stock universe data,
+  - weighting comparison,
+  - index paths rebased to 100,
+  - interpretation summary.
+
+Request body:
+
+```json
+{
+  "tickers": ["AAPL", "MSFT", "NVDA", "GOOGL", "AMZN"],
+  "startDate": "2025-03-11",
+  "endDate": "2026-03-11"
+}
+```
+
+Behavior defaults:
+
+- If `startDate`/`endDate` are omitted:
+  - `endDate = today`
+  - `startDate = today - 1 year`
+- Missing-data policy:
+  - invalid or incomplete tickers are excluded with warnings
+  - request fails only if fewer than 2 valid tickers remain.
+
+Response shape:
+
+- `requestedTickers`, `includedTickers`, `excluded[]`, `warnings[]`
+- `universe[]`:
+  - `ticker`, `companyName`, `latestPrice`, `sharesOutstanding`, `marketCap`, `sector`
+- `weights[]`:
+  - `ticker`, `equalWeight`, `marketCapWeight`, `priceInfluence`
+- `indexPoints[]`:
+  - `date`, `equalWeighted`, `marketCapWeighted`, `priceWeighted`
+- `summary`:
+  - largest-contributor tickers, method total returns, spread, concentration notes
+
+Example request:
+
+```powershell
+curl -X POST "http://127.0.0.1:8000/backtest/passive-indexing/interactive" `
+  -H "Content-Type: application/json" `
+  -d "{\"tickers\":[\"AAPL\",\"MSFT\",\"NVDA\",\"GOOGL\",\"AMZN\"]}"
+```
+
 ## Dependencies
 
 From `backend/requirements.txt`:

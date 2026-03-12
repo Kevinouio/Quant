@@ -1,47 +1,10 @@
 import { notFound } from "next/navigation";
-import { ChapterPageLayout, type ChapterSectionContent } from "../../../../components/layout/ChapterPageLayout";
+import { ChapterHubPageLayout } from "../../../../components/layout/ChapterHubPageLayout";
 import { chapterByRoute } from "../../../../lib/chapterMetadata";
+import { chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from "../../../../lib/generatedChapterSections";
 
 const partSlug = "part-02-long-horizon-investing";
 const chapterSlug = "strategic-asset-allocation";
-
-const sectionContent: ChapterSectionContent[] = [
-  {
-    "title": "Asset classes",
-    "paragraphs": [
-      "Asset classes placeholder for Strategic asset allocation.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Diversification",
-    "paragraphs": [
-      "Diversification placeholder for Strategic asset allocation.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Correlation and covariance",
-    "paragraphs": [
-      "Correlation and covariance placeholder for Strategic asset allocation.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Long-run portfolio weights",
-    "paragraphs": [
-      "Long-run portfolio weights placeholder for Strategic asset allocation.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Rebalancing policies",
-    "paragraphs": [
-      "Rebalancing policies placeholder for Strategic asset allocation.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  }
-];
 
 export default function Page() {
   const chapter = chapterByRoute(partSlug, chapterSlug);
@@ -50,5 +13,12 @@ export default function Page() {
     notFound();
   }
 
-  return <ChapterPageLayout chapter={chapter} sectionContent={sectionContent} />;
+  const sections = chapterSectionsByRoute(partSlug, chapterSlug).map((section: ChapterSectionRouteRecord) => ({
+    index: section.index,
+    title: section.title,
+    slug: section.slug,
+    href: chapterSectionHref(partSlug, chapterSlug, section.slug)
+  }));
+
+  return <ChapterHubPageLayout chapter={chapter} sections={sections} />;
 }

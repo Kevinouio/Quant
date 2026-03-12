@@ -2,6 +2,12 @@
 
 Generated index for notebook draft chapters.
 
+## Route model
+
+- Chapter root route (hub): `/chapters/{partSlug}/{chapterSlug}`
+- Section route (from each `##` heading): `/chapters/{partSlug}/{chapterSlug}/{sectionSlug}`
+- Section slugs are generated in order as `sNN-<section-slug>` (for example, `s01-markets`).
+
 ## Authoring Summary (QMD)
 
 Use frontmatter `summary` in each chapter `.qmd` to control the top hero summary shown on the website:
@@ -17,6 +23,12 @@ format:
 ```
 
 If `summary` is missing, sync keeps the existing summary value already present in `frontend/lib/chapterMetadata.ts`.
+
+## Currency and LaTeX in QMD
+
+- Write inline math with `$...$` and display math with `$$...$$`.
+- Prose currency like `$100`, `$1,000`, or `$20.5M` is auto-protected during `npm run sync:qmd` so it does not get parsed as inline math in the frontend.
+- Manual escaping with `\$` is still supported and unchanged.
 
 ## Part 0. Preface and how to use the book
 

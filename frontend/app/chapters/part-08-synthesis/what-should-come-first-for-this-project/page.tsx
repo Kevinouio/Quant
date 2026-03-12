@@ -1,54 +1,10 @@
 import { notFound } from "next/navigation";
-import { ChapterPageLayout, type ChapterSectionContent } from "../../../../components/layout/ChapterPageLayout";
+import { ChapterHubPageLayout } from "../../../../components/layout/ChapterHubPageLayout";
 import { chapterByRoute } from "../../../../lib/chapterMetadata";
+import { chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from "../../../../lib/generatedChapterSections";
 
 const partSlug = "part-08-synthesis";
 const chapterSlug = "what-should-come-first-for-this-project";
-
-const sectionContent: ChapterSectionContent[] = [
-  {
-    "title": "Foundations",
-    "paragraphs": [
-      "Foundations placeholder for What should come first for this project.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Volatility",
-    "paragraphs": [
-      "Volatility placeholder for What should come first for this project.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Momentum/trend",
-    "paragraphs": [
-      "Momentum/trend placeholder for What should come first for this project.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Pairs",
-    "paragraphs": [
-      "Pairs placeholder for What should come first for this project.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Factors/benchmarking",
-    "paragraphs": [
-      "Factors/benchmarking placeholder for What should come first for this project.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Execution literacy",
-    "paragraphs": [
-      "Execution literacy placeholder for What should come first for this project.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  }
-];
 
 export default function Page() {
   const chapter = chapterByRoute(partSlug, chapterSlug);
@@ -57,5 +13,12 @@ export default function Page() {
     notFound();
   }
 
-  return <ChapterPageLayout chapter={chapter} sectionContent={sectionContent} />;
+  const sections = chapterSectionsByRoute(partSlug, chapterSlug).map((section: ChapterSectionRouteRecord) => ({
+    index: section.index,
+    title: section.title,
+    slug: section.slug,
+    href: chapterSectionHref(partSlug, chapterSlug, section.slug)
+  }));
+
+  return <ChapterHubPageLayout chapter={chapter} sections={sections} />;
 }

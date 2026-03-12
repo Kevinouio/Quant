@@ -1,5 +1,7 @@
 import { DocsShell } from "../components/layout/DocsShell";
+import { PagePager } from "../components/layout/PagePager";
 import { chapterHref, chaptersByPart } from "../lib/chapterMetadata";
+import { getStartReadingHref } from "../lib/readingFlow";
 
 function chapterNavLabel(chapter: { chapterNumber: number; chapterCode: string | null; chapterTitle: string }) {
   if (chapter.chapterCode) {
@@ -25,6 +27,8 @@ const tocItems = [
   { href: "#parts-catalog", label: "Parts Catalog" },
   { href: "#notes", label: "Notes" }
 ];
+
+const startReadingHref = getStartReadingHref();
 
 export default function HomePage() {
   return (
@@ -61,17 +65,17 @@ export default function HomePage() {
               </p>
             </article>
             <article className="card">
-              <h3>Chapter Pages (TSX)</h3>
+              <h3>Chapter + Section Pages</h3>
               <p>
-                Each chapter has its own route file at{" "}
-                <code>frontend/app/chapters/{"{part-slug}"}/{"{chapter-slug}"}/page.tsx</code>.
+                Each chapter has a hub page and generated section pages under{" "}
+                <code>frontend/app/chapters/{"{part-slug}"}/{"{chapter-slug}"}/sNN-*/page.tsx</code>.
               </p>
             </article>
             <article className="card">
               <h3>Route Contract</h3>
               <p>
-                Render chapters via <code>/chapters/{"{part-slug}"}/{"{chapter-slug}"}</code> with
-                a shared template route.
+                Chapter hubs use <code>/chapters/{"{part-slug}"}/{"{chapter-slug}"}</code> and
+                sections use <code>/chapters/{"{part-slug}"}/{"{chapter-slug}"}/{"{section-slug}"}</code>.
               </p>
             </article>
           </div>
@@ -118,6 +122,14 @@ export default function HomePage() {
             without using MDX.
           </p>
         </footer>
+
+        <PagePager
+          next={{
+            href: startReadingHref,
+            actionLabel: "Start Reading",
+            detailLabel: "Open first chapter"
+          }}
+        />
       </article>
     </DocsShell>
   );

@@ -1,47 +1,10 @@
 import { notFound } from "next/navigation";
-import { ChapterPageLayout, type ChapterSectionContent } from "../../../../components/layout/ChapterPageLayout";
+import { ChapterHubPageLayout } from "../../../../components/layout/ChapterHubPageLayout";
 import { chapterByRoute } from "../../../../lib/chapterMetadata";
+import { chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from "../../../../lib/generatedChapterSections";
 
 const partSlug = "part-05-derivatives-volatility";
 const chapterSlug = "pricing-and-greeks";
-
-const sectionContent: ChapterSectionContent[] = [
-  {
-    "title": "Black-Scholes intuition",
-    "paragraphs": [
-      "Black-Scholes intuition placeholder for Pricing and Greeks.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Delta, gamma, theta, vega",
-    "paragraphs": [
-      "Delta, gamma, theta, vega placeholder for Pricing and Greeks.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Implied volatility",
-    "paragraphs": [
-      "Implied volatility placeholder for Pricing and Greeks.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Model assumptions",
-    "paragraphs": [
-      "Model assumptions placeholder for Pricing and Greeks.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Where the model breaks",
-    "paragraphs": [
-      "Where the model breaks placeholder for Pricing and Greeks.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  }
-];
 
 export default function Page() {
   const chapter = chapterByRoute(partSlug, chapterSlug);
@@ -50,5 +13,12 @@ export default function Page() {
     notFound();
   }
 
-  return <ChapterPageLayout chapter={chapter} sectionContent={sectionContent} />;
+  const sections = chapterSectionsByRoute(partSlug, chapterSlug).map((section: ChapterSectionRouteRecord) => ({
+    index: section.index,
+    title: section.title,
+    slug: section.slug,
+    href: chapterSectionHref(partSlug, chapterSlug, section.slug)
+  }));
+
+  return <ChapterHubPageLayout chapter={chapter} sections={sections} />;
 }

@@ -5,9 +5,11 @@ Public-facing Next.js app for the Quant textbook site.
 ## Current architecture
 
 - Routing: App Router TSX pages under `frontend/app/`.
-- Chapter routes: `/chapters/{partSlug}/{chapterSlug}`.
+- Chapter hub routes: `/chapters/{partSlug}/{chapterSlug}`.
+- Section routes: `/chapters/{partSlug}/{chapterSlug}/{sectionSlug}`.
 - Shared docs/chapter shell: `frontend/components/layout/DocsShell.tsx`.
 - Chapter renderer: `frontend/components/layout/ChapterPageLayout.tsx`.
+- Chapter hub renderer: `frontend/components/layout/ChapterHubPageLayout.tsx`.
 - Glossary side panel: `frontend/components/glossary/`.
 
 ## Local development
@@ -49,10 +51,12 @@ npm run sync:qmd
 
 ### QMD parsing model
 
-- `##` creates a chapter section.
+- `##` creates a section page.
 - `###` creates a subsection (`h3`).
 - Paragraphs, ordered lists, unordered lists, and fenced code blocks are preserved.
 - Chapter summary is read from QMD frontmatter `summary:` and synced to `frontend/lib/chapterMetadata.ts`.
+- Section slugs are generated deterministically as `sNN-<section-slug>` (for example, `s01-markets`).
+- Generated section manifest lives at `frontend/lib/generatedChapterSections.ts`.
 
 ## Glossary system
 
@@ -123,6 +127,29 @@ $env:NEXT_PUBLIC_BACKEND_BASE_URL="http://127.0.0.1:8000"
 ```
 
 Default fallback (if unset): `http://127.0.0.1:8000`
+
+## Chapter 6 interactive demo
+
+The "How indexes are constructed" section has a section-level interactive demo wired via:
+
+- `frontend/components/interactive/PassiveIndexingDemo.tsx`
+- `frontend/components/layout/sectionExtrasRegistry.tsx`
+
+Route:
+
+- `/chapters/part-02-long-horizon-investing/passive-indexing-and-benchmarking/s04-how-indexes-are-constructed`
+
+The component calls:
+
+- `POST /backtest/passive-indexing/interactive`
+
+and renders:
+
+- stock selection panel (5 tickers + date range),
+- raw company data table,
+- weighting comparison table,
+- 3-line index path chart (equal-weight, market-cap, price-weight),
+- interpretation panel with concentration/return notes.
 
 ## Useful commands
 

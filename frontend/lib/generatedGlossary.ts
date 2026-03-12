@@ -2212,5 +2212,558 @@ export const glossaryEntries: GlossaryEntry[] = [
     "chapterReferences": [
       "Chapter 1 (Financial markets and instruments)"
     ]
+  },
+  {
+    "id": "active-investing",
+    "term": "Active Investing",
+    "aliases": [],
+    "definition": "Active investing is an approach where a manager or model deliberately deviates from a benchmark through security selection, timing, or factor tilts to try to earn excess return.",
+    "intuition": "Instead of just tracking the market, you are making active bets.",
+    "whyItMatters": "It introduces potential alpha, but it also introduces manager risk, cost drag, and consistency risk.",
+    "relatedTerms": [
+      "Active Return",
+      "Benchmark",
+      "Passive Investing",
+      "Strategy"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 36 (Discretionary fundamental investing)"
+    ]
+  },
+  {
+    "id": "active-return",
+    "term": "Active Return",
+    "aliases": [],
+    "definition": "Active return is the difference between a portfolio's return and its benchmark return over the same period.",
+    "intuition": "It is the amount you beat or lag your benchmark by.",
+    "whyItMatters": "It is one of the core measures used to evaluate whether active decisions added value.",
+    "relatedTerms": [
+      "Benchmark",
+      "Tracking Error",
+      "Beta",
+      "Active Investing"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 9 (CAPM, beta, and risk budgeting)"
+    ]
+  },
+  {
+    "id": "beta",
+    "term": "Beta",
+    "aliases": [],
+    "definition": "Beta measures how sensitive a portfolio or security is to movements in a chosen market benchmark; a beta of 1 means it tends to move roughly one-for-one with that benchmark.",
+    "intuition": "Beta tells you how much market movement your position usually absorbs.",
+    "whyItMatters": "It helps separate broad market exposure from strategy-specific effects in performance attribution.",
+    "relatedTerms": [
+      "Market Risk",
+      "Benchmark",
+      "Active Return",
+      "Risk Budgeting"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 9 (CAPM, beta, and risk budgeting)"
+    ]
+  },
+  {
+    "id": "constituents",
+    "term": "Constituents",
+    "aliases": [],
+    "definition": "Constituents are the individual securities included in an index or portfolio according to a defined methodology.",
+    "intuition": "They are the actual names inside the basket.",
+    "whyItMatters": "Constituent selection directly shapes diversification, sector exposure, and behavior during stress.",
+    "relatedTerms": [
+      "Index",
+      "Index Universe",
+      "Eligibility Rules",
+      "Weighting Method"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "corporate-actions",
+    "term": "Corporate Actions",
+    "aliases": [],
+    "definition": "Corporate actions are events such as stock splits, dividends, mergers, spinoffs, buybacks, and share issuance that change security characteristics or cash-flow treatment.",
+    "intuition": "These are company events that can mechanically change how holdings and index calculations look.",
+    "whyItMatters": "Index providers and passive funds must adjust correctly so reported performance reflects economics, not accounting artifacts.",
+    "relatedTerms": [
+      "Rebalancing",
+      "Reconstitution",
+      "Price Weighted",
+      "Shares"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 31 (Order types and trade lifecycle)"
+    ]
+  },
+  {
+    "id": "cost-drag",
+    "term": "Cost Drag",
+    "aliases": [],
+    "definition": "Cost drag is the reduction in net portfolio return caused by recurring fees, trading costs, taxes, and implementation frictions.",
+    "intuition": "Even if gross returns look good, costs quietly shave off performance over time.",
+    "whyItMatters": "Long-horizon outcomes are highly sensitive to cost control because small annual drags compound.",
+    "relatedTerms": [
+      "Expense Ratio",
+      "Tracking Error",
+      "Passive Investing",
+      "Sales Loads"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 32 (Transaction costs and slippage)"
+    ]
+  },
+  {
+    "id": "domestic-equity",
+    "term": "Domestic Equity",
+    "aliases": [],
+    "definition": "Domestic equity refers to stock exposure concentrated in the investor's home country market.",
+    "intuition": "It is home-market stock exposure only.",
+    "whyItMatters": "Domestic-only benchmarks can misrepresent a globally diversified strategy's opportunity set and risk profile.",
+    "relatedTerms": [
+      "Global Equity Portfolio",
+      "Benchmark",
+      "Equity ETFs",
+      "Market Risk"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 7 (Strategic asset allocation)"
+    ]
+  },
+  {
+    "id": "eligibility-rules",
+    "term": "Eligibility Rules",
+    "aliases": [],
+    "definition": "Eligibility rules are index methodology criteria that determine which securities are allowed into the candidate set before final selection.",
+    "intuition": "They are the gatekeeping filters.",
+    "whyItMatters": "These filters drive what the index can represent and how investable the resulting benchmark is.",
+    "relatedTerms": [
+      "Index Universe",
+      "Inclusion Criteria",
+      "Constituents",
+      "Investability"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "equal-weighted-index",
+    "term": "Equal-Weighted Index",
+    "aliases": [],
+    "definition": "An equal-weighted index assigns the same portfolio weight to each constituent at rebalance time, regardless of company size.",
+    "intuition": "Every constituent gets equal starting influence.",
+    "whyItMatters": "It changes concentration and factor exposure versus cap-weighted indexes and usually requires more rebalancing.",
+    "relatedTerms": [
+      "Equal Weighted",
+      "Rebalancing",
+      "Market-Cap-Weighted Index",
+      "Price-Weighted Index"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "fundamentals",
+    "term": "Fundamentals",
+    "aliases": [],
+    "definition": "Fundamentals are underlying economic and financial characteristics of a company or issuer, such as earnings, book value, cash flows, and balance-sheet strength.",
+    "intuition": "Fundamentals describe the business reality behind market prices.",
+    "whyItMatters": "They are often used in security analysis and in alternative index weighting approaches.",
+    "relatedTerms": [
+      "Valuation",
+      "Market Capitalization",
+      "Weighting Method",
+      "Strategy"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 36 (Discretionary fundamental investing)"
+    ]
+  },
+  {
+    "id": "global-equity-portfolio",
+    "term": "Global Equity Portfolio",
+    "aliases": [],
+    "definition": "A global equity portfolio holds stocks from multiple countries and regions rather than one domestic market.",
+    "intuition": "It is a stock portfolio spread across the world.",
+    "whyItMatters": "It broadens diversification but introduces currency, regional, and policy risk differences versus domestic benchmarks.",
+    "relatedTerms": [
+      "Domestic Equity",
+      "Diversification",
+      "International ETFs",
+      "Benchmark"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 7 (Strategic asset allocation)"
+    ]
+  },
+  {
+    "id": "idiosyncratic-risk",
+    "term": "Idiosyncratic Risk",
+    "aliases": [],
+    "definition": "Idiosyncratic risk is the part of risk driven by security-specific events, such as firm earnings surprises, governance failures, or defaults, rather than broad market moves.",
+    "intuition": "It is company-specific risk you can often reduce through diversification.",
+    "whyItMatters": "Passive broad-market exposure is often used to reduce uncompensated concentration in idiosyncratic risk.",
+    "relatedTerms": [
+      "Diversification",
+      "Market Risk",
+      "Default",
+      "Volatility"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 3 (Risk, volatility, and drawdowns)"
+    ]
+  },
+  {
+    "id": "inclusion-criteria",
+    "term": "Inclusion Criteria",
+    "aliases": [],
+    "definition": "Inclusion criteria are the explicit thresholds or conditions that determine whether a security enters an index.",
+    "intuition": "They are the checklist a name must pass to get in.",
+    "whyItMatters": "Small differences in inclusion rules can create meaningful performance and exposure differences between similar-sounding indexes.",
+    "relatedTerms": [
+      "Eligibility Rules",
+      "Constituents",
+      "Methodology",
+      "Index Universe"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "index-level",
+    "term": "Index Level",
+    "aliases": [],
+    "definition": "Index level is the calculated numeric value of an index at a point in time, often initialized at a base value such as 100 or 1000.",
+    "intuition": "It is the index's scoreboard value through time.",
+    "whyItMatters": "Returns, drawdowns, and tracking comparisons are all measured from index-level changes.",
+    "relatedTerms": [
+      "Index",
+      "Benchmark",
+      "Price Weighted",
+      "Market-Cap-Weighted Index"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "index-universe",
+    "term": "Index Universe",
+    "aliases": [],
+    "definition": "The index universe is the broad pool of securities from which index constituents may be selected.",
+    "intuition": "It is the full candidate set before filtering.",
+    "whyItMatters": "Universe definition sets the boundary of what market exposure the index can represent.",
+    "relatedTerms": [
+      "Eligibility Rules",
+      "Constituents",
+      "Inclusion Criteria",
+      "Methodology"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "investment-portfolio",
+    "term": "Investment Portfolio",
+    "aliases": [
+      "Portfolio"
+    ],
+    "definition": "An investment portfolio is the complete set of financial positions held by an investor or fund, including the chosen weights, constraints, and objectives.",
+    "intuition": "It is your full investment basket, not just one asset.",
+    "whyItMatters": "Performance and risk should be judged at the portfolio level relative to an appropriate benchmark.",
+    "relatedTerms": [
+      "Benchmark",
+      "Portfolio Design",
+      "Strategy",
+      "Diversification"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 7 (Strategic asset allocation)"
+    ]
+  },
+  {
+    "id": "investability",
+    "term": "Investability",
+    "aliases": [
+      "Investable"
+    ],
+    "definition": "Investability is the degree to which an index can be tracked in real markets at acceptable cost, liquidity, and operational complexity.",
+    "intuition": "A concept can be a good benchmark but still hard to implement.",
+    "whyItMatters": "Low investability can increase tracking gaps between a passive fund and its target index.",
+    "relatedTerms": [
+      "Tradability",
+      "Liquidity",
+      "Tracking Error",
+      "Constituents"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 32 (Transaction costs and slippage)"
+    ]
+  },
+  {
+    "id": "large-cap",
+    "term": "Large-Cap",
+    "aliases": [],
+    "definition": "Large-cap refers to companies with relatively large market capitalizations compared with the rest of the market.",
+    "intuition": "These are the biggest firms in the market by value.",
+    "whyItMatters": "Large-cap exposure often behaves differently from small-cap exposure in concentration, liquidity, and style behavior.",
+    "relatedTerms": [
+      "Small-Cap",
+      "Market Capitalization",
+      "Benchmark",
+      "Equity ETFs"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "market-cap-weighted-index",
+    "term": "Market-Cap-Weighted Index",
+    "aliases": [],
+    "definition": "A market-cap-weighted index assigns each constituent a weight proportional to its market capitalization relative to total index market capitalization.",
+    "intuition": "Bigger companies automatically get bigger weights.",
+    "whyItMatters": "It is the most common broad-market indexing approach and drives concentration toward the largest names.",
+    "relatedTerms": [
+      "Market-Cap Weighted",
+      "Equal-Weighted Index",
+      "Price-Weighted Index",
+      "Index Level"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "measurement-framework",
+    "term": "Measurement Framework",
+    "aliases": [],
+    "definition": "A measurement framework is a structured set of definitions and calculation rules used to summarize and compare performance consistently.",
+    "intuition": "It is the rulebook for how you measure outcomes.",
+    "whyItMatters": "Indexes and benchmarks only become useful when their measurement framework is explicit and repeatable.",
+    "relatedTerms": [
+      "Methodology",
+      "Index",
+      "Benchmark",
+      "Reference Portfolio"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "methodology",
+    "term": "Methodology",
+    "aliases": [],
+    "definition": "Methodology is the formal rule set that defines how an index or strategy is constructed, maintained, and calculated.",
+    "intuition": "Methodology is the exact recipe.",
+    "whyItMatters": "Similar names can hide very different methodology choices that materially change results.",
+    "relatedTerms": [
+      "Index Universe",
+      "Eligibility Rules",
+      "Constituents",
+      "Weighting Method"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "passive-fund",
+    "term": "Passive Fund",
+    "aliases": [],
+    "definition": "A passive fund is an investment fund designed to track a benchmark index or fixed rule set rather than outperform through discretionary selection.",
+    "intuition": "It follows a target benchmark as closely as practical.",
+    "whyItMatters": "Passive funds are evaluated mainly by tracking quality, cost efficiency, and implementation discipline.",
+    "relatedTerms": [
+      "Passive Investing",
+      "Benchmark",
+      "Tracking Error",
+      "Index Mutual Funds"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 1 (Financial markets and instruments)"
+    ]
+  },
+  {
+    "id": "price-weighted-index",
+    "term": "Price-Weighted Index",
+    "aliases": [],
+    "definition": "A price-weighted index gives greater influence to constituents with higher nominal share prices, with index continuity maintained through a divisor adjustment process.",
+    "intuition": "Higher stock prices move the index more, regardless of company size.",
+    "whyItMatters": "Price-based weighting can create exposure patterns that differ from economic size-based weighting.",
+    "relatedTerms": [
+      "Price Weighted",
+      "Market-Cap-Weighted Index",
+      "Equal-Weighted Index",
+      "Corporate Actions"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "rebalancing",
+    "term": "Rebalancing",
+    "aliases": [],
+    "definition": "Rebalancing is the process of resetting portfolio or index weights back to target allocations after market moves cause drift.",
+    "intuition": "It brings weights back to the intended design.",
+    "whyItMatters": "Rebalancing controls unintended risk drift but can increase turnover and transaction costs.",
+    "relatedTerms": [
+      "Reconstitution",
+      "Weighting Method",
+      "Equal-Weighted Index",
+      "Tracking Error"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 7 (Strategic asset allocation)"
+    ]
+  },
+  {
+    "id": "reconstitution",
+    "term": "Reconstitution",
+    "aliases": [],
+    "definition": "Reconstitution is the process of updating index membership by adding or removing securities based on methodology rules.",
+    "intuition": "It changes who is in the index, not just the weights.",
+    "whyItMatters": "Reconstitution affects turnover, implementation cost, and benchmark behavior around review dates.",
+    "relatedTerms": [
+      "Rebalancing",
+      "Constituents",
+      "Eligibility Rules",
+      "Inclusion Criteria"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)"
+    ]
+  },
+  {
+    "id": "reference-portfolio",
+    "term": "Reference Portfolio",
+    "aliases": [],
+    "definition": "A reference portfolio is a defined baseline portfolio used as a point of comparison for evaluating allocation decisions and performance.",
+    "intuition": "It is the portfolio you measure deviations against.",
+    "whyItMatters": "Without a clear reference portfolio, active tilts and risk-budget choices are hard to interpret.",
+    "relatedTerms": [
+      "Benchmark",
+      "Measurement Framework",
+      "Investment Portfolio",
+      "Active Return"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 9 (CAPM, beta, and risk budgeting)"
+    ]
+  },
+  {
+    "id": "risk-budgeting",
+    "term": "Risk Budgeting",
+    "aliases": [],
+    "definition": "Risk budgeting is the practice of allocating total portfolio risk across positions, factors, or asset classes instead of allocating capital alone.",
+    "intuition": "You decide where risk should come from, not just where dollars go.",
+    "whyItMatters": "It improves control over concentration and helps align portfolio behavior with strategic objectives.",
+    "relatedTerms": [
+      "Beta",
+      "Volatility",
+      "Portfolio Design",
+      "Active Return"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 9 (CAPM, beta, and risk budgeting)"
+    ]
+  },
+  {
+    "id": "s-p-500",
+    "term": "S&P 500",
+    "aliases": [],
+    "definition": "The S&P 500 is a widely used U.S. large-cap equity index representing 500 leading publicly traded companies and is commonly used as a benchmark for U.S. equity portfolios.",
+    "intuition": "It is one of the default scoreboards for broad U.S. stock performance.",
+    "whyItMatters": "Many passive and active U.S. equity strategies are judged relative to this benchmark.",
+    "relatedTerms": [
+      "Benchmark",
+      "Index",
+      "Large-Cap",
+      "Market-Cap-Weighted Index"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 1 (Financial markets and instruments)"
+    ]
+  },
+  {
+    "id": "small-cap",
+    "term": "Small-Cap",
+    "aliases": [],
+    "definition": "Small-cap refers to companies with relatively smaller market capitalizations compared with larger firms in the same market.",
+    "intuition": "These are smaller public companies by market value.",
+    "whyItMatters": "Small-cap portfolios can have different return, liquidity, and risk behavior than large-cap benchmarks.",
+    "relatedTerms": [
+      "Large-Cap",
+      "Market Capitalization",
+      "Benchmark",
+      "Diversification"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
+  },
+  {
+    "id": "tracking-error",
+    "term": "Tracking Error",
+    "aliases": [],
+    "definition": "Tracking error is the volatility of the difference between portfolio returns and benchmark returns over time.",
+    "intuition": "It measures how tightly a portfolio follows its benchmark path.",
+    "whyItMatters": "It is a primary control metric for passive implementation quality and benchmark-relative risk.",
+    "relatedTerms": [
+      "Tracking Risk",
+      "Active Return",
+      "Benchmark",
+      "Rebalancing"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 12 (Portfolio risk management)"
+    ]
+  },
+  {
+    "id": "weighting-method",
+    "term": "Weighting Method",
+    "aliases": [],
+    "definition": "A weighting method is the rule used to assign relative weights to index or portfolio constituents.",
+    "intuition": "It decides how much each name matters.",
+    "whyItMatters": "Weighting choices can drive concentration, turnover, and return behavior even when constituent lists are identical.",
+    "relatedTerms": [
+      "Market-Cap Weighted",
+      "Equal Weighted",
+      "Price Weighted",
+      "Constituents"
+    ],
+    "chapterReferences": [
+      "Chapter 6 (Passive indexing and benchmarking)",
+      "Chapter 10 (Factor investing and smart beta)"
+    ]
   }
 ];

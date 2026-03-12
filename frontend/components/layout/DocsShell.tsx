@@ -9,12 +9,14 @@ type SidebarSubsectionItem = {
   id: string;
   href: string;
   label: string;
+  active?: boolean;
 };
 
 type SidebarSectionItem = {
   id: string;
   href: string;
   label: string;
+  active?: boolean;
   children?: SidebarSubsectionItem[];
 };
 
@@ -43,11 +45,42 @@ type TocItem = {
   level?: number;
 };
 
+type ChapterContextItem = {
+  id: string;
+  href: string;
+  label: string;
+  active?: boolean;
+};
+
+type TocSubsectionItem = {
+  href: string;
+  label: string;
+  hashId: string;
+};
+
+type GroupedTocItem =
+  | {
+      kind: "standalone";
+      href: string;
+      label: string;
+      hashId: string | null;
+      level: number;
+    }
+  | {
+      kind: "section";
+      href: string;
+      label: string;
+      hashId: string;
+      children: TocSubsectionItem[];
+    };
+
 type DocsShellProps = {
   children: ReactNode;
   sidebarHomeLink?: SidebarHomeLink;
   sidebarGroups: SidebarGroup[];
   tocItems: TocItem[];
+  chapterContextItems?: ChapterContextItem[];
+  rightPanelTitle?: string;
   topbarBrandHref: string;
   topbarBrandLabel: string;
   searchPlaceholder?: string;
@@ -74,6 +107,8 @@ export function DocsShell({
   sidebarHomeLink,
   sidebarGroups,
   tocItems,
+  chapterContextItems,
+  rightPanelTitle,
   topbarBrandHref,
   topbarBrandLabel,
   searchPlaceholder = "Search chapters (coming soon)",
@@ -83,12 +118,74 @@ export function DocsShell({
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [expandedChapterId, setExpandedChapterId] = useState<string | null>(null);
   const [expandedSectionByChapter, setExpandedSectionByChapter] = useState<Record<string, string | null>>({});
+  const [expandedTocSectionId, setExpandedTocSectionId] = useState<string | null>(null);
   const tocContainerRef = useRef<HTMLElement | null>(null);
   const tocLinkRefs = useRef(new Map<string, HTMLAnchorElement>());
-  const sectionIds = useMemo(
-    () => tocItems.map((item) => getHashId(item.href)).filter(Boolean) as string[],
-    [tocItems]
+  const hasChapterContext = Boolean(chapterContextItems && chapterContextItems.length > 0);
+  const inSectionTocItems = useMemo(
+    () => (hasChapterContext ? tocItems.filter((item) => (item.level ?? 1) >= 2) : tocItems),
+    [hasChapterContext, tocItems]
   );
+  const sectionIds = useMemo(
+    () => inSectionTocItems.map((item) => getHashId(item.href)).filter(Boolean) as string[],
+    [inSectionTocItems]
+  );
+  const groupedTocItems = useMemo(() => {
+    const grouped: GroupedTocItem[] = [];
+    let currentSection: Extract<GroupedTocItem, { kind: "section" }> | null = null;
+
+    for (const item of inSectionTocItems) {
+      const hashId = getHashId(item.href);
+      const level = item.level ?? 1;
+      if (level === 2 && hashId) {
+        const sectionGroup: Extract<GroupedTocItem, { kind: "section" }> = {
+          kind: "section",
+          href: item.href,
+          label: item.label,
+          hashId,
+          children: []
+        };
+        grouped.push(sectionGroup);
+        currentSection = sectionGroup;
+        continue;
+      }
+
+      if (level === 3 && currentSection && hashId) {
+        currentSection.children.push({
+          href: item.href,
+          label: item.label,
+          hashId
+        });
+        continue;
+      }
+
+      grouped.push({
+        kind: "standalone",
+        href: item.href,
+        label: item.label,
+        hashId,
+        level
+      });
+      currentSection = null;
+    }
+
+    return grouped;
+  }, [inSectionTocItems]);
+  const sectionParentBySubsection = useMemo(() => {
+    const parentByChild = new Map<string, string>();
+
+    for (const item of groupedTocItems) {
+      if (item.kind !== "section") {
+        continue;
+      }
+
+      for (const child of item.children) {
+        parentByChild.set(child.hashId, item.hashId);
+      }
+    }
+
+    return parentByChild;
+  }, [groupedTocItems]);
   const activeChapterId = useMemo(() => {
     for (const group of sidebarGroups) {
       const match = group.items.find((item) => item.active);
@@ -130,21 +227,24 @@ export function DocsShell({
       return;
     }
 
-    const getReadingOffset = () => {
+    const getTopbarHeight = () => {
       const topbar = document.querySelector(".topbar") as HTMLElement | null;
-      const topbarHeight = topbar?.offsetHeight ?? 60;
-      return topbarHeight + 24;
+      return topbar?.offsetHeight ?? 60;
     };
 
     const computeActiveSection = () => {
-      const readingLine = getReadingOffset();
+      const topbarHeight = getTopbarHeight();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+      const visibleHeight = Math.max(viewportHeight - topbarHeight, 1);
+      const readingCenter = topbarHeight + visibleHeight / 2;
       let candidateId = sections[0].id;
+      let minDistance = Number.POSITIVE_INFINITY;
 
       for (const section of sections) {
-        if (section.getBoundingClientRect().top <= readingLine) {
+        const distance = Math.abs(section.getBoundingClientRect().top - readingCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
           candidateId = section.id;
-        } else {
-          break;
         }
       }
 
@@ -211,7 +311,33 @@ export function DocsShell({
     }
 
     activeLink.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "auto" });
-  }, [activeSection]);
+  }, [activeSection, expandedTocSectionId, groupedTocItems]);
+
+  useEffect(() => {
+    if (!activeSection) {
+      return;
+    }
+
+    const parentSectionId = sectionParentBySubsection.get(activeSection);
+    if (!parentSectionId) {
+      return;
+    }
+
+    setExpandedTocSectionId((current) => (current === parentSectionId ? current : parentSectionId));
+  }, [activeSection, sectionParentBySubsection]);
+
+  useEffect(() => {
+    if (!expandedTocSectionId) {
+      return;
+    }
+
+    const hasExpandedSection = groupedTocItems.some(
+      (item) => item.kind === "section" && item.hashId === expandedTocSectionId
+    );
+    if (!hasExpandedSection) {
+      setExpandedTocSectionId(null);
+    }
+  }, [expandedTocSectionId, groupedTocItems]);
 
   useEffect(() => {
     if (!activeChapterId) {
@@ -236,6 +362,110 @@ export function DocsShell({
       [chapterId]: current[chapterId] === sectionId ? null : sectionId
     }));
   };
+
+  const toggleTocSection = (sectionId: string) => {
+    setExpandedTocSectionId((current) => (current === sectionId ? null : sectionId));
+  };
+
+  const inSectionNavItems = groupedTocItems.map((item) => {
+    if (item.kind === "standalone") {
+      const isActive = item.hashId ? activeSection === item.hashId : false;
+      const className = [item.level === 3 ? "is-subheading" : "", isActive ? "is-active" : ""]
+        .filter(Boolean)
+        .join(" ");
+
+      return (
+        <li key={item.href}>
+          <a
+            ref={(node) => {
+              if (!item.hashId) {
+                return;
+              }
+
+              if (node) {
+                tocLinkRefs.current.set(item.hashId, node);
+              } else {
+                tocLinkRefs.current.delete(item.hashId);
+              }
+            }}
+            className={className}
+            href={item.href}
+          >
+            {item.label}
+          </a>
+        </li>
+      );
+    }
+
+    const isSectionActive = activeSection === item.hashId;
+    const isSectionExpanded = expandedTocSectionId === item.hashId;
+    const hasSubsections = item.children.length > 0;
+    const submenuId = `right-toc-${toDomId(item.hashId)}-subsections`;
+    const sectionClassName = isSectionActive ? "is-active" : "";
+
+    return (
+      <li className="section-nav__group" key={item.href}>
+        <div className="section-nav__row">
+          <a
+            ref={(node) => {
+              if (node) {
+                tocLinkRefs.current.set(item.hashId, node);
+              } else {
+                tocLinkRefs.current.delete(item.hashId);
+              }
+            }}
+            className={sectionClassName}
+            href={item.href}
+          >
+            {item.label}
+          </a>
+          {hasSubsections ? (
+            <button
+              type="button"
+              className="toc-toggle"
+              aria-label={`${isSectionExpanded ? "Collapse" : "Expand"} ${item.label}`}
+              aria-expanded={isSectionExpanded}
+              aria-controls={submenuId}
+              onClick={() => toggleTocSection(item.hashId)}
+            >
+              <span className="toc-toggle__chevron" aria-hidden="true">
+                {">"}
+              </span>
+            </button>
+          ) : null}
+        </div>
+
+        {hasSubsections && isSectionExpanded ? (
+          <ul className="section-nav__sublist" id={submenuId}>
+            {item.children.map((subsection) => {
+              const isSubsectionActive = activeSection === subsection.hashId;
+              const subsectionClassName = ["is-subheading", isSubsectionActive ? "is-active" : ""]
+                .filter(Boolean)
+                .join(" ");
+
+              return (
+                <li key={subsection.href}>
+                  <a
+                    ref={(node) => {
+                      if (node) {
+                        tocLinkRefs.current.set(subsection.hashId, node);
+                      } else {
+                        tocLinkRefs.current.delete(subsection.hashId);
+                      }
+                    }}
+                    className={subsectionClassName}
+                    href={subsection.href}
+                  >
+                    {subsection.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        ) : null}
+      </li>
+    );
+  });
 
   return (
     <GlossaryPanelProvider>
@@ -296,7 +526,7 @@ export function DocsShell({
                                 onClick={() => toggleChapter(item.id)}
                               >
                                 <span className="sidebar-toggle__chevron" aria-hidden="true">
-                                  ▸
+                                  {">"}
                                 </span>
                               </button>
                             ) : null}
@@ -313,10 +543,13 @@ export function DocsShell({
                                 const isSectionExpanded = expandedSectionByChapter[item.id] === section.id;
                                 const hasActiveSubsection =
                                   section.children?.some(
-                                    (subsection) => activeSection === getHashId(subsection.href)
+                                    (subsection) =>
+                                      subsection.active || activeSection === getHashId(subsection.href)
                                   ) ?? false;
                                 const isSectionActive =
-                                  (sectionHash ? sectionHash === activeSection : false) || hasActiveSubsection;
+                                  Boolean(section.active) ||
+                                  (sectionHash ? sectionHash === activeSection : false) ||
+                                  hasActiveSubsection;
                                 const sectionClassName = [
                                   "sidebar-sublink",
                                   "sidebar-section-link",
@@ -341,7 +574,7 @@ export function DocsShell({
                                           onClick={() => toggleSection(item.id, section.id)}
                                         >
                                           <span className="sidebar-toggle__chevron" aria-hidden="true">
-                                            ▸
+                                            {">"}
                                           </span>
                                         </button>
                                       ) : null}
@@ -351,6 +584,7 @@ export function DocsShell({
                                       <ul className="nav-subsublist" id={sectionChildrenId}>
                                         {section.children?.map((subsection) => {
                                           const isSubActive =
+                                            Boolean(subsection.active) ||
                                             activeSection === getHashId(subsection.href);
                                           const subClassName = [
                                             "sidebar-sublink",
@@ -417,42 +651,35 @@ export function DocsShell({
           </div>
 
           <aside className="right-toc" ref={tocContainerRef}>
-            <nav aria-label="On this page">
-              <h2>On This Page</h2>
-              <ul className="section-nav">
-                {tocItems.map((item) => {
-                  const hashId = getHashId(item.href);
-                  const isActive = activeSection === hashId;
-                  const className = [
-                    item.level === 3 ? "is-subheading" : "",
-                    isActive ? "is-active" : ""
-                  ]
-                    .filter(Boolean)
-                    .join(" ");
+            <nav aria-label={rightPanelTitle ?? "On this page"}>
+              <h2>{rightPanelTitle ?? "On This Page"}</h2>
 
-                  return (
-                    <li key={item.href}>
-                      <a
-                        ref={(node) => {
-                          if (!hashId) {
-                            return;
-                          }
+              {hasChapterContext ? (
+                <>
+                  <section className="right-toc__group">
+                    <h3 className="right-toc__group-title">Sections in this chapter</h3>
+                    <ul className="section-nav section-nav--chapter">
+                      {chapterContextItems?.map((sectionLink) => (
+                        <li key={sectionLink.id}>
+                          <a
+                            className={sectionLink.active ? "is-active" : ""}
+                            href={sectionLink.href}
+                          >
+                            {sectionLink.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
 
-                          if (node) {
-                            tocLinkRefs.current.set(hashId, node);
-                          } else {
-                            tocLinkRefs.current.delete(hashId);
-                          }
-                        }}
-                        className={className}
-                        href={item.href}
-                      >
-                        {item.label}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
+                  <section className="right-toc__group">
+                    <h3 className="right-toc__group-title">In this section</h3>
+                    <ul className="section-nav">{inSectionNavItems}</ul>
+                  </section>
+                </>
+              ) : (
+                <ul className="section-nav">{inSectionNavItems}</ul>
+              )}
             </nav>
           </aside>
         </div>
@@ -477,3 +704,4 @@ export function DocsShell({
     </GlossaryPanelProvider>
   );
 }
+

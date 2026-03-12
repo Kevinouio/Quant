@@ -2,6 +2,11 @@
 
 Generated index for frontend chapter route pages.
 
+Route behavior:
+
+- `.../{chapterSlug}/page.tsx` is the chapter hub page.
+- `.../{chapterSlug}/sNN-.../page.tsx` are generated section pages from QMD `##` headings.
+
 ## Part 0. Preface and how to use the book
 
 - Chapter 0: `part-00-preface/preface/page.tsx` -> `/chapters/part-00-preface/preface`

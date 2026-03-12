@@ -5,6 +5,12 @@ const repoRoot = path.resolve(__dirname, "..", "..");
 const notebooksRoot = path.join(repoRoot, "notebooks", "chapters");
 const frontendChaptersRoot = path.join(repoRoot, "frontend", "app", "chapters");
 const chapterMetadataPath = path.join(repoRoot, "frontend", "lib", "chapterMetadata.ts");
+const generatedChapterSectionsPath = path.join(
+  repoRoot,
+  "frontend",
+  "lib",
+  "generatedChapterSections.ts"
+);
 const glossaryQmdPath = path.join(
   repoRoot,
   "notebooks",
@@ -325,6 +331,256 @@ function normalizeText(text) {
   return text.trim().replace(/\s+/g, " ");
 }
 
+function escapeCurrencyDollarSigns(text) {
+  if (!text || !text.includes("$")) {
+    return text;
+  }
+
+  let output = "";
+  let i = 0;
+
+  while (i < text.length) {
+    const current = text[i];
+    if (current !== "$") {
+      output += current;
+      i += 1;
+      continue;
+    }
+
+    // Respect already-escaped dollar signs.
+    if (i > 0 && text[i - 1] === "\\") {
+      output += current;
+      i += 1;
+      continue;
+    }
+
+    const rest = text.slice(i + 1);
+    const amountMatch = /^([+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?:[kKmMbB])?)/.exec(rest);
+    if (!amountMatch) {
+      output += current;
+      i += 1;
+      continue;
+    }
+
+    const amountToken = amountMatch[1];
+    const nextChar = rest[amountToken.length] ?? "";
+    const remainder = rest.slice(amountToken.length);
+    const nextNonSpaceMatch = /^\s*(.)/.exec(remainder);
+    const nextNonSpace = nextNonSpaceMatch ? nextNonSpaceMatch[1] : "";
+
+    // Keep explicit LaTeX math-like continuations untouched.
+    if (nextChar === "$" || nextNonSpace === "$" || /[\/\\^_=*<>+\-]/.test(nextChar) || /[\/\\^_=*<>+\-]/.test(nextNonSpace)) {
+      output += current;
+      i += 1;
+      continue;
+    }
+
+    // Treat as currency only when the numeric token is followed by a prose boundary.
+    if (nextChar && !/[\s)\]}.,;:!?'"%]/.test(nextChar)) {
+      output += current;
+      i += 1;
+      continue;
+    }
+
+    output += `\\$${amountToken}`;
+    i += 1 + amountToken.length;
+  }
+
+  return output;
+}
+
+function normalizeInlineText(text) {
+  return escapeCurrencyDollarSigns(normalizeText(text));
+}
+
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function sectionSlugFromTitle(title, index) {
+  const prefix = `s${String(index).padStart(2, "0")}`;
+  const base = slugify(title) || `section-${String(index).padStart(2, "0")}`;
+  return `${prefix}-${base}`;
+}
+
+function writeFileIfChanged(targetPath, nextContent) {
+  if (fs.existsSync(targetPath)) {
+    const current = fs.readFileSync(targetPath, "utf8");
+    if (current === nextContent) {
+      return false;
+    }
+  }
+
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.writeFileSync(targetPath, nextContent, "utf8");
+  return true;
+}
+
+function buildChapterHubPageSource(partSlug, chapterSlug) {
+  return [
+    "import { notFound } from \"next/navigation\";",
+    "import { ChapterHubPageLayout } from \"../../../../components/layout/ChapterHubPageLayout\";",
+    "import { chapterByRoute } from \"../../../../lib/chapterMetadata\";",
+    "import { chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from \"../../../../lib/generatedChapterSections\";",
+    "",
+    `const partSlug = \"${partSlug}\";`,
+    `const chapterSlug = \"${chapterSlug}\";`,
+    "",
+    "export default function Page() {",
+    "  const chapter = chapterByRoute(partSlug, chapterSlug);",
+    "",
+    "  if (!chapter) {",
+    "    notFound();",
+    "  }",
+    "",
+    "  const sections = chapterSectionsByRoute(partSlug, chapterSlug).map((section: ChapterSectionRouteRecord) => ({",
+    "    index: section.index,",
+    "    title: section.title,",
+    "    slug: section.slug,",
+    "    href: chapterSectionHref(partSlug, chapterSlug, section.slug)",
+    "  }));",
+    "",
+    "  return <ChapterHubPageLayout chapter={chapter} sections={sections} />;",
+    "}",
+    ""
+  ].join("\n");
+}
+
+function buildSectionPageSource(partSlug, chapterSlug, sectionSlug) {
+  return [
+    "import { notFound } from \"next/navigation\";",
+    "import { ChapterPageLayout } from \"../../../../../components/layout/ChapterPageLayout\";",
+    "import { sectionExtraForRoute } from \"../../../../../components/layout/sectionExtrasRegistry\";",
+    "import { chapterByRoute } from \"../../../../../lib/chapterMetadata\";",
+    "import { chapterSectionByRoute, chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from \"../../../../../lib/generatedChapterSections\";",
+    "",
+    `const partSlug = \"${partSlug}\";`,
+    `const chapterSlug = \"${chapterSlug}\";`,
+    `const sectionSlug = \"${sectionSlug}\";`,
+    "",
+    "export default function Page() {",
+    "  const chapter = chapterByRoute(partSlug, chapterSlug);",
+    "  const section = chapterSectionByRoute(partSlug, chapterSlug, sectionSlug);",
+    "",
+    "  if (!chapter || !section) {",
+    "    notFound();",
+    "  }",
+    "",
+    "  const chapterSections = chapterSectionsByRoute(partSlug, chapterSlug).map((entry: ChapterSectionRouteRecord) => ({",
+    "    index: entry.index,",
+    "    title: entry.title,",
+    "    slug: entry.slug,",
+    "    href: chapterSectionHref(partSlug, chapterSlug, entry.slug)",
+    "  }));",
+    "  const sectionExtra = sectionExtraForRoute(partSlug, chapterSlug, section.slug);",
+    "  const sectionExtras = sectionExtra ? { [section.content.title]: sectionExtra } : undefined;",
+    "",
+    "  return (",
+    "    <ChapterPageLayout",
+    "      chapter={chapter}",
+    "      sectionContent={[section.content]}",
+    "      sectionExtras={sectionExtras}",
+    "      chapterSections={chapterSections}",
+    "      activeSectionSlug={section.slug}",
+    "      sectionIndexOffset={section.index - 1}",
+    "    />",
+    "  );",
+    "}",
+    ""
+  ].join("\n");
+}
+
+function writeGeneratedChapterSections(records) {
+  const manifestObject = {};
+  for (const record of records) {
+    const key = `${record.partSlug}/${record.chapterSlug}`;
+    manifestObject[key] = record.sections;
+  }
+
+  const source = `/* AUTO-GENERATED FILE. DO NOT EDIT.
+ *
+ * Source: notebooks/chapters (all chapter .qmd files)
+ * Generated by: misc/scripts/sync-authored-qmd-to-tsx.js
+ */
+
+import type { ChapterSectionContent } from "../components/layout/ChapterPageLayout";
+
+export type ChapterSectionRouteRecord = {
+  index: number;
+  title: string;
+  slug: string;
+  content: ChapterSectionContent;
+};
+
+export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]> = ${JSON.stringify(
+    manifestObject,
+    null,
+    2
+  )};
+
+export const chapterSectionsByRoute = (partSlug: string, chapterSlug: string): ChapterSectionRouteRecord[] =>
+  chapterSectionManifest[\`\${partSlug}/\${chapterSlug}\`] ?? [];
+
+export const chapterSectionByRoute = (
+  partSlug: string,
+  chapterSlug: string,
+  sectionSlug: string
+): ChapterSectionRouteRecord | undefined =>
+  chapterSectionsByRoute(partSlug, chapterSlug).find((section) => section.slug === sectionSlug);
+
+export const chapterSectionHref = (partSlug: string, chapterSlug: string, sectionSlug: string): string =>
+  \`/chapters/\${partSlug}/\${chapterSlug}/\${sectionSlug}\`;
+`;
+
+  return writeFileIfChanged(generatedChapterSectionsPath, source);
+}
+
+function syncChapterAndSectionPages(records) {
+  let updatedHubPages = 0;
+  let updatedSectionPages = 0;
+  let removedSectionPages = 0;
+
+  for (const record of records) {
+    const chapterDir = path.join(frontendChaptersRoot, record.partSlug, record.chapterSlug);
+    const hubPagePath = path.join(chapterDir, "page.tsx");
+    const hubSource = buildChapterHubPageSource(record.partSlug, record.chapterSlug);
+    if (writeFileIfChanged(hubPagePath, hubSource)) {
+      updatedHubPages += 1;
+    }
+
+    const expectedSectionSlugs = new Set(record.sections.map((section) => section.slug));
+    for (const section of record.sections) {
+      const sectionPagePath = path.join(chapterDir, section.slug, "page.tsx");
+      const sectionSource = buildSectionPageSource(record.partSlug, record.chapterSlug, section.slug);
+      if (writeFileIfChanged(sectionPagePath, sectionSource)) {
+        updatedSectionPages += 1;
+      }
+    }
+
+    if (fs.existsSync(chapterDir)) {
+      for (const entry of fs.readdirSync(chapterDir, { withFileTypes: true })) {
+        if (!entry.isDirectory()) {
+          continue;
+        }
+        if (!/^s\d{2}-/.test(entry.name)) {
+          continue;
+        }
+        if (expectedSectionSlugs.has(entry.name)) {
+          continue;
+        }
+
+        fs.rmSync(path.join(chapterDir, entry.name), { recursive: true, force: true });
+        removedSectionPages += 1;
+      }
+    }
+  }
+
+  return { updatedHubPages, updatedSectionPages, removedSectionPages };
+}
+
 function extractFenceLanguage(line) {
   const trimmed = line.trim();
   const quartoMatch = /^```\{([^}\s,]+)[^}]*\}/.exec(trimmed);
@@ -348,10 +604,67 @@ function isUnorderedListLine(line) {
   return /^\s*[-*]\s+/.test(line);
 }
 
+function isDisplayMathDelimiter(line) {
+  return line.trim().startsWith("$$");
+}
+
+function parseTableRow(line) {
+  const trimmed = line.trim();
+  if (!trimmed.includes("|")) {
+    return null;
+  }
+
+  const rawCells = trimmed.replace(/^\|/, "").replace(/\|$/, "").split("|");
+  if (rawCells.length === 0) {
+    return null;
+  }
+
+  return rawCells.map((cell) => cell.trim());
+}
+
+function isTableSeparatorCell(cell) {
+  return /^:?-{3,}:?$/.test(cell.trim());
+}
+
+function isGfmTableStart(lines, index) {
+  if (index + 1 >= lines.length) {
+    return false;
+  }
+
+  const header = parseTableRow(lines[index]);
+  const separator = parseTableRow(lines[index + 1]);
+  if (!header || !separator || header.length === 0 || separator.length === 0) {
+    return false;
+  }
+
+  if (header.length !== separator.length) {
+    return false;
+  }
+
+  return separator.every((cell) => isTableSeparatorCell(cell));
+}
+
+function tableAlignmentsFromSeparator(separatorCells) {
+  return separatorCells.map((cell) => {
+    const normalized = cell.trim();
+    if (/^:-{3,}:$/.test(normalized)) {
+      return "center";
+    }
+    if (/^-{3,}:$/.test(normalized)) {
+      return "right";
+    }
+    if (/^:-{3,}$/.test(normalized)) {
+      return "left";
+    }
+    return null;
+  });
+}
+
 function startsNewBlock(line) {
   const trimmed = line.trim();
   return (
     trimmed.startsWith("```") ||
+    isDisplayMathDelimiter(trimmed) ||
     /^#{1,3}\s+/.test(trimmed) ||
     isOrderedListLine(line) ||
     isUnorderedListLine(line)
@@ -414,7 +727,7 @@ function parseQmdSections(raw) {
 
     const h3Match = /^###\s+(.+)$/.exec(trimmed);
     if (h3Match) {
-      pushBlock({ type: "subheading", text: normalizeText(h3Match[1]) });
+      pushBlock({ type: "subheading", text: normalizeInlineText(h3Match[1]) });
       i += 1;
       continue;
     }
@@ -440,12 +753,76 @@ function parseQmdSections(raw) {
       continue;
     }
 
+    if (isDisplayMathDelimiter(trimmed)) {
+      let latex = "";
+
+      if (trimmed === "$$") {
+        const mathLines = [];
+        i += 1;
+        while (i < lines.length && !isDisplayMathDelimiter(lines[i])) {
+          mathLines.push(lines[i]);
+          i += 1;
+        }
+        if (i < lines.length && isDisplayMathDelimiter(lines[i])) {
+          i += 1;
+        }
+        latex = mathLines.join("\n").trim();
+      } else {
+        const inlineMatch = /^\$\$(.+)\$\$$/.exec(trimmed);
+        if (inlineMatch) {
+          latex = inlineMatch[1].trim();
+          i += 1;
+        } else {
+          latex = trimmed.replace(/^\$\$/, "").trim();
+          i += 1;
+        }
+      }
+
+      if (latex) {
+        pushBlock({ type: "mathDisplay", latex });
+      }
+      continue;
+    }
+
+    if (isGfmTableStart(lines, i)) {
+      const headerCells = parseTableRow(lines[i]) ?? [];
+      const separatorCells = parseTableRow(lines[i + 1]) ?? [];
+      const alignments = tableAlignmentsFromSeparator(separatorCells);
+      i += 2;
+
+      const rows = [];
+      while (i < lines.length) {
+        const candidate = lines[i];
+        if (candidate.trim() === "" || startsNewBlock(candidate) || /^##\s+/.test(candidate.trim())) {
+          break;
+        }
+
+        const rowCells = parseTableRow(candidate);
+        if (!rowCells || rowCells.length !== headerCells.length) {
+          break;
+        }
+
+        rows.push(rowCells);
+        i += 1;
+      }
+
+      if (headerCells.length > 0) {
+        pushBlock({
+          type: "table",
+          headers: headerCells.map((cell) => normalizeInlineText(cell)),
+          alignments,
+          rows: rows.map((row) => row.map((cell) => normalizeInlineText(cell)))
+        });
+      }
+      continue;
+    }
+
     if (isOrderedListLine(line)) {
       const items = [];
       while (i < lines.length && isOrderedListLine(lines[i])) {
         const itemMatch = /^\s*\d+\.\s+(.+)$/.exec(lines[i]);
         if (itemMatch) {
-          items.push(normalizeText(itemMatch[1]));
+          items.push(normalizeInlineText(itemMatch[1]));
         }
         i += 1;
       }
@@ -461,7 +838,7 @@ function parseQmdSections(raw) {
       while (i < lines.length && isUnorderedListLine(lines[i])) {
         const itemMatch = /^\s*[-*]\s+(.+)$/.exec(lines[i]);
         if (itemMatch) {
-          items.push(normalizeText(itemMatch[1]));
+          items.push(normalizeInlineText(itemMatch[1]));
         }
         i += 1;
       }
@@ -475,14 +852,19 @@ function parseQmdSections(raw) {
     const paragraphLines = [];
     while (i < lines.length) {
       const candidate = lines[i];
-      if (candidate.trim() === "" || startsNewBlock(candidate) || /^##\s+/.test(candidate.trim())) {
+      if (
+        candidate.trim() === "" ||
+        startsNewBlock(candidate) ||
+        isGfmTableStart(lines, i) ||
+        /^##\s+/.test(candidate.trim())
+      ) {
         break;
       }
       paragraphLines.push(candidate);
       i += 1;
     }
 
-    const paragraphText = normalizeText(paragraphLines.join(" "));
+    const paragraphText = normalizeInlineText(paragraphLines.join(" "));
     if (paragraphText) {
       pushBlock({ type: "paragraph", text: paragraphText });
     } else {
@@ -516,6 +898,23 @@ function isAuthoredSection(section) {
   for (const block of section.blocks) {
     if (block.type === "codeBlock" && block.code.trim().length > 0) {
       return true;
+    }
+
+    if (block.type === "mathDisplay") {
+      if (hasMeaningfulText(block.latex)) {
+        return true;
+      }
+      continue;
+    }
+
+    if (block.type === "table") {
+      if (
+        block.headers.some((header) => hasMeaningfulText(header)) ||
+        block.rows.some((row) => row.some((cell) => hasMeaningfulText(cell)))
+      ) {
+        return true;
+      }
+      continue;
     }
 
     if (block.type === "paragraph") {
@@ -716,14 +1115,11 @@ function syncMetadataSummaries(summaryByChapterKey) {
 function main() {
   const glossaryEntryCount = generateGlossaryData();
   const qmdFiles = walkQmdFiles(notebooksRoot);
-  let updatedPages = 0;
-  let skippedScaffold = 0;
-  let missingPage = 0;
   let metadataStatusUpdates = 0;
   let metadataSummaryUpdates = 0;
-  let unchangedPages = 0;
   const authoredChapterKeys = new Set();
   const summaryByChapterKey = new Map();
+  const chapterSectionRecords = [];
 
   for (const qmdPath of qmdFiles) {
     const relative = path.relative(notebooksRoot, qmdPath);
@@ -740,39 +1136,21 @@ function main() {
     }
     const sections = parseQmdSections(source);
     const authored = chapterIsAuthored(sections);
+    const sectionRecords = sections.map((section, sectionIndex) => ({
+      index: sectionIndex + 1,
+      title: section.title,
+      slug: sectionSlugFromTitle(section.title, sectionIndex + 1),
+      content: section
+    }));
+
+    chapterSectionRecords.push({
+      partSlug,
+      chapterSlug,
+      sections: sectionRecords
+    });
 
     if (authored) {
       authoredChapterKeys.add(chapterKey);
-    }
-
-    if (!syncAll && !authored) {
-      skippedScaffold += 1;
-      continue;
-    }
-
-    const tsxPath = path.join(frontendChaptersRoot, partSlug, chapterSlug, "page.tsx");
-    if (!fs.existsSync(tsxPath)) {
-      missingPage += 1;
-      continue;
-    }
-
-    const result = updateSectionContentInPage(tsxPath, sections);
-    if (result.updated) {
-      updatedPages += 1;
-    } else {
-      unchangedPages += 1;
-    }
-
-  }
-
-  if (syncAll) {
-    for (const qmdPath of qmdFiles) {
-      const relative = path.relative(notebooksRoot, qmdPath);
-      const parts = relative.split(path.sep);
-      const partSlug = parts[0];
-      const fileName = path.basename(qmdPath);
-      const chapterSlug = fileName.replace(/^chapter-\d{2}-/, "").replace(/\.qmd$/, "");
-      authoredChapterKeys.add(`${partSlug}/${chapterSlug}`);
     }
   }
 
@@ -780,20 +1158,23 @@ function main() {
     authoredChapterKeys.add(pinnedKey);
   }
 
+  const manifestUpdated = writeGeneratedChapterSections(chapterSectionRecords);
+  const { updatedHubPages, updatedSectionPages, removedSectionPages } = syncChapterAndSectionPages(
+    chapterSectionRecords
+  );
   metadataStatusUpdates = syncMetadataStatuses(authoredChapterKeys);
   metadataSummaryUpdates = syncMetadataSummaries(summaryByChapterKey);
 
   console.log(
     [
       `QMD -> TSX sync complete.`,
-      `updated pages: ${updatedPages}`,
-      `unchanged pages: ${unchangedPages}`,
-      `skipped scaffold chapters: ${skippedScaffold}`,
-      `missing chapter pages: ${missingPage}`,
+      `updated chapter hubs: ${updatedHubPages}`,
+      `updated section pages: ${updatedSectionPages}`,
+      `removed section pages: ${removedSectionPages}`,
+      `updated section manifest: ${manifestUpdated ? 1 : 0}`,
       `metadata status updates: ${metadataStatusUpdates}`,
       `metadata summary updates: ${metadataSummaryUpdates}`,
-      `generated glossary entries: ${glossaryEntryCount}`,
-      `mode: ${syncAll ? "all chapters" : "authored only"}`
+      `generated glossary entries: ${glossaryEntryCount}`
     ].join(" ")
   );
 }

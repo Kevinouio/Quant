@@ -521,6 +521,14 @@ Equal weighting gave the smaller firms more influence than market-cap weighting 
 
 This is why understanding index construction is fundamental to passive investing. A passive strategy does not passively accept reality in some neutral sense. It follows a specific benchmark design. To understand the investment, one must therefore understand the rules that define the index itself.
 
+
+### Interactive Example 
+Now Let's more look at a real life example rather than out fictional companies that we made up in the eariler example. So for this, choose 5 different stocks to which you want to observe. Insert the Tickers for the stocks that you want to choose. (By default we have AAPL, MSFT, NVDA, GOOGL, AMZN). Your free to change them if you want. 
+
+
+
+
+
 ## Market Cap weighting
 
 

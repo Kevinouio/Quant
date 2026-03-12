@@ -1,47 +1,10 @@
 import { notFound } from "next/navigation";
-import { ChapterPageLayout, type ChapterSectionContent } from "../../../../components/layout/ChapterPageLayout";
+import { ChapterHubPageLayout } from "../../../../components/layout/ChapterHubPageLayout";
 import { chapterByRoute } from "../../../../lib/chapterMetadata";
+import { chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from "../../../../lib/generatedChapterSections";
 
 const partSlug = "part-02-long-horizon-investing";
 const chapterSlug = "factor-investing-and-smart-beta";
-
-const sectionContent: ChapterSectionContent[] = [
-  {
-    "title": "What a factor is",
-    "paragraphs": [
-      "What a factor is placeholder for Factor investing and smart beta.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Value, momentum, quality, size",
-    "paragraphs": [
-      "Value, momentum, quality, size placeholder for Factor investing and smart beta.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Long-only tilts vs long-short factors",
-    "paragraphs": [
-      "Long-only tilts vs long-short factors placeholder for Factor investing and smart beta.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Factor exposures",
-    "paragraphs": [
-      "Factor exposures placeholder for Factor investing and smart beta.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  },
-  {
-    "title": "Crowding and drawdowns",
-    "paragraphs": [
-      "Crowding and drawdowns placeholder for Factor investing and smart beta.",
-      "Add concrete definitions, formulas, and implementation notes in a later pass."
-    ]
-  }
-];
 
 export default function Page() {
   const chapter = chapterByRoute(partSlug, chapterSlug);
@@ -50,5 +13,12 @@ export default function Page() {
     notFound();
   }
 
-  return <ChapterPageLayout chapter={chapter} sectionContent={sectionContent} />;
+  const sections = chapterSectionsByRoute(partSlug, chapterSlug).map((section: ChapterSectionRouteRecord) => ({
+    index: section.index,
+    title: section.title,
+    slug: section.slug,
+    href: chapterSectionHref(partSlug, chapterSlug, section.slug)
+  }));
+
+  return <ChapterHubPageLayout chapter={chapter} sections={sections} />;
 }
