@@ -522,17 +522,47 @@ Equal weighting gave the smaller firms more influence than market-cap weighting 
 This is why understanding index construction is fundamental to passive investing. A passive strategy does not passively accept reality in some neutral sense. It follows a specific benchmark design. To understand the investment, one must therefore understand the rules that define the index itself.
 
 
-### Interactive Example 
-Now Let's more look at a real life example rather than out fictional companies that we made up in the eariler example. So for this, choose 5 different stocks to which you want to observe. Insert the Tickers for the stocks that you want to choose. (By default we have AAPL, MSFT, NVDA, GOOGL, AMZN). Your free to change them if you want. 
+### Interactive Example
+Now let's move from the fictional company setup to a real market-data example. In the interactive block below, you choose five stocks (default: AAPL, MSFT, NVDA, GOOGL, AMZN) and a date range, then compare how different index construction rules change outcomes.
+
+The flow is intentionally the same as the chapter logic:
+
+1. choose the stock universe and dates
+2. inspect the raw security data
+3. compare weighting rules
+4. view index paths starting at 100
+5. read an interpretation summary of what changed and why
+
+The goal is to make the methodology visible. You are looking at the same stocks under different construction rules, so any difference in performance is coming from index design, not from changing the stock list.
+
+
+{{widget:passive-index-choose-stock}}
+
+In this first step, you define the universe and the sample window. Every table and chart below uses this same input set, so you can isolate the effect of construction rules instead of changing the stock list itself.
+
+{{widget:passive-index-market-data}}
+
+This table is the raw input layer for the index construction process. Before you compare formulas, verify that the underlying company data makes sense, because these values directly drive the weighting and index paths.
+
+{{widget:passive-index-weights-differ}}
+
+This comparison is the core mechanical step: same securities, different influence rules. Equal weight, market-cap weight, and price influence encode different assumptions about what should matter most in the index.
+
+{{widget:passive-index-index-paths}}
+
+Because each line is rebased to 100 at the start, divergence later in the chart is coming from methodology, not from starting scale. Track where lines separate and reconnect, then connect those moves back to the weighting table above.
+
+{{widget:passive-index-summary}}
+
+After running a few ticker sets, focus on what changes when the universe is held fixed but the weighting method changes. That is the core lesson of index construction: methodology is not a detail, it is the driver of behavior.
 
 
 
 
 
-## Market Cap weighting
+## Why Market-Cap Weighting?
 
-
-a
+You might wonder whic
 
 
 ## Vehicles for passive investing 
@@ -581,7 +611,4 @@ a
 
 
 a
-
-
-
 

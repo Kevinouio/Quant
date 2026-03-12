@@ -30,6 +30,20 @@ If `summary` is missing, sync keeps the existing summary value already present i
 - Prose currency like `$100`, `$1,000`, or `$20.5M` is auto-protected during `npm run sync:qmd` so it does not get parsed as inline math in the frontend.
 - Manual escaping with `\$` is still supported and unchanged.
 
+## Inline widget markers
+
+You can embed interactive frontend widgets inline in chapter flow using a full-line marker:
+
+```md
+{{widget:passive-index-demo}}
+```
+
+Notes:
+
+- Marker must be on its own line.
+- Widget IDs are slug-like lowercase values.
+- If a widget ID is unknown, frontend shows a visible warning box instead of silently hiding it.
+
 ## Part 0. Preface and how to use the book
 
 - Chapter 0: `part-00-preface/chapter-00-preface.qmd` -> `/chapters/part-00-preface/preface`

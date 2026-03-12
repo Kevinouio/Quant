@@ -2311,20 +2311,86 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
           {
             "type": "paragraph",
             "text": "This is why understanding index construction is fundamental to passive investing. A passive strategy does not passively accept reality in some neutral sense. It follows a specific benchmark design. To understand the investment, one must therefore understand the rules that define the index itself."
+          },
+          {
+            "type": "subheading",
+            "text": "Interactive Example"
+          },
+          {
+            "type": "paragraph",
+            "text": "Now let's move from the fictional company setup to a real market-data example. In the interactive block below, you choose five stocks (default: AAPL, MSFT, NVDA, GOOGL, AMZN) and a date range, then compare how different index construction rules change outcomes."
+          },
+          {
+            "type": "paragraph",
+            "text": "The flow is intentionally the same as the chapter logic:"
+          },
+          {
+            "type": "orderedList",
+            "items": [
+              "choose the stock universe and dates",
+              "inspect the raw security data",
+              "compare weighting rules",
+              "view index paths starting at 100",
+              "read an interpretation summary of what changed and why"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The goal is to make the methodology visible. You are looking at the same stocks under different construction rules, so any difference in performance is coming from index design, not from changing the stock list."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "passive-index-choose-stock"
+          },
+          {
+            "type": "paragraph",
+            "text": "In this first step, you define the universe and the sample window. Every table and chart below uses this same input set, so you can isolate the effect of construction rules instead of changing the stock list itself."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "passive-index-market-data"
+          },
+          {
+            "type": "paragraph",
+            "text": "This table is the raw input layer for the index construction process. Before you compare formulas, verify that the underlying company data makes sense, because these values directly drive the weighting and index paths."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "passive-index-weights-differ"
+          },
+          {
+            "type": "paragraph",
+            "text": "This comparison is the core mechanical step: same securities, different influence rules. Equal weight, market-cap weight, and price influence encode different assumptions about what should matter most in the index."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "passive-index-index-paths"
+          },
+          {
+            "type": "paragraph",
+            "text": "Because each line is rebased to 100 at the start, divergence later in the chart is coming from methodology, not from starting scale. Track where lines separate and reconnect, then connect those moves back to the weighting table above."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "passive-index-summary"
+          },
+          {
+            "type": "paragraph",
+            "text": "After running a few ticker sets, focus on what changes when the universe is held fixed but the weighting method changes. That is the core lesson of index construction: methodology is not a detail, it is the driver of behavior."
           }
         ]
       }
     },
     {
       "index": 5,
-      "title": "Market Cap weighting",
-      "slug": "s05-market-cap-weighting",
+      "title": "Why Market-Cap Weighting?",
+      "slug": "s05-why-market-cap-weighting",
       "content": {
-        "title": "Market Cap weighting",
+        "title": "Why Market-Cap Weighting?",
         "blocks": [
           {
             "type": "paragraph",
-            "text": "a"
+            "text": "You might wonder whic"
           }
         ]
       }

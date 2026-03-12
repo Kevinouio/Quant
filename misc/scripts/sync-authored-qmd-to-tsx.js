@@ -663,12 +663,18 @@ function tableAlignmentsFromSeparator(separatorCells) {
 function startsNewBlock(line) {
   const trimmed = line.trim();
   return (
+    Boolean(parseWidgetMarker(trimmed)) ||
     trimmed.startsWith("```") ||
     isDisplayMathDelimiter(trimmed) ||
     /^#{1,3}\s+/.test(trimmed) ||
     isOrderedListLine(line) ||
     isUnorderedListLine(line)
   );
+}
+
+function parseWidgetMarker(line) {
+  const match = /^\{\{widget:([a-z0-9][a-z0-9-]*)\}\}$/i.exec(line.trim());
+  return match ? match[1].toLowerCase() : null;
 }
 
 function parseQmdSections(raw) {
@@ -728,6 +734,13 @@ function parseQmdSections(raw) {
     const h3Match = /^###\s+(.+)$/.exec(trimmed);
     if (h3Match) {
       pushBlock({ type: "subheading", text: normalizeInlineText(h3Match[1]) });
+      i += 1;
+      continue;
+    }
+
+    const widgetId = parseWidgetMarker(trimmed);
+    if (widgetId) {
+      pushBlock({ type: "widgetEmbed", widgetId });
       i += 1;
       continue;
     }
@@ -928,6 +941,10 @@ function isAuthoredSection(section) {
       if (block.items.some((item) => hasMeaningfulText(item))) {
         return true;
       }
+    }
+
+    if (block.type === "widgetEmbed") {
+      return true;
     }
   }
 

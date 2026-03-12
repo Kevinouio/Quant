@@ -54,9 +54,25 @@ npm run sync:qmd
 - `##` creates a section page.
 - `###` creates a subsection (`h3`).
 - Paragraphs, ordered lists, unordered lists, and fenced code blocks are preserved.
+- Inline widget marker on its own line: `{{widget:<id>}}`.
 - Chapter summary is read from QMD frontmatter `summary:` and synced to `frontend/lib/chapterMetadata.ts`.
 - Section slugs are generated deterministically as `sNN-<section-slug>` (for example, `s01-markets`).
 - Generated section manifest lives at `frontend/lib/generatedChapterSections.ts`.
+
+### Inline widgets
+
+Use a marker line in QMD to embed interactive TSX blocks inline with text:
+
+```md
+{{widget:passive-index-demo}}
+```
+
+Current widget IDs:
+
+- `passive-index-demo`
+- `market-timeseries-nvda`
+
+If a widget ID is unknown, frontend renders a visible warning callout so missing wiring is easy to catch.
 
 ## Glossary system
 
@@ -130,7 +146,11 @@ Default fallback (if unset): `http://127.0.0.1:8000`
 
 ## Chapter 6 interactive demo
 
-The "How indexes are constructed" section has a section-level interactive demo wired via:
+The "How indexes are constructed" section uses an inline widget marker in QMD:
+
+- `{{widget:passive-index-demo}}`
+
+Widget resolution is wired via:
 
 - `frontend/components/interactive/PassiveIndexingDemo.tsx`
 - `frontend/components/layout/sectionExtrasRegistry.tsx`

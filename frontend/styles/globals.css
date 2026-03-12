@@ -499,6 +499,16 @@ th {
   border-radius: 7px;
 }
 
+.widget-embed {
+  margin: 0.7rem 0;
+}
+
+.widget-embed-warning {
+  border-left-color: #b86817;
+  background: #fff7eb;
+  color: #73490b;
+}
+
 .market-widget {
   margin-top: 1rem;
   border: 1px solid var(--border);
@@ -577,12 +587,8 @@ th {
   padding: 1rem;
 }
 
-.index-demo h2 {
-  margin-bottom: 0.35rem;
-}
-
 .index-demo__intro {
-  margin-top: 0;
+  margin: 0 0 0.75rem;
   color: #4b5a6d;
 }
 
@@ -597,8 +603,17 @@ th {
   background: #ffffff;
 }
 
-.index-demo__panel h3 {
+.index-demo__panel h4 {
   margin-top: 0;
+  margin-bottom: 0.35rem;
+  font-size: 1.02rem;
+}
+
+.index-demo__panel-copy {
+  margin: 0 0 0.55rem;
+  font-size: 0.93rem;
+  color: #4e5f73;
+  line-height: 1.48;
 }
 
 .index-demo__form {
@@ -623,6 +638,7 @@ th {
   gap: 0.22rem;
   font-size: 0.82rem;
   color: #57667a;
+  min-width: 0;
 }
 
 .index-demo__field input {
@@ -631,6 +647,9 @@ th {
   padding: 0.38rem 0.5rem;
   font-size: 0.92rem;
   background: #fff;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .index-demo__actions {
@@ -732,6 +751,18 @@ th {
 
 .index-demo__summary-list {
   margin-top: 0;
+}
+
+.index-demo__axis-tick {
+  fill: #5a6b80;
+  font-size: 0.72rem;
+  font-family: var(--mono);
+}
+
+.index-demo__axis-label {
+  fill: #4b5d73;
+  font-size: 0.74rem;
+  font-family: var(--mono);
 }
 
 .right-toc {

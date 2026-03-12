@@ -5,8 +5,11 @@ import { GlossaryInlineTerm } from "../glossary/GlossaryInlineTerm";
 import { glossaryAnchorId, normalizeGlossaryKey, resolveGlossaryTermId } from "../../lib/glossary";
 import { chapterHref, chaptersByPart, type ChapterMeta } from "../../lib/chapterMetadata";
 import { getSectionPager } from "../../lib/readingFlow";
+import { isPassiveIndexWidgetId } from "../../lib/passiveIndexWidgets";
+import { widgetById } from "./sectionExtrasRegistry";
 import { DocsShell } from "./DocsShell";
 import { PagePager } from "./PagePager";
+import { PassiveIndexingDemoProvider } from "../interactive/passive-indexing/PassiveIndexingDemoContext";
 
 export type ChapterSectionContent = {
   title: string;
@@ -20,6 +23,7 @@ export type ChapterSectionContent = {
     | { type: "subheading"; text: string }
     | { type: "codeBlock"; language?: string; code: string }
     | { type: "mathDisplay"; latex: string }
+    | { type: "widgetEmbed"; widgetId: string }
     | {
         type: "table";
         headers: string[];
@@ -309,8 +313,26 @@ export function ChapterPageLayout({
       }
     });
 
-    return { section, sectionId, sectionIndex, sectionLabel, subheadingIdsByBlockIndex, subheadingLabelsByBlockIndex };
+    const hasInlineWidget = Boolean(section.blocks?.some((block) => block.type === "widgetEmbed"));
+
+    return {
+      section,
+      sectionId,
+      sectionIndex,
+      sectionLabel,
+      subheadingIdsByBlockIndex,
+      subheadingLabelsByBlockIndex,
+      hasInlineWidget
+    };
   });
+
+  const hasPassiveIndexInlineWidgets = sectionModels.some(({ section }) =>
+    Boolean(
+      section.blocks?.some(
+        (block) => block.type === "widgetEmbed" && isPassiveIndexWidgetId(block.widgetId)
+      )
+    )
+  );
 
   const tocItems = [
     { href: "#overview", label: "Overview", level: 1 },
@@ -429,6 +451,174 @@ export function ChapterPageLayout({
     })
   }));
 
+  const articleContent = (
+    <article className="article">
+      <header className="hero" id="overview">
+        <p className="eyebrow">
+          {chapter.chapterCode ? `Appendix ${chapter.chapterCode}` : `Chapter ${chapter.chapterNumber}`}
+        </p>
+        <h1>{chapterDisplayLabel(chapter)}</h1>
+        <p>{chapter.summary}</p>
+      </header>
+
+      {sectionModels.map(
+        ({
+          section,
+          sectionId,
+          sectionLabel,
+          subheadingIdsByBlockIndex,
+          subheadingLabelsByBlockIndex,
+          hasInlineWidget
+        }) => (
+        <section className="article-section" id={sectionId} key={section.title}>
+          <h2>{sectionLabel}</h2>
+          {section.blocks ? (
+            section.blocks.map((block, blockIndex) => {
+              if (block.type === "paragraph") {
+                const glossaryHeading =
+                  chapter.partSlug === "part-10-glossary" ? glossaryHeadingFromParagraph(block.text) : null;
+
+                if (glossaryHeading) {
+                  const glossaryTermId = resolveGlossaryTermId(glossaryHeading) ?? normalizeGlossaryKey(glossaryHeading);
+                  return (
+                    <h3
+                      id={glossaryAnchorId(glossaryTermId)}
+                      className="glossary-entry-heading"
+                      key={`${section.title}-block-${blockIndex}`}
+                    >
+                      {glossaryHeading}
+                    </h3>
+                  );
+                }
+
+                return <p key={`${section.title}-block-${blockIndex}`}>{renderInlineMarkdown(block.text)}</p>;
+              }
+
+              if (block.type === "subheading") {
+                const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
+                const subheadingLabel = subheadingLabelsByBlockIndex.get(blockIndex) ?? block.text;
+                return (
+                  <h3 id={subheadingId} key={`${section.title}-block-${blockIndex}`}>
+                    {renderInlineMarkdown(subheadingLabel)}
+                  </h3>
+                );
+              }
+
+              if (block.type === "unorderedList") {
+                return (
+                  <ul key={`${section.title}-block-${blockIndex}`}>
+                    {block.items.map((item) => (
+                      <li key={`${section.title}-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
+                    ))}
+                  </ul>
+                );
+              }
+
+              if (block.type === "mathDisplay") {
+                return renderMathNode({
+                  latex: block.latex,
+                  displayMode: true,
+                  key: `${section.title}-block-${blockIndex}`
+                });
+              }
+
+              if (block.type === "widgetEmbed") {
+                const embeddedWidget = widgetById(block.widgetId);
+                if (!embeddedWidget) {
+                  return (
+                    <div className="callout widget-embed-warning" key={`${section.title}-block-${blockIndex}`}>
+                      {`Missing widget: ${block.widgetId}`}
+                    </div>
+                  );
+                }
+
+                return (
+                  <div className="widget-embed" key={`${section.title}-block-${blockIndex}`}>
+                    {embeddedWidget}
+                  </div>
+                );
+              }
+
+              if (block.type === "table") {
+                return (
+                  <table key={`${section.title}-block-${blockIndex}`}>
+                    <thead>
+                      <tr>
+                        {block.headers.map((header, columnIndex) => (
+                          <th
+                            key={`${section.title}-block-${blockIndex}-header-${columnIndex}`}
+                            style={{ textAlign: block.alignments[columnIndex] ?? undefined }}
+                          >
+                            {renderInlineMarkdown(header)}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, rowIndex) => (
+                        <tr key={`${section.title}-block-${blockIndex}-row-${rowIndex}`}>
+                          {block.headers.map((_header, columnIndex) => (
+                            <td
+                              key={`${section.title}-block-${blockIndex}-row-${rowIndex}-cell-${columnIndex}`}
+                              style={{ textAlign: block.alignments[columnIndex] ?? undefined }}
+                            >
+                              {renderCell(row, columnIndex)}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                );
+              }
+
+              if (block.type === "codeBlock") {
+                const languageClass = block.language ? `language-${block.language}` : undefined;
+                return (
+                  <pre key={`${section.title}-block-${blockIndex}`}>
+                    <code className={languageClass}>{block.code}</code>
+                  </pre>
+                );
+              }
+
+              return (
+                <ol key={`${section.title}-block-${blockIndex}`}>
+                  {block.items.map((item) => (
+                    <li key={`${section.title}-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
+                  ))}
+                </ol>
+              );
+            })
+          ) : (
+            <>
+              {section.paragraphs?.map((paragraph, index) => (
+                <p key={`${section.title}-${index}`}>{renderInlineMarkdown(paragraph)}</p>
+              ))}
+              {section.orderedLists?.map((items, listIndex) => (
+                <ol key={`${section.title}-ol-${listIndex}`}>
+                  {items.map((item) => (
+                    <li key={`${section.title}-ol-${listIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
+                  ))}
+                </ol>
+              ))}
+              {section.unorderedLists?.map((items, listIndex) => (
+                <ul key={`${section.title}-ul-${listIndex}`}>
+                  {items.map((item) => (
+                    <li key={`${section.title}-ul-${listIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
+                  ))}
+                </ul>
+              ))}
+            </>
+          )}
+          {!hasInlineWidget ? sectionExtras?.[section.title] : null}
+        </section>
+      )
+      )}
+
+      <PagePager prev={pager.prev} next={pager.next} />
+    </article>
+  );
+
   return (
     <DocsShell
       sidebarHomeLink={{ href: "/", label: "Home" }}
@@ -440,145 +630,11 @@ export function ChapterPageLayout({
       topbarBrandLabel="Quant Docs"
       navNote={`Part ${chapter.partNumber} chapter page. Status: ${chapter.status}.`}
     >
-      <article className="article">
-        <header className="hero" id="overview">
-          <p className="eyebrow">
-            {chapter.chapterCode ? `Appendix ${chapter.chapterCode}` : `Chapter ${chapter.chapterNumber}`}
-          </p>
-          <h1>{chapterDisplayLabel(chapter)}</h1>
-          <p>{chapter.summary}</p>
-        </header>
-
-        {sectionModels.map(({ section, sectionId, sectionLabel, subheadingIdsByBlockIndex, subheadingLabelsByBlockIndex }) => (
-          <section className="article-section" id={sectionId} key={section.title}>
-            <h2>{sectionLabel}</h2>
-            {section.blocks ? (
-              section.blocks.map((block, blockIndex) => {
-                if (block.type === "paragraph") {
-                  const glossaryHeading =
-                    chapter.partSlug === "part-10-glossary" ? glossaryHeadingFromParagraph(block.text) : null;
-
-                  if (glossaryHeading) {
-                    const glossaryTermId = resolveGlossaryTermId(glossaryHeading) ?? normalizeGlossaryKey(glossaryHeading);
-                    return (
-                      <h3
-                        id={glossaryAnchorId(glossaryTermId)}
-                        className="glossary-entry-heading"
-                        key={`${section.title}-block-${blockIndex}`}
-                      >
-                        {glossaryHeading}
-                      </h3>
-                    );
-                  }
-
-                  return <p key={`${section.title}-block-${blockIndex}`}>{renderInlineMarkdown(block.text)}</p>;
-                }
-
-                if (block.type === "subheading") {
-                  const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
-                  const subheadingLabel = subheadingLabelsByBlockIndex.get(blockIndex) ?? block.text;
-                  return (
-                    <h3 id={subheadingId} key={`${section.title}-block-${blockIndex}`}>
-                      {renderInlineMarkdown(subheadingLabel)}
-                    </h3>
-                  );
-                }
-
-                if (block.type === "unorderedList") {
-                  return (
-                    <ul key={`${section.title}-block-${blockIndex}`}>
-                      {block.items.map((item) => (
-                        <li key={`${section.title}-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
-                      ))}
-                    </ul>
-                  );
-                }
-
-                if (block.type === "mathDisplay") {
-                  return renderMathNode({
-                    latex: block.latex,
-                    displayMode: true,
-                    key: `${section.title}-block-${blockIndex}`
-                  });
-                }
-
-                if (block.type === "table") {
-                  return (
-                    <table key={`${section.title}-block-${blockIndex}`}>
-                      <thead>
-                        <tr>
-                          {block.headers.map((header, columnIndex) => (
-                            <th
-                              key={`${section.title}-block-${blockIndex}-header-${columnIndex}`}
-                              style={{ textAlign: block.alignments[columnIndex] ?? undefined }}
-                            >
-                              {renderInlineMarkdown(header)}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {block.rows.map((row, rowIndex) => (
-                          <tr key={`${section.title}-block-${blockIndex}-row-${rowIndex}`}>
-                            {block.headers.map((_header, columnIndex) => (
-                              <td
-                                key={`${section.title}-block-${blockIndex}-row-${rowIndex}-cell-${columnIndex}`}
-                                style={{ textAlign: block.alignments[columnIndex] ?? undefined }}
-                              >
-                                {renderCell(row, columnIndex)}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  );
-                }
-
-                if (block.type === "codeBlock") {
-                  const languageClass = block.language ? `language-${block.language}` : undefined;
-                  return (
-                    <pre key={`${section.title}-block-${blockIndex}`}>
-                      <code className={languageClass}>{block.code}</code>
-                    </pre>
-                  );
-                }
-
-                return (
-                  <ol key={`${section.title}-block-${blockIndex}`}>
-                    {block.items.map((item) => (
-                      <li key={`${section.title}-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
-                    ))}
-                  </ol>
-                );
-              })
-            ) : (
-              <>
-                {section.paragraphs?.map((paragraph, index) => (
-                  <p key={`${section.title}-${index}`}>{renderInlineMarkdown(paragraph)}</p>
-                ))}
-                {section.orderedLists?.map((items, listIndex) => (
-                  <ol key={`${section.title}-ol-${listIndex}`}>
-                    {items.map((item) => (
-                      <li key={`${section.title}-ol-${listIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
-                    ))}
-                  </ol>
-                ))}
-                {section.unorderedLists?.map((items, listIndex) => (
-                  <ul key={`${section.title}-ul-${listIndex}`}>
-                    {items.map((item) => (
-                      <li key={`${section.title}-ul-${listIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
-                    ))}
-                  </ul>
-                ))}
-              </>
-            )}
-            {sectionExtras?.[section.title]}
-          </section>
-        ))}
-
-        <PagePager prev={pager.prev} next={pager.next} />
-      </article>
+      {hasPassiveIndexInlineWidgets ? (
+        <PassiveIndexingDemoProvider>{articleContent}</PassiveIndexingDemoProvider>
+      ) : (
+        articleContent
+      )}
     </DocsShell>
   );
 }
