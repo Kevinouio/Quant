@@ -3880,16 +3880,16 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
             "text": "(PICTURE OF A SIMPLE DIAGRAM COMPARING PRICE-WEIGHTED VS MARKET-CAP-WEIGHTED INDEXES)"
           },
           {
-            "type": "paragraph",
+            "type": "subheading",
             "text": "What is Dow Jones?"
           },
           {
             "type": "paragraph",
-            "text": "The [Dow Jones Industrial Average], usually shortened to the Dow Jones or simply the Dow, is one of the oldest and most recognizable stock market indexes in the United States. It was launched in 1896 and originally tracked 12 industrial companies. Over time, it evolved as the U.S. economy changed, and today it contains 30 large U.S. companies rather than just traditional industrial firms. Its importance is partly historical: for well over a century, the Dow has served as one of the most visible shorthand measures of how “the market” is doing, even though it only covers a relatively small number of firms."
+            "text": "The [Dow Jones Industrial Average], usually shortened to the Dow Jones or simply the Dow, is one of the oldest and most recognizable stock market indexes in the United States. It was launched in 1896 and originally tracked 12 industrial companies. Over time, it evolved as the U.S. economy changed, and today it contains 30 large U.S. companies rather than just traditional [industrial firms]. Its importance is partly historical: for well over a century, the Dow has served as one of the most visible shorthand measures of how “the market” is doing, even though it only covers a relatively small number of firms."
           },
           {
             "type": "paragraph",
-            "text": "What makes the Dow especially interesting is the way it is constructed. The Dow is [price-weighted], which means that a stock with a higher share price has a larger effect on the index than a stock with a lower share price. This is very different from weighting by company size. A firm does not need to be the largest company in the index to have the largest impact on the Dow; it only needs to have a relatively high stock price. Because of this, the Dow also uses a divisor to maintain continuity when events such as stock splits would otherwise mechanically change the index level."
+            "text": "What makes the Dow especially interesting is the way it is constructed. The Dow is [price-weighted], which means that a stock with a higher share price has a larger effect on the index than a stock with a lower share price. This is very different from weighting by company size. A firm does not need to be the largest company in the index to have the largest impact on the Dow; it only needs to have a relatively high stock price. Because of this, the Dow also uses a divisor to maintain continuity when events such as stock splits would otherwise mechanically change the [index level]."
           },
           {
             "type": "paragraph",
@@ -3897,6 +3897,10 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
           },
           {
             "type": "paragraph",
+            "text": "Now this is to not be confused with the [Central Limit Theorem] ([CLT]) if you were wondering if this has any relation to the concepts of sampling from the set of stocks. The stocks/constituents are chosen based on the how much \"impact\" they have to the economy and not randomly sampled."
+          },
+          {
+            "type": "subheading",
             "text": "What is the S&P 500?"
           },
           {
@@ -3905,14 +3909,14 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
           },
           {
             "type": "paragraph",
-            "text": "Unlike the Dow, the S&P 500 is not price-weighted. It is a float-adjusted market-capitalization-weighted index. In simpler terms, companies with larger investable market values receive larger weights in the index. This makes the S&P 500 a much more natural benchmark for broad passive investing, because the weights are tied more closely to the economic size of the firms rather than to the nominal dollar prices of their shares."
+            "text": "Unlike the Dow, the S&P 500 is not price-weighted. It is a [float-adjusted market-capitalization-weighted index]. In simpler terms, companies with larger investable market values receive larger weights in the index. This makes the S&P 500 a much more natural benchmark for broad passive investing, because the weights are tied more closely to the economic size of the firms rather than to the nominal dollar prices of their shares."
           },
           {
             "type": "paragraph",
             "text": "The S&P 500 is also much closer to what most people mean when they refer to “the U.S. stock market” in a passive-investing context. Although it still does not include every publicly traded firm, it is designed to represent a large and important share of the U.S. equity market. Its official methodology is more complicated than a simple top-500 list, since it includes eligibility requirements, committee oversight, and float-adjustment rules. That is precisely why it is valuable to study: the S&P 500 reminds us that even a benchmark that feels natural or standard is still a constructed object built from explicit rules."
           },
           {
-            "type": "paragraph",
+            "type": "subheading",
             "text": "Why recreate them?"
           },
           {
@@ -3955,7 +3959,7 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
           {
             "type": "codeBlock",
             "language": "python",
-            "code": "sp500 = pd.read_html(\n    \"https://en.wikipedia.org/wiki/List_of_S%26P_500_companies\",\n    storage_options=UA\n)[0].rename(columns={\"Symbol\": \"Ticker\", \"Security\": \"Company\"})\n\nsp500[\"YahooTicker\"] = sp500[\"Ticker\"].str.replace(\".\", \"-\", regex=False)\n\nsp500.to_csv(\"sp500_constituents_2026-03-12.csv\", index=False)\n\nprint(\"S&P 500 rows:\", len(sp500))\nsp500.head()"
+            "code": "# Get list of constituents from Wikipedia\nsp500 = pd.read_html(\n    \"https://en.wikipedia.org/wiki/List_of_S%26P_500_companies\",\n    storage_options=UA\n)[0].rename(columns={\"Symbol\": \"Ticker\", \"Security\": \"Company\"})\n\n# Reformat for a Readable format for yfinance\nsp500[\"YahooTicker\"] = sp500[\"Ticker\"].str.replace(\".\", \"-\", regex=False)\n\n# Store the DataFrame into a csv\nsp500.to_csv(\"sp500_constituents_2026-03-12.csv\", index=False)\n\nprint(\"S&P 500 rows:\", len(sp500))\nsp500.head()"
           },
           {
             "type": "paragraph",
@@ -3964,7 +3968,7 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
           {
             "type": "codeBlock",
             "language": "python",
-            "code": "sp_tickers = sorted(sp500[\"YahooTicker\"].dropna().unique())\n\nsp_raw = yf.download(\n    sp_tickers,\n    start=start,\n    end=end,\n    interval=\"1d\",\n    auto_adjust=False,\n    progress=False,\n    threads=True\n)\n\nsp_close = sp_raw[\"Close\"].dropna(axis=1, how=\"all\").sort_index()\n\nsp_close.to_csv(\"sp500_close.csv\")\n\nprint(\"S&P close shape:\", sp_close.shape)\nsp_close.iloc[:5, :5]"
+            "code": "# Cleaning Data\nsp_tickers = sorted(sp500[\"YahooTicker\"].dropna().unique())\n\n# Pulls all information for gathering the index\nsp_raw = yf.download(\n    sp_tickers,\n    start=start,\n    end=end,\n    interval=\"1d\",\n    auto_adjust=False,\n    progress=False,\n    threads=True\n)\n\nsp_close = sp_raw[\"Close\"].dropna(axis=1, how=\"all\").sort_index()\n\nsp_close.to_csv(\"sp500_close.csv\")\n\nprint(\"S&P close shape:\", sp_close.shape)\nsp_close.iloc[:5, :5]"
           },
           {
             "type": "paragraph",
@@ -4014,26 +4018,34 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
             "text": "The next plot compares the reconstructed S&P-style series against the official index level. The two series will not match exactly because we are using a frozen present-day constituent list and a public-data shares proxy rather than the official float-adjusted methodology."
           },
           {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "ax = sp_compare.plot(title=\"Simplified S&P 500-style Reconstruction vs Official S&P 500\")\nax.set_ylabel(\"Index level (base = 100)\")\nax.grid(True, alpha=0.3)\nplt.show()"
+          },
+          {
             "type": "widgetEmbed",
             "widgetId": "chapter6-recon-sp-compare"
           },
           {
-            "type": "codeBlock",
-            "language": "python",
-            "code": "ax = sp_compare.plot(title=\"Simplified S&P 500-style Reconstruction vs Official S&P 500\")\nax.set_ylabel(\"Index level (base = 100)\")\nax.grid(True, alpha=0.3)\nplt.show()"
+            "type": "paragraph",
+            "text": "For our S&P 500-style reconstruction, the slight difference from the official index comes mainly from methodology rather than from the long history of the benchmark. The official S&P 500 is a float-adjusted market-capitalization-weighted index maintained under formal eligibility rules, index committee decisions, and detailed corporate-action procedures. In contrast, our reconstruction freezes a current constituent snapshot, applies it backward through time, and uses publicly available Yahoo Finance data together with a simplified shares-outstanding proxy. That means our version has survivorship bias, does not perfectly capture official float adjustment, and does not fully reproduce the exact rebalancing and maintenance rules used in the real benchmark. Because of those simplifications, our reconstructed series should be viewed as an educational approximation of the S&P 500 rather than an exact replication"
           },
           {
             "type": "paragraph",
             "text": "We can also inspect the largest constituent weights in the reconstructed index on the most recent date in the sample."
           },
           {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "sp_name_map = sp500.set_index(\"YahooTicker\")[\"Company\"]\n\nlast_sp_weights = (\n    sp_weights.dropna(how=\"all\")\n    .iloc[-1]\n    .sort_values(ascending=False)\n    .head(10)\n    .mul(100)\n    .round(2)\n    .rename(\"Weight (%)\")\n    .to_frame()\n)\n\nlast_sp_weights[\"Company\"] = sp_name_map.reindex(last_sp_weights.index)\nlast_sp_weights[[\"Company\", \"Weight (%)\"]]"
+          },
+          {
             "type": "widgetEmbed",
             "widgetId": "chapter6-recon-sp-weights"
           },
           {
-            "type": "codeBlock",
-            "language": "python",
-            "code": "sp_name_map = sp500.set_index(\"YahooTicker\")[\"Company\"]\n\nlast_sp_weights = (\n    sp_weights.dropna(how=\"all\")\n    .iloc[-1]\n    .sort_values(ascending=False)\n    .head(10)\n    .mul(100)\n    .round(2)\n    .rename(\"Weight (%)\")\n    .to_frame()\n)\n\nlast_sp_weights[\"Company\"] = sp_name_map.reindex(last_sp_weights.index)\nlast_sp_weights[[\"Company\", \"Weight (%)\"]]"
+            "type": "paragraph",
+            "text": "With all of that we esentailly recreated what the S&P 500 is."
           },
           {
             "type": "subheading",
@@ -4088,26 +4100,26 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
             "text": "The next plot compares the reconstructed Dow-style index with the official DJIA."
           },
           {
-            "type": "widgetEmbed",
-            "widgetId": "chapter6-recon-dow-compare"
-          },
-          {
             "type": "codeBlock",
             "language": "python",
             "code": "ax = dow_compare.plot(title=\"Simplified Dow-style Reconstruction vs Official DJIA\")\nax.set_ylabel(\"Index level (base = 100)\")\nax.grid(True, alpha=0.3)\nplt.show()"
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-dow-compare"
           },
           {
             "type": "paragraph",
             "text": "Because the Dow is price-weighted, the component weights are proportional to prices rather than firm size. The following table shows the largest price-based weights on the most recent date in the sample."
           },
           {
-            "type": "widgetEmbed",
-            "widgetId": "chapter6-recon-dow-weights"
-          },
-          {
             "type": "codeBlock",
             "language": "python",
             "code": "dow_name_map = dow.set_index(\"YahooTicker\")[\"Company\"]\n\ndow_weights = dow_close.div(dow_close.sum(axis=1), axis=0)\n\nlast_dow_weights = (\n    dow_weights.dropna(how=\"all\")\n    .iloc[-1]\n    .sort_values(ascending=False)\n    .head(10)\n    .mul(100)\n    .round(2)\n    .rename(\"Weight (%)\")\n    .to_frame()\n)\n\nlast_dow_weights[\"Company\"] = dow_name_map.reindex(last_dow_weights.index)\nlast_dow_weights[[\"Company\", \"Weight (%)\"]]"
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-dow-weights"
           },
           {
             "type": "paragraph",
@@ -4127,13 +4139,13 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
             "text": "Finally, we summarize the behavior of the two reconstructed indices and their official counterparts."
           },
           {
-            "type": "widgetEmbed",
-            "widgetId": "chapter6-recon-summary"
-          },
-          {
             "type": "codeBlock",
             "language": "python",
             "code": "def summarize_index(series):\n    rets = series.pct_change().dropna()\n    ann_return = ((1 + rets).prod() ** (252 / len(rets)) - 1) if len(rets) > 0 else np.nan\n    ann_vol = rets.std() * np.sqrt(252) if len(rets) > 0 else np.nan\n\n    return pd.Series({\n        \"Start\": round(series.iloc[0], 2),\n        \"End\": round(series.iloc[-1], 2),\n        \"Total Return (%)\": round((series.iloc[-1] / series.iloc[0] - 1) * 100, 2),\n        \"Annualized Return (%)\": round(ann_return * 100, 2),\n        \"Annualized Volatility (%)\": round(ann_vol * 100, 2)\n    })\n\nsummary = pd.concat(\n    [\n        summarize_index(sp_compare.iloc[:, 0]),\n        summarize_index(sp_compare.iloc[:, 1]),\n        summarize_index(dow_compare.iloc[:, 0]),\n        summarize_index(dow_compare.iloc[:, 1]),\n    ],\n    axis=1\n)\n\nsummary.columns = [\n    \"S&P-style reconstruction\",\n    \"Official S&P 500\",\n    \"Dow-style reconstruction\",\n    \"Official DJIA\",\n]\n\nsummary.T"
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-summary"
           },
           {
             "type": "paragraph",

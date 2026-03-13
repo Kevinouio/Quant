@@ -1235,17 +1235,19 @@ There is also a second reason for doing both of these together. The Dow Jones an
 
 ### What is Dow Jones?
 
-The [Dow Jones Industrial Average], usually shortened to the Dow Jones or simply the Dow, is one of the oldest and most recognizable stock market indexes in the United States. It was launched in 1896 and originally tracked 12 industrial companies. Over time, it evolved as the U.S. economy changed, and today it contains 30 large U.S. companies rather than just traditional industrial firms. Its importance is partly historical: for well over a century, the Dow has served as one of the most visible shorthand measures of how “the market” is doing, even though it only covers a relatively small number of firms.
+The [Dow Jones Industrial Average], usually shortened to the Dow Jones or simply the Dow, is one of the oldest and most recognizable stock market indexes in the United States. It was launched in 1896 and originally tracked 12 industrial companies. Over time, it evolved as the U.S. economy changed, and today it contains 30 large U.S. companies rather than just traditional [industrial firms]. Its importance is partly historical: for well over a century, the Dow has served as one of the most visible shorthand measures of how “the market” is doing, even though it only covers a relatively small number of firms.
 
-What makes the Dow especially interesting is the way it is constructed. The Dow is [price-weighted], which means that a stock with a higher share price has a larger effect on the index than a stock with a lower share price. This is very different from weighting by company size. A firm does not need to be the largest company in the index to have the largest impact on the Dow; it only needs to have a relatively high stock price. Because of this, the Dow also uses a divisor to maintain continuity when events such as stock splits would otherwise mechanically change the index level.
+What makes the Dow especially interesting is the way it is constructed. The Dow is [price-weighted], which means that a stock with a higher share price has a larger effect on the index than a stock with a lower share price. This is very different from weighting by company size. A firm does not need to be the largest company in the index to have the largest impact on the Dow; it only needs to have a relatively high stock price. Because of this, the Dow also uses a divisor to maintain continuity when events such as stock splits would otherwise mechanically change the [index level].
 
 Historically, this made sense because the Dow was created in an era when index construction had to remain simple enough to calculate and publish efficiently. Today, that same simplicity makes it useful as a teaching example. The Dow shows that an index is not automatically “the market.” It is a particular design, with a particular rule set, and those rules determine what the benchmark actually measures.
+
+Now this is to not be confused with the [Central Limit Theorem] ([CLT]) if you were wondering if this has any relation to the concepts of sampling from the set of stocks. The stocks/constituents are chosen based on the how much "impact" they have to the economy and not randomly sampled. 
 
 ### What is the S&P 500?
 
 The [S&P 500] is a much broader benchmark for the U.S. stock market. Its modern form dates to 1957, when Standard & Poor’s expanded an earlier stock index into the now-familiar 500-stock benchmark. Its roots go back further: a smaller predecessor index began in the 1920s, first tracking fewer companies before eventually expanding to 500. Because of that development, the S&P 500 is both a modern benchmark and the result of a longer history of trying to summarize the performance of the U.S. equity market in a single number.
 
-Unlike the Dow, the S&P 500 is not price-weighted. It is a float-adjusted market-capitalization-weighted index. In simpler terms, companies with larger investable market values receive larger weights in the index. This makes the S&P 500 a much more natural benchmark for broad passive investing, because the weights are tied more closely to the economic size of the firms rather than to the nominal dollar prices of their shares.
+Unlike the Dow, the S&P 500 is not price-weighted. It is a [float-adjusted market-capitalization-weighted index]. In simpler terms, companies with larger investable market values receive larger weights in the index. This makes the S&P 500 a much more natural benchmark for broad passive investing, because the weights are tied more closely to the economic size of the firms rather than to the nominal dollar prices of their shares.
 
 The S&P 500 is also much closer to what most people mean when they refer to “the U.S. stock market” in a passive-investing context. Although it still does not include every publicly traded firm, it is designed to represent a large and important share of the U.S. equity market. Its official methodology is more complicated than a simple top-500 list, since it includes eligibility requirements, committee oversight, and float-adjustment rules. That is precisely why it is valuable to study: the S&P 500 reminds us that even a benchmark that feels natural or standard is still a constructed object built from explicit rules.
 
@@ -1285,13 +1287,16 @@ base_value = 100.0
 We begin by downloading a current snapshot of the S&P 500 constituent list from Wikipedia and converting the ticker symbols to a format that is readable by Yahoo Finance.
 
 ```{python}
+# Get list of constituents from Wikipedia
 sp500 = pd.read_html(
     "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies",
     storage_options=UA
 )[0].rename(columns={"Symbol": "Ticker", "Security": "Company"})
 
+# Reformat for a Readable format for yfinance
 sp500["YahooTicker"] = sp500["Ticker"].str.replace(".", "-", regex=False)
 
+# Store the DataFrame into a csv
 sp500.to_csv("sp500_constituents_2026-03-12.csv", index=False)
 
 print("S&P 500 rows:", len(sp500))
@@ -1301,8 +1306,10 @@ sp500.head()
 We now download daily historical prices for this frozen constituent snapshot. Since the constituent list is fixed at the present date and then applied backward through time, this reconstruction has survivorship bias.
 
 ```{python}
+# Cleaning Data
 sp_tickers = sorted(sp500["YahooTicker"].dropna().unique())
 
+# Pulls all information for gathering the index
 sp_raw = yf.download(
     sp_tickers,
     start=start,
@@ -1430,7 +1437,6 @@ sp_compare.head()
 
 The next plot compares the reconstructed S&P-style series against the official index level. The two series will not match exactly because we are using a frozen present-day constituent list and a public-data shares proxy rather than the official float-adjusted methodology.
 
-{{widget:chapter6-recon-sp-compare}}
 
 ```{python}
 ax = sp_compare.plot(title="Simplified S&P 500-style Reconstruction vs Official S&P 500")
@@ -1439,9 +1445,14 @@ ax.grid(True, alpha=0.3)
 plt.show()
 ```
 
+{{widget:chapter6-recon-sp-compare}}
+
+For the S&P 500-style reconstruction, the biggest idea is that you are not actually reconstructing the official index as it existed each day. You are taking a current constituent snapshot, pushing it backward through time, and then weighting it with a public shares proxy. The official S&P 500, however, is maintained using float-adjusted market capitalization, formal eligibility rules, and ongoing index maintenance. In your code, that means you are really measuring something closer to “how this frozen modern basket would have performed,” not “what the official S&P 500 actually was at every date.” If your reconstructed line is mostly lower, that likely means your simplifications are causing you to underweight or miss some of the strongest contributors relative to the official benchmark. In practice, that can happen because some tickers fail the shares-history pull, because your weights come from an imperfect shares proxy rather than official float-adjusted shares, and because the real index changed constituents over time while your version does not.
+
+
 We can also inspect the largest constituent weights in the reconstructed index on the most recent date in the sample.
 
-{{widget:chapter6-recon-sp-weights}}
+
 
 ```{python}
 sp_name_map = sp500.set_index("YahooTicker")["Company"]
@@ -1460,7 +1471,9 @@ last_sp_weights = (
 last_sp_weights["Company"] = sp_name_map.reindex(last_sp_weights.index)
 last_sp_weights[["Company", "Weight (%)"]]
 ```
+{{widget:chapter6-recon-sp-weights}}
 
+With all of that we esentailly recreated what the S&P 500 is. 
 ### Reconstructing a Dow-style index
 
 We now repeat the process for the Dow Jones Industrial Average. Again, we begin by downloading a current snapshot of the constituents and converting the ticker symbols into Yahoo Finance format.
@@ -1581,7 +1594,7 @@ dow_compare.head()
 
 The next plot compares the reconstructed Dow-style index with the official DJIA.
 
-{{widget:chapter6-recon-dow-compare}}
+
 
 ```{python}
 ax = dow_compare.plot(title="Simplified Dow-style Reconstruction vs Official DJIA")
@@ -1589,10 +1602,11 @@ ax.set_ylabel("Index level (base = 100)")
 ax.grid(True, alpha=0.3)
 plt.show()
 ```
+{{widget:chapter6-recon-dow-compare}}
+
+For the Dow-style reconstruction, the explanation is a little different. The official DJIA is a 30-stock price-weighted index, and its divisor is adjusted not just for stock splits, but more broadly to preserve continuity through corporate actions, constituent changes, and other non-market events. Your reconstruction captures the basic split adjustment idea, but it is still a simplified divisor process. Since the Dow is price-weighted, a few high-priced names can have a very large impact on the series. So if your frozen 30-stock basket happens to overweight stocks whose prices rose especially strongly over your sample, or if your simplified divisor handling differs from the official maintenance rules, your reconstructed Dow can easily run above the official DJIA. In other words, your line being higher does not mean your code is necessarily wrong. It usually means your simplified reconstruction is giving slightly more influence than the official index to certain high-priced winners.
 
 Because the Dow is price-weighted, the component weights are proportional to prices rather than firm size. The following table shows the largest price-based weights on the most recent date in the sample.
-
-{{widget:chapter6-recon-dow-weights}}
 
 ```{python}
 dow_name_map = dow.set_index("YahooTicker")["Company"]
@@ -1614,6 +1628,9 @@ last_dow_weights["Company"] = dow_name_map.reindex(last_dow_weights.index)
 last_dow_weights[["Company", "Weight (%)"]]
 ```
 
+{{widget:chapter6-recon-dow-weights}}
+
+
 The divisor itself is also worth examining, since it shows the mechanism used to preserve continuity through splits in the reconstructed series.
 
 ```{python}
@@ -1627,7 +1644,7 @@ plt.show()
 
 Finally, we summarize the behavior of the two reconstructed indices and their official counterparts.
 
-{{widget:chapter6-recon-summary}}
+
 
 ```{python}
 def summarize_index(series):
@@ -1663,6 +1680,7 @@ summary.columns = [
 summary.T
 ```
 
+{{widget:chapter6-recon-summary}}
 These two exercises highlight the central point of index construction. The S&P 500-style reconstruction is driven by **firm size**, since larger approximate market capitalizations receive larger weights. The Dow-style reconstruction is driven by **share price**, so a high-priced stock receives more influence even if the underlying firm is not the largest company in the basket. That contrast is exactly why weighting methodology matters so much in passive indexing and benchmarking.
 
 
