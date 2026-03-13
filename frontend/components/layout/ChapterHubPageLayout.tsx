@@ -81,14 +81,13 @@ export function ChapterHubPageLayout({
 
         <section className="article-section" id="sections">
           <h2>Sections</h2>
-          <p>Each section now has its own page. Use the links below or the left sidebar.</p>
-          <ol>
+          <ul>
             {sections.map((section) => (
               <li key={section.slug}>
                 <a href={section.href}>{`${chapterPrefix}.${section.index} ${section.title}`}</a>
               </li>
             ))}
-          </ol>
+          </ul>
         </section>
 
         <PagePager prev={pager.prev} next={pager.next} />

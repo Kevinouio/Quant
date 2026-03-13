@@ -315,6 +315,10 @@ export function ChapterPageLayout({
 
   const chapterPrefix = chapterNumberPrefix(chapter);
   const pager = getSectionPager(chapter.partSlug, chapter.chapterSlug, activeSectionSlug);
+  const isSectionPageMode =
+    sectionContent.length === 1 &&
+    Boolean(activeSectionSlug) &&
+    Boolean(chapterSections?.some((chapterSection) => chapterSection.slug === activeSectionSlug));
   const rightChapterContextItems = chapterSections?.map((chapterSection) => ({
     id: `${chapter.partSlug}/${chapter.chapterSlug}/${chapterSection.slug}`,
     href: chapterSection.href,
@@ -490,8 +494,8 @@ export function ChapterPageLayout({
         <p className="eyebrow">
           {chapter.chapterCode ? `Appendix ${chapter.chapterCode}` : `Chapter ${chapter.chapterNumber}`}
         </p>
-        <h1>{chapterDisplayLabel(chapter)}</h1>
-        <p>{chapter.summary}</p>
+        <h1>{isSectionPageMode ? sectionModels[0]?.sectionLabel ?? chapterDisplayLabel(chapter) : chapterDisplayLabel(chapter)}</h1>
+        {!isSectionPageMode ? <p>{chapter.summary}</p> : null}
       </header>
 
       {sectionModels.map(
@@ -499,12 +503,13 @@ export function ChapterPageLayout({
           section,
           sectionId,
           sectionLabel,
+          sectionIndex,
           subheadingIdsByBlockIndex,
           subheadingLabelsByBlockIndex,
           hasInlineWidget
         }) => (
         <section className="article-section" id={sectionId} key={section.title}>
-          <h2>{sectionLabel}</h2>
+          {!(isSectionPageMode && sectionIndex === 0) ? <h2>{sectionLabel}</h2> : null}
           {section.blocks ? (
             section.blocks.map((block, blockIndex) => {
               if (block.type === "paragraph") {
@@ -514,13 +519,13 @@ export function ChapterPageLayout({
                 if (glossaryHeading) {
                   const glossaryTermId = resolveGlossaryTermId(glossaryHeading) ?? normalizeGlossaryKey(glossaryHeading);
                   return (
-                    <h3
+                    <h2
                       id={glossaryAnchorId(glossaryTermId)}
                       className="glossary-entry-heading"
                       key={`${section.title}-block-${blockIndex}`}
                     >
                       {glossaryHeading}
-                    </h3>
+                    </h2>
                   );
                 }
 
@@ -530,9 +535,10 @@ export function ChapterPageLayout({
               if (block.type === "subheading") {
                 const subheadingId = subheadingIdsByBlockIndex.get(blockIndex);
                 const subheadingLabel = subheadingLabelsByBlockIndex.get(blockIndex) ?? block.text;
+                const subheadingDisplayText = isSectionPageMode ? block.text : subheadingLabel;
                 return (
                   <h3 id={subheadingId} key={`${section.title}-block-${blockIndex}`}>
-                    {renderInlineMarkdown(subheadingLabel)}
+                    {renderInlineMarkdown(subheadingDisplayText)}
                   </h3>
                 );
               }
@@ -666,6 +672,14 @@ export function ChapterPageLayout({
       sidebarGroups={sidebarGroups}
       tocItems={tocItems}
       chapterContextItems={rightChapterContextItems}
+      chapterNavigatorLink={
+        isSectionPageMode
+          ? {
+              href: chapterHref(chapter),
+              label: "Go to Section Navigator"
+            }
+          : undefined
+      }
       rightPanelTitle="On This Chapter"
       topbarBrandHref="/"
       topbarBrandLabel="Quant Docs"

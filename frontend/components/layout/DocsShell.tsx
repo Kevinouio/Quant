@@ -53,6 +53,11 @@ type ChapterContextItem = {
   active?: boolean;
 };
 
+type ChapterNavigatorLink = {
+  href: string;
+  label: string;
+};
+
 type TocSubsectionItem = {
   href: string;
   label: string;
@@ -81,6 +86,7 @@ type DocsShellProps = {
   sidebarGroups: SidebarGroup[];
   tocItems: TocItem[];
   chapterContextItems?: ChapterContextItem[];
+  chapterNavigatorLink?: ChapterNavigatorLink;
   rightPanelTitle?: string;
   topbarBrandHref: string;
   topbarBrandLabel: string;
@@ -109,6 +115,7 @@ export function DocsShell({
   sidebarGroups,
   tocItems,
   chapterContextItems,
+  chapterNavigatorLink,
   rightPanelTitle,
   topbarBrandHref,
   topbarBrandLabel,
@@ -696,6 +703,14 @@ export function DocsShell({
                       ))}
                     </ul>
                   </section>
+
+                  {chapterNavigatorLink ? (
+                    <section className="right-toc__group">
+                      <a className="right-toc__cta" href={chapterNavigatorLink.href}>
+                        {chapterNavigatorLink.label}
+                      </a>
+                    </section>
+                  ) : null}
                 </>
               ) : (
                 <ul className="section-nav">{inSectionNavItems}</ul>

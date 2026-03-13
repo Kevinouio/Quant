@@ -155,27 +155,11 @@ export function getSectionPager(
       detailLabel: sectionDisplayLabel(currentChapterRecord.chapter, previousSection)
     };
   } else {
-    const previousChapterRecord = chapterSequence[currentChapterIndex - 1] ?? null;
-    const previousChapterLastSection = previousChapterRecord
-      ? lastSectionOf(currentChapterIndex - 1)
-      : null;
-    if (previousChapterRecord && previousChapterLastSection) {
-      prev = {
-        href: chapterSectionHref(
-          previousChapterRecord.chapter.partSlug,
-          previousChapterRecord.chapter.chapterSlug,
-          previousChapterLastSection.slug
-        ),
-        actionLabel: "Previous Chapter",
-        detailLabel: `${chapterDisplayLabel(previousChapterRecord.chapter)} - ${sectionDisplayLabel(previousChapterRecord.chapter, previousChapterLastSection)}`
-      };
-    } else {
-      prev = {
-        href: "/",
-        actionLabel: "Previous",
-        detailLabel: "Home"
-      };
-    }
+    prev = {
+      href: chapterHref(currentChapterRecord.chapter),
+      actionLabel: "Section Navigator",
+      detailLabel: chapterDisplayLabel(currentChapterRecord.chapter)
+    };
   }
 
   let next: PagerTarget | null = null;
@@ -187,16 +171,11 @@ export function getSectionPager(
     };
   } else {
     const nextChapterRecord = chapterSequence[currentChapterIndex + 1] ?? null;
-    const nextChapterFirstSection = nextChapterRecord ? firstSectionOf(currentChapterIndex + 1) : null;
-    if (nextChapterRecord && nextChapterFirstSection) {
+    if (nextChapterRecord) {
       next = {
-        href: chapterSectionHref(
-          nextChapterRecord.chapter.partSlug,
-          nextChapterRecord.chapter.chapterSlug,
-          nextChapterFirstSection.slug
-        ),
+        href: chapterHref(nextChapterRecord.chapter),
         actionLabel: "Next Chapter",
-        detailLabel: `${chapterDisplayLabel(nextChapterRecord.chapter)} - ${sectionDisplayLabel(nextChapterRecord.chapter, nextChapterFirstSection)}`
+        detailLabel: chapterDisplayLabel(nextChapterRecord.chapter)
       };
     }
   }
