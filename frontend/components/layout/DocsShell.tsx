@@ -4,6 +4,7 @@ import { type ReactNode, useEffect, useMemo, useRef, useState } from "react";
 
 import { GlossaryPanelProvider } from "../glossary/GlossaryPanelContext";
 import { GlossarySidePanel } from "../glossary/GlossarySidePanel";
+import { useTheme } from "../theme/ThemeContext";
 
 type SidebarSubsectionItem = {
   id: string;
@@ -114,6 +115,7 @@ export function DocsShell({
   searchPlaceholder = "Search chapters (coming soon)",
   navNote
 }: DocsShellProps) {
+  const { theme, toggleTheme } = useTheme();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [expandedChapterId, setExpandedChapterId] = useState<string | null>(null);
@@ -640,9 +642,20 @@ export function DocsShell({
                   {topbarBrandLabel}
                 </a>
               </div>
-              <form className="search-stub" role="search" aria-label="Search chapters">
-                <input type="search" placeholder={searchPlaceholder} disabled />
-              </form>
+              <div className="topbar__right">
+                <form className="search-stub" role="search" aria-label="Search chapters">
+                  <input type="search" placeholder={searchPlaceholder} disabled />
+                </form>
+                <button
+                  type="button"
+                  className="theme-toggle"
+                  aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                  aria-pressed={theme === "dark"}
+                  onClick={toggleTheme}
+                >
+                  {theme === "dark" ? "Light mode" : "Dark mode"}
+                </button>
+              </div>
             </header>
 
             <main className="page-content" id="main-content">
