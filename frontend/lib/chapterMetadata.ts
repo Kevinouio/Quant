@@ -219,8 +219,8 @@ export const chapterMetadata: ChapterMeta[] = [
     "partNumber": 2,
     "partTitle": "Long-horizon investing and portfolio construction",
     "partSlug": "part-02-long-horizon-investing",
-    "summary": "Placeholder summary for Strategic asset allocation.",
-    "status": "placeholder"
+    "summary": "WHATEVER",
+    "status": "detailed"
   },
   {
     "chapterNumber": 8,

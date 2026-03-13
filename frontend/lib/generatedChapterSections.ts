@@ -4028,7 +4028,7 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
           },
           {
             "type": "paragraph",
-            "text": "For our S&P 500-style reconstruction, the slight difference from the official index comes mainly from methodology rather than from the long history of the benchmark. The official S&P 500 is a float-adjusted market-capitalization-weighted index maintained under formal eligibility rules, index committee decisions, and detailed corporate-action procedures. In contrast, our reconstruction freezes a current constituent snapshot, applies it backward through time, and uses publicly available Yahoo Finance data together with a simplified shares-outstanding proxy. That means our version has survivorship bias, does not perfectly capture official float adjustment, and does not fully reproduce the exact rebalancing and maintenance rules used in the real benchmark. Because of those simplifications, our reconstructed series should be viewed as an educational approximation of the S&P 500 rather than an exact replication"
+            "text": "For the S&P 500-style reconstruction, the biggest idea is that you are not actually reconstructing the official index as it existed each day. You are taking a current constituent snapshot, pushing it backward through time, and then weighting it with a public shares proxy. The official S&P 500, however, is maintained using float-adjusted market capitalization, formal eligibility rules, and ongoing index maintenance. In your code, that means you are really measuring something closer to “how this frozen modern basket would have performed,” not “what the official S&P 500 actually was at every date.” If your reconstructed line is mostly lower, that likely means your simplifications are causing you to underweight or miss some of the strongest contributors relative to the official benchmark. In practice, that can happen because some tickers fail the shares-history pull, because your weights come from an imperfect shares proxy rather than official float-adjusted shares, and because the real index changed constituents over time while your version does not."
           },
           {
             "type": "paragraph",
@@ -4110,6 +4110,10 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
           },
           {
             "type": "paragraph",
+            "text": "For the Dow-style reconstruction, the explanation is a little different. The official DJIA is a 30-stock price-weighted index, and its divisor is adjusted not just for stock splits, but more broadly to preserve continuity through corporate actions, constituent changes, and other non-market events. Your reconstruction captures the basic split adjustment idea, but it is still a simplified divisor process. Since the Dow is price-weighted, a few high-priced names can have a very large impact on the series. So if your frozen 30-stock basket happens to overweight stocks whose prices rose especially strongly over your sample, or if your simplified divisor handling differs from the official maintenance rules, your reconstructed Dow can easily run above the official DJIA. In other words, your line being higher does not mean your code is necessarily wrong. It usually means your simplified reconstruction is giving slightly more influence than the official index to certain high-priced winners."
+          },
+          {
+            "type": "paragraph",
             "text": "Because the Dow is price-weighted, the component weights are proportional to prices rather than firm size. The following table shows the largest price-based weights on the most recent date in the sample."
           },
           {
@@ -4158,79 +4162,126 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
   "part-02-long-horizon-investing/strategic-asset-allocation": [
     {
       "index": 1,
-      "title": "Objective",
-      "slug": "s01-objective",
+      "title": "What is Stategic Asset Allocation",
+      "slug": "s01-what-is-stategic-asset-allocation",
       "content": {
-        "title": "Objective",
+        "title": "What is Stategic Asset Allocation",
         "blocks": [
           {
             "type": "paragraph",
-            "text": "Draft Chapter 7 content before turning it into a TSX chapter page."
+            "text": "Up to this point, we have focused on understanding the financial world in its basic pieces. We discussed what financial markets are, how returns are measured, why risk matters, how data is organized, and how benchmarks and passive indexes are constructed. Those ideas give us the language of investing, but they do not yet answer one of the most important practical questions an investor faces: how should capital actually be allocated across different kinds of assets?"
+          },
+          {
+            "type": "paragraph",
+            "text": "That question is the starting point of strategic asset allocation. Before an investor worries about choosing individual stocks, timing the market, or building sophisticated predictive models, there is a more fundamental decision to make: how much of the portfolio should be placed in assets designed for growth, how much should be placed in assets intended to provide stability, and how much should remain liquid for flexibility or near-term needs. In other words, a portfolio is not just a collection of securities. It is a long-run plan for distributing wealth across different sources of risk and return."
+          },
+          {
+            "type": "paragraph",
+            "text": "Strategic asset allocation is concerned with that long-run plan. It studies how investors choose a policy portfolio, meaning a broad target mix of asset classes such as equities, bonds, and cash. This policy is not meant to predict short-term market movements. Instead, it is meant to reflect more durable features of the investor’s situation, such as time horizon, tolerance for losses, income needs, liquidity constraints, and overall financial objectives. A young investor saving for retirement, a retiree drawing income from a portfolio, and a university endowment with multi-decade obligations may all hold very different allocations, not because one is universally correct, but because each faces a different problem."
+          },
+          {
+            "type": "paragraph",
+            "text": "This chapter introduces that way of thinking. Its purpose is to show that the most important long-run portfolio decision is often not the selection of a single security, but the allocation across major asset classes. The chapter will examine what strategic asset allocation means, why it has such a large effect on long-run outcomes, what roles different asset classes play inside a portfolio, and how investor goals and constraints shape the final allocation. It will also introduce the idea of rebalancing, since even a well-designed allocation does not remain fixed on its own once market prices begin to move."
+          },
+          {
+            "type": "paragraph",
+            "text": "This chapter also marks an important transition in the book. Earlier chapters focused mainly on financial concepts and vocabulary. Here, finance begins to become more explicitly quantitative and computational. Asset allocation can be described in words, but it can also be represented with weights, modeled with return series, and compared through numerical experiments. For that reason, this chapter will not only discuss the financial logic behind strategic allocation, but will also begin treating portfolios as objects that can be constructed, measured, and studied in code. That computational perspective will become even more important in the chapters that follow, where portfolio construction is developed more formally through optimization, factor exposures, and risk management."
+          },
+          {
+            "type": "paragraph",
+            "text": "(PICTURE OF a simple policy portfolio split across stocks, bonds, and cash, labeled as growth, stability, and liquidity)"
+          },
+          {
+            "type": "paragraph",
+            "text": "By the end of this chapter, the goal is for the reader to understand strategic asset allocation as the foundation of long-horizon portfolio design. Once that foundation is in place, we will be ready to move from policy-level thinking to the more mathematical question of how portfolios can be constructed and analyzed in a formal way."
+          },
+          {
+            "type": "paragraph",
+            "text": "LMAO"
           }
         ]
       }
     },
     {
       "index": 2,
-      "title": "Sections",
-      "slug": "s02-sections",
+      "title": "Why Asset Allocation Matters",
+      "slug": "s02-why-asset-allocation-matters",
       "content": {
-        "title": "Sections",
+        "title": "Why Asset Allocation Matters",
         "blocks": [
           {
-            "type": "subheading",
-            "text": "Asset classes"
-          },
+            "type": "paragraph",
+            "text": "LMAO"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "title": "Major Asset classes and their Portfolio Roles",
+      "slug": "s03-major-asset-classes-and-their-portfolio-roles",
+      "content": {
+        "title": "Major Asset classes and their Portfolio Roles",
+        "blocks": [
           {
-            "type": "unorderedList",
-            "items": [
-              "Asset classes placeholder for Strategic asset allocation.",
-              "Add concrete definitions, formulas, and implementation notes in a later pass."
-            ]
-          },
+            "type": "paragraph",
+            "text": "LMAO"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "title": "Investor goals, constraints, and policy design",
+      "slug": "s04-investor-goals-constraints-and-policy-design",
+      "content": {
+        "title": "Investor goals, constraints, and policy design",
+        "blocks": [
           {
-            "type": "subheading",
-            "text": "Diversification"
-          },
+            "type": "paragraph",
+            "text": "LMAO"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "title": "Rebalancing and policy maintenance",
+      "slug": "s05-rebalancing-and-policy-maintenance",
+      "content": {
+        "title": "Rebalancing and policy maintenance",
+        "blocks": [
           {
-            "type": "unorderedList",
-            "items": [
-              "Diversification placeholder for Strategic asset allocation.",
-              "Add concrete definitions, formulas, and implementation notes in a later pass."
-            ]
-          },
+            "type": "paragraph",
+            "text": "LMAO"
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "title": "Implementation: building and comparing policy portfolios",
+      "slug": "s06-implementation-building-and-comparing-policy-portfolios",
+      "content": {
+        "title": "Implementation: building and comparing policy portfolios",
+        "blocks": [
           {
-            "type": "subheading",
-            "text": "Correlation and covariance"
-          },
+            "type": "paragraph",
+            "text": "LMAO"
+          }
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "title": "Interpretation and limitations",
+      "slug": "s07-interpretation-and-limitations",
+      "content": {
+        "title": "Interpretation and limitations",
+        "blocks": [
           {
-            "type": "unorderedList",
-            "items": [
-              "Correlation and covariance placeholder for Strategic asset allocation.",
-              "Add concrete definitions, formulas, and implementation notes in a later pass."
-            ]
-          },
-          {
-            "type": "subheading",
-            "text": "Long-run portfolio weights"
-          },
-          {
-            "type": "unorderedList",
-            "items": [
-              "Long-run portfolio weights placeholder for Strategic asset allocation.",
-              "Add concrete definitions, formulas, and implementation notes in a later pass."
-            ]
-          },
-          {
-            "type": "subheading",
-            "text": "Rebalancing policies"
-          },
-          {
-            "type": "unorderedList",
-            "items": [
-              "Rebalancing policies placeholder for Strategic asset allocation.",
-              "Add concrete definitions, formulas, and implementation notes in a later pass."
-            ]
+            "type": "paragraph",
+            "text": "LATER"
           }
         ]
       }

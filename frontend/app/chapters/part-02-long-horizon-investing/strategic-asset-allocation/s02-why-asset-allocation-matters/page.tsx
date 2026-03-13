@@ -6,7 +6,7 @@ import { chapterSectionByRoute, chapterSectionHref, chapterSectionsByRoute, type
 
 const partSlug = "part-02-long-horizon-investing";
 const chapterSlug = "strategic-asset-allocation";
-const sectionSlug = "s01-objective";
+const sectionSlug = "s02-why-asset-allocation-matters";
 
 export default function Page() {
   const chapter = chapterByRoute(partSlug, chapterSlug);
