@@ -13,6 +13,8 @@ backend/
       passive_indexing.py   # /backtest routes
     services/
       market_data.py        # yfinance-backed timeseries fetch
+      passive_indexing_interactive.py
+      chapter6_reconstruction.py  # one-shot Chapter 6 S&P/Dow reconstruction pipeline
     schemas/
       market.py             # market request/response models
       backtest.py           # passive indexing request/response models
@@ -157,6 +159,102 @@ Example request:
 curl -X POST "http://127.0.0.1:8000/backtest/passive-indexing/interactive" `
   -H "Content-Type: application/json" `
   -d "{\"tickers\":[\"AAPL\",\"MSFT\",\"NVDA\",\"GOOGL\",\"AMZN\"]}"
+```
+
+### Chapter 6 one-time reconstruction (S&P + Dow + dividends)
+
+- `POST /backtest/passive-indexing/chapter-6-reconstruction`
+- Purpose: runs the heavy Chapter 6 reconstruction job once per run-key, writes artifacts under `data/raw/chapter-06/<runKey>/` and `data/processed/chapter-06/<runKey>/`, and returns paths/counts/warnings.
+
+Request body (all optional):
+
+```json
+{
+  "startDate": "2019-01-01",
+  "endDate": "2026-03-13",
+  "snapshotDate": "2026-03-12",
+  "baseValue": 100.0,
+  "force": false
+}
+```
+
+Response includes:
+
+- `runKey`
+- `cached`
+- `rawOutputDir`, `processedOutputDir`
+- `artifactPaths`
+- `counts`
+- `warnings`
+
+Example request:
+
+```powershell
+curl -X POST "http://127.0.0.1:8000/backtest/passive-indexing/chapter-6-reconstruction" `
+  -H "Content-Type: application/json" `
+  -d "{\"startDate\":\"2019-01-01\",\"endDate\":\"2026-03-13\",\"snapshotDate\":\"2026-03-12\",\"baseValue\":100.0,\"force\":false}"
+```
+
+Idempotency behavior:
+
+- If the run-key manifest already exists and `force=false`, response returns `cached=true`.
+- If `force=true`, the run is recomputed and outputs are overwritten for that run-key.
+
+CLI equivalent (same service logic):
+
+```powershell
+cd backend
+python -m app.services.chapter6_reconstruction --start 2019-01-01 --end 2026-03-13 --snapshot 2026-03-12
+```
+
+Force rerun:
+
+```powershell
+python -m app.services.chapter6_reconstruction --start 2019-01-01 --end 2026-03-13 --snapshot 2026-03-12 --force
+```
+
+### Chapter 6 reconstruction run list
+
+- `GET /backtest/passive-indexing/chapter-6-reconstruction/runs`
+- Purpose: list available reconstruction runs (newest first) for section 6.12 widgets.
+
+Response shape:
+
+- `runs[]`
+  - `runKey`
+  - `generatedAt`
+  - `params` (`snapshotDate`, `startDate`, `endDate`, `baseValue`)
+  - `counts`
+  - `warningsCount`
+
+Example request:
+
+```powershell
+curl "http://127.0.0.1:8000/backtest/passive-indexing/chapter-6-reconstruction/runs"
+```
+
+### Chapter 6 reconstruction view payload
+
+- `GET /backtest/passive-indexing/chapter-6-reconstruction/view`
+- Query params:
+  - `runKey` (optional): if omitted, returns the latest run by `generatedAt`.
+
+Response shape:
+
+- run metadata:
+  - `runKey`, `generatedAt`, `params`, `counts`, `warnings`
+  - `rawOutputDir`, `processedOutputDir`, `artifactPaths`
+- widget payload groups:
+  - `sp500ComparePoints[]` (`date`, `reconstructed`, `official`)
+  - `dowComparePoints[]` (`date`, `reconstructed`, `official`)
+  - `sp500TopWeights[]` (`ticker`, `company`, `weightPct`)
+  - `dowTopWeights[]` (`ticker`, `company`, `weightPct`)
+  - `summaryMetrics[]`
+
+Example request:
+
+```powershell
+curl "http://127.0.0.1:8000/backtest/passive-indexing/chapter-6-reconstruction/view"
 ```
 
 ## Dependencies

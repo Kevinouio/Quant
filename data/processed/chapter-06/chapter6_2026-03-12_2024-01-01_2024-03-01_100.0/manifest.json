@@ -1,0 +1,59 @@
+{
+  "runKey": "chapter6_2026-03-12_2024-01-01_2024-03-01_100.0",
+  "cached": false,
+  "rawOutputDir": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0",
+  "processedOutputDir": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0",
+  "artifactPaths": {
+    "sp500Constituents": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\sp500_constituents.csv",
+    "djiaConstituents": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\djia_constituents.csv",
+    "sp500Close": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\sp500_close.csv",
+    "djiaClose": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\djia_close.csv",
+    "sp500SharesHistory": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\sp500_shares_history.csv",
+    "sp500Dividends": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\sp500_dividends.csv",
+    "djiaDividends": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\djia_dividends.csv",
+    "djiaSplits": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\djia_splits.csv",
+    "officialSp500Close": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\official_sp500_close.csv",
+    "officialDjiaClose": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\raw\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\official_djia_close.csv",
+    "sp500StyleIndex": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\sp500_style_index.csv",
+    "dowStyleIndex": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\dow_style_index.csv",
+    "dowStyleDivisor": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\dow_style_divisor.csv",
+    "sp500Compare": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\sp500_compare.csv",
+    "dowCompare": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\dow_compare.csv",
+    "sp500TopWeights": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\sp500_top_weights.csv",
+    "dowTopWeights": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\dow_top_weights.csv",
+    "reconstructionSummary": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\reconstruction_summary.csv",
+    "manifest": "C:\\Users\\kevin\\Desktop\\GithubProjects\\Quant\\data\\processed\\chapter-06\\chapter6_2026-03-12_2024-01-01_2024-03-01_100.0\\manifest.json"
+  },
+  "counts": {
+    "sp500Constituents": 503,
+    "dowConstituents": 30,
+    "sp500UsableTickers": 490,
+    "dowUsableTickers": 30,
+    "sp500Rows": 42,
+    "dowRows": 42,
+    "sp500ComparisonRows": 42,
+    "dowComparisonRows": 42
+  },
+  "warnings": [
+    "COR: shares history unavailable",
+    "CPAY: shares history unavailable",
+    "CRH: shares history unavailable",
+    "EXE: shares history unavailable",
+    "FISV: shares history unavailable",
+    "GEV: shares history unavailable",
+    "MRSH: shares history unavailable",
+    "PSKY: shares history unavailable",
+    "Q: shares history unavailable",
+    "SNDK: shares history unavailable",
+    "SOLV: shares history unavailable",
+    "SW: shares history unavailable",
+    "XYZ: shares history unavailable"
+  ],
+  "params": {
+    "snapshotDate": "2026-03-12",
+    "startDate": "2024-01-01",
+    "endDate": "2024-03-01",
+    "baseValue": 100.0
+  },
+  "generatedAt": "2026-03-12T21:43:48.590449+00:00"
+}

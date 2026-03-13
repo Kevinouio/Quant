@@ -3861,31 +3861,283 @@ export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]>
         "blocks": [
           {
             "type": "paragraph",
-            "text": "So far, there hasn't been really any coding examples of like trading or anything of the sort. Well of course theres no trading here, it's passive investing, we aren't trying to beat a market, we are just trying to understand how to follow a standard benchmark. If you want to actually talk about more on the trading part if you want to be a quant, then I suggest skipping to Part 3 of systematic trading and just move on from these chapter (I wouldn't personally as I would love the get the information quick then leave immediately). Otherwise I will move onto talking about recreating the indexes of the S&P 500 and Dow Jones."
+            "text": "So far, most of this chapter has been conceptual. We have talked about what an index is, why passive investing depends on benchmarks, and how weighting rules shape what a benchmark actually represents. At some point, though, it helps to make all of that concrete. That is the purpose of this section."
           },
           {
             "type": "paragraph",
-            "text": "Now you may be wondering, if"
+            "text": "We are not doing this because passive investing is about “trading” or trying to outsmart the market. In fact, it is almost the opposite. Passive investing begins with the idea that, before an investor can follow a benchmark, they should understand what that benchmark actually is, how it is built, and why its construction matters. Recreating famous indexes is therefore a useful exercise because it turns abstract ideas like constituent selection, weighting, and index maintenance into something visible and computable."
           },
           {
-            "type": "subheading",
+            "type": "paragraph",
+            "text": "This section will build simplified reconstructions of two of the most famous U.S. stock market benchmarks: the Dow Jones Industrial Average and the S&P 500. The goal is not to reproduce the official indexes perfectly. The official versions use formal methodologies, maintenance rules, and adjustments that are more complicated than what we will implement here. Instead, the goal is educational. By reconstructing them ourselves, we can see how different design choices produce different kinds of benchmarks."
+          },
+          {
+            "type": "paragraph",
+            "text": "There is also a second reason for doing both of these together. The Dow Jones and the S&P 500 are often mentioned side by side in financial news, but they are not built in the same way. The Dow is a price-weighted index, while the S&P 500 is a float-adjusted market-capitalization-weighted index. That means they answer slightly different questions and respond differently to changes in their constituent stocks. Reconstructing both at the same time makes that contrast much easier to understand."
+          },
+          {
+            "type": "paragraph",
+            "text": "(PICTURE OF A SIMPLE DIAGRAM COMPARING PRICE-WEIGHTED VS MARKET-CAP-WEIGHTED INDEXES)"
+          },
+          {
+            "type": "paragraph",
             "text": "What is Dow Jones?"
           },
           {
-            "type": "subheading",
+            "type": "paragraph",
+            "text": "The [Dow Jones Industrial Average], usually shortened to the Dow Jones or simply the Dow, is one of the oldest and most recognizable stock market indexes in the United States. It was launched in 1896 and originally tracked 12 industrial companies. Over time, it evolved as the U.S. economy changed, and today it contains 30 large U.S. companies rather than just traditional industrial firms. Its importance is partly historical: for well over a century, the Dow has served as one of the most visible shorthand measures of how “the market” is doing, even though it only covers a relatively small number of firms."
+          },
+          {
+            "type": "paragraph",
+            "text": "What makes the Dow especially interesting is the way it is constructed. The Dow is [price-weighted], which means that a stock with a higher share price has a larger effect on the index than a stock with a lower share price. This is very different from weighting by company size. A firm does not need to be the largest company in the index to have the largest impact on the Dow; it only needs to have a relatively high stock price. Because of this, the Dow also uses a divisor to maintain continuity when events such as stock splits would otherwise mechanically change the index level."
+          },
+          {
+            "type": "paragraph",
+            "text": "Historically, this made sense because the Dow was created in an era when index construction had to remain simple enough to calculate and publish efficiently. Today, that same simplicity makes it useful as a teaching example. The Dow shows that an index is not automatically “the market.” It is a particular design, with a particular rule set, and those rules determine what the benchmark actually measures."
+          },
+          {
+            "type": "paragraph",
             "text": "What is the S&P 500?"
           },
           {
-            "type": "subheading",
-            "text": "Recreating the Dow Jones Index"
+            "type": "paragraph",
+            "text": "The [S&P 500] is a much broader benchmark for the U.S. stock market. Its modern form dates to 1957, when Standard & Poor’s expanded an earlier stock index into the now-familiar 500-stock benchmark. Its roots go back further: a smaller predecessor index began in the 1920s, first tracking fewer companies before eventually expanding to 500. Because of that development, the S&P 500 is both a modern benchmark and the result of a longer history of trying to summarize the performance of the U.S. equity market in a single number."
+          },
+          {
+            "type": "paragraph",
+            "text": "Unlike the Dow, the S&P 500 is not price-weighted. It is a float-adjusted market-capitalization-weighted index. In simpler terms, companies with larger investable market values receive larger weights in the index. This makes the S&P 500 a much more natural benchmark for broad passive investing, because the weights are tied more closely to the economic size of the firms rather than to the nominal dollar prices of their shares."
+          },
+          {
+            "type": "paragraph",
+            "text": "The S&P 500 is also much closer to what most people mean when they refer to “the U.S. stock market” in a passive-investing context. Although it still does not include every publicly traded firm, it is designed to represent a large and important share of the U.S. equity market. Its official methodology is more complicated than a simple top-500 list, since it includes eligibility requirements, committee oversight, and float-adjustment rules. That is precisely why it is valuable to study: the S&P 500 reminds us that even a benchmark that feels natural or standard is still a constructed object built from explicit rules."
+          },
+          {
+            "type": "paragraph",
+            "text": "Why recreate them?"
+          },
+          {
+            "type": "paragraph",
+            "text": "Putting these two indexes side by side makes the lesson of this chapter much clearer. If we reconstruct the Dow Jones, we see how a price-weighted benchmark behaves and why divisor adjustments matter. If we reconstruct the S&P 500, we see how a market-cap-weighted benchmark behaves and why company size plays such a central role in passive investing. The point of the exercise is therefore not just to code an index for the sake of coding. It is to make visible the hidden design choices behind benchmarks that investors reference every day."
+          },
+          {
+            "type": "paragraph",
+            "text": "In other words, this section is really about learning how to think about indexes correctly. A benchmark is not just a list of stocks. It is a methodology for selecting securities, assigning weights, and updating the portfolio over time. By recreating the Dow Jones and the S&P 500 in simplified form, we get to see that methodology in action."
+          },
+          {
+            "type": "paragraph",
+            "text": "These next two sections builds two **educational reconstructions** rather than exact official replications. The main simplifications are that we freeze the current constituent lists, use publicly available Yahoo Finance data, and approximate S&P-style market-cap weights with a shares-outstanding proxy. Because of that, the S&P reconstruction is best interpreted as an **S&P 500-style** index, while the Dow reconstruction is best interpreted as a **Dow-style** price-weighted index."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-run-controls"
           },
           {
             "type": "subheading",
-            "text": "Recreating the S&P 500"
+            "text": "Reconstructing an S&P 500-style index"
+          },
+          {
+            "type": "paragraph",
+            "text": "First for anything we do, we get our libraries."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport yfinance as yf\n\nplt.rcParams[\"figure.figsize\"] = (10, 6)\n\nUA = {\"User-Agent\": \"IndexProject/1.0\"}\nstart = \"2019-01-01\"\nend = \"2026-03-13\"\nbase_value = 100.0"
+          },
+          {
+            "type": "paragraph",
+            "text": "[INSERT A BRIEF DESCRIPTION OF EACH LIBRARY SINCE THIS IS THE FIRST TIME WE ARE ACTUALLY CODING]"
+          },
+          {
+            "type": "paragraph",
+            "text": "We begin by downloading a current snapshot of the S&P 500 constituent list from Wikipedia and converting the ticker symbols to a format that is readable by Yahoo Finance."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "sp500 = pd.read_html(\n    \"https://en.wikipedia.org/wiki/List_of_S%26P_500_companies\",\n    storage_options=UA\n)[0].rename(columns={\"Symbol\": \"Ticker\", \"Security\": \"Company\"})\n\nsp500[\"YahooTicker\"] = sp500[\"Ticker\"].str.replace(\".\", \"-\", regex=False)\n\nsp500.to_csv(\"sp500_constituents_2026-03-12.csv\", index=False)\n\nprint(\"S&P 500 rows:\", len(sp500))\nsp500.head()"
+          },
+          {
+            "type": "paragraph",
+            "text": "We now download daily historical prices for this frozen constituent snapshot. Since the constituent list is fixed at the present date and then applied backward through time, this reconstruction has survivorship bias."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "sp_tickers = sorted(sp500[\"YahooTicker\"].dropna().unique())\n\nsp_raw = yf.download(\n    sp_tickers,\n    start=start,\n    end=end,\n    interval=\"1d\",\n    auto_adjust=False,\n    progress=False,\n    threads=True\n)\n\nsp_close = sp_raw[\"Close\"].dropna(axis=1, how=\"all\").sort_index()\n\nsp_close.to_csv(\"sp500_close.csv\")\n\nprint(\"S&P close shape:\", sp_close.shape)\nsp_close.iloc[:5, :5]"
+          },
+          {
+            "type": "paragraph",
+            "text": "To approximate market-cap weights, we also need a share-count proxy. The following helper pulls the available share history for each ticker and stores the result in a daily panel."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "def pull_shares_history(tickers, start=None, end=None):\n    out = {}\n    failed = []\n\n    for ticker in tickers:\n        try:\n            s = yf.Ticker(ticker).get_shares_full(start=start, end=end)\n\n            if s is None or len(s) == 0:\n                failed.append(ticker)\n                continue\n\n            s = pd.Series(s).copy()\n            s.index = pd.to_datetime(s.index).tz_localize(None)\n\n            # Remove bad / repeated dates before concat\n            s = s[~s.index.isna()]\n            s = s[~s.index.duplicated(keep=\"last\")]\n            s = s.sort_index()\n\n            if len(s) == 0:\n                failed.append(ticker)\n                continue\n\n            out[ticker] = s.rename(ticker)\n\n        except Exception:\n            failed.append(ticker)\n\n    if not out:\n        return pd.DataFrame(), failed\n\n    shares = pd.concat(out.values(), axis=1, keys=out.keys()).sort_index()\n    shares = shares.loc[~shares.index.duplicated(keep=\"last\")]\n\n    return shares, failed\n\nsp_shares, sp_failed = pull_shares_history(sp_tickers, start=start, end=end)\n\nsp_shares = sp_shares.reindex(sp_close.index).ffill()\nsp_shares.to_csv(\"sp500_shares_history.csv\")\n\nprint(\"S&P shares shape:\", sp_shares.shape)\nprint(\"Failed share pulls:\", len(sp_failed))\nsp_shares.iloc[:5, :5]"
+          },
+          {
+            "type": "paragraph",
+            "text": "Our simplified S&P-style construction uses the approximate market capitalization"
+          },
+          {
+            "type": "mathDisplay",
+            "latex": "\\text{ApproxCap}_{i,t} = P_{i,t} \\times S_{i,t},"
+          },
+          {
+            "type": "paragraph",
+            "text": "where $P_{i,t}$ is the closing price and $S_{i,t}$ is the shares-outstanding proxy. We then form the daily portfolio weight"
+          },
+          {
+            "type": "mathDisplay",
+            "latex": "w_{i,t} = \\frac{\\text{ApproxCap}_{i,t}}{\\sum_j \\text{ApproxCap}_{j,t}},"
+          },
+          {
+            "type": "paragraph",
+            "text": "and use lagged weights to compute the next day's index return."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "common_sp = sorted(sp_close.columns.intersection(sp_shares.columns))\n\nsp_close = sp_close[common_sp]\nsp_shares = sp_shares[common_sp]\n\nsp_market_cap = sp_close * sp_shares\nsp_weights = sp_market_cap.div(sp_market_cap.sum(axis=1), axis=0)\n\nsp_returns = sp_close.pct_change(fill_method=None)\nsp_style_returns = (sp_weights.shift(1) * sp_returns).sum(axis=1, min_count=1).fillna(0.0)\n\nsp_style_index = base_value * (1 + sp_style_returns).cumprod()\nsp_style_index.name = \"S&P 500-style reconstruction\"\n\nsp_style_index.to_csv(\"sp500_style_index.csv\")\n\nsp_style_index.head()"
+          },
+          {
+            "type": "paragraph",
+            "text": "For reference, we also download the official S&P 500 price index series from Yahoo Finance and normalize it to the same starting value."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "sp_benchmark = yf.download(\n    \"^GSPC\",\n    start=start,\n    end=end,\n    auto_adjust=False,\n    progress=False,\n    threads=False\n)[\"Close\"]\n\nif isinstance(sp_benchmark, pd.DataFrame):\n    sp_benchmark = sp_benchmark.squeeze()\n\nsp_benchmark = sp_benchmark.dropna()\nsp_benchmark = base_value * sp_benchmark / sp_benchmark.iloc[0]\nsp_benchmark.name = \"Official S&P 500\"\n\nsp_compare = pd.concat([sp_style_index, sp_benchmark], axis=1).dropna()\nsp_compare.head()"
+          },
+          {
+            "type": "paragraph",
+            "text": "The next plot compares the reconstructed S&P-style series against the official index level. The two series will not match exactly because we are using a frozen present-day constituent list and a public-data shares proxy rather than the official float-adjusted methodology."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-sp-compare"
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "ax = sp_compare.plot(title=\"Simplified S&P 500-style Reconstruction vs Official S&P 500\")\nax.set_ylabel(\"Index level (base = 100)\")\nax.grid(True, alpha=0.3)\nplt.show()"
+          },
+          {
+            "type": "paragraph",
+            "text": "We can also inspect the largest constituent weights in the reconstructed index on the most recent date in the sample."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-sp-weights"
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "sp_name_map = sp500.set_index(\"YahooTicker\")[\"Company\"]\n\nlast_sp_weights = (\n    sp_weights.dropna(how=\"all\")\n    .iloc[-1]\n    .sort_values(ascending=False)\n    .head(10)\n    .mul(100)\n    .round(2)\n    .rename(\"Weight (%)\")\n    .to_frame()\n)\n\nlast_sp_weights[\"Company\"] = sp_name_map.reindex(last_sp_weights.index)\nlast_sp_weights[[\"Company\", \"Weight (%)\"]]"
           },
           {
             "type": "subheading",
-            "text": "Comparison of the two"
+            "text": "Reconstructing a Dow-style index"
+          },
+          {
+            "type": "paragraph",
+            "text": "We now repeat the process for the Dow Jones Industrial Average. Again, we begin by downloading a current snapshot of the constituents and converting the ticker symbols into Yahoo Finance format."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "dow_tables = pd.read_html(\n    \"https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average\",\n    storage_options=UA\n)\n\ndow = next(\n    df for df in dow_tables\n    if {\"Company\", \"Exchange\", \"Industry\"}.issubset(set(map(str, df.columns)))\n)\n\nif \"Symbol\" in dow.columns:\n    dow = dow.rename(columns={\"Symbol\": \"Ticker\"})\n\ndow[\"YahooTicker\"] = dow[\"Ticker\"].str.replace(\".\", \"-\", regex=False)\n\ndow.to_csv(\"djia_constituents_2026-03-12.csv\", index=False)\n\nprint(\"Dow rows:\", len(dow))\ndow.head()"
+          },
+          {
+            "type": "paragraph",
+            "text": "For the Dow-style construction, raw prices matter directly because the index is price-weighted. We therefore download both closing prices and stock-split data."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "dow_tickers = sorted(dow[\"YahooTicker\"].dropna().unique())\n\ndow_raw = yf.download(\n    dow_tickers,\n    start=start,\n    end=end,\n    interval=\"1d\",\n    auto_adjust=False,\n    actions=True,\n    progress=False,\n    threads=True\n)\n\ndow_close = dow_raw[\"Close\"].dropna(axis=1, how=\"all\").sort_index()\ndow_splits = (\n    dow_raw[\"Stock Splits\"]\n    .reindex(index=dow_close.index, columns=dow_close.columns)\n    .fillna(0.0)\n)\n\ndow_close.to_csv(\"djia_close.csv\")\ndow_splits.to_csv(\"djia_splits.csv\")\n\nprint(\"Dow close shape:\", dow_close.shape)\ndow_close.head()"
+          },
+          {
+            "type": "paragraph",
+            "text": "A simplified price-weighted index takes the form"
+          },
+          {
+            "type": "mathDisplay",
+            "latex": "I_t = \\frac{\\sum_{i=1}^{N} P_{i,t}}{d_t},"
+          },
+          {
+            "type": "paragraph",
+            "text": "where $d_t$ is the divisor. We start the reconstructed series at 100, then adjust the divisor on split dates so that the index level does not jump purely because of a stock split."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "dow_price_sum = dow_close.sum(axis=1)\n\ndivisor = pd.Series(index=dow_close.index, dtype=float)\ndow_style_index = pd.Series(index=dow_close.index, dtype=float)\n\ndivisor.iloc[0] = dow_price_sum.iloc[0] / base_value\ndow_style_index.iloc[0] = base_value\n\nfor i in range(1, len(dow_close.index)):\n    today = dow_close.index[i]\n    yesterday = dow_close.index[i - 1]\n    split_row = dow_splits.loc[today].replace(0.0, 1.0)\n\n    if (split_row != 1.0).any():\n        synthetic_split_sum = (dow_close.loc[yesterday] / split_row).sum()\n        divisor.iloc[i] = synthetic_split_sum / dow_style_index.iloc[i - 1]\n    else:\n        divisor.iloc[i] = divisor.iloc[i - 1]\n\n    dow_style_index.iloc[i] = dow_price_sum.iloc[i] / divisor.iloc[i]\n\ndow_style_index.name = \"Dow-style reconstruction\"\ndivisor.name = \"Implied divisor\"\n\ndow_style_index.to_csv(\"dow_style_index.csv\")\ndivisor.to_csv(\"dow_style_divisor.csv\")\n\ndow_style_index.head()"
+          },
+          {
+            "type": "paragraph",
+            "text": "As before, we download the official DJIA series and normalize it to the same starting value."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "dow_benchmark = yf.download(\n    \"^DJI\",\n    start=start,\n    end=end,\n    auto_adjust=False,\n    progress=False,\n    threads=False\n)[\"Close\"]\n\nif isinstance(dow_benchmark, pd.DataFrame):\n    dow_benchmark = dow_benchmark.squeeze()\n\ndow_benchmark = dow_benchmark.dropna()\ndow_benchmark = base_value * dow_benchmark / dow_benchmark.iloc[0]\ndow_benchmark.name = \"Official DJIA\"\n\ndow_compare = pd.concat([dow_style_index, dow_benchmark], axis=1).dropna()\ndow_compare.head()"
+          },
+          {
+            "type": "paragraph",
+            "text": "The next plot compares the reconstructed Dow-style index with the official DJIA."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-dow-compare"
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "ax = dow_compare.plot(title=\"Simplified Dow-style Reconstruction vs Official DJIA\")\nax.set_ylabel(\"Index level (base = 100)\")\nax.grid(True, alpha=0.3)\nplt.show()"
+          },
+          {
+            "type": "paragraph",
+            "text": "Because the Dow is price-weighted, the component weights are proportional to prices rather than firm size. The following table shows the largest price-based weights on the most recent date in the sample."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-dow-weights"
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "dow_name_map = dow.set_index(\"YahooTicker\")[\"Company\"]\n\ndow_weights = dow_close.div(dow_close.sum(axis=1), axis=0)\n\nlast_dow_weights = (\n    dow_weights.dropna(how=\"all\")\n    .iloc[-1]\n    .sort_values(ascending=False)\n    .head(10)\n    .mul(100)\n    .round(2)\n    .rename(\"Weight (%)\")\n    .to_frame()\n)\n\nlast_dow_weights[\"Company\"] = dow_name_map.reindex(last_dow_weights.index)\nlast_dow_weights[[\"Company\", \"Weight (%)\"]]"
+          },
+          {
+            "type": "paragraph",
+            "text": "The divisor itself is also worth examining, since it shows the mechanism used to preserve continuity through splits in the reconstructed series."
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "ax = divisor.plot(title=\"Implied Divisor in the Dow-style Reconstruction\")\nax.set_ylabel(\"Divisor\")\nax.grid(True, alpha=0.3)\nplt.show()"
+          },
+          {
+            "type": "subheading",
+            "text": "Comparing the two reconstructions"
+          },
+          {
+            "type": "paragraph",
+            "text": "Finally, we summarize the behavior of the two reconstructed indices and their official counterparts."
+          },
+          {
+            "type": "widgetEmbed",
+            "widgetId": "chapter6-recon-summary"
+          },
+          {
+            "type": "codeBlock",
+            "language": "python",
+            "code": "def summarize_index(series):\n    rets = series.pct_change().dropna()\n    ann_return = ((1 + rets).prod() ** (252 / len(rets)) - 1) if len(rets) > 0 else np.nan\n    ann_vol = rets.std() * np.sqrt(252) if len(rets) > 0 else np.nan\n\n    return pd.Series({\n        \"Start\": round(series.iloc[0], 2),\n        \"End\": round(series.iloc[-1], 2),\n        \"Total Return (%)\": round((series.iloc[-1] / series.iloc[0] - 1) * 100, 2),\n        \"Annualized Return (%)\": round(ann_return * 100, 2),\n        \"Annualized Volatility (%)\": round(ann_vol * 100, 2)\n    })\n\nsummary = pd.concat(\n    [\n        summarize_index(sp_compare.iloc[:, 0]),\n        summarize_index(sp_compare.iloc[:, 1]),\n        summarize_index(dow_compare.iloc[:, 0]),\n        summarize_index(dow_compare.iloc[:, 1]),\n    ],\n    axis=1\n)\n\nsummary.columns = [\n    \"S&P-style reconstruction\",\n    \"Official S&P 500\",\n    \"Dow-style reconstruction\",\n    \"Official DJIA\",\n]\n\nsummary.T"
+          },
+          {
+            "type": "paragraph",
+            "text": "These two exercises highlight the central point of index construction. The S&P 500-style reconstruction is driven by **firm size**, since larger approximate market capitalizations receive larger weights. The Dow-style reconstruction is driven by **share price**, so a high-priced stock receives more influence even if the underlying firm is not the largest company in the basket. That contrast is exactly why weighting methodology matters so much in passive indexing and benchmarking."
           }
         ]
       }

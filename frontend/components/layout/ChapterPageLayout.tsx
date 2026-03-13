@@ -6,10 +6,12 @@ import { glossaryAnchorId, normalizeGlossaryKey, resolveGlossaryTermId } from ".
 import { chapterHref, chaptersByPart, type ChapterMeta } from "../../lib/chapterMetadata";
 import { getSectionPager } from "../../lib/readingFlow";
 import { isPassiveIndexWidgetId } from "../../lib/passiveIndexWidgets";
+import { isChapter6ReconstructionWidgetId } from "../../lib/chapter6ReconstructionWidgets";
 import { widgetById } from "./sectionExtrasRegistry";
 import { DocsShell } from "./DocsShell";
 import { PagePager } from "./PagePager";
 import { PassiveIndexingDemoProvider } from "../interactive/passive-indexing/PassiveIndexingDemoContext";
+import { Chapter6ReconstructionProvider } from "../interactive/chapter6-reconstruction/Chapter6ReconstructionContext";
 
 export type ChapterSectionContent = {
   title: string;
@@ -357,6 +359,13 @@ export function ChapterPageLayout({
       )
     )
   );
+  const hasChapter6ReconInlineWidgets = sectionModels.some(({ section }) =>
+    Boolean(
+      section.blocks?.some(
+        (block) => block.type === "widgetEmbed" && isChapter6ReconstructionWidgetId(block.widgetId)
+      )
+    )
+  );
 
   const tocItems = [
     { href: "#overview", label: "Overview", level: 1 },
@@ -643,6 +652,14 @@ export function ChapterPageLayout({
     </article>
   );
 
+  let wrappedContent: ReactNode = articleContent;
+  if (hasPassiveIndexInlineWidgets) {
+    wrappedContent = <PassiveIndexingDemoProvider>{wrappedContent}</PassiveIndexingDemoProvider>;
+  }
+  if (hasChapter6ReconInlineWidgets) {
+    wrappedContent = <Chapter6ReconstructionProvider>{wrappedContent}</Chapter6ReconstructionProvider>;
+  }
+
   return (
     <DocsShell
       sidebarHomeLink={{ href: "/", label: "Home" }}
@@ -654,11 +671,7 @@ export function ChapterPageLayout({
       topbarBrandLabel="Quant Docs"
       navNote={`Part ${chapter.partNumber} chapter page. Status: ${chapter.status}.`}
     >
-      {hasPassiveIndexInlineWidgets ? (
-        <PassiveIndexingDemoProvider>{articleContent}</PassiveIndexingDemoProvider>
-      ) : (
-        articleContent
-      )}
+      {wrappedContent}
     </DocsShell>
   );
 }

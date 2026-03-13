@@ -1,0 +1,45 @@
+{
+  "runKey": "chapter6_2026-03-12_2019-01-01_2026-03-12_100.0",
+  "cached": false,
+  "rawOutputDir": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0",
+  "processedOutputDir": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0",
+  "artifactPaths": {
+    "sp500Constituents": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/sp500_constituents.csv",
+    "djiaConstituents": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/djia_constituents.csv",
+    "sp500Close": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/sp500_close.csv",
+    "djiaClose": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/djia_close.csv",
+    "sp500SharesHistory": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/sp500_shares_history.csv",
+    "sp500Dividends": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/sp500_dividends.csv",
+    "djiaDividends": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/djia_dividends.csv",
+    "djiaSplits": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/djia_splits.csv",
+    "officialSp500Close": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/official_sp500_close.csv",
+    "officialDjiaClose": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/raw/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/official_djia_close.csv",
+    "sp500StyleIndex": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/sp500_style_index.csv",
+    "dowStyleIndex": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/dow_style_index.csv",
+    "dowStyleDivisor": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/dow_style_divisor.csv",
+    "sp500Compare": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/sp500_compare.csv",
+    "dowCompare": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/dow_compare.csv",
+    "sp500TopWeights": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/sp500_top_weights.csv",
+    "dowTopWeights": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/dow_top_weights.csv",
+    "reconstructionSummary": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/reconstruction_summary.csv",
+    "manifest": "/mnt/c/Users/kevin/Desktop/GithubProjects/Quant/data/processed/chapter-06/chapter6_2026-03-12_2019-01-01_2026-03-12_100.0/manifest.json"
+  },
+  "counts": {
+    "sp500Constituents": 503,
+    "dowConstituents": 30,
+    "sp500UsableTickers": 503,
+    "dowUsableTickers": 30,
+    "sp500Rows": 1808,
+    "dowRows": 1808,
+    "sp500ComparisonRows": 1808,
+    "dowComparisonRows": 1808
+  },
+  "warnings": [],
+  "params": {
+    "snapshotDate": "2026-03-12",
+    "startDate": "2019-01-01",
+    "endDate": "2026-03-12",
+    "baseValue": 100.0
+  },
+  "generatedAt": "2026-03-12T21:44:27.891904+00:00"
+}

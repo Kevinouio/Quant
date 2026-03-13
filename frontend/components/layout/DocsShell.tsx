@@ -653,7 +653,14 @@ export function DocsShell({
                   aria-pressed={theme === "dark"}
                   onClick={toggleTheme}
                 >
-                  {theme === "dark" ? "Light mode" : "Dark mode"}
+                  <span className="sr-only">
+                    {theme === "dark"
+                      ? "Dark mode enabled. Switch to light mode."
+                      : "Light mode enabled. Switch to dark mode."}
+                  </span>
+                  <span className="theme-toggle__track" aria-hidden="true">
+                    <span className="theme-toggle__thumb" />
+                  </span>
                 </button>
               </div>
             </header>

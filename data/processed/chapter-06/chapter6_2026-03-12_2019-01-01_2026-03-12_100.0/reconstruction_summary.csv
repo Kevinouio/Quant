@@ -1,0 +1,5 @@
+Series,Start,End,Total Return (%),Annualized Return (%),Annualized Volatility (%)
+S&P-style reconstruction,100.0,251.040766,151.040766,13.69658,19.755739
+Official S&P 500,100.0,265.838258,165.838258,14.608324,19.772274
+Dow-style reconstruction,100.0,241.835738,141.835738,13.105799,19.096411
+Official DJIA,100.0,199.937339,99.937339,10.144283,19.117209
