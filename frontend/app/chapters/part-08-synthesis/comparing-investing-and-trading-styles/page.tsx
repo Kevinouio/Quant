@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ChapterHubPageLayout } from "../../../../components/layout/ChapterHubPageLayout";
 import { chapterByRoute } from "../../../../lib/chapterMetadata";
-import { chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from "../../../../lib/generatedChapterSections";
+import { chapterHubIntroByRoute, chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from "../../../../lib/generatedChapterSections";
 
 const partSlug = "part-08-synthesis";
 const chapterSlug = "comparing-investing-and-trading-styles";
@@ -19,6 +19,7 @@ export default function Page() {
     slug: section.slug,
     href: chapterSectionHref(partSlug, chapterSlug, section.slug)
   }));
+  const hubIntro = chapterHubIntroByRoute(partSlug, chapterSlug);
 
-  return <ChapterHubPageLayout chapter={chapter} sections={sections} />;
+  return <ChapterHubPageLayout chapter={chapter} sections={sections} hubIntroTitle={hubIntro?.title} hubIntroBlocks={hubIntro?.blocks} />;
 }

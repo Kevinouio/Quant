@@ -93,7 +93,7 @@ function isEscaped(text: string, index: number): boolean {
   return slashCount % 2 === 1;
 }
 
-function renderMathNode({
+export function renderMathNode({
   latex,
   displayMode,
   key
@@ -264,7 +264,7 @@ function renderInlineTextTokens(text: string, keyPrefix: string): ReactNode[] {
   return nodes;
 }
 
-function renderInlineMarkdown(text: string): ReactNode {
+export function renderInlineMarkdown(text: string): ReactNode {
   const nodes: ReactNode[] = [];
   const segments = splitInlineMathSegments(text);
 

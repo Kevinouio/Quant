@@ -1,7 +1,12 @@
 import { chapterHref, chaptersByPart, type ChapterMeta } from "../../lib/chapterMetadata";
 import { getHubPager } from "../../lib/readingFlow";
 import { DocsShell } from "./DocsShell";
-import type { ChapterSectionRouteLink } from "./ChapterPageLayout";
+import {
+  renderInlineMarkdown,
+  renderMathNode,
+  type ChapterSectionContent,
+  type ChapterSectionRouteLink
+} from "./ChapterPageLayout";
 import { PagePager } from "./PagePager";
 
 function chapterDisplayLabel(chapter: ChapterMeta): string {
@@ -18,13 +23,18 @@ function chapterNumberPrefix(chapter: ChapterMeta): string {
 
 export function ChapterHubPageLayout({
   chapter,
-  sections
+  sections,
+  hubIntroTitle,
+  hubIntroBlocks
 }: {
   chapter: ChapterMeta;
   sections: ChapterSectionRouteLink[];
+  hubIntroTitle?: string;
+  hubIntroBlocks?: ChapterSectionContent["blocks"];
 }) {
   const chapterPrefix = chapterNumberPrefix(chapter);
   const pager = getHubPager(chapter.partSlug, chapter.chapterSlug);
+  const hasHubIntro = Boolean(hubIntroBlocks && hubIntroBlocks.length > 0);
 
   const sidebarGroups = chaptersByPart.map((part) => ({
     title: `Part ${part.partNumber}. ${part.partTitle}`,
@@ -89,6 +99,103 @@ export function ChapterHubPageLayout({
             ))}
           </ul>
         </section>
+
+        {hasHubIntro ? (
+          <section className="article-section" id="chapter-introduction">
+            <h2>{hubIntroTitle?.trim() || "Introduction"}</h2>
+            {hubIntroBlocks?.map((block, blockIndex) => {
+              if (block.type === "paragraph") {
+                return (
+                  <p key={`hub-intro-block-${blockIndex}`}>{renderInlineMarkdown(block.text)}</p>
+                );
+              }
+
+              if (block.type === "subheading") {
+                return (
+                  <h3 id={`chapter-introduction-subheading-${blockIndex + 1}`} key={`hub-intro-block-${blockIndex}`}>
+                    {renderInlineMarkdown(block.text)}
+                  </h3>
+                );
+              }
+
+              if (block.type === "unorderedList") {
+                return (
+                  <ul key={`hub-intro-block-${blockIndex}`}>
+                    {block.items.map((item) => (
+                      <li key={`hub-intro-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
+                    ))}
+                  </ul>
+                );
+              }
+
+              if (block.type === "orderedList") {
+                return (
+                  <ol key={`hub-intro-block-${blockIndex}`}>
+                    {block.items.map((item) => (
+                      <li key={`hub-intro-block-${blockIndex}-${item}`}>{renderInlineMarkdown(item)}</li>
+                    ))}
+                  </ol>
+                );
+              }
+
+              if (block.type === "mathDisplay") {
+                return renderMathNode({
+                  latex: block.latex,
+                  displayMode: true,
+                  key: `hub-intro-block-${blockIndex}`
+                });
+              }
+
+              if (block.type === "table") {
+                return (
+                  <table key={`hub-intro-block-${blockIndex}`}>
+                    <thead>
+                      <tr>
+                        {block.headers.map((header, columnIndex) => (
+                          <th
+                            key={`hub-intro-block-${blockIndex}-header-${columnIndex}`}
+                            style={{ textAlign: block.alignments[columnIndex] ?? undefined }}
+                          >
+                            {renderInlineMarkdown(header)}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, rowIndex) => (
+                        <tr key={`hub-intro-block-${blockIndex}-row-${rowIndex}`}>
+                          {block.headers.map((_header, columnIndex) => (
+                            <td
+                              key={`hub-intro-block-${blockIndex}-row-${rowIndex}-cell-${columnIndex}`}
+                              style={{ textAlign: block.alignments[columnIndex] ?? undefined }}
+                            >
+                              {renderInlineMarkdown(row[columnIndex] ?? "")}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                );
+              }
+
+              if (block.type === "codeBlock") {
+                const languageClass = block.language ? `language-${block.language}` : undefined;
+                return (
+                  <pre key={`hub-intro-block-${blockIndex}`}>
+                    <code className={languageClass}>{block.code}</code>
+                  </pre>
+                );
+              }
+
+              return (
+                <div className="callout widget-embed-warning" key={`hub-intro-block-${blockIndex}`}>
+                  {`Widgets are not supported in chapter introductions: ${block.widgetId}`}
+                </div>
+              );
+            })}
+          </section>
+        ) : null}
 
         <PagePager prev={pager.prev} next={pager.next} />
       </article>

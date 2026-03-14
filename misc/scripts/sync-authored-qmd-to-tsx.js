@@ -424,7 +424,7 @@ function buildChapterHubPageSource(partSlug, chapterSlug) {
     "import { notFound } from \"next/navigation\";",
     "import { ChapterHubPageLayout } from \"../../../../components/layout/ChapterHubPageLayout\";",
     "import { chapterByRoute } from \"../../../../lib/chapterMetadata\";",
-    "import { chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from \"../../../../lib/generatedChapterSections\";",
+    "import { chapterHubIntroByRoute, chapterSectionHref, chapterSectionsByRoute, type ChapterSectionRouteRecord } from \"../../../../lib/generatedChapterSections\";",
     "",
     `const partSlug = \"${partSlug}\";`,
     `const chapterSlug = \"${chapterSlug}\";`,
@@ -442,8 +442,9 @@ function buildChapterHubPageSource(partSlug, chapterSlug) {
     "    slug: section.slug,",
     "    href: chapterSectionHref(partSlug, chapterSlug, section.slug)",
     "  }));",
+    "  const hubIntro = chapterHubIntroByRoute(partSlug, chapterSlug);",
     "",
-    "  return <ChapterHubPageLayout chapter={chapter} sections={sections} />;",
+    "  return <ChapterHubPageLayout chapter={chapter} sections={sections} hubIntroTitle={hubIntro?.title} hubIntroBlocks={hubIntro?.blocks} />;",
     "}",
     ""
   ].join("\n");
@@ -497,7 +498,11 @@ function writeGeneratedChapterSections(records) {
   const manifestObject = {};
   for (const record of records) {
     const key = `${record.partSlug}/${record.chapterSlug}`;
-    manifestObject[key] = record.sections;
+    manifestObject[key] = {
+      sections: record.sections,
+      hubIntroTitle: record.hubIntroTitle,
+      hubIntroBlocks: record.hubIntroBlocks
+    };
   }
 
   const source = `/* AUTO-GENERATED FILE. DO NOT EDIT.
@@ -515,14 +520,28 @@ export type ChapterSectionRouteRecord = {
   content: ChapterSectionContent;
 };
 
-export const chapterSectionManifest: Record<string, ChapterSectionRouteRecord[]> = ${JSON.stringify(
+export type ChapterSectionManifestRecord = {
+  sections: ChapterSectionRouteRecord[];
+  hubIntroTitle?: string;
+  hubIntroBlocks?: ChapterSectionContent["blocks"];
+};
+
+export type ChapterHubIntroRecord = {
+  title?: string;
+  blocks?: ChapterSectionContent["blocks"];
+};
+
+export const chapterSectionManifest: Record<string, ChapterSectionManifestRecord> = ${JSON.stringify(
     manifestObject,
     null,
     2
   )};
 
+export const chapterManifestByRoute = (partSlug: string, chapterSlug: string): ChapterSectionManifestRecord | undefined =>
+  chapterSectionManifest[\`\${partSlug}/\${chapterSlug}\`];
+
 export const chapterSectionsByRoute = (partSlug: string, chapterSlug: string): ChapterSectionRouteRecord[] =>
-  chapterSectionManifest[\`\${partSlug}/\${chapterSlug}\`] ?? [];
+  chapterManifestByRoute(partSlug, chapterSlug)?.sections ?? [];
 
 export const chapterSectionByRoute = (
   partSlug: string,
@@ -533,6 +552,25 @@ export const chapterSectionByRoute = (
 
 export const chapterSectionHref = (partSlug: string, chapterSlug: string, sectionSlug: string): string =>
   \`/chapters/\${partSlug}/\${chapterSlug}/\${sectionSlug}\`;
+
+export const chapterHubIntroByRoute = (
+  partSlug: string,
+  chapterSlug: string
+): ChapterHubIntroRecord | undefined => {
+  const manifest = chapterManifestByRoute(partSlug, chapterSlug);
+  if (!manifest) {
+    return undefined;
+  }
+
+  if (!manifest.hubIntroTitle && (!manifest.hubIntroBlocks || manifest.hubIntroBlocks.length === 0)) {
+    return undefined;
+  }
+
+  return {
+    title: manifest.hubIntroTitle,
+    blocks: manifest.hubIntroBlocks
+  };
+};
 `;
 
   return writeFileIfChanged(generatedChapterSectionsPath, source);
@@ -682,8 +720,10 @@ function parseQmdSections(raw) {
   const lines = source.split(/\r?\n/);
 
   const sections = [];
-  const preambleBlocks = [];
+  const hubIntroBlocks = [];
+  let hubIntroTitle = null;
   let currentSection = null;
+  let hasSeenSectionHeading = false;
   let i = 0;
 
   const pushBlock = (block) => {
@@ -691,7 +731,7 @@ function parseQmdSections(raw) {
       currentSection.blocks.push(block);
       return;
     }
-    preambleBlocks.push(block);
+    hubIntroBlocks.push(block);
   };
 
   const pushSection = () => {
@@ -717,6 +757,7 @@ function parseQmdSections(raw) {
     const h2Match = /^##\s+(.+)$/.exec(trimmed);
     if (h2Match) {
       pushSection();
+      hasSeenSectionHeading = true;
       currentSection = {
         title: normalizeText(h2Match[1]),
         blocks: []
@@ -725,8 +766,11 @@ function parseQmdSections(raw) {
       continue;
     }
 
-    // Ignore top-level structural headings in the notebook body.
-    if (/^#\s+/.test(trimmed)) {
+    const h1Match = /^#\s+(.+)$/.exec(trimmed);
+    if (h1Match) {
+      if (!hasSeenSectionHeading && !hubIntroTitle) {
+        hubIntroTitle = normalizeText(h1Match[1]);
+      }
       i += 1;
       continue;
     }
@@ -887,15 +931,11 @@ function parseQmdSections(raw) {
 
   pushSection();
 
-  if (preambleBlocks.length > 0) {
-    if (sections.length === 0) {
-      sections.push({ title: "Notes", blocks: preambleBlocks });
-    } else {
-      sections[0].blocks = [...preambleBlocks, ...sections[0].blocks];
-    }
-  }
-
-  return sections;
+  return {
+    sections,
+    hubIntroTitle: hubIntroTitle ?? undefined,
+    hubIntroBlocks: hubIntroBlocks.length > 0 ? hubIntroBlocks : undefined
+  };
 }
 
 function hasMeaningfulText(text) {
@@ -1151,7 +1191,7 @@ function main() {
     if (summary && summary.trim().length > 0) {
       summaryByChapterKey.set(chapterKey, summary.trim());
     }
-    const sections = parseQmdSections(source);
+    const { sections, hubIntroTitle, hubIntroBlocks } = parseQmdSections(source);
     const authored = chapterIsAuthored(sections);
     const sectionRecords = sections.map((section, sectionIndex) => ({
       index: sectionIndex + 1,
@@ -1163,7 +1203,9 @@ function main() {
     chapterSectionRecords.push({
       partSlug,
       chapterSlug,
-      sections: sectionRecords
+      sections: sectionRecords,
+      hubIntroTitle,
+      hubIntroBlocks
     });
 
     if (authored) {
